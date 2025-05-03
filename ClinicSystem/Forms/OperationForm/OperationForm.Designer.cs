@@ -110,8 +110,8 @@
             this.comboRoomType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboRoomType.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.comboRoomType.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.comboRoomType.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.comboRoomType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.comboRoomType.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboRoomType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(44)))), ((int)(((byte)(54)))));
             this.comboRoomType.IntegralHeight = false;
             this.comboRoomType.ItemHeight = 20;
             this.comboRoomType.Location = new System.Drawing.Point(186, 2);
@@ -119,6 +119,7 @@
             this.comboRoomType.Name = "comboRoomType";
             this.comboRoomType.Size = new System.Drawing.Size(205, 26);
             this.comboRoomType.TabIndex = 2;
+            this.comboRoomType.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.taab);
             // 
             // label1
             // 
@@ -214,7 +215,8 @@
             this.opDescription.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.opDescription.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.opDescription.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.opDescription.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.opDescription.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.opDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(44)))), ((int)(((byte)(54)))));
             this.opDescription.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.opDescription.Location = new System.Drawing.Point(185, 6);
             this.opDescription.MaxLength = 200;
@@ -224,6 +226,7 @@
             this.opDescription.SelectedText = "";
             this.opDescription.Size = new System.Drawing.Size(206, 95);
             this.opDescription.TabIndex = 12;
+            this.opDescription.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.taab);
             // 
             // Description
             // 
@@ -256,7 +259,8 @@
             this.opDuration.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.opDuration.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.opDuration.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.opDuration.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.opDuration.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.opDuration.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(44)))), ((int)(((byte)(54)))));
             this.opDuration.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.opDuration.Location = new System.Drawing.Point(185, 2);
             this.opDuration.Name = "opDuration";
@@ -265,6 +269,7 @@
             this.opDuration.Size = new System.Drawing.Size(206, 27);
             this.opDuration.TabIndex = 12;
             this.opDuration.TextChanged += new System.EventHandler(this.opDuration_TextChanged);
+            this.opDuration.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.taab);
             // 
             // label6
             // 
@@ -297,7 +302,8 @@
             this.opPrice.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.opPrice.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.opPrice.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.opPrice.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.opPrice.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.opPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(44)))), ((int)(((byte)(54)))));
             this.opPrice.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.opPrice.Location = new System.Drawing.Point(186, 2);
             this.opPrice.MaxLength = 9;
@@ -308,6 +314,7 @@
             this.opPrice.TabIndex = 12;
             this.opPrice.TextChanged += new System.EventHandler(this.opPrice_TextChanged);
             this.opPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumberOnly);
+            this.opPrice.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.taab);
             // 
             // label4
             // 
@@ -340,7 +347,8 @@
             this.opName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.opName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.opName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.opName.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.opName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.opName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(44)))), ((int)(((byte)(54)))));
             this.opName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.opName.Location = new System.Drawing.Point(185, 3);
             this.opName.MaxLength = 45;
@@ -351,6 +359,7 @@
             this.opName.TabIndex = 12;
             this.opName.TextChanged += new System.EventHandler(this.opName_TextChanged);
             this.opName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextOnly);
+            this.opName.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.taab);
             // 
             // label3
             // 
@@ -383,7 +392,8 @@
             this.opCode.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.opCode.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.opCode.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.opCode.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.opCode.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.opCode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(44)))), ((int)(((byte)(54)))));
             this.opCode.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.opCode.Location = new System.Drawing.Point(185, 3);
             this.opCode.MaxLength = 10;
@@ -393,6 +403,7 @@
             this.opCode.Size = new System.Drawing.Size(206, 27);
             this.opCode.TabIndex = 11;
             this.opCode.TextChanged += new System.EventHandler(this.opCode_TextChanged);
+            this.opCode.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.taab);
             // 
             // label2
             // 
@@ -448,7 +459,7 @@
             this.addOperationPanel.Controls.Add(this.label8);
             this.addOperationPanel.Controls.Add(this.pictureCode);
             this.addOperationPanel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(168)))), ((int)(((byte)(166)))));
-            this.addOperationPanel.Location = new System.Drawing.Point(-459, 139);
+            this.addOperationPanel.Location = new System.Drawing.Point(-458, 138);
             this.addOperationPanel.Name = "addOperationPanel";
             this.addOperationPanel.Size = new System.Drawing.Size(460, 560);
             this.addOperationPanel.TabIndex = 10;
@@ -472,6 +483,7 @@
             this.guna2Button2.TabIndex = 10063;
             this.guna2Button2.Text = "Add Operation";
             this.guna2Button2.Click += new System.EventHandler(this.button2_Click);
+            this.guna2Button2.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.taab);
             // 
             // addOperationB
             // 
@@ -502,7 +514,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(255)))), ((int)(((byte)(252)))));
             this.panel1.Controls.Add(this.flowLayout);
-            this.panel1.Location = new System.Drawing.Point(0, 131);
+            this.panel1.Location = new System.Drawing.Point(1, 130);
             this.panel1.MaximumSize = new System.Drawing.Size(1920, 1080);
             this.panel1.MinimumSize = new System.Drawing.Size(1088, 588);
             this.panel1.Name = "panel1";

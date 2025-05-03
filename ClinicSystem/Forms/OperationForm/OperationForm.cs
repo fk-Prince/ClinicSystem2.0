@@ -7,6 +7,7 @@ using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using ClinicSystem.UserLoginForm;
 using Guna.UI2.WinForms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ClinicSystem
 {
@@ -15,6 +16,7 @@ namespace ClinicSystem
         private List<Operation> operationlist;
         private OperationRepository db = new OperationRepository();
         private bool isAddOperationShowing = false;
+        private List<Control> tab = new List<Control>();
         public OperationForm()
         {
             InitializeComponent();
@@ -32,6 +34,13 @@ namespace ClinicSystem
 
             }
             addOperationPanel.Location = new Point(-addOperationPanel.Width, y);
+            tab.Add(opCode);
+            tab.Add(opName);
+            tab.Add(opDuration);
+            tab.Add(opPrice);
+            tab.Add(opDescription);
+            tab.Add(comboRoomType);
+            tab.Add(guna2Button2);
         }
 
 
@@ -107,7 +116,7 @@ namespace ClinicSystem
                 label.Location = new Point(15, 225);
                 panel.Controls.Add(label);
 
-                ComboBox combo = new ComboBox();
+                System.Windows.Forms.ComboBox combo = new System.Windows.Forms.ComboBox();
                 foreach (Doctor doctor in operation.Doctor)
                 {
                     string fullname = doctor.DoctorLastName + ", " + doctor.DoctorFirstName + " " + doctor.DoctorMiddleName;
@@ -348,7 +357,7 @@ namespace ClinicSystem
 
         private void NumberOnly(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != ' ')
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != ' ' && e.KeyChar != '.')
             {
                 e.Handled = true;
             }
@@ -401,6 +410,22 @@ namespace ClinicSystem
             }
             addOperationPanel.Location = new Point(-addOperationPanel.Width, y);
             addOperationPanel.Invalidate();
+        }
+
+        private void taab(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.KeyCode == Keys.Tab)
+            {
+                Control currentControl = sender as Control;
+                int currentIndex = tab.IndexOf(currentControl);
+
+                if (currentIndex >= 0)
+                {
+                    int nextIndex = (currentIndex + 1) % tab.Count;
+                    tab[nextIndex].Focus();
+                    e.IsInputKey = true;
+                }
+            }
         }
     }
 }

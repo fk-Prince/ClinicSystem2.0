@@ -39,7 +39,7 @@ namespace ClinicSystem.Main2
                 foreach (Appointment pa in patientAppointments)
                 {
                     Guna2Panel panel = new Guna2Panel();
-                    panel.Size = new Size(300, 320);
+                    panel.Size = new Size(300, 330);
                     panel.FillColor = Color.FromArgb(111, 168, 166);
                     panel.Margin = new Padding(40, 10, 10, 10);
                     panel.Padding = new Padding(10, 10, 10, 10);

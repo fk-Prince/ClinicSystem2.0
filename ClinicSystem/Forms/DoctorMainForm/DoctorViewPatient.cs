@@ -307,9 +307,14 @@ namespace ClinicSystem
                     if (filtered[i].AppointmentDetailNo == selectedAppointment.AppointmentDetailNo)
                     {
                         filtered[i] = updatedSchedule;
-                        //patientAppointments[i] = updatedSchedule;
+                       
                         selectedAppointment = updatedSchedule;
                         selectedPatient = updatedSchedule;
+                        int index = patientAppointments.FindIndex(pa => pa.AppointmentDetailNo == selectedAppointment.AppointmentDetailNo);
+                        if (index != -1)
+                        {
+                            patientAppointments[index] = updatedSchedule;
+                        }
                         break;
                     }
                 }
