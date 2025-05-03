@@ -367,7 +367,7 @@ namespace ClinicSystem.MainClinic
         Guna2Panel p;
         private void guna2Button1_Click_1(object sender, EventArgs e)
         {
-            List<Appointment> ap = db.getPendingAppointment();
+            List<Appointment> ap = db.getUpcomingAppointment();
             if (ap.Count == 0)
             {
                 MessagePromp.MainShowMessage(this, "You have no notifications", MessageBoxIcon.Information);

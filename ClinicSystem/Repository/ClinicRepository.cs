@@ -232,7 +232,7 @@ namespace ClinicSystem.MainClinic
             }
             return patientList;
         }
-        internal List<Appointment> getPendingAppointment()
+        internal List<Appointment> getUpcomingAppointment()
         {
             List<Appointment> patientList = new List<Appointment>();
             try
@@ -250,7 +250,6 @@ namespace ClinicSystem.MainClinic
                                  LEFT JOIN appointmentdetails_tbl ON appointmentdetails_tbl.AppointmentDetailNo = patientappointment_tbl.AppointmentDetailNo
                                  WHERE StartSchedule < NOW() AND Status = 'Upcoming'
                                 ";
-                    //StartSchedule < NOW() AND Status = 'Pending'
                     using (MySqlCommand command = new MySqlCommand(query, conn))
                     {
                         using (MySqlDataReader reader = command.ExecuteReader())
