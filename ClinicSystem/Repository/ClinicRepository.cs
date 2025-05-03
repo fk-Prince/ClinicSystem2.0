@@ -248,7 +248,7 @@ namespace ClinicSystem.MainClinic
                                  LEFT JOIN operation_tbl ON operation_tbl.operationcode = patientappointment_tbl.OperationCode
                                  LEFT JOIN patient_tbl ON patient_tbl.patientid = patientappointment_tbl.patientid
                                  LEFT JOIN appointmentdetails_tbl ON appointmentdetails_tbl.AppointmentDetailNo = patientappointment_tbl.AppointmentDetailNo
-                                 WHERE StartSchedule < NOW() AND Status = 'Upcoming'
+                                 WHERE EndSchedule < NOW() AND Status = 'Upcoming'
                                 ";
                     using (MySqlCommand command = new MySqlCommand(query, conn))
                     {
