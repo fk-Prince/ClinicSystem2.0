@@ -18,10 +18,9 @@
 --
 -- Table structure for table `appointmentdetails_tbl`
 --
-
 DROP DATABASE IF EXISTS db_clinic;
 CREATE DATABASE db_clinic;
-use db_clinic;
+USE db_clinic;
 
 DROP TABLE IF EXISTS `appointmentdetails_tbl`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -45,7 +44,7 @@ CREATE TABLE `appointmentdetails_tbl` (
 
 LOCK TABLES `appointmentdetails_tbl` WRITE;
 /*!40000 ALTER TABLE `appointmentdetails_tbl` DISABLE KEYS */;
-INSERT INTO `appointmentdetails_tbl` VALUES (1,NULL,5000.00,5000.00,'No Discount','2025-04-11 15:15:07'),(2,'cgbdrgcedfwerxwer',3000.00,2100.00,'PagIbig','2025-05-01 20:16:12'),(3,'dfghdfbgdfgmdfgmdf',5000.00,3500.00,'PagIbig','2025-04-15 13:16:12'),(4,'dbgdfgbdfcqweq12312321c1c23aszdzcxxvasd',3000.00,3000.00,'No Discount','2025-05-01 20:17:18'),(5,NULL,5000.00,3500.00,'PagIbig','2025-05-01 20:17:36'),(6,'mghjghbjrcsdfsdfvs',3000.00,1500.00,'Senior','2025-05-01 20:18:49'),(7,NULL,3000.00,3000.00,'No Discount','2025-05-03 12:38:28'),(8,NULL,5000.00,5000.00,'No Discount','2025-05-03 12:38:28'),(9,NULL,5000.00,3500.00,'PagIbig','2025-05-03 12:39:09'),(10,NULL,3000.00,2100.00,'PagIbig','2025-05-03 12:39:09');
+INSERT INTO `appointmentdetails_tbl` VALUES (1,NULL,5000.00,5000.00,'No Discount','2025-04-11 15:15:07'),(2,'',3000.00,2100.00,'PagIbig','2025-05-01 20:16:12'),(3,'',5000.00,3500.00,'PagIbig','2025-04-15 13:16:12'),(4,'',3000.00,3000.00,'No Discount','2025-05-01 20:17:18'),(5,NULL,5000.00,3500.00,'PagIbig','2025-05-01 20:17:36'),(6,'',3000.00,1500.00,'Senior','2025-05-01 20:18:49'),(7,NULL,3000.00,3000.00,'No Discount','2025-05-03 12:38:28'),(8,NULL,5000.00,5000.00,'No Discount','2025-05-03 12:38:28'),(9,NULL,5000.00,3500.00,'PagIbig','2025-05-03 12:39:09'),(10,NULL,3000.00,2100.00,'PagIbig','2025-05-03 12:39:09'),(11,NULL,5000.00,3500.00,'PagIbig','2025-05-03 15:50:02');
 /*!40000 ALTER TABLE `appointmentdetails_tbl` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -170,7 +169,7 @@ CREATE TABLE `operation_tbl` (
 
 LOCK TABLES `operation_tbl` WRITE;
 /*!40000 ALTER TABLE `operation_tbl` DISABLE KEYS */;
-INSERT INTO `operation_tbl` VALUES ('DE301','Dental Fillings','2025-04-04','Used to treat cavities, fillings restore the function and shape of a tooth. Materials can include composite resins, amalgam, porcelain, or gold.',5000.00,'02:00:00','Operating Room'),('ES001','Ear Syringing','2025-05-01','Cleaning the ear with water to remove wax or dirt.',1500.00,'00:20:00','Examination Room'),('GE44','Checkup','2025-04-29','provides a wide range of medical services, including routine check-ups, treatment for common illnesses, preventive care, vaccinations, and minor medical procedures, typically managed by general practitioners or family doctors.',3000.00,'01:30:00','Examination Room'),('IU001','IUD Insertion/Removal','2025-05-01','Placing or removing a birth control device from the uterus.',4000.00,'00:30:00','Examination Room'),('PI001','Pediatric Immunization','2025-05-01','Giving vaccines to children to protect against common diseases.',2000.00,'00:30:00','Pediatrics Room'),('WS001','Wound Suturing','2025-05-01','Closing a cut or wound using stitches to stop bleeding and help healing.\n\n',2500.00,'00:30:00','Operating Room');
+INSERT INTO `operation_tbl` VALUES ('DE301','Dental Fillings','2025-04-04','Used to treat cavities, fillings restore the function and shape of a tooth. Materials can include composite resins, amalgam, porcelain, or gold.',5000.00,'02:00:00','Operating Room'),('ES001','Ear Syringing','2025-05-01','Cleaning the ear with water to remove wax or dirt.',1500.00,'00:20:00','Examination Room'),('GE44','Checkup','2025-04-29','provides a wide range of medical services, including routine check-ups, treatment for common illnesses, preventive care, vaccinations, and minor medical procedures, typically managed by general practitioners or family doctors.',3000.00,'01:30:00','Examination Room'),('IU001','IUD Insertion/Removal','2025-05-01','Placing or removing a birth control device from the uterus.',4000.00,'00:30:00','Examination Room'),('PI001','Pediatric Immunization','2025-05-01','Giving vaccines to children to protect against common diseases.',2000.00,'00:30:00','Pediatrics Room'),('TE301','Tooth extraction','2025-05-03','Removal of damaged, decayed, or problematic teeth',700.00,'01:00:00','Operating Room'),('WS001','Wound Suturing','2025-05-01','Closing a cut or wound using stitches to stop bleeding and help healing.\n\n',2500.00,'00:30:00','Operating Room'),('XR301','X-rays','2025-05-03','Imaging to detect issues like cavities and bone loss.',2000.50,'02:00:00','Operating Room');
 /*!40000 ALTER TABLE `operation_tbl` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -197,7 +196,7 @@ CREATE TABLE `patient_staff_tbl` (
 
 LOCK TABLES `patient_staff_tbl` WRITE;
 /*!40000 ALTER TABLE `patient_staff_tbl` DISABLE KEYS */;
-INSERT INTO `patient_staff_tbl` VALUES ('P2025-000001',1),('P2025-000002',1),('P2025-000003',1),('P2025-000004',1);
+INSERT INTO `patient_staff_tbl` VALUES ('P2025-000001',1),('P2025-000002',1),('P2025-000003',1),('P2025-000004',1),('P2025-000005',1);
 /*!40000 ALTER TABLE `patient_staff_tbl` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -231,7 +230,7 @@ CREATE TABLE `patient_tbl` (
 
 LOCK TABLES `patient_tbl` WRITE;
 /*!40000 ALTER TABLE `patient_tbl` DISABLE KEYS */;
-INSERT INTO `patient_tbl` VALUES ('P2025-000001','Prince','Iba','Sestoso','Roxas Avenue','Male','2002-11-21',NULL,22),('P2025-000002','Aeyc','Reyes','Winn','Manila','Female','2001-07-12','09771171913',23),('P2025-000003','Arra','P','Santos','Tagum','Female','2024-11-27','09778015471',0),('P2025-000004','Jake','M','Maunas','Mandug','Male','1955-03-10','09777161232',70);
+INSERT INTO `patient_tbl` VALUES ('P2025-000001','Prince','Iba','Sestoso','Roxas Avenue','Male','2002-11-21',NULL,22),('P2025-000002','Aeyc','Reyes','Winn','Manila','Female','2001-07-12','09771171913',23),('P2025-000003','Arra','P','Santos','Tagum','Female','2024-11-27','09778015471',0),('P2025-000004','Jake','M','Maunas','Mandug','Male','1955-03-10','09777161232',70),('P2025-000005','Rafael','B','Ababa','Davao','Male','2024-11-25',NULL,0);
 /*!40000 ALTER TABLE `patient_tbl` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -261,7 +260,7 @@ CREATE TABLE `patientappointment_tbl` (
   CONSTRAINT `doctorid` FOREIGN KEY (`DoctorID`) REFERENCES `doctor_operation_mm_tbl` (`doctorId`),
   CONSTRAINT `operat` FOREIGN KEY (`OperationCode`) REFERENCES `doctor_operation_mm_tbl` (`operationCode`) ON UPDATE CASCADE,
   CONSTRAINT `P` FOREIGN KEY (`PatientID`) REFERENCES `patient_tbl` (`patientId`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -270,7 +269,7 @@ CREATE TABLE `patientappointment_tbl` (
 
 LOCK TABLES `patientappointment_tbl` WRITE;
 /*!40000 ALTER TABLE `patientappointment_tbl` DISABLE KEYS */;
-INSERT INTO `patientappointment_tbl` VALUES (1,'P2025-000001',555,'DE301','D2025-000002','2025-03-05 09:30:00','2025-03-05 11:30:00','Upcoming'),(2,'P2025-000002',601,'GE44','D2025-000002','2025-07-24 09:30:00','2025-07-24 11:00:00','Upcoming'),(3,'P2025-000002',555,'DE301','D2025-000002','2025-04-12 20:00:00','2025-04-12 22:00:00','Upcoming'),(4,'P2025-000003',601,'GE44','D2025-000002','2025-07-18 11:30:00','2025-07-18 13:00:00','Upcoming'),(5,'P2025-000003',555,'DE301','D2025-000003','2025-02-12 20:00:00','2025-02-12 22:00:00','Upcoming'),(6,'P2025-000004',506,'GE44','D2025-000002','2026-06-17 11:30:00','2026-06-17 13:00:00','Upcoming'),(7,'P2025-000004',101,'GE44','D2025-000002','2025-05-29 10:00:00','2025-05-29 11:30:00','Upcoming'),(8,'P2025-000004',555,'DE301','D2025-000003','2025-05-29 12:00:00','2025-05-29 14:00:00','Upcoming'),(9,'P2025-000003',555,'DE301','D2025-000003','2025-05-03 14:00:00','2025-05-03 16:00:00','Upcoming'),(10,'P2025-000003',101,'GE44','D2025-000002','2025-05-07 21:00:00','2025-05-07 22:30:00','Upcoming');
+INSERT INTO `patientappointment_tbl` VALUES (1,'P2025-000001',555,'DE301','D2025-000002','2025-03-05 09:30:00','2025-03-05 11:30:00','Absence'),(2,'P2025-000002',601,'GE44','D2025-000002','2025-07-24 09:30:00','2025-07-24 11:00:00','Upcoming'),(3,'P2025-000002',555,'DE301','D2025-000002','2025-04-12 20:00:00','2025-04-12 22:00:00','Upcoming'),(4,'P2025-000003',601,'GE44','D2025-000002','2025-07-18 11:30:00','2025-07-18 13:00:00','Upcoming'),(5,'P2025-000003',555,'DE301','D2025-000003','2025-02-12 20:00:00','2025-02-12 22:00:00','Upcoming'),(6,'P2025-000004',506,'GE44','D2025-000002','2025-05-23 11:30:00','2025-05-23 13:00:00','Upcoming'),(7,'P2025-000004',101,'GE44','D2025-000002','2025-05-29 10:00:00','2025-05-29 11:30:00','Upcoming'),(8,'P2025-000004',555,'DE301','D2025-000003','2025-05-29 12:00:00','2025-05-29 14:00:00','Upcoming'),(9,'P2025-000003',555,'DE301','D2025-000003','2025-05-03 14:00:00','2025-05-03 16:00:00','upcoming'),(10,'P2025-000003',101,'GE44','D2025-000002','2025-05-07 21:00:00','2025-05-07 22:30:00','Upcoming'),(11,'P2025-000005',602,'DE301','D2025-000003','2025-12-27 09:30:00','2025-12-27 11:30:00','Upcoming');
 /*!40000 ALTER TABLE `patientappointment_tbl` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -296,7 +295,7 @@ CREATE TABLE `rooms_tbl` (
 
 LOCK TABLES `rooms_tbl` WRITE;
 /*!40000 ALTER TABLE `rooms_tbl` DISABLE KEYS */;
-INSERT INTO `rooms_tbl` VALUES (101,'Examination Room'),(505,'Examination Room'),(506,'Examination Room'),(601,'Examination Room'),(555,'Operating Room'),(602,'Operating Room'),(603,'Operating Room');
+INSERT INTO `rooms_tbl` VALUES (101,'Examination Room'),(505,'Examination Room'),(506,'Examination Room'),(601,'Examination Room'),(555,'Operating Room'),(602,'Operating Room'),(603,'Operating Room'),(102,'Pediatrics Room');
 /*!40000 ALTER TABLE `rooms_tbl` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -515,4 +514,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-05-03 15:26:59
+-- Dump completed on 2025-05-03 17:44:45

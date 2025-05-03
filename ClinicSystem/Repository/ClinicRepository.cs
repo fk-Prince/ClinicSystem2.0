@@ -104,11 +104,12 @@ namespace ClinicSystem.MainClinic
                                 LEFT JOIN operation_tbl ON operation_tbl.operationcode = patientappointment_tbl.OperationCode
                                 LEFT JOIN patient_tbl ON patient_tbl.patientid = patientappointment_tbl.patientid
                                 LEFT JOIN appointmentdetails_tbl ON appointmentdetails_tbl.AppointmentDetailNo = patientappointment_tbl.AppointmentDetailNo
-                                WHERE patientappointment_tbl.StartSchedule BETWEEN @Start AND @End AND Status = 'Upcoming'";
+                                WHERE patientappointment_tbl.StartSchedule BETWEEN @Start AND @End AND Status = 'Upcoming' AND EndSchedule > Now()";
                     using (MySqlCommand command = new MySqlCommand(query, conn))
                     {
                         command.Parameters.AddWithValue("@Start", DateTime.Now.ToString("yyyy-MM-dd"));
                         command.Parameters.AddWithValue("@End", DateTime.Now.AddDays(1).ToString("yyyy-MM-dd"));
+ 
                         using (MySqlDataReader reader = command.ExecuteReader())
                         {
                             while (reader.Read())
