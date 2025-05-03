@@ -123,6 +123,9 @@ namespace ClinicSystem.MainClinic
                     label.Font = new Font("Segoe UI", 15, FontStyle.Regular);
                     panel.Controls.Add(label);
 
+                    label = myLabel(panel.Width - 75, 20, $"No. {a.AppointmentDetailNo}");
+                    panel.Controls.Add(label);
+
                     Guna2Panel p1 = new Guna2Panel();
                     p1.Size = new Size(320, 2);
                     p1.BackColor = Color.LightGray;
