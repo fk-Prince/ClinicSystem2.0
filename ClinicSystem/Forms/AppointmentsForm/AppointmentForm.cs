@@ -1,0 +1,85 @@
+﻿using System;
+using System.Drawing;
+using System.Windows.Forms;
+using ClinicSystem.Appointments;
+using ClinicSystem.UserLoginForm;
+using Guna.UI2.WinForms;
+
+namespace ClinicSystem
+{
+    public partial class AppointmentForm : Form
+    {
+        private Staff staff;
+        private Guna2Button lastButtonClicked;
+        public AppointmentForm(Staff staff)
+        {
+            this.staff = staff;
+            InitializeComponent();
+
+            SetButtonColor(allAppointmentB);
+            SetButtonColor(addAppointmentB);
+            SetButtonColor(rescheduleB);
+
+            AllAppointments allAppointments = new AllAppointments();
+            LoadForm(allAppointments);
+
+            lastButtonClicked = allAppointmentB;     
+            lastButtonClicked.ForeColor = ColorTranslator.FromHtml("#2E4E4E");
+            lastButtonClicked.FillColor = ColorTranslator.FromHtml("#6FA8A6");
+        }
+
+        private void SetButtonColor(Guna2Button btn)
+        {
+            btn.FillColor = ColorTranslator.FromHtml("#CFF1EF");
+            btn.BackColor = Color.Transparent;
+            btn.ForeColor = ColorTranslator.FromHtml("#000000");
+        }
+
+        public void LoadForm(Form f)
+        {
+            if (appointmentPanel.Controls.Count > 0)
+            {
+                appointmentPanel.Controls.Clear();
+            }
+            f.TopLevel = false;
+            f.Dock = DockStyle.Fill;
+            appointmentPanel.Controls.Add(f);
+            appointmentPanel.Tag = f;
+            f.Show();
+        }
+
+       
+
+        private void allAppointmentB_Click(object sender, EventArgs e)
+        {
+            AllAppointments allAppointments = new AllAppointments();
+            LoadForm(allAppointments);
+        }
+
+        private void addAppointmentB_Click(object sender, EventArgs e)
+        {
+            AddAppointmentForm add = new AddAppointmentForm();
+            LoadForm(add);
+        }
+
+        private void rescheduleB_Click(object sender, EventArgs e)
+        {
+            RescheduleForm add = new RescheduleForm();
+            LoadForm(add);
+        }
+
+        private void mouseClicked(object sender, MouseEventArgs e)
+        {
+            Guna2Button btn = sender as Guna2Button;
+
+            if (btn != lastButtonClicked)
+            {
+                btn.FillColor = ColorTranslator.FromHtml("#6FA8A6");
+                btn.ForeColor = ColorTranslator.FromHtml("#2E4E4E");
+                lastButtonClicked.FillColor = ColorTranslator.FromHtml("#CFF1EF");
+                lastButtonClicked.ForeColor = ColorTranslator.FromHtml("#000000");
+                lastButtonClicked = btn;
+            }
+        }
+    }
+}

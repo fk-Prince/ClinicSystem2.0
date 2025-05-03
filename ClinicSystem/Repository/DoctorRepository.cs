@@ -1,0 +1,300 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
+using System.Windows.Forms;
+using ClinicSystem;
+using ClinicSystem.Helpers;
+using ClinicSystem.PatientForm;
+using ClinicSystem.Repository;
+using ClinicSystem.UserLoginForm;
+using MySql.Data.MySqlClient;
+
+namespace DoctorClinic
+{
+    public class DoctorRepository
+    {
+        public List<Appointment> getPatients(string doctorID)
+        {
+            List<Appointment> appointments = new List<Appointment>();
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                {
+                    conn.Open();
+                    string query = @"SELECT * FROM patient_tbl
+                        LEFT JOIN patientappointment_tbl ON patient_tbl.patientid = patientappointment_tbl.patientid
+                        LEFT JOIN operation_tbl ON patientappointment_tbl.OperationCode = operation_tbl.operationCode
+                        LEFT JOIN appointmentdetails_tbl ON  patientappointment_tbl.AppointmentDetailNo = appointmentdetails_tbl.AppointmentDetailNo
+                        WHERE patientappointment_tbl.DoctorId = @DoctorID";
+                    using (MySqlCommand command = new MySqlCommand(query, conn))
+                    {
+                        command.Parameters.AddWithValue("DoctorID", doctorID);
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                appointments.Add(EntityMapping.GetAppointmentByDoctor(reader));
+                            }
+                        }
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error from getPati ents() DB" + ex.Message);
+            }
+            return appointments;
+        }
+
+        public bool setDiagnosis(Appointment updatedSchedule)
+        {
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                {
+                    conn.Open();
+                    string query = @"UPDATE appointmentdetails_tbl 
+                                 SET `Diagnosis` = @Diagnosis
+                                WHERE AppointmentDetailNo = @AppointmentDetailNo";
+                    using (MySqlCommand command = new MySqlCommand(query, conn))
+                    {
+                        command.Parameters.AddWithValue("@Diagnosis", updatedSchedule.Diagnosis);
+                        command.Parameters.AddWithValue("@AppointmentDetailNo", updatedSchedule.AppointmentDetailNo);
+                        command.ExecuteNonQuery();
+                        return true;
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error from updateSchedule() DB" + ex.Message);
+            }
+            return false;
+        }
+
+        public List<Doctor> getDoctors()
+        {
+            List<Doctor> doctorList = new List<Doctor>();
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                {
+                    conn.Open();
+                    using (MySqlCommand command = new MySqlCommand("SELECT * FROM doctor_tbl", conn))
+                    {
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                Doctor doctor = EntityMapping.GetDoctorWithImage(reader);
+                                doctorList.Add(doctor);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error on getDoctors() db" + ex.Message);
+            }
+            return doctorList;
+        }
+
+    
+        public bool AddDoctor(Doctor doctor)
+        {
+            try
+            {
+
+                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                {
+                    conn.Open();
+
+
+                    string query = @"INSERT INTO doctor_tbl 
+                    (DoctorID, doctorFirstName, doctorMiddleName, doctorLastName, doctorAge, Pin, doctorDateHired, 
+                        doctorGender, doctorAddress, doctorcontactnumber, doctorImage, doctorRFID) 
+                 VALUES 
+                    (@DoctorID, @doctorFirstName, @doctorMiddleName, @doctorLastName, @doctorAge, @Pin, @doctorDateHired,
+                        @doctorGender, @doctorAddress, @doctorcontactnumber, @doctorImage, @doctorRFID)";
+
+                    using (MySqlCommand command = new MySqlCommand(query, conn))
+                    {
+                        command.Parameters.AddWithValue("@DoctorID", doctor.DoctorID);
+                        command.Parameters.AddWithValue("@doctorFirstName", doctor.DoctorFirstName);
+                        command.Parameters.AddWithValue("@doctorMiddleName", doctor.DoctorMiddleName);
+                        command.Parameters.AddWithValue("@doctorLastName", doctor.DoctorLastName);
+                        command.Parameters.AddWithValue("@doctorAge", doctor.DoctorAge);
+                        command.Parameters.AddWithValue("@doctorDateHired", doctor.DateHired);
+                        command.Parameters.AddWithValue("@doctorGender", doctor.Gender);
+                        command.Parameters.AddWithValue("@doctorAddress", doctor.DoctorAddress);
+                        command.Parameters.AddWithValue("@doctorcontactnumber", doctor.DoctorContactNumber);
+                        if (doctor.DoctorRFID.Length == 0)
+                        {
+                            command.Parameters.AddWithValue("@doctorRFID", DBNull.Value);
+                        }
+                        else
+                        {
+                            command.Parameters.AddWithValue("@doctorRFID", doctor.DoctorRFID);
+                        }
+                        command.Parameters.AddWithValue("@Pin", doctor.Pin);
+
+                        if (doctor.Image != null)
+                        {
+                            MemoryStream ms = new MemoryStream();
+                            doctor.Image.Save(ms, doctor.Image.RawFormat);
+                            byte[] doctorImage = ms.ToArray();
+                            command.Parameters.Add("@doctorImage", MySqlDbType.LongBlob).Value = doctorImage;
+                        }
+                        else
+                        {
+                            command.Parameters.AddWithValue("@doctorImage", DBNull.Value);
+                        }
+                        command.ExecuteNonQuery();
+                        return true;
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error on AddDoctor() db: " + ex.Message );
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show("Error on AddDoctor() IO: " + ex.Message);
+            }
+            
+            return false;
+        }   
+
+        public string getDoctorLastID()
+        {       
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                {
+                    conn.Open();
+                    string query = "SELECT doctorid FROM doctor_tbl ORDER BY doctorid DESC LIMIT 1";
+                    using (MySqlCommand command = new MySqlCommand(query, conn))
+                    {
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            
+
+                            return reader.Read()
+                                    ? "D" + DateTime.Now.ToString("yyyy") + "-" + checkID(reader.GetString("doctorID"))
+                                    : "D" + DateTime.Now.ToString("yyyy") + "-000001";
+                            
+                        }
+                    }
+
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error on getDoctorLastID() db" + ex.Message);
+            }
+            return "ERROR ON DATABASE PLEASE TRY AGAIN";
+        }
+        public string checkID(string n)
+        {
+            int number = int.Parse(n.Substring(6)) + 1;
+            if (number < 1000000) return number.ToString("D6");
+            else return number.ToString();
+        }
+
+        public Doctor doctorLogin(string doctorid, string pin)
+        {
+
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                {
+                    conn.Open();
+                    string query = "SELECT * FROM doctor_tbl WHERE PIN = @PIN AND DOCTORID = @DOCTORID";
+                    using (MySqlCommand command = new MySqlCommand(query, conn))
+                    {
+                        command.Parameters.AddWithValue("@DOCTORID", doctorid);
+                        command.Parameters.AddWithValue("@PIN", pin);
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                Image doctorImage;
+                                if (!reader.IsDBNull(reader.GetOrdinal("doctorImage")))
+                                {
+                                    byte[] imageBytes = (byte[])reader["doctorImage"];
+                                    MemoryStream ms = new MemoryStream(imageBytes);
+                                    doctorImage = Image.FromStream(ms);
+                                }
+                                else
+                                {
+                                    doctorImage = null;
+                                }
+                                Doctor doctor = EntityMapping.GetDoctorWithImage(reader);
+                                return doctor;
+                            }
+                        }
+                    }
+                }
+            } catch (MySqlException ex)
+            {
+                MessageBox.Show("Error on doctorLogin() db" + ex.Message);
+            }
+            return null;
+        }
+
+        public Doctor doctorScanned(string rfid)
+        {
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                {
+                    conn.Open();
+                    string query = "SELECT * FROM doctor_tbl WHERE doctorRFID = @doctorRFID LIMIT 1";
+                    using (MySqlCommand command = new MySqlCommand(query, conn))
+                    {
+                        command.Parameters.AddWithValue("@doctorRFID", rfid);
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            { 
+                                Doctor doctor = EntityMapping.GetDoctorWithImage(reader);
+                                return doctor;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error on doctorLogin() db" + ex.Message);
+            }
+            return null;
+        }
+
+        public bool setComplete(int appointmentDetailNo)
+        {
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                {
+                    conn.Open();
+                    string query = "UPDATE patientappointment_tbl SET Status = 'Discharged' WHERE AppointmentDetailNo = @AppointmentDetailNo";
+                    using (MySqlCommand command = new MySqlCommand(query, conn))
+                    {
+                        command.Parameters.AddWithValue("@AppointmentDetailNo", appointmentDetailNo);
+                        command.ExecuteNonQuery();
+                        return true;
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error on setComplete() db" + ex.Message);
+            }
+            return false;
+        }
+    }
+}
