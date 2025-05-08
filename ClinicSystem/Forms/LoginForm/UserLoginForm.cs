@@ -132,8 +132,8 @@ namespace ClinicSystem
                         timer.Stop();
                         this.Hide();
                         ClinicSystem clinicSystem = new ClinicSystem(staff);
-                        //clinicSystem.WindowState = FormWindowState.Maximized;
-                        //clinicSystem.FormBorderStyle = FormBorderStyle.None;
+                        clinicSystem.WindowState = FormWindowState.Maximized;
+                        clinicSystem.FormBorderStyle = FormBorderStyle.None;
                         clinicSystem.Show();
                     };
                     timer.Start();
