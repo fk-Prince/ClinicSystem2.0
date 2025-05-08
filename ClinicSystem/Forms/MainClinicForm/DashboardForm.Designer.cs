@@ -29,15 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashboardForm));
             this.panel2 = new System.Windows.Forms.Panel();
             this.lastMonthTimer = new System.Windows.Forms.Timer(this.components);
             this.doctorT = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.lblUsername = new System.Windows.Forms.TextBox();
-            this.userImg = new System.Windows.Forms.PictureBox();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.address_label = new System.Windows.Forms.Label();
             this.QuantumCare_label = new System.Windows.Forms.Label();
             this.logo_img = new System.Windows.Forms.PictureBox();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -51,7 +48,8 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.lblTotalPatient = new System.Windows.Forms.Label();
             this.settingP = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.missCount = new System.Windows.Forms.Label();
             this.revenueP = new Guna.UI2.WinForms.Guna2Panel();
             this.tbTotalEarniings = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.label1 = new System.Windows.Forms.Label();
@@ -89,7 +87,7 @@
             this.currentdImage = new System.Windows.Forms.PictureBox();
             this.label28 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.todayappointment = new Guna.UI2.WinForms.Guna2Panel();
+            this.todayAppP = new Guna.UI2.WinForms.Guna2Panel();
             this.next = new Guna.UI2.WinForms.Guna2PictureBox();
             this.back = new Guna.UI2.WinForms.Guna2PictureBox();
             this.apPanel = new Guna.UI2.WinForms.Guna2Panel();
@@ -100,12 +98,8 @@
             this.nextSlide = new System.Windows.Forms.Timer(this.components);
             this.prevSlide = new System.Windows.Forms.Timer(this.components);
             this.rankingT = new System.Windows.Forms.Timer(this.components);
-            this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
-            this.missCount = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.label4 = new System.Windows.Forms.Label();
+            this.todayAppT = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.userImg)).BeginInit();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo_img)).BeginInit();
             this.panel8.SuspendLayout();
@@ -124,10 +118,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.guna2Panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.currentdImage)).BeginInit();
-            this.todayappointment.SuspendLayout();
+            this.todayAppP.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.next)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.back)).BeginInit();
-            this.guna2Panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -157,7 +150,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(168)))), ((int)(((byte)(166)))));
-            this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.guna2Panel1);
             this.panel1.Location = new System.Drawing.Point(1, 0);
             this.panel1.MaximumSize = new System.Drawing.Size(1920, 200);
@@ -166,44 +158,6 @@
             this.panel1.Size = new System.Drawing.Size(1080, 100);
             this.panel1.TabIndex = 0;
             // 
-            // panel3
-            // 
-            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel3.BackColor = System.Drawing.Color.Transparent;
-            this.panel3.Controls.Add(this.lblUsername);
-            this.panel3.Controls.Add(this.userImg);
-            this.panel3.Location = new System.Drawing.Point(821, 27);
-            this.panel3.MaximumSize = new System.Drawing.Size(350, 150);
-            this.panel3.MinimumSize = new System.Drawing.Size(247, 61);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(247, 61);
-            this.panel3.TabIndex = 106;
-            // 
-            // lblUsername
-            // 
-            this.lblUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(168)))), ((int)(((byte)(166)))));
-            this.lblUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lblUsername.Enabled = false;
-            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsername.ForeColor = System.Drawing.Color.White;
-            this.lblUsername.Location = new System.Drawing.Point(21, 22);
-            this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(170, 17);
-            this.lblUsername.TabIndex = 104;
-            this.lblUsername.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // userImg
-            // 
-            this.userImg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.userImg.BackgroundImage = global::ClinicSystem.Properties.Resources.Staff;
-            this.userImg.Location = new System.Drawing.Point(198, 6);
-            this.userImg.Name = "userImg";
-            this.userImg.Size = new System.Drawing.Size(49, 47);
-            this.userImg.TabIndex = 103;
-            this.userImg.TabStop = false;
-            // 
             // guna2Panel1
             // 
             this.guna2Panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -211,14 +165,28 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2Panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.guna2Panel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Panel1.Controls.Add(this.address_label);
             this.guna2Panel1.Controls.Add(this.QuantumCare_label);
             this.guna2Panel1.Controls.Add(this.logo_img);
-            this.guna2Panel1.Location = new System.Drawing.Point(13, 14);
+            this.guna2Panel1.Location = new System.Drawing.Point(13, 3);
             this.guna2Panel1.MaximumSize = new System.Drawing.Size(703, 150);
             this.guna2Panel1.MinimumSize = new System.Drawing.Size(703, 82);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(703, 82);
+            this.guna2Panel1.Size = new System.Drawing.Size(703, 93);
             this.guna2Panel1.TabIndex = 107;
+            // 
+            // address_label
+            // 
+            this.address_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.address_label.AutoSize = true;
+            this.address_label.BackColor = System.Drawing.Color.Transparent;
+            this.address_label.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.address_label.ForeColor = System.Drawing.Color.White;
+            this.address_label.Location = new System.Drawing.Point(206, 74);
+            this.address_label.Name = "address_label";
+            this.address_label.Size = new System.Drawing.Size(331, 20);
+            this.address_label.TabIndex = 108;
+            this.address_label.Text = "506 J.P. Laurel Ave, Poblacion District, Davao City";
             // 
             // QuantumCare_label
             // 
@@ -240,7 +208,7 @@
             this.logo_img.BackColor = System.Drawing.Color.Transparent;
             this.logo_img.Image = global::ClinicSystem.Properties.Resources.Logo;
             this.logo_img.InitialImage = null;
-            this.logo_img.Location = new System.Drawing.Point(0, -24);
+            this.logo_img.Location = new System.Drawing.Point(0, -13);
             this.logo_img.Name = "logo_img";
             this.logo_img.Size = new System.Drawing.Size(200, 119);
             this.logo_img.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -362,31 +330,35 @@
             this.settingP.BorderRadius = 10;
             this.settingP.Controls.Add(this.label4);
             this.settingP.Controls.Add(this.missCount);
-            this.settingP.Controls.Add(this.guna2Panel3);
             this.settingP.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(168)))), ((int)(((byte)(166)))));
             this.settingP.Location = new System.Drawing.Point(869, 108);
             this.settingP.Name = "settingP";
             this.settingP.Size = new System.Drawing.Size(200, 43);
             this.settingP.TabIndex = 5;
-            this.settingP.Paint += new System.Windows.Forms.PaintEventHandler(this.settingP_Paint);
             // 
-            // guna2Button1
+            // label4
             // 
-            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(168)))), ((int)(((byte)(166)))));
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.Image")));
-            this.guna2Button1.Location = new System.Drawing.Point(-1, 4);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.PressedColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.Size = new System.Drawing.Size(32, 32);
-            this.guna2Button1.TabIndex = 0;
-            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click_1);
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(168)))), ((int)(((byte)(166)))));
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(3, 12);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(154, 21);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Appointment Missed";
+            // 
+            // missCount
+            // 
+            this.missCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(168)))), ((int)(((byte)(166)))));
+            this.missCount.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.missCount.Image = global::ClinicSystem.Properties.Resources.appointment;
+            this.missCount.Location = new System.Drawing.Point(139, 5);
+            this.missCount.Name = "missCount";
+            this.missCount.Size = new System.Drawing.Size(56, 33);
+            this.missCount.TabIndex = 11;
+            this.missCount.Text = "0";
+            this.missCount.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.missCount.Click += new System.EventHandler(this.notificationClicked);
             // 
             // revenueP
             // 
@@ -434,7 +406,7 @@
             this.panel10.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(255)))), ((int)(((byte)(252)))));
             this.panel10.Controls.Add(this.rankingPanel);
-            this.panel10.Controls.Add(this.todayappointment);
+            this.panel10.Controls.Add(this.todayAppP);
             this.panel10.Controls.Add(this.revenueP);
             this.panel10.Controls.Add(this.settingP);
             this.panel10.Controls.Add(this.panel4);
@@ -792,19 +764,19 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Last Month";
             // 
-            // todayappointment
+            // todayAppP
             // 
-            this.todayappointment.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.todayappointment.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.todayappointment.Controls.Add(this.next);
-            this.todayappointment.Controls.Add(this.back);
-            this.todayappointment.Controls.Add(this.apPanel);
-            this.todayappointment.Controls.Add(this.label2);
-            this.todayappointment.Location = new System.Drawing.Point(623, 350);
-            this.todayappointment.MaximumSize = new System.Drawing.Size(700, 600);
-            this.todayappointment.Name = "todayappointment";
-            this.todayappointment.Size = new System.Drawing.Size(454, 319);
-            this.todayappointment.TabIndex = 9;
+            this.todayAppP.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.todayAppP.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.todayAppP.Controls.Add(this.next);
+            this.todayAppP.Controls.Add(this.back);
+            this.todayAppP.Controls.Add(this.apPanel);
+            this.todayAppP.Controls.Add(this.label2);
+            this.todayAppP.Location = new System.Drawing.Point(623, 358);
+            this.todayAppP.MaximumSize = new System.Drawing.Size(700, 600);
+            this.todayAppP.Name = "todayAppP";
+            this.todayAppP.Size = new System.Drawing.Size(454, 319);
+            this.todayAppP.TabIndex = 9;
             // 
             // next
             // 
@@ -816,7 +788,7 @@
             this.next.FillColor = System.Drawing.Color.Blue;
             this.next.Image = global::ClinicSystem.Properties.Resources.right;
             this.next.ImageRotate = 0F;
-            this.next.Location = new System.Drawing.Point(413, 164);
+            this.next.Location = new System.Drawing.Point(410, 164);
             this.next.MaximumSize = new System.Drawing.Size(40, 33);
             this.next.MinimumSize = new System.Drawing.Size(40, 33);
             this.next.Name = "next";
@@ -837,7 +809,7 @@
             this.back.FillColor = System.Drawing.Color.Blue;
             this.back.Image = global::ClinicSystem.Properties.Resources.left;
             this.back.ImageRotate = 0F;
-            this.back.Location = new System.Drawing.Point(-4, 164);
+            this.back.Location = new System.Drawing.Point(0, 164);
             this.back.MaximumSize = new System.Drawing.Size(45, 37);
             this.back.MinimumSize = new System.Drawing.Size(45, 37);
             this.back.Name = "back";
@@ -899,37 +871,10 @@
             this.rankingT.Interval = 1;
             this.rankingT.Tick += new System.EventHandler(this.rankingT_Tick);
             // 
-            // guna2Panel3
+            // todayAppT
             // 
-            this.guna2Panel3.Controls.Add(this.guna2Button1);
-            this.guna2Panel3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(168)))), ((int)(((byte)(166)))));
-            this.guna2Panel3.Location = new System.Drawing.Point(166, 3);
-            this.guna2Panel3.Name = "guna2Panel3";
-            this.guna2Panel3.Size = new System.Drawing.Size(27, 32);
-            this.guna2Panel3.TabIndex = 1;
-            // 
-            // missCount
-            // 
-            this.missCount.AutoSize = false;
-            this.missCount.BackColor = System.Drawing.Color.Transparent;
-            this.missCount.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.missCount.ForeColor = System.Drawing.Color.Red;
-            this.missCount.Location = new System.Drawing.Point(181, 3);
-            this.missCount.Name = "missCount";
-            this.missCount.Size = new System.Drawing.Size(13, 24);
-            this.missCount.TabIndex = 11;
-            this.missCount.Text = "0";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(168)))), ((int)(((byte)(166)))));
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(10, 11);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(154, 21);
-            this.label4.TabIndex = 12;
-            this.label4.Text = "Appointment Missed";
+            this.todayAppT.Interval = 1;
+            this.todayAppT.Tick += new System.EventHandler(this.todayAppT_Tick);
             // 
             // DashboardForm
             // 
@@ -945,9 +890,6 @@
             this.Name = "DashboardForm";
             this.Text = "DashboardForm";
             this.panel1.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.userImg)).EndInit();
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo_img)).EndInit();
@@ -973,11 +915,10 @@
             this.guna2Panel4.ResumeLayout(false);
             this.guna2Panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.currentdImage)).EndInit();
-            this.todayappointment.ResumeLayout(false);
-            this.todayappointment.PerformLayout();
+            this.todayAppP.ResumeLayout(false);
+            this.todayAppP.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.next)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.back)).EndInit();
-            this.guna2Panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -990,9 +931,6 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private System.Windows.Forms.Label QuantumCare_label;
         private System.Windows.Forms.PictureBox logo_img;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox lblUsername;
-        private System.Windows.Forms.PictureBox userImg;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label totalDentist;
@@ -1004,7 +942,6 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label lblTotalPatient;
         private Guna.UI2.WinForms.Guna2Panel settingP;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2Panel revenueP;
         private Guna.UI2.WinForms.Guna2HtmlLabel tbTotalEarniings;
         private System.Windows.Forms.Label label1;
@@ -1016,7 +953,7 @@
         private Guna.UI2.WinForms.Guna2Panel apPanel;
         private System.Windows.Forms.Timer nextSlide;
         private System.Windows.Forms.Timer prevSlide;
-        private Guna.UI2.WinForms.Guna2Panel todayappointment;
+        private Guna.UI2.WinForms.Guna2Panel todayAppP;
         private Guna.UI2.WinForms.Guna2PictureBox back;
         private Guna.UI2.WinForms.Guna2PictureBox next;
         private Guna.UI2.WinForms.Guna2Panel rankingPanel;
@@ -1053,8 +990,9 @@
         private System.Windows.Forms.Label lastHired;
         private System.Windows.Forms.Label lastName;
         private System.Windows.Forms.PictureBox lastImage;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
-        private Guna.UI2.WinForms.Guna2HtmlLabel missCount;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label missCount;
+        private System.Windows.Forms.Label address_label;
+        private System.Windows.Forms.Timer todayAppT;
     }
 }

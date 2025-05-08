@@ -216,21 +216,31 @@ namespace ClinicSystem
             }
             return doctorList;
         }
-        public List<Operation> getOperation()
+        public List<Doctor> getDoctorHaveNoOperation(Operation operation)
         {
-            List<Operation> operationList = new List<Operation>();
+            List<Doctor> doctorList = new List<Doctor>();
             try
             {
                 using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
                 {
                     conn.Open();
+                    string query = @"
+                                SELECT doctor_tbl.*
+                                FROM doctor_tbl
+                                WHERE doctor_tbl.doctorid NOT IN (
+                                    SELECT doctor_operation_mm_tbl.doctorid
+                                    FROM doctor_operation_mm_tbl 
+                                    WHERE doctor_operation_mm_tbl.operationcode = @OperationCode
+                                );
+                                ";
 
-                    using (MySqlCommand command = new MySqlCommand("SELECT * FROM operation_tbl", conn))
+                    using (MySqlCommand command = new MySqlCommand(query, conn))
                     {
+                        command.Parameters.AddWithValue("@OperationCode", operation.OperationCode);
                         using (MySqlDataReader reader = command.ExecuteReader()) { 
                             while (reader.Read())
                             {                         
-                                operationList.Add(EntityMapping.GetOperation(reader));
+                                doctorList.Add(EntityMapping.GetDoctor(reader));
                             }
                         }
                     }
@@ -240,7 +250,7 @@ namespace ClinicSystem
             {
                 MessageBox.Show("ERROR FROM getOperations2() DB " + ex.Message);
             }
-            return operationList;
+            return doctorList;
         }
         public bool insertSpecialized(Doctor doc, Operation op)
         {
@@ -287,6 +297,29 @@ namespace ClinicSystem
             catch (MySqlException ex)
             {
                 MessageBox.Show("ERROR FROM insertSpecialized() DB " + ex.Message);
+            }
+        }
+
+        internal void setDoctorOperation(string docid, string operationcode)
+        {
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                {
+                    conn.Open();
+                    string query =
+                        @"INSERT INTO doctor_operation_mm_tbl (operationCode, doctorId) VALUES (@operationCode, @doctorId)";
+                    using (MySqlCommand command = new MySqlCommand(query, conn))
+                    {
+                        command.Parameters.AddWithValue("@doctorId", docid);
+                        command.Parameters.AddWithValue("@operationCode", operationcode);
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("ERROR FROM setDoctorOperation() DB " + ex.Message);
             }
         }
     }

@@ -4,10 +4,12 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography;
 using System.Windows.Forms;
 using ClinicSystem.UserLoginForm;
 using Guna.UI2.WinForms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using ComboBox = System.Windows.Forms.ComboBox;
 
 namespace ClinicSystem
 {
@@ -17,6 +19,7 @@ namespace ClinicSystem
         private OperationRepository db = new OperationRepository();
         private bool isAddOperationShowing = false;
         private List<Control> tab = new List<Control>();
+
         public OperationForm()
         {
             InitializeComponent();
@@ -116,27 +119,140 @@ namespace ClinicSystem
                 label.Location = new Point(15, 225);
                 panel.Controls.Add(label);
 
+                Guna2Button b = new Guna2Button();
+                b.Image = Properties.Resources.add;
+                b.Tag = operation;
+                b.ImageSize = new Size(20, 20);
+                b.Location = new Point(260, 220);
+                b.Cursor = Cursors.Hand;
+                b.HoverState.FillColor = Color.Transparent;
+                b.Size = new Size(27, 27);
+                b.FillColor = Color.Transparent;
+                b.Click += OperationClicked;
+                b.BackColor = Color.Transparent;
+                panel.Controls.Add(b);
+
                 System.Windows.Forms.ComboBox combo = new System.Windows.Forms.ComboBox();
                 foreach (Doctor doctor in operation.Doctor)
                 {
                     string fullname = doctor.DoctorLastName + ", " + doctor.DoctorFirstName + " " + doctor.DoctorMiddleName;
-                    combo.Items.Add(doctor.DoctorID +" | " + fullname);
+                    combo.Items.Add(doctor.DoctorID + " | " + fullname);
                 }
                 if (operation.Doctor.Count == 0)
                 {
                     combo.Items.Add("No Doctor Assigned");
                 }
-                //combo.ItemHeight = 20;
+                combo.ItemHeight = 20;
                 combo.Location = new Point(15, 250);
                 combo.DropDownStyle = ComboBoxStyle.DropDownList;
                 combo.Size = new Size(270, 38);
-                //combo.MaxDropDownItems = 5;
-                //combo.IntegralHeight = false;
+                combo.MaxDropDownItems = 5;
+                combo.IntegralHeight = false;
                 panel.Controls.Add(combo);
+
+
+
 
                 flowLayout.Controls.Add(panel);
             }
 
+        }
+
+        private void OperationClicked(object sender, EventArgs e)
+        {
+            Guna2Button b = sender as Guna2Button;
+            Panel pa = b.Parent as Panel;
+            Operation operation = b.Tag as Operation;
+            operationCode = operation.OperationCode;
+            List<Doctor> docList = db.getDoctorHaveNoOperation(operation);
+            Guna2Panel p = new Guna2Panel();
+            p.Size = new Size(280, 100);
+            p.Location = new Point((pa.Width - p.Width) / 2, pa.Height - p.Height - 20);
+            p.FillColor = Color.LightGreen;
+            p.BackColor = Color.Transparent;
+            p.BorderRadius = 10;
+            p.BorderColor = Color.LightGray;
+            pa.Controls.Add(p);
+            p.BringToFront();
+
+            Label label1 = new Label();
+            label1.Text = "X";
+            label1.Font = new Font("Segui UI", 12,FontStyle.Bold);
+            label1.Cursor = Cursors.Hand;
+            label1.Click += closePopup;
+            label1.Location = new Point(255,3);
+            p.Controls.Add(label1);
+
+            Label label = new Label();
+            label.Text = "Select Doctor";
+            label.AutoSize = true;
+            label.Location = new Point(10, 10);
+            p.Controls.Add(label);
+
+            ComboBox c = new ComboBox();
+            docList.ForEach(dd => c.Items.Add($"{dd.DoctorID} | {dd.DoctorLastName}  {dd.DoctorFirstName} {dd.DoctorMiddleName}"));
+            c.ItemHeight = 20;
+            c.SelectedIndexChanged += selectedDoctor;
+            c.Location = new Point(10, 30);
+            c.DropDownStyle = ComboBoxStyle.DropDownList;
+            c.Size = new Size(260, 38);
+            c.MaxDropDownItems = 5;
+            c.IntegralHeight = false;
+            p.Controls.Add(c);
+
+            but = new Guna2Button();
+            but.BorderRadius = 10;
+            but.Click += addDoctorOperation;
+            but.FillColor = Color.FromArgb(233, 255, 252);
+            but.BackColor = Color.Transparent;
+            but.Size = new Size(260, 30);
+            but.ForeColor = Color.Black;
+            but.Text = "Assign";
+            but.Location = new Point(10,65);
+            p.Controls.Add(but);
+
+            if (docList.Count == 0)
+            {
+                c.Items.Add("All Dr. has assigned to this operation!");
+                c.SelectedIndex = 0;
+                but.Enabled = false;
+            }
+        }
+
+        private void closePopup(object sender, EventArgs e)
+        {
+            Label l = sender as Label;
+            Guna2Panel p = l.Parent as Guna2Panel;
+            p.Dispose();
+        }
+
+        private void selectedDoctor(object sender, EventArgs e)
+        {
+            ComboBox c = sender as ComboBox;
+            if (c.SelectedIndex == -1) return;
+
+            if (!c.SelectedItem.ToString().Equals("All Dr. has assigned to this operation!"))
+            {
+                string doctorid = c.SelectedItem.ToString().Split('|')[0].Trim();
+                but.Tag = doctorid;
+            } 
+        }
+
+        Guna2Button but;
+        string operationCode;
+
+        private void addDoctorOperation(object sender, EventArgs e)
+        {
+          
+            if (but.Tag == null) return;
+            string docid = but.Tag as string;
+            if (!string.IsNullOrWhiteSpace(docid))
+            {
+                db.setDoctorOperation(docid, operationCode);
+                Guna2Panel p = but.Parent as Guna2Panel ;
+                p.Dispose();
+                MessagePromp.MessagePrompCenter(this, "Successfully assigned doctor to this operation", MessageBoxIcon.Information);
+            } 
         }
 
         public Label createLabel(string title, string value, int x, int y)
@@ -289,7 +405,7 @@ namespace ClinicSystem
                 return;
             }
 
-            bool success = db.insertOperation( new Operation(opCode.ToUpper(), Capitalize(opName), DateTime.Now, opDescription, price, duration, comboRoomType.SelectedItem.ToString()));
+            bool success = db.insertOperation(new Operation(opCode.ToUpper(), Capitalize(opName), DateTime.Now, opDescription, price, duration, comboRoomType.SelectedItem.ToString()));
             if (success)
             {
                 MessagePromp.MainShowMessage(this, "Operation Added Successfully", MessageBoxIcon.Information);
@@ -367,13 +483,13 @@ namespace ClinicSystem
         private void timer1_Tick(object sender, EventArgs e)
         {
             x += 50;
-           
+
             if (x >= (ClientSize.Width - addOperationPanel.Width) / 2)
             {
                 x = (ClientSize.Width - addOperationPanel.Width) / 2;
                 addOperationB.Enabled = false;
                 timerin.Stop();
-            } 
+            }
             addOperationPanel.Location = new Point(x, addOperationPanel.Location.Y);
         }
 

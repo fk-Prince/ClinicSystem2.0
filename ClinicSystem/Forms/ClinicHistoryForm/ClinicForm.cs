@@ -46,7 +46,7 @@ namespace ClinicSystem.ClinicHistory
             searchGrid.DataSource = dt;
 
             comboYear.Items.Add("All");
-            for (int i = 2015; i <= DateTime.Now.Year; i++)
+            for (int i = 2025; i <= DateTime.Now.Year; i++)
             {
                 comboYear.Items.Add(i);
             }
@@ -94,7 +94,7 @@ namespace ClinicSystem.ClinicHistory
                     {
                         dt.Rows.Add(patientId, patientName);
                     }
-                    else if (text.Equals(patientId.Substring(1,4)))
+                    else if (year.Equals(patientId.Substring(1,4)))
                     {
                         dt.Rows.Add(patientId, patientName);
                     }

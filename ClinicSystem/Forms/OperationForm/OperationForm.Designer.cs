@@ -523,10 +523,12 @@
             // 
             // flowLayout
             // 
+            this.flowLayout.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayout.AutoScroll = true;
             this.flowLayout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(255)))), ((int)(((byte)(252)))));
-            this.flowLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayout.Location = new System.Drawing.Point(0, 0);
+            this.flowLayout.Location = new System.Drawing.Point(-1, 0);
             this.flowLayout.MaximumSize = new System.Drawing.Size(1920, 1080);
             this.flowLayout.MinimumSize = new System.Drawing.Size(1088, 588);
             this.flowLayout.Name = "flowLayout";

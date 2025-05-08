@@ -49,7 +49,7 @@ namespace ClinicSystem.UserLoginForm
             
             if (combo.SelectedItem.ToString().Equals("Senior", StringComparison.OrdinalIgnoreCase) && patient.Age < 65)
             {
-                MessagePromp.MainShowMessageBig(form, "This Patient is not eligible for this \ntype of discount age must be above 65", MessageBoxIcon.Error);
+                MessagePromp.MessagePrompCenter(form, "This Patient is not eligible for this \ntype of discount age must be above 65", MessageBoxIcon.Error);
                 combo.SelectedIndex = previousindex;
                 return;
             }

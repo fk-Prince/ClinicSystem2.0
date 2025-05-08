@@ -63,7 +63,6 @@
             // sliding
             // 
             this.sliding.Interval = 1;
-            this.sliding.Tick += new System.EventHandler(this.sliding_Tick);
             // 
             // dateTimer
             // 

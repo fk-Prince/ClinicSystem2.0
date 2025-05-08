@@ -16,10 +16,11 @@ namespace ClinicSystem.UserLoginForm
         private static MessagePromp instance;
         private Timer timer;
         public MessagePromp(string message,
-
+                        
                            MessageBoxIcon icon)
         {
-            Size = new Size(300, 50);
+          
+            //Size = new Size(300, 50);
             BackColor = Color.White;
             BorderStyle = BorderStyle.FixedSingle;
 
@@ -69,7 +70,7 @@ namespace ClinicSystem.UserLoginForm
         private void Tick(object sender, EventArgs e)
         {
             Parent?.Controls.Remove(this);
-            timer.Stop();
+            timer?.Stop();
         }
 
         public static void MainShowMessage(Form f, string message, MessageBoxIcon icon)
@@ -81,6 +82,7 @@ namespace ClinicSystem.UserLoginForm
             }
 
             instance = new MessagePromp(message, icon);
+            instance.Size = new Size(300, 50);
             int stopped = f.Width - 300;
             int start = f.Width + 350;
             instance.Location = new Point(start, 50);
@@ -119,13 +121,28 @@ namespace ClinicSystem.UserLoginForm
                 f.Controls.Remove(instance);
                 instance.Dispose();
             }
-
             instance = new MessagePromp(message, icon);
-            instance.Location = new Point(110, -50);
+            instance.Size = new Size(300, 50);
+            instance.Location = new Point((f.Width - instance.Width) / 2, -50);
             f.Controls.Add(instance);
             instance.BringToFront();
 
             instance.loginAnim();
+        }
+
+        public static void MessagePrompCenter(Form f, string message, MessageBoxIcon icon)
+        {
+            if (instance != null && f.Controls.Contains(instance))
+            {
+                f.Controls.Remove(instance);
+                instance.Dispose();
+            }
+            instance = new MessagePromp(message, icon);
+            instance.Size = new Size(400, 50);
+            instance.Location = new Point((f.Width - instance.Width) / 2, (f.Height - instance.Height) / 2);
+            f.Controls.Add(instance);
+            instance.BringToFront();
+            //instance.mainAnim(f, 0, 0);
         }
 
         private void mainAnim(Form f, int stop, int start)

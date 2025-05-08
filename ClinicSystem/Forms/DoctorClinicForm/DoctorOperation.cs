@@ -21,9 +21,9 @@ namespace ClinicSystem.Doctors
         public DoctorOperation()
         {
             InitializeComponent();
-            docOp = db.getDoctorOperation();
-            doctorList = db.getDoctors();
-            operationList = db.getOperation();
+            //docOp = db.getDoctorOperation();
+            //doctorList = db.getDoctors();
+            //operationList = db.getOperation();
             if (doctorList.Count == 0)
             {
                 comboDoctor.Items.Add("There is no Doctor");

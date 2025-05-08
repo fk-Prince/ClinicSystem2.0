@@ -30,20 +30,12 @@ namespace ClinicSystem
         private const int EM_SETCUEBANNER = 0x1501;
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         private static extern IntPtr SendMessage(IntPtr hWnd, int msg, IntPtr wParam, IntPtr lParam);
-        private const int EM_SETMARGINS = 0xD3;
-        private const int EC_LEFTMARGIN = 0x0001;
-        private const int EC_RIGHTMARGIN = 0x0002;
-        private void SetPlaceholder(TextBox textBox, string placeholder)
-        {
-            SendMessage(textBox.Handle, EM_SETCUEBANNER, 0, placeholder);
-        }
-
+  
 
         private static LoginUserForm instance;
         private List<Control> tab = new List<Control>();
 
-        private Thread scanThread;
-        private SerialPort sp;
+  
         public LoginUserForm()
         {
             
@@ -140,8 +132,8 @@ namespace ClinicSystem
                         timer.Stop();
                         this.Hide();
                         ClinicSystem clinicSystem = new ClinicSystem(staff);
-                        clinicSystem.WindowState = FormWindowState.Maximized;
-                        clinicSystem.FormBorderStyle = FormBorderStyle.None;
+                        //clinicSystem.WindowState = FormWindowState.Maximized;
+                        //clinicSystem.FormBorderStyle = FormBorderStyle.None;
                         clinicSystem.Show();
                     };
                     timer.Start();

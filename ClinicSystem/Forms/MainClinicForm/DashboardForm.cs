@@ -18,7 +18,7 @@ namespace ClinicSystem.MainClinic
         private int doctorCount = 0;
         private int doctorTotal = 0;
         private int totalEarnings;
-        private int revenueX, settingX, rankingY;
+        private int revenueX, settingX, rankingY, todayAppX;
         private Form f;
         private Guna2Panel slidePanel;
         private int x = 0;
@@ -33,7 +33,6 @@ namespace ClinicSystem.MainClinic
             this.f = f;
             InitializeComponent();
             displayAppointments();
-            lblUsername.Text = staff.Username;
             displayDoctorStats();
             patientTotal = db.TotalPatientLastMonth();
             doctorTotal = db.getDoctor();
@@ -44,9 +43,12 @@ namespace ClinicSystem.MainClinic
 
             settingX = ClientSize.Width + 10;
             revenueX = ClientSize.Width + 10;
+            todayAppX = ClientSize.Width + 10;
             settingP.Location = new Point(settingX, panel1.Bottom + 20);
             revenueP.Location = new Point(revenueX, settingP.Bottom + 20);
-            logo_img.BackColor = Color.Transparent;
+            todayAppP.Location = new Point(todayAppX, revenueP.Bottom + 50);
+
+            //logo_img.BackColor = Color.Transparent;
 
             //QuantumCare_label.Font = new Font("Matura MT Script Capitals", 30, FontStyle.Bold | FontStyle.Italic | FontStyle.Underline);
             //QuantumCare_label.ForeColor = ColorTranslator.FromHtml("#FFFFFF");
@@ -55,6 +57,10 @@ namespace ClinicSystem.MainClinic
             totalDentist.Text = "0";
             missCounter = db.getAppointmentCountMissed();
             missCount.Text = missCounter.ToString();
+            if (missCounter != 0)
+            {
+                missCount.ForeColor = Color.Red;
+            }
             lastMonthTimer.Start();
             doctorT.Start();
             settingTimer.Start();
@@ -103,7 +109,7 @@ namespace ClinicSystem.MainClinic
                 next.Visible = false;
             }
             if (appList.Count > 0)
-            {
+            {      
                 for (int i = 0; i < appList.Count; i++)
                 {
                     Appointment a = appList[i];
@@ -263,53 +269,52 @@ namespace ClinicSystem.MainClinic
             slidePanel.Location = new Point(x, slidePanel.Location.Y);
         }
 
+        private int bv = 0;
         private void panel10_SizeChanged(object sender, EventArgs e)
         {
-            //panel4.Location = new Point(10, (panel10.Height - panel4.Height) / 2);
-            //panel4.Invalidate();
-
-            //panel8.Location = new Point(panel4.Right + 25, (panel10.Height - panel8.Height) / 2);
-            //panel8.Invalidate();
-
-            int xc, b = 0;
-
-            //MessageBox.Show(ClientSize.Width.ToString());
+            int xc, x, b = 0;
             if (ClientSize.Width >= 1500)
             {
                 bv = (panel1.Location.Y + panel1.Height) + 125;
+                x = (ClientSize.Width - rankingPanel.Width) / 2;
                 xc = 100;
                 b = 25;
+                panel4.Location = new Point(xc, bv);
             }
             else
             {
                 bv = (panel1.Location.Y + panel1.Height) + 10;
                 b = 5;
                 xc = 10;
+                panel4.Location = new Point(xc, bv);
+                x = panel4.Right + xc;
+
             }
 
-            panel4.Location = new Point(xc, bv);
-            panel4.Invalidate();
-
-            panel8.Location = new Point(xc, panel4.Bottom + 25);
-            panel8.Invalidate();
             settingX = ClientSize.Width + 10;
             revenueX = ClientSize.Width + 10;
-
-            //rankingY = -rankingPanel.Width;
-            rankingPanel.Location = new Point(panel4.Right + xc, bv);
-
+            todayAppX = ClientSize.Width + 10;
+            panel8.Location = new Point(xc, panel4.Bottom + 25);
+            rankingPanel.Location = new Point(x, bv);
+            todayAppP.Location = new Point(todayAppX, revenueP.Bottom + 50);
             settingP.Location = new Point(settingX, panel1.Bottom + 20);
             revenueP.Location = new Point(revenueX, settingP.Bottom + 20);
+
+            panel4.Invalidate();
+            panel8.Invalidate();
             revenueP.Invalidate();
             settingP.Invalidate();
-            todayappointment.Location = new Point(rankingPanel.Right + b, todayappointment.Location.Y - 10);
-            todayappointment.Invalidate();
+            todayAppP.Invalidate();
+            todayAppP.Invalidate();
             panel10.Invalidate();
         }
-        private int bv = 0;
 
         private void revenueTimer_Tick(object sender, EventArgs e)
         {
+            if (revenueX < (ClientSize.Width - revenueP.Width) && !todayAppT.Enabled)
+            {
+                todayAppT.Start();
+            }
             revenueX -= 20;
             if (revenueX < (ClientSize.Width - revenueP.Width) - 20)
             {
@@ -362,20 +367,84 @@ namespace ClinicSystem.MainClinic
             rankingPanel.Location = new Point(rankingPanel.Location.X, rankingY);
         }
 
-        private void guna2Panel4_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         Guna2Panel p;
-        private void guna2Button1_Click_1(object sender, EventArgs e)
+       
+        private List<Guna2Panel> panels = new List<Guna2Panel>();
+        private void setAppointmentStatus(object sender, EventArgs e)
+        {
+            Guna2Button button = sender as Guna2Button;
+            if (button == null) return;
+            Appointment a = button.Tag as Appointment;
+            if (a != null)
+            {
+                db.updateAppointmentStatus(a);
+                Guna2Panel panel = button.Parent as Guna2Panel; 
+                if (panel != null)
+                {
+                    Timer t = new Timer();
+                    t.Tag = panel;
+                    t.Interval = 15;
+                    t.Tick += slide;
+                    t.Start();
+                    missCounter--;
+                    missCount.Text = missCounter.ToString();
+                    if (missCount.Text.Equals("0"))
+                    {
+                        missCount.ForeColor = Color.Black;
+                    } else
+                    {
+                        missCount.ForeColor = Color.Red;
+                    }
+                    missCount.BringToFront();
+                }
+            }
+        }
+        int panelX = 0;
+        private void slide(object sender, EventArgs e)
+        {
+            Timer timer = sender as Timer;
+            p.AutoScroll = false;
+            Guna2Panel panel = timer.Tag as Guna2Panel;
+            panelX += 30;
+            Guna2Panel parent = panel.Parent as Guna2Panel;
+            if (panelX > parent.Width)
+            {
+                p.AutoScroll = true;
+                panelX = 0;
+                timer.Stop();
+                p.Controls.Remove(panel);
+                panels.Remove(panel);
+                panelAdjust();
+            }
+            panel.Location = new Point(panelX, panel.Location.Y);
+        }
+
+        private void panelAdjust()
+        {
+            int y = 0; 
+            foreach (Guna2Panel panel in panels)
+            {
+                panel.Location = new Point(5, y + 5);
+                y += panel.Height;
+            }
+
+            if (panels.Count == 0)
+            {
+                panel10.Controls.Remove(p);
+            }
+        }
+
+        private void notificationClicked(object sender, EventArgs e)
         {
             List<Appointment> ap = db.getUpcomingAppointment();
             if (ap.Count == 0)
             {
+                missCount.ForeColor = Color.Black;
                 MessagePromp.MainShowMessage(this, "You have no notifications", MessageBoxIcon.Information);
                 return;
             }
+            missCount.ForeColor = Color.Red;
             if (p != null)
             {
                 panel10.Controls.Remove(p);
@@ -386,10 +455,9 @@ namespace ClinicSystem.MainClinic
             p = new Guna2Panel();
             p.Size = new Size(settingP.Width + 230, 206);
             p.FillColor = Color.FromArgb(111, 168, 166);
+            p.BorderRadius = 10;
             p.Location = new Point(settingP.Location.X - 230, settingP.Location.Y + settingP.Height - 10);
             p.AutoScroll = true;
-            //p.HorizontalScroll.Visible = false;
-            //p.VerticalScroll.Visible = true;
             panel10.Controls.Add(p);
             p.BringToFront();
 
@@ -431,75 +499,18 @@ namespace ClinicSystem.MainClinic
                 p.Controls.Add(s);
                 y += s.Height;
                 panels.Add(s);
-
-            }
-        }
-        private List<Guna2Panel> panels = new List<Guna2Panel>();
-        private void setAppointmentStatus(object sender, EventArgs e)
-        {
-            Guna2Button button = sender as Guna2Button;
-            if (button == null) return;
-            Appointment a = button.Tag as Appointment;
-            if (a != null)
-            {
-                db.updateAppointmentStatus(a);
-                Guna2Panel panel = button.Parent as Guna2Panel; 
-                if (panel != null)
-                {
-                    //while (panelX > panel.Width)
-                    //{
-                    //    panelX += 20;
-                    //    panel.Location = new Point(panelX, panel.Location.Y);
-                    //}
-                    Timer t = new Timer();
-                    t.Tag = panel;
-                    t.Interval = 15;
-                    t.Tick += slide;
-                    t.Start();
-                    missCounter--;
-                    missCount.Text = missCounter.ToString();
-                    missCount.BringToFront();
-                }
-            }
-        }
-        int panelX = 0;
-        private void slide(object sender, EventArgs e)
-        {
-            Timer timer = sender as Timer;
-            p.AutoScroll = false;
-            Guna2Panel panel = timer.Tag as Guna2Panel;
-            panelX += 30;
-            Guna2Panel parent = panel.Parent as Guna2Panel;
-            if (panelX > parent.Width)
-            {
-                p.AutoScroll = true;
-                panelX = 0;
-                timer.Stop();
-                p.Controls.Remove(panel);
-                panels.Remove(panel);
-                panelAdjust();
-            }
-            panel.Location = new Point(panelX, panel.Location.Y);
-        }
-
-        private void panelAdjust()
-        {
-            int y = 0; 
-            foreach (Guna2Panel panel in panels)
-            {
-                panel.Location = new Point(5, y + 5);
-                y += panel.Height;
-            }
-
-            if (panels.Count == 0)
-            {
-                panel10.Controls.Remove(p);
             }
         }
 
-        private void settingP_Paint(object sender, PaintEventArgs e)
+        private void todayAppT_Tick(object sender, EventArgs e)
         {
-
+            todayAppX -= 20;
+            if (todayAppX < (ClientSize.Width - todayAppP.Width) - 10)
+            {
+                todayAppX = (ClientSize.Width - todayAppP.Width) - 10;
+                todayAppT.Stop();
+            }
+            todayAppP.Location = new Point(todayAppX, todayAppP.Location.Y);
         }
 
         private void doctorT_Tick(object sender, EventArgs e)

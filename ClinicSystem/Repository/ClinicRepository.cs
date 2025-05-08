@@ -278,7 +278,7 @@ namespace ClinicSystem.MainClinic
                 using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
                 {
                     conn.Open();
-                    string query = @"UPDATE patientappointment_tbl SET Status = 'Absence' WHERE AppointmentDetailNo = @AppointmentDetailNo ";
+                    string query = @"UPDATE patientappointment_tbl SET Status = 'Absent' WHERE AppointmentDetailNo = @AppointmentDetailNo ";
                     using (MySqlCommand command = new MySqlCommand(query, conn))
                     {
                         command.Parameters.AddWithValue("@AppointmentDetailNo", a.AppointmentDetailNo);

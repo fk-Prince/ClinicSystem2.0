@@ -20,7 +20,7 @@ namespace ClinicSystem.Doctors
 
             SetButtonColor(viewDentistB);
             SetButtonColor(addDentistB);
-            SetButtonColor(button2);
+            //SetButtonColor(button2);
             LoadForm(view);
             lastButtonClicked = viewDentistB;
             lastButtonClicked.ForeColor = ColorTranslator.FromHtml("#2E4E4E");
@@ -43,10 +43,6 @@ namespace ClinicSystem.Doctors
         }
 
 
-        private void mouseClicked(object sender, EventArgs e)
-        {
-
-        }
 
         private void SetButtonColor(Guna2Button btn)
         {

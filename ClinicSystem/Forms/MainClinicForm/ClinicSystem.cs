@@ -192,37 +192,7 @@ namespace ClinicSystem
         }
 
 
-        bool normal = true;
-        int xs = 5;
-        private void guna2Button2_Click(object sender, EventArgs e)
-        {
-            //sliding.Start();
-            //panel3.BackColor = Color.FromArgb(34, 45, 50);
-        }
-
-        private void sliding_Tick(object sender, EventArgs e)
-        {
-            
-            //if (normal)
-            //{
-            //    xs += 1;
-            //    if (xs == 45)
-            //    {
-            //        sliding.Stop();
-            //        normal = false;
-            //    }
-                
-            //} else
-            //{
-            //    xs -= 1;
-            //    if (xs == 5)
-            //    {
-            //        sliding.Stop();
-            //        normal = true;
-            //    }
-            //}
-            //b.Location = new Point(xs, b.Location.Y);
-        }
+    
 
         
     }
