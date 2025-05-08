@@ -14,6 +14,8 @@ using ClinicSystem.PatientForm;
 using static System.Net.Mime.MediaTypeNames;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Google.Protobuf.WellKnownTypes;
+using TheArtOfDevHtmlRenderer.Adapters;
+using static Guna.UI2.Native.WinApi;
 
 namespace ClinicSystem.DoctorClinic
 {
@@ -74,7 +76,7 @@ namespace ClinicSystem.DoctorClinic
             {
                 drawHeader(e);
             }
-
+            Graphics graphics = Graphics.FromHwnd(IntPtr.Zero);
             Font headerFont = new Font("Arial", 12, FontStyle.Bold);
             Font rowFont = new Font("Arial", 10);
             Brush brush = Brushes.Black;
@@ -94,10 +96,13 @@ namespace ClinicSystem.DoctorClinic
                 else if (i == 2) colWidth = col2;
                 else if (i == 3) colWidth = col3;
                 else if (i == 4) colWidth = col4;
-                e.Graphics.FillRectangle(Brushes.Aqua, x, y, colWidth, rowHeight + 30);
+
+                SolidBrush b = new SolidBrush(Color.FromArgb(183, 230, 222));
+                e.Graphics.FillRectangle(b, x, y, colWidth, rowHeight + 30);
                 e.Graphics.DrawRectangle(Pens.Black, x, y, colWidth, rowHeight + 30);
                 //e.Graphics.DrawLine(Pens.Black, x, y + (rowHeight + 25), x + colWidth, y + (rowHeight + 25));
-               
+                
+                brush = Brushes.Black;
                 e.Graphics.DrawString(headers[i], headerFont, brush, x + 15, y + 30);
                 e.Graphics.DrawString(headers1[i], headerFont, brush, x + 15, y + 5);
                 x += colWidth;
@@ -111,7 +116,7 @@ namespace ClinicSystem.DoctorClinic
 
 
             if (app.Count > 3) e.Graphics.DrawString($"Page {page}", new Font("Sans-serif", 9), Brushes.Black, 10, 1070);
-
+             brush = Brushes.Black;
             StringBuilder sb;
             for (int i = lastRead; i < app.Count(); i++)
             {
@@ -136,16 +141,23 @@ namespace ClinicSystem.DoctorClinic
                     {
                         if (col == 3 || col == 4)
                         {
-                            e.Graphics.DrawString("  " + DateTime.Parse(data).ToString("yyyy-MM-dd"), new Font("Arial", 12), brush, x + 20, y + 30);
-                            e.Graphics.DrawString("  " + DateTime.Parse(data).ToString("hh:mm:ss tt"), new Font("Arial", 12), brush, x + 17, y + 50);
+                            string date = DateTime.Parse(data).ToString("yyyy-MM-dd");
+                            string time = DateTime.Parse(data).ToString("hh:mm:ss tt");
+                            SizeF s = graphics.MeasureString(date, new Font("Arial", 12));
+                            SizeF s1 = graphics.MeasureString(time, new Font("Arial", 12));
+
+                            e.Graphics.DrawString(date, new Font("Arial", 12), brush, x + (colWidth - s.Width) - 30, y + 30);
+                            e.Graphics.DrawString(time, new Font("Arial", 12), brush, x + (colWidth - s1.Width) - 25, y + 50);
                         }
                         else if (col == 1)
                         {
-                            e.Graphics.DrawString("  " + data, new Font("Arial", 12), brush, x + 5, y + 30);
+                            SizeF s = graphics.MeasureString(data, new Font("Arial", 12));
+                            e.Graphics.DrawString(data, new Font("Arial", 12), brush, (colWidth - s.Width), y + 50);
                         }
                         else
                         {
-                            e.Graphics.DrawString("  " + data, new Font("Arial", 12), brush, x + 10, y + 25);
+                            SizeF s = graphics.MeasureString(data, new Font("Arial", 12));
+                            e.Graphics.DrawString(data, new Font("Arial", 12), brush, x + (colWidth - s.Width) - 30, y + 50);
                         }
                     }
 
@@ -190,7 +202,7 @@ namespace ClinicSystem.DoctorClinic
         {
 
             e.Graphics.DrawImage(image, 20, 20, 140, 140);
-            e.Graphics.DrawString("Quantum Care", new Font("Impact", 36, FontStyle.Bold | FontStyle.Italic | FontStyle.Underline), Brushes.Aqua, 140, 25);
+            e.Graphics.DrawString("Quantum Care", new Font("Impact", 36, FontStyle.Bold | FontStyle.Italic | FontStyle.Underline), Brushes.Black, 140, 25);
             e.Graphics.DrawString("506 J.P. Laurel Ave,", new Font("Sans-serif", 12, FontStyle.Regular), Brushes.Black, 145, 85);
             e.Graphics.DrawString("Poblacion District, Davao City", new Font("Sans-serif", 12, FontStyle.Regular), Brushes.Black, 145, 105);
 

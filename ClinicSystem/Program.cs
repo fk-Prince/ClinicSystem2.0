@@ -20,44 +20,32 @@ namespace ClinicSystem
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //List<Appointment> list = new List<Appointment>();
-            //Patient p = new Patient(1, "ps", "ps", "ps", "ps", 5, "ps", DateTime.Now, "5454545454");
-            //Doctor d = new Doctor(1, "ps", "ps", "ps", 5, "dfg", DateTime.Now, "5454545454", "5454545454", "5454545454");
+            //Patient p = new Patient("P2025-000001", "ps", "ps", "ps", "ps", 5, "ps", DateTime.Now, "5454545454");
+            //Doctor d = new Doctor("D2025-000001", "ps", "ps", "ps", 5, "dfg", DateTime.Now, "5454545454", "5454545454", "5454545454");
             //Operation o = new Operation("casd", "ps", DateTime.Now, "ps", 5, TimeSpan.Parse("09:00:00"), "5454545454");
-            //list.Add(new Appointment(p, d, o, DateTime.Now, DateTime.Now, 5000, 401, 2, 5000, "No Discount"));
-            //list.Add(new Appointment(p, d, o, DateTime.Now, DateTime.Now, 5000, 401, 2, 5000, "No Discount"));
-            //list.Add(new Appointment(p, d, o, DateTime.Now, DateTime.Now, 5000, 401, 2, 5000, "No Discount"));
-            //list.Add(new Appointment(p, d, o, DateTime.Now, DateTime.Now, 5000, 401, 2, 5000, "No Discount"));
-            //list.Add(new Appointment(p, d, o, DateTime.Now, DateTime.Now, 5000, 401, 2, 5000, "No Discount"));
-            //list.Add(new Appointment(p, d, o, DateTime.Now, DateTime.Now, 5000, 401, 2, 5000, "No Discount"));
-            //list.Add(new Appointment(p, d, o, DateTime.Now, DateTime.Now, 5000, 401, 2, 5000, "No Discount"));
-            //list.Add(new Appointment(p, d, o, DateTime.Now, DateTime.Now, 5000, 401, 2, 5000, "No Discount"));
-            //list.Add(new Appointment(p, d, o, DateTime.Now, DateTime.Now, 5000, 401, 2, 5000, "No Discount"));
-            //list.Add(new Appointment(p, d, o, DateTime.Now, DateTime.Now, 5000, 401, 2, 5000, "No Discount"));
-            //list.Add(new Appointment(p, d, o, DateTime.Now, DateTime.Now, 5000, 401, 2, 5000, "No Discount"));
-            //list.Add(new Appointment(p, d, o, DateTime.Now, DateTime.Now, 5000, 401, 2, 5000, "No Discount"));
-            //list.Add(new Appointment(p, d, o, DateTime.Now, DateTime.Now, 5000, 401, 2, 5000, "No Discount"));
-            //list.Add(new Appointment(p, d, o, DateTime.Now, DateTime.Now, 5000, 401, 2, 5000, "No Discount"));
-            //list.Add(new Appointment(p, d, o, DateTime.Now, DateTime.Now, 5000, 401, 2, 5000, "No Discount"));
-            //list.Add(new Appointment(p, d, o, DateTime.Now, DateTime.Now, 5000, 401, 2, 5000, "No Discount"));
-            //list.Add(new Appointment(p, d, o, DateTime.Now, DateTime.Now, 5000, 401, 2, 5000, "No Discount"));
-            //list.Add(new Appointment(p, d, o, DateTime.Now, DateTime.Now, 5000, 401, 2, 5000, "No Discount"));
-            //list.Add(new Appointment(p, d, o, DateTime.Now, DateTime.Now, 5000, 401, 2, 5000, "No Discount"));
-            //list.Add(new Appointment(p, d, o, DateTime.Now, DateTime.Now, 5000, 401, 2, 5000, "No Discount"));
-            //list.Add(new Appointment(p, d, o, DateTime.Now, DateTime.Now, 5000, 401, 2, 5000, "No Discount"));
-            //list.Add(new Appointment(p, d, o, DateTime.Now, DateTime.Now, 5000, 401, 2, 5000, "No Discount"));
-            ////PrintDoctorReceipt pr = new PrintDoctorReceipt(p, list, "Reappointment");
-            //PrintDoctorReceipt pr = new PrintDoctorReceipt(d,list);
-
-
-
-           
-
-
-
-
+            //list.Add(new Appointment(p, d, o, DateTime.Now, DateTime.Now, 5000, 401, 2, 5000, "No Discount","dfgndf g.dj,mbgldf,gb;ldfgd",DateTime.Now,"cd"));
+            //list.Add(new Appointment(p, d, o, DateTime.Now, DateTime.Now, 5000, 401, 2, 5000, "No Discount", "dfgndf g.dj,mbgldf,gb;ldfgd", DateTime.Now, "cd"));
+            //list.Add(new Appointment(p, d, o, DateTime.Now, DateTime.Now, 5000, 401, 2, 5000, "No Discount", "dfgndf g.dj,mbgldf,gb;ldfgd", DateTime.Now, "cd"));
+            //list.Add(new Appointment(p, d, o, DateTime.Now, DateTime.Now, 5000, 401, 2, 5000, "No Discount", "dfgndf g.dj,mbgldf,gb;ldfgd", DateTime.Now, "cd"));
+            //list.Add(new Appointment(p, d, o, DateTime.Now, DateTime.Now, 5000, 401, 2, 5000, "No Discount", "dfgndf g.dj,mbgldf,gb;ldfgd", DateTime.Now, "cd"));
+            //list.Add(new Appointment(p, d, o, DateTime.Now, DateTime.Now, 5000, 401, 2, 5000, "No Discount", "dfgndf g.dj,mbgldf,gb;ldfgd", DateTime.Now, "cd"));
+            //list.Add(new Appointment(p, d, o, DateTime.Now, DateTime.Now, 5000, 401, 2, 5000, "No Discount", "dfgndf g.dj,mbgldf,gb;ldfgd", DateTime.Now, "cd"));
+            //list.Add(new Appointment(p, d, o, DateTime.Now, DateTime.Now, 5000, 401, 2, 5000, "No Discount", "dfgndf g.dj,mbgldf,gb;ldfgd", DateTime.Now, "cd"));
+            //list.Add(new Appointment(p, d, o, DateTime.Now, DateTime.Now, 5000, 401, 2, 5000, "No Discount", "dfgndf g.dj,mbgldf,gb;ldfgd", DateTime.Now, "cd"));
+            //list.Add(new Appointment(p, d, o, DateTime.Now, DateTime.Now, 5000, 401, 2, 5000, "No Discount","dfgndf g.dj,mbgldf,gb;ldfgd",DateTime.Now,"cd"));
+            //list.Add(new Appointment(p, d, o, DateTime.Now, DateTime.Now, 5000, 401, 2, 5000, "No Discount", "dfgndf g.dj,mbgldf,gb;ldfgd", DateTime.Now, "cd"));
+            //list.Add(new Appointment(p, d, o, DateTime.Now, DateTime.Now, 5000, 401, 2, 5000, "No Discount", "dfgndf g.dj,mbgldf,gb;ldfgd", DateTime.Now, "cd"));
+            //list.Add(new Appointment(p, d, o, DateTime.Now, DateTime.Now, 5000, 401, 2, 5000, "No Discount", "dfgndf g.dj,mbgldf,gb;ldfgd", DateTime.Now, "cd"));
+            //list.Add(new Appointment(p, d, o, DateTime.Now, DateTime.Now, 5000, 401, 2, 5000, "No Discount", "dfgndf g.dj,mbgldf,gb;ldfgd", DateTime.Now, "cd"));
+            //list.Add(new Appointment(p, d, o, DateTime.Now, DateTime.Now, 5000, 401, 2, 5000, "No Discount", "dfgndf g.dj,mbgldf,gb;ldfgd", DateTime.Now, "cd"));
+            //list.Add(new Appointment(p, d, o, DateTime.Now, DateTime.Now, 5000, 401, 2, 5000, "No Discount", "dfgndf g.dj,mbgldf,gb;ldfgd", DateTime.Now, "cd"));
+            //list.Add(new Appointment(p, d, o, DateTime.Now, DateTime.Now, 5000, 401, 2, 5000, "No Discount", "dfgndf g.dj,mbgldf,gb;ldfgd", DateTime.Now, "cd"));
+            //list.Add(new Appointment(p, d, o, DateTime.Now, DateTime.Now, 5000, 401, 2, 5000, "No Discount", "dfgndf g.dj,mbgldf,gb;ldfgd", DateTime.Now, "cd"));
+            //PrintAppointmentReceipt pr = new PrintAppointmentReceipt(p, list, "Add");
+            //PrintDoctorReceipt pr = new PrintDoctorReceipt(d, list);
             //pr.print();
             //Application.Run(pr);
-            
+
             Application.Run(new LoginUserForm());
         }
     }

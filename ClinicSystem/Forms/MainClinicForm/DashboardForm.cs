@@ -109,7 +109,7 @@ namespace ClinicSystem.MainClinic
                 next.Visible = false;
             }
             if (appList.Count > 0)
-            {      
+            {
                 for (int i = 0; i < appList.Count; i++)
                 {
                     Appointment a = appList[i];
@@ -369,7 +369,7 @@ namespace ClinicSystem.MainClinic
 
 
         Guna2Panel p;
-       
+
         private List<Guna2Panel> panels = new List<Guna2Panel>();
         private void setAppointmentStatus(object sender, EventArgs e)
         {
@@ -379,7 +379,7 @@ namespace ClinicSystem.MainClinic
             if (a != null)
             {
                 db.updateAppointmentStatus(a);
-                Guna2Panel panel = button.Parent as Guna2Panel; 
+                Guna2Panel panel = button.Parent as Guna2Panel;
                 if (panel != null)
                 {
                     Timer t = new Timer();
@@ -392,7 +392,8 @@ namespace ClinicSystem.MainClinic
                     if (missCount.Text.Equals("0"))
                     {
                         missCount.ForeColor = Color.Black;
-                    } else
+                    }
+                    else
                     {
                         missCount.ForeColor = Color.Red;
                     }
@@ -422,7 +423,7 @@ namespace ClinicSystem.MainClinic
 
         private void panelAdjust()
         {
-            int y = 0; 
+            int y = 0;
             foreach (Guna2Panel panel in panels)
             {
                 panel.Location = new Point(5, y + 5);
@@ -452,10 +453,10 @@ namespace ClinicSystem.MainClinic
                 p = null;
                 return;
             }
+
             p = new Guna2Panel();
+            p.FillColor = Color.FromArgb(111, 168, 166); 
             p.Size = new Size(settingP.Width + 230, 206);
-            p.FillColor = Color.FromArgb(111, 168, 166);
-            p.BorderRadius = 10;
             p.Location = new Point(settingP.Location.X - 230, settingP.Location.Y + settingP.Height - 10);
             p.AutoScroll = true;
             panel10.Controls.Add(p);
@@ -467,7 +468,7 @@ namespace ClinicSystem.MainClinic
                 Guna2Panel s = new Guna2Panel();
                 s.BorderColor = Color.LightGray;
                 s.BackColor = Color.Transparent;
-                s.Size = new Size(p.Width - 35, 75);
+                s.Size = new Size(p.Width - 25, 75);
                 s.BorderRadius = 10;
                 s.Location = new Point(5, y + 5);
                 s.FillColor = Color.FromArgb(233, 255, 252);

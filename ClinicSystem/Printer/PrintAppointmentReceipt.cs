@@ -74,7 +74,7 @@ namespace ClinicSystem
             Font rowFont = new Font("Arial", 10);
             Brush brush = Brushes.Black;
   
-            string[] headers = { "Appt.", "Room", "Operation", "Doctor", "   Start", "   End", "Ammount" };
+            string[] headers = { "Appt.", "Room", "Operation", "Doctor", "   Start", "    End", "Amount" };
             string[] headers1 = { " No.", "  No.", "   Name", " Name", "   Time", "   Time", "" };
             if (page != 1)
             {
@@ -93,7 +93,7 @@ namespace ClinicSystem
                 else if (i == 6) colWidth = col6;
                 else colWidth = defaultCol;
 
-                e.Graphics.FillRectangle(Brushes.Aqua, x, y, colWidth, rowHeight + 30);
+                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(183, 230, 222)), x, y, colWidth, rowHeight + 30);
                 e.Graphics.DrawLine(Pens.Black, x, y, x + colWidth, y);
                 e.Graphics.DrawLine(Pens.Black, x, y + (rowHeight + 30), x + colWidth, y + (rowHeight + 30));
                
@@ -163,7 +163,7 @@ namespace ClinicSystem
         {
             fullname = Capitalized(patient.Firstname) + "  " + Capitalized(patient.Middlename) + "  " + Capitalized(patient.Lastname);
             e.Graphics.DrawImage(image, 20, 20, 140, 140);
-            e.Graphics.DrawString("Quantum Care", new Font("Impact", 36, FontStyle.Bold | FontStyle.Italic | FontStyle.Underline), Brushes.Aqua, 140, 25);
+            e.Graphics.DrawString("Quantum Care", new Font("Impact", 36, FontStyle.Bold | FontStyle.Italic | FontStyle.Underline), Brushes.Black, 140, 25);
             e.Graphics.DrawString("506 J.P. Laurel Ave,", new Font("Sans-serif", 12, FontStyle.Regular), Brushes.Black, 145, 85);
             e.Graphics.DrawString("Poblacion District, Davao City", new Font("Sans-serif", 12, FontStyle.Regular), Brushes.Black, 145, 105);
 
