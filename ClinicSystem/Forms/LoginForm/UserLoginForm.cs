@@ -97,7 +97,7 @@ namespace ClinicSystem
 
             try
             {
-                if (string.IsNullOrWhiteSpace(Username.Text) || string.IsNullOrWhiteSpace(Password.Text) || Username.Text == "User Name" || Password.Text == "Password")
+                if (string.IsNullOrWhiteSpace(Username.Text) || string.IsNullOrWhiteSpace(Password.Text))
                 {
                     MessagePromp.LoginShowMessage(this, "Wrong username or Password", MessageBoxIcon.Error);
                     return;
