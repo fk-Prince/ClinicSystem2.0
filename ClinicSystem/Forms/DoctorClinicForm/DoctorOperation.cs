@@ -82,7 +82,7 @@ namespace ClinicSystem.Doctors
             Operation op = operationList.FirstOrDefault(o => operationCode.Equals(o.OperationCode));
            
 
-            bool success = db.insertSpecialized(doc, op);
+            bool success = db.insertDoctorOperation(doc, op);
             if (success)
             {
                 docOp[doc] = op;

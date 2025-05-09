@@ -47,7 +47,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1080, 668);
             this.panel2.TabIndex = 4;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint_1);
             // 
             // mySqlCommand1
             // 
@@ -112,7 +111,6 @@
             this.MinimumSize = new System.Drawing.Size(1080, 719);
             this.Name = "FormPatient";
             this.Text = "PatientForm";
-            this.Load += new System.EventHandler(this.FormPatient_Load);
             this.ResumeLayout(false);
 
         }

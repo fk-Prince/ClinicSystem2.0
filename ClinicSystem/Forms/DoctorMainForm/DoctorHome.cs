@@ -13,10 +13,20 @@ namespace ClinicSystem
 {
     public partial class DoctorHome : Form
     {
+        private DoctorRepository doctorRepository = new DoctorRepository();
+        private OperationRepository operationRepositroy = new OperationRepository();
+
+        private DataTable dt;   
         private Doctor dr;
         private List<Operation> operations = new List<Operation>();
-        private OperationRepository operationRepositroy = new OperationRepository();
-        private DataTable dt;
+
+        //UTILITY
+        private Guna2Panel slidePanel;
+        private int maxIndex = -1;
+        private int currentIndex = 0;
+        private int x = 0;
+        private int totalLeft = 0;
+        private int totalRight = 0;
         public DoctorHome(Doctor dr)
         {
             this.dr = dr;
@@ -26,22 +36,8 @@ namespace ClinicSystem
             dt.Columns.Add("Operation Name", typeof(string));
             dataGrid.DataSource = dt;
 
-            //logo_img.Parent = panel1;
-            //logo_img.BackColor = Color.Transparent;
-            //logo_img.SizeMode = PictureBoxSizeMode.StretchImage;
-
-            //lblDentC.Parent = panel1;
-            //lblQC.Parent = panel1;
-            //lblDentC.BackColor = Color.Transparent;
-            //lblQC.BackColor = Color.Transparent;
-            //lblDentC.BringToFront();
-            //lblQC.BringToFront();
-
-            //if (ClientSize.Width > 1500)
-            //{
-                displayTodayAppointment();
-            //}
-
+            displayTodayAppointment();
+            
             drImage.Image = (dr.Image == null) ? Properties.Resources.doctoruser : dr.Image;
             DoctorID.Text = dr.DoctorID.ToString();
             DoctorFullName.Text += dr.DoctorFirstName + "  " + dr.DoctorMiddleName + "  " + dr.DoctorLastName;
@@ -73,13 +69,6 @@ namespace ClinicSystem
                 dt.Rows.Add(op.OperationCode, op.OperationName);
             }
         }
-
-        private Guna2Panel slidePanel;
-        private int maxIndex = -1;
-        private int currentIndex = 0;
-        private int x = 0;
-        private int totalLeft = 0;
-        private int totalRight = 0;
 
         private void displayTodayAppointment()
         {
@@ -213,7 +202,7 @@ namespace ClinicSystem
             activeB.ForeColor = Color.White;
 
             string active = "Yes";
-            operationRepositroy.updateDoctorStatus(dr.DoctorID, active);
+            doctorRepository.updateDoctorStatus(dr.DoctorID, active);
         }
 
         private void inactiveB_Click(object sender, EventArgs e)
@@ -225,7 +214,7 @@ namespace ClinicSystem
             inactiveB.ForeColor = Color.White;
 
             string active = "No";   
-            operationRepositroy.updateDoctorStatus(dr.DoctorID, active);
+            doctorRepository.updateDoctorStatus(dr.DoctorID, active);
         }
 
         private void DoctorHome_Load(object sender, EventArgs e)

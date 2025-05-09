@@ -8,6 +8,7 @@ using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 using ClinicSystem.Appointments;
 using ClinicSystem.PatientForm;
+using ClinicSystem.Repository;
 using MySql.Data.MySqlClient;
 using MySqlX.XDevAPI;
 
@@ -16,7 +17,8 @@ namespace ClinicSystem.UserLoginForm
     public class DiscountChoicePromp : Panel
     {
         private static DiscountChoicePromp instance;
-        private AppointmentRepository db = new AppointmentRepository();
+        private AppointmentRepository appointmentRepository = new AppointmentRepository();
+        private DiscountRepository discountRepository = new DiscountRepository();
         private List<Appointment> appList;
         private List<Discount> discount;
         private Discount selectedDiscount = null;
@@ -35,7 +37,7 @@ namespace ClinicSystem.UserLoginForm
             this.appList = appList;
             this.staffid = staffid;
             this.patient = patient;
-            discount = db.getDiscounts();
+            discount = discountRepository.getDiscounts();
             Size = new Size(400,400);
             BackColor = Color.FromArgb(111, 168, 166);
             BorderStyle = BorderStyle.FixedSingle;
@@ -78,7 +80,7 @@ namespace ClinicSystem.UserLoginForm
                        "",DateTime.Now,"Upcoming"));
 
                 }
-                db.insertOnlyAppointment(newApp);
+                appointmentRepository.insertOnlyAppointment(newApp);
                 onConfirmCallback?.Invoke(true, newApp);
             }  
             else
@@ -93,7 +95,7 @@ namespace ClinicSystem.UserLoginForm
                          total, selectedDiscount.Discounttype,
                          "", DateTime.Now, "Upcoming"));
                 }  
-                db.insertPatientWithAppointment(staffid,patient,newApp);
+                appointmentRepository.insertPatientWithAppointment(staffid,patient,newApp);
                 onConfirmCallback?.Invoke(true, newApp);
             }
 

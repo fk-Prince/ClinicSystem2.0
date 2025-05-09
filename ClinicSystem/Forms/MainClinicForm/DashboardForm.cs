@@ -12,7 +12,8 @@ namespace ClinicSystem.MainClinic
 {
     public partial class DashboardForm : Form
     {
-        private ClinicRepository db = new ClinicRepository();
+        private ClinicRepository clinicRepository = new ClinicRepository();
+
         private int patientTotal = 0;
         private int patientCount = 0;
         private int doctorCount = 0;
@@ -34,9 +35,21 @@ namespace ClinicSystem.MainClinic
             InitializeComponent();
             displayAppointments();
             displayDoctorStats();
-            patientTotal = db.TotalPatientLastMonth();
-            doctorTotal = db.getDoctor();
-            totalEarnings = db.getEarnings();
+            patientTotal = clinicRepository.TotalPatientLastMonth();
+            doctorTotal = clinicRepository.getDoctor();
+            totalEarnings = clinicRepository.getEarnings();
+            double revenueratio = clinicRepository.getPercentageIncrease();
+            if (revenueratio < 0)
+            {
+                pictureRatio.Image = Properties.Resources.decreaseincome;
+                increase.ForeColor = Color.Red;
+            }
+            else
+            {
+                pictureRatio.Image = Properties.Resources.increaseincome;
+                increase.ForeColor = Color.Lime;
+            }
+            increase.Text = revenueratio.ToString() + "%";
             tbTotalEarniings.Text = "₱ " + totalEarnings.ToString();
             panel4.Region = Region.FromHrgn(dll.CreateRoundRectRgn(0, 0, panel4.Width, panel4.Height, 50, 50));
             panel8.Region = Region.FromHrgn(dll.CreateRoundRectRgn(0, 0, panel8.Width, panel8.Height, 50, 50));
@@ -55,8 +68,9 @@ namespace ClinicSystem.MainClinic
 
             totalPatient.Text = "0";
             totalDentist.Text = "0";
-            missCounter = db.getAppointmentCountMissed();
+            missCounter = clinicRepository.getAppointmentCountMissed();
             missCount.Text = missCounter.ToString();
+
             if (missCounter != 0)
             {
                 missCount.ForeColor = Color.Red;
@@ -72,7 +86,7 @@ namespace ClinicSystem.MainClinic
 
         private void displayDoctorStats()
         {
-            DoctorStats current = db.getDoctorStats();
+            DoctorStats current = clinicRepository.getDoctorStats();
             if (current != null)
             {
                 currentTP.Text = current.TotalPatient.ToString();
@@ -84,12 +98,11 @@ namespace ClinicSystem.MainClinic
                 currentdHired.Text = current.Doctor.DateHired.ToString("yyyy-MM-dd");
                 currentdImage.Image = current.Doctor.Image == null ? Properties.Resources.doctoruser : current.Doctor.Image;
             }
-            DoctorStats last = db.getDoctorStatsLast();
+            DoctorStats last = clinicRepository.getDoctorStatsLast();
             if (last != null)
             {
                 lastTP.Text = last.TotalPatient.ToString();
                 lastTA.Text = last.TotalAppointments.ToString();
-                //lastOS.Text = last.TotalOperations.ToString();
                 lastRC.Text = "₱ " + last.TotalRevenue.ToString("F2");
                 lastName.Text = $"Dr. {last.Doctor.DoctorFirstName} {last.Doctor.DoctorMiddleName} {last.Doctor.DoctorLastName}";
                 lastID.Text = last.Doctor.DoctorID.ToString();
@@ -100,7 +113,7 @@ namespace ClinicSystem.MainClinic
 
         private void displayAppointments()
         {
-            List<Appointment> appList = db.getTodayAppointment();
+            List<Appointment> appList = clinicRepository.getTodayAppointment();
             slidePanel = new Guna2Panel();
             int width = 360;
             int subpanelx = 0;
@@ -378,7 +391,7 @@ namespace ClinicSystem.MainClinic
             Appointment a = button.Tag as Appointment;
             if (a != null)
             {
-                db.updateAppointmentStatus(a);
+                clinicRepository.updateAppointmentStatus(a);
                 Guna2Panel panel = button.Parent as Guna2Panel;
                 if (panel != null)
                 {
@@ -438,7 +451,7 @@ namespace ClinicSystem.MainClinic
 
         private void notificationClicked(object sender, EventArgs e)
         {
-            List<Appointment> ap = db.getUpcomingAppointment();
+            List<Appointment> ap = clinicRepository.getUpcomingAppointment();
             if (ap.Count == 0)
             {
                 missCount.ForeColor = Color.Black;

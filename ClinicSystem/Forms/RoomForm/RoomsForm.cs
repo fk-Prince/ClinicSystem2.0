@@ -15,9 +15,7 @@ namespace ClinicSystem.Rooms
         private List<Room> roomList;
         private List<Room> roomType;
         private RoomRepository db = new RoomRepository();
-        private Room selected;
-        private bool isRoomPanel = false;
-        private bool isAddRoomShowing = false;
+
         private int x = -375;
         public RoomsForm()
         {
@@ -31,6 +29,9 @@ namespace ClinicSystem.Rooms
             }
             displayRooms(roomList, type);
             roomType.ForEach(room => comboRoomType.Items.Add(room.Roomtype));
+
+
+            //RESIZE 
             int y = (ClientSize.Height - addRoomPanel.Height) / 2;
             if (ClientSize.Height < 1080)
             {

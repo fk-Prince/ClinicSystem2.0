@@ -14,8 +14,6 @@ namespace ClinicSystem.Appointments
         private List<Appointment> activeAppointments = new List<Appointment>();
         private AppointmentRepository appointmentRepository = new AppointmentRepository();
         private Appointment selectedAppointment;
-        //private List<Room> rooms = new List<Room>();
-
         public RescheduleForm()
         {
             InitializeComponent();

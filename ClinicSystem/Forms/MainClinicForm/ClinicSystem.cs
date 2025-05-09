@@ -76,7 +76,7 @@ namespace ClinicSystem
 
         private void appointmentButton_Click(object sender, EventArgs e)
         {
-            AppointmentForm appointmentForm = new AppointmentForm(staff);
+            AppointmentForm appointmentForm = new AppointmentForm();
             LoadForm(appointmentForm);
         }
 

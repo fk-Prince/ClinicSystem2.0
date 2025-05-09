@@ -16,13 +16,13 @@ namespace ClinicSystem
 {
     public partial class DoctorViewPatient : Form
     {
+
+        private DoctorRepository doctorRepository = new DoctorRepository();   
+
         private List<Appointment> patientAppointments;
-        private DoctorRepository db = new DoctorRepository();
-        //private DataGridViewRow lastSelectedRow = null;
         private DataTable dt;
         private Doctor dr;
         private Appointment selectedPatient = null;
-
         private int limitCharacter = 200;
         private List<Appointment> filtered = new List<Appointment>();
         private Appointment selectedAppointment;
@@ -38,7 +38,7 @@ namespace ClinicSystem
             dt.Columns.Add("Gender", typeof(string));
             dt.Columns.Add("Age", typeof(int));
             dt.Columns.Add("Birth-Date", typeof(DateTime));
-            patientAppointments = db.getPatients(dr.DoctorID);
+            patientAppointments = doctorRepository.getPatientByDoctor(dr.DoctorID);
             addRows(patientAppointments);
             dataGrid.DataSource = dt;
             dataGrid.Columns["Birth-Date"].DefaultCellStyle.Format = "yyyy-MM-dd";
@@ -162,7 +162,7 @@ namespace ClinicSystem
                     tbStartTime.Text = app.StartTime.ToString("yyyy-MM-dd hh:mm:ss tt");
                     tbEndTime.Text = app.EndTime.ToString("yyyy-MM-dd hh:mm:ss tt");
                     selectedAppointment = app;
-                    if (app.Status.Equals("Upcoming", StringComparison.OrdinalIgnoreCase))
+                    if (!app.Status.Equals("Discharged", StringComparison.OrdinalIgnoreCase) || !app.Status.Equals("Reappointment", StringComparison.OrdinalIgnoreCase))
                     {
                         guna2Button4.Visible = true;
                     } else
@@ -299,7 +299,7 @@ namespace ClinicSystem
                 selectedAppointment.BookingDate,
                 selectedAppointment.Status);
 
-            bool success = db.setDiagnosis(updatedSchedule);
+            bool success = doctorRepository.setDiagnosis(updatedSchedule);
             if (success)
             {
                 for (int i = 0; i < filtered.Count; i++)
@@ -381,7 +381,7 @@ namespace ClinicSystem
 
             int appointmentDetailNo = int.Parse(appointmentDetailNoCombo.SelectedItem.ToString());
 
-            if (db.setComplete(appointmentDetailNo))
+            if (doctorRepository.setPatientDischarged(appointmentDetailNo))
             {
                 MessagePromp.MainShowMessage(this, "Succefully Discharged .", MessageBoxIcon.Information);
                 guna2Button4.Visible = false;

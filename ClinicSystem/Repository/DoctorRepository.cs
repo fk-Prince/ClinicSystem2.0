@@ -52,7 +52,7 @@ namespace DoctorClinic
             }
             return todayAppointment;
         }
-        public List<Appointment> getPatients(string doctorID)
+        public List<Appointment> getPatientByDoctor(string doctorID)
         {
             List<Appointment> appointments = new List<Appointment>();
             try
@@ -84,7 +84,6 @@ namespace DoctorClinic
             }
             return appointments;
         }
-
         public bool setDiagnosis(Appointment updatedSchedule)
         {
             try
@@ -110,7 +109,6 @@ namespace DoctorClinic
             }
             return false;
         }
-
         public List<Doctor> getDoctors()
         {
             List<Doctor> doctorList = new List<Doctor>();
@@ -138,8 +136,40 @@ namespace DoctorClinic
             }
             return doctorList;
         }
-
-    
+        public List<Doctor> getDoctorsByOperation(Operation operation)
+        {
+            List<Doctor> doctorList = new List<Doctor>();
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                {
+                    conn.Open();
+                    string query = @"
+                        SELECT *, doctor_tbl.* FROM doctor_operation_mm_tbl
+                        LEFT JOIN doctor_tbl 
+                        ON doctor_operation_mm_tbl.DoctorID = doctor_tbl.DoctorID
+                        WHERE operationcode = @operationcode AND doctor_tbl.Active = 'Yes' 
+                        ";
+                    using (MySqlCommand command = new MySqlCommand(query, conn))
+                    {
+                        command.Parameters.AddWithValue("@operationcode", operation.OperationCode);
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                Doctor doctor = EntityMapping.GetDoctor(reader);
+                                doctorList.Add(doctor);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (MySqlException e)
+            {
+                MessageBox.Show("Error from getDoctors DB" + e.Message);
+            }
+            return doctorList;
+        }
         public bool AddDoctor(Doctor doctor)
         {
             try
@@ -205,7 +235,6 @@ namespace DoctorClinic
             
             return false;
         }   
-
         public string getDoctorLastID()
         {       
             try
@@ -241,7 +270,6 @@ namespace DoctorClinic
             if (number < 1000000) return number.ToString("D6");
             else return number.ToString();
         }
-
         public Doctor doctorLogin(string doctorid, string pin)
         {
 
@@ -282,7 +310,6 @@ namespace DoctorClinic
             }
             return null;
         }
-
         public Doctor doctorScanned(string rfid)
         {
             try
@@ -311,8 +338,7 @@ namespace DoctorClinic
             }
             return null;
         }
-
-        public bool setComplete(int appointmentDetailNo)
+        public bool setPatientDischarged(int appointmentDetailNo)
         {
             try
             {
@@ -333,6 +359,28 @@ namespace DoctorClinic
                 MessageBox.Show("Error on setComplete() db" + ex.Message);
             }
             return false;
+        }
+        public void updateDoctorStatus(string doctorID, string active)
+        {
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                {
+                    conn.Open();
+                    string query =
+                        "UPDATE doctor_tbl SET Active = @Active WHERE doctorid = @doctorid";
+                    using (MySqlCommand command = new MySqlCommand(query, conn))
+                    {
+                        command.Parameters.AddWithValue("@Active", active);
+                        command.Parameters.AddWithValue("@doctorId", doctorID);
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("ERROR FROM insertSpecialized() DB " + ex.Message);
+            }
         }
     }
 }

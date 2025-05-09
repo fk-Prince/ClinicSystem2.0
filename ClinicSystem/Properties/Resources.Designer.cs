@@ -183,6 +183,16 @@ namespace ClinicSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap decreaseincome {
+            get {
+                object obj = ResourceManager.GetObject("decreaseincome", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap dentisttt {
             get {
                 object obj = ResourceManager.GetObject("dentisttt", resourceCulture);
@@ -306,6 +316,16 @@ namespace ClinicSystem.Properties {
         internal static System.Drawing.Bitmap home {
             get {
                 object obj = ResourceManager.GetObject("home", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap increaseincome {
+            get {
+                object obj = ResourceManager.GetObject("increaseincome", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

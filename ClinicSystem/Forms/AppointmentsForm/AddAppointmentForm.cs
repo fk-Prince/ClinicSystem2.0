@@ -7,14 +7,18 @@ using System.Windows.Forms;
 using ClinicSystem.PatientForm;
 using ClinicSystem.Rooms;
 using ClinicSystem.UserLoginForm;
-using static System.Net.Mime.MediaTypeNames;
+using DoctorClinic;
+
 
 namespace ClinicSystem.Appointments
 {
     public partial class AddAppointmentForm : Form
     {
-        private AppointmentRepository appointmentRepository = new AppointmentRepository();   
-
+        private AppointmentRepository appointmentRepository = new AppointmentRepository();
+        private RoomRepository roomRepository = new RoomRepository();
+        private PatientRepository patientRepository = new PatientRepository();
+        private DoctorRepository doctorRepository = new DoctorRepository();
+        private OperationRepository operationRepository = new OperationRepository();
 
         private List<Patient> patientList;
         private List<Room> rooms;
@@ -30,13 +34,16 @@ namespace ClinicSystem.Appointments
         public AddAppointmentForm()
         {
             InitializeComponent();
-            patientList = appointmentRepository.getPatients();
+            patientList = patientRepository.getPatient();
+            rooms = roomRepository.getRooms();
+            operationList = operationRepository.getOperations();
+
             foreach (Patient patient in patientList)
             {
                 comboPatientID.Items.Add(patient.Patientid);
             }
-            rooms = appointmentRepository.getRoomNo();
-            operationList = appointmentRepository.getOperations();
+
+
             scheduleDate.Value = DateTime.Now;
         }
         private void close(object sender, EventArgs e)
@@ -79,7 +86,7 @@ namespace ClinicSystem.Appointments
             startC.Enabled = true;
             comboDoctor.Items.Clear();
             comboRoom.Items.Clear();
-            doctorList = appointmentRepository.getDoctors(selectedOperation);
+            doctorList = doctorRepository.getDoctorsByOperation(selectedOperation);
             if (doctorList != null && doctorList.Count != 0)
             {
                 foreach (Doctor doctor in doctorList)

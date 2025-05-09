@@ -72,7 +72,12 @@ namespace ClinicSystem.MainClinic
                 using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
                 {
                     conn.Open();
-                    string query = "SELECT SUM(totalWithDiscount) as EARNINGS FROM appointmentdetails_tbl";
+                    string query = @"
+                                    SELECT 
+                                        COALESCE(SUM(ad.totalWithDiscount), 0) + COALESCE(SUM(p.Amount), 0) AS Earnings
+                                    FROM appointmentdetails_tbl ad
+                                    LEFT JOIN penaltyappointment_tbl p 
+                                        ON ad.AppointmentDetailNo = p.AppointmentDetailNo";
                     using (MySqlCommand command = new MySqlCommand(query, conn))
                     {
                         using (MySqlDataReader reader = command.ExecuteReader())
@@ -135,9 +140,23 @@ namespace ClinicSystem.MainClinic
                 using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
                 {
                     conn.Open();
-                    using (MySqlCommand command = new MySqlCommand("GetMonthDoctorStats", conn))
-                    {
-                        command.CommandType = CommandType.StoredProcedure;           
+                    string query = @"
+                                SELECT 
+                                COUNT(patientappointment_tbl.appointmentdetailno) AS totalAppointment,
+                                COUNT(DISTINCT patientappointment_tbl.patientid) AS totalPatient,
+                                doctor_tbl.*,
+                                sum(totalWithDiscount) as REVENUE
+                                FROM patientappointment_tbl
+                                LEFT JOIN appointmentdetails_tbl
+                                ON appointmentdetails_tbl.appointmentdetailno = patientappointment_tbl.appointmentdetailno
+                                LEFT JOIN doctor_tbl ON patientappointment_tbl.doctorid = doctor_tbl.doctorid
+                                WHERE appointmentdetails_tbl.BookingDate BETWEEN DATE_FORMAT(CURRENT_DATE, '%Y-%m-01') AND LAST_DAY(CURRENT_DATE)
+                                GROUP BY doctor_tbl.doctorid
+                                ORDER BY revenue DESC
+                                LIMIT 1
+                                ";
+                    using (MySqlCommand command = new MySqlCommand(query, conn))
+                    {         
                         using (MySqlDataReader reader = command.ExecuteReader())
                         {
                             while (reader.Read())
@@ -145,11 +164,8 @@ namespace ClinicSystem.MainClinic
                                 Doctor doctor = EntityMapping.GetDoctor(reader);
                                 int totalApp = reader.GetInt32("totalAppointment");
                                 int totalPat = reader.GetInt32("totalPatient");
-                                if (reader.NextResult() && reader.Read())
-                                {         
-                                    double revenue = reader.GetDouble("REVENUE");
-                                    return new DoctorStats(doctor, totalPat, totalApp, revenue);
-                                }                   
+                                double revenue = reader.GetDouble("REVENUE");
+                                return new DoctorStats(doctor, totalPat, totalApp, revenue);
                             }
                         }
                     }
@@ -169,9 +185,23 @@ namespace ClinicSystem.MainClinic
                 using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
                 {
                     conn.Open();
-                    using (MySqlCommand command = new MySqlCommand("GetLastMonthDoctorStats", conn))
+                    string query = @"
+                                SELECT 
+                                COUNT(patientappointment_tbl.appointmentdetailno) AS totalAppointment,
+                                COUNT(DISTINCT patientappointment_tbl.patientid) AS totalPatient,
+                                doctor_tbl.*,
+                                sum(totalWithDiscount) as REVENUE
+                                FROM patientappointment_tbl
+                                LEFT JOIN appointmentdetails_tbl
+                                ON appointmentdetails_tbl.appointmentdetailno = patientappointment_tbl.appointmentdetailno
+                                LEFT JOIN doctor_tbl ON patientappointment_tbl.doctorid = doctor_tbl.doctorid
+                                WHERE appointmentdetails_tbl.BookingDate BETWEEN DATE_FORMAT(CURRENT_DATE - INTERVAL 1 MONTH, '%Y-%m-01') AND LAST_DAY(CURRENT_DATE - INTERVAL 1 MONTH)
+                                GROUP BY doctor_tbl.doctorid
+                                ORDER BY revenue DESC
+                                LIMIT 1 
+                            ";
+                    using (MySqlCommand command = new MySqlCommand(query, conn))
                     {
-                        command.CommandType = CommandType.StoredProcedure;
                         using (MySqlDataReader reader = command.ExecuteReader())
                         {
                             while (reader.Read())
@@ -179,12 +209,8 @@ namespace ClinicSystem.MainClinic
                                 Doctor doctor = EntityMapping.GetDoctor(reader);
                                 int totalApp = reader.GetInt32("totalAppointment");
                                 int totalPat = reader.GetInt32("totalPatient");
-
-                                if (reader.NextResult() && reader.Read())
-                                {
-                                    double revenue = reader.GetDouble("REVENUE");
-                                    return new DoctorStats(doctor, totalPat, totalApp, revenue);
-                                }
+                                double revenue = reader.GetDouble("REVENUE");
+                                return new DoctorStats(doctor, totalPat, totalApp, revenue);
                             }
                         }
                     }
@@ -316,6 +342,60 @@ namespace ClinicSystem.MainClinic
             {
                 MessageBox.Show("Error on updateAppointmentStatus() db" + ex.Message);
             }
+            return 0;
+        }
+
+        public double getPercentageIncrease()
+        {
+            try
+            {
+
+
+                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                {
+                    conn.Open();
+                    string query = @"
+                                 SELECT 
+                                 COALESCE(currentmonth.Revenue, 0) AS currentRevenue,
+                                 COALESCE(lastmonth.Revenue, 0) AS lastRevenue,
+                                    CASE 
+                                        WHEN COALESCE(lastmonth.Revenue, 0) = 0 THEN 0
+                                        ELSE ROUND(((currentmonth.Revenue - lastmonth.Revenue) / lastmonth.Revenue) * 100, 2)
+                                    END AS percentage
+                                 FROM 
+                                    (
+                                        SELECT 
+                                        COALESCE(SUM(totalwithdiscount), 0) + COALESCE(SUM(penaltyappointment_tbl.amount), 0) AS Revenue
+                                        FROM appointmentdetails_tbl
+                                        LEFT JOIN penaltyappointment_tbl 
+                                        ON appointmentdetails_tbl.appointmentdetailno = penaltyappointment_tbl.appointmentdetailno
+                                        WHERE appointmentdetails_tbl.BookingDate BETWEEN DATE_FORMAT(CURRENT_DATE, '%Y-%m-01') AND LAST_DAY(CURRENT_DATE)
+                                    ) AS currentmonth,
+                                    (
+                                        SELECT 
+                                        COALESCE(SUM(totalwithdiscount), 0) + COALESCE(SUM(penaltyappointment_tbl.amount), 0) AS Revenue
+                                        FROM appointmentdetails_tbl
+                                        LEFT JOIN penaltyappointment_tbl 
+                                        ON appointmentdetails_tbl.appointmentdetailno = penaltyappointment_tbl.appointmentdetailno
+                                        WHERE appointmentdetails_tbl.BookingDate 
+                                        BETWEEN DATE_FORMAT(CURRENT_DATE - INTERVAL 1 MONTH, '%Y-%m-01') AND LAST_DAY(CURRENT_DATE - INTERVAL 1 MONTH)
+                                    ) AS lastmonth
+                                ";
+                    //StartSchedule < NOW() AND Status = 'Pending'
+                    using (MySqlCommand command = new MySqlCommand(query, conn))
+                    {
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            return reader.Read() ? reader.GetDouble("percentage") : 0;
+                        }
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error on getPatients() db" + ex.Message);
+            }
+
             return 0;
         }
     }

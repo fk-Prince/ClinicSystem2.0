@@ -17,11 +17,11 @@ namespace ClinicSystem.Doctors
     public partial class ViewDoctor : Form
     {
         private List<Doctor> doctorList;
-        private DoctorRepository db = new DoctorRepository();
+        private DoctorRepository doctorRepository = new DoctorRepository();
         public ViewDoctor(UserLoginForm.Staff staff)
         {
             InitializeComponent();
-            doctorList = db.getDoctors();
+            doctorList = doctorRepository.getDoctors();
             string type = "";
             if (doctorList.Count == 0)
             {

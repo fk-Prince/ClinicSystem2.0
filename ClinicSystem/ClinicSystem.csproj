@@ -146,6 +146,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entity\DoctorStats.cs" />
+    <Compile Include="Entity\PenaltyAppointment.cs" />
     <Compile Include="Forms\AppointmentsForm\AddAppointmentForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -200,6 +201,7 @@
     <Compile Include="Forms\DoctorMainForm\DoctorMainForm.Designer.cs">
       <DependentUpon>DoctorMainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Repository\DiscountRepository.cs" />
     <Compile Include="Repository\DoctorRepository.cs" />
     <Compile Include="Forms\DoctorMainForm\DoctorHome.cs">
       <SubType>Form</SubType>
@@ -501,6 +503,8 @@
     <None Include="Resources\checked2.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\decreaseincome.png" />
+    <None Include="Resources\increaseincome.png" />
     <None Include="Resources\right.png" />
     <None Include="Resources\left.png" />
     <None Include="Resources\rfid2.png" />

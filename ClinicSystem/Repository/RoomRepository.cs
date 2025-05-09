@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Data.Common;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,7 @@ namespace ClinicSystem.Rooms
 {
     public class RoomRepository
     {
-        private string driver = "server=localhost;username=root;pwd=root;database=db_clinic";
+       
         public List<Room> getRooms()
         {
             List<Room> roomList = new List<Room>(); 
@@ -92,5 +93,7 @@ namespace ClinicSystem.Rooms
             }
             return roomList;
         }
+
+       
     }
 }

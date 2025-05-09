@@ -12,6 +12,7 @@ using ClinicSystem.PatientForm;
 using ClinicSystem.Appointments;
 using ClinicSystem.UserLoginForm;
 using TheArtOfDevHtmlRenderer.Adapters;
+using ClinicSystem.Repository;
 
 namespace ClinicSystem
 {
@@ -31,6 +32,8 @@ namespace ClinicSystem
         private static int page = 1;
         private static int lastRead = 0;
         private string type;
+
+        private Appointment selected;
         public PrintAppointmentReceipt(Patient patient, List<Appointment> app, string type)
         {
             InitializeComponent();
@@ -38,7 +41,10 @@ namespace ClinicSystem
             this.type = type;
             this.patient = patient;
 
-
+            if (type.Equals("Penalty"))
+            {
+                selected = app[0];
+            }
         }
 
         internal void print()
@@ -136,8 +142,6 @@ namespace ClinicSystem
 
                 }
 
-
-
             }
             //drawTotal(e, y + 70);  
         }
@@ -156,18 +160,17 @@ namespace ClinicSystem
             {
                 e.Graphics.DrawString("Appointment", new Font("Impact", 20, FontStyle.Bold), Brushes.Black, 650, 60);
                 e.Graphics.DrawString("Details", new Font("Impact", 20, FontStyle.Bold), Brushes.Black, 720, 95);
-                e.Graphics.DrawString($"Date of Scheduling: {dateAp}", new Font("Sans-serif", 12), Brushes.Black, 30, 310);
-                e.Graphics.DrawString($"Time of Scheduling: {timeAp}", new Font("Sans-serif", 12), Brushes.Black, 30, 340);
+
             }
-            else if (type.Equals("Reappointment"))
+            else if (type.Equals("Reappointment") || type.Equals("Penalty"))
             {
                 e.Graphics.DrawString("Reschedule", new Font("Impact", 20, FontStyle.Bold), Brushes.Black, 660, 60);
                 e.Graphics.DrawString("Appointment", new Font("Impact", 20, FontStyle.Bold), Brushes.Black, 650, 95);
                 e.Graphics.DrawString("Details", new Font("Impact", 20, FontStyle.Bold), Brushes.Black, 720, 130);
-                e.Graphics.DrawString($"Date of Rescheduling: {dateAp}", new Font("Sans-serif", 12), Brushes.Black, 30, 310);
-                e.Graphics.DrawString($"Time of Rescheduling: {timeAp}", new Font("Sans-serif", 12), Brushes.Black, 30, 340);
             }
-
+           
+            e.Graphics.DrawString($"Date Issued: {dateAp}", new Font("Sans-serif", 12), Brushes.Black, 30, 310);
+            e.Graphics.DrawString($"Time Issued: {timeAp}", new Font("Sans-serif", 12), Brushes.Black, 30, 340);
 
             e.Graphics.DrawString($"Patient Name: {fullname}", new Font("Sans-serif", 12, FontStyle.Bold), Brushes.Black, 30, 250);
             e.Graphics.DrawString($"Age: {patient.Age}", new Font("Sans-serif", 12), Brushes.Black, 30, 280);
@@ -176,29 +179,45 @@ namespace ClinicSystem
 
         private void drawTotal(PrintPageEventArgs e, float y)
         {
-            AppointmentRepository db = new AppointmentRepository();
-            string type = app.FirstOrDefault().Discounttype;
-            Discount d = db.getDiscountsbyType(type);
+            DiscountRepository discountRepotisory = new DiscountRepository();
+            string discountType = app.FirstOrDefault().Discounttype;
+            Discount d = discountRepotisory.getDiscountsbyType(discountType);
 
             Graphics graphics = Graphics.FromHwnd(IntPtr.Zero);
             Font font = new Font("Sans-serif", 14, FontStyle.Regular);
-            string stotal = app.Sum(a => a.SubTotal).ToString("F2");
-            SizeF size1 = graphics.MeasureString($"₱  {stotal}", font);
-            e.Graphics.DrawString("Subtotal:", font, Brushes.Black, 410, y);
-            e.Graphics.DrawString($"₱  {stotal}", font, Brushes.Black, 820 - size1.Width, y);
 
+           
             y += 30;
-            string discount = app.Sum(a => a.SubTotal * d.DiscountRate).ToString("F2");
-            SizeF size2 = graphics.MeasureString($"₱  {discount}", font);
-            e.Graphics.DrawString("Discounted:", font, Brushes.Black, 410, y);
-            e.Graphics.DrawString($"₱  {discount}", font, Brushes.Black, 820 - size2.Width, y);
+            if (type.Equals("Penalty"))
+            {
 
-            y += 30;
-            string total = app.Sum(a => a.SubTotal - (a.SubTotal * d.DiscountRate)).ToString("F2");
-            Font tfont = new Font("Sans-serif", 14, FontStyle.Bold);
-            SizeF size3 = graphics.MeasureString($"₱ {total}", tfont);
-            e.Graphics.DrawString("Total Ammount:", tfont, Brushes.Black, 410, y);
-            e.Graphics.DrawString($"₱ {total}", tfont, Brushes.Black, 820 - size3.Width, y);
+                SizeF size2 = graphics.MeasureString($"₱  {selected.PenaltyAppointment.PenaltyAmount.ToString("F2")}", font);
+                e.Graphics.DrawString("Penalty Fee:", font, Brushes.Black, 410, y);
+                e.Graphics.DrawString($"₱  {selected.PenaltyAppointment.PenaltyAmount.ToString("F2")}", font, Brushes.Black, 820 - size2.Width, y);   
+            } 
+            else
+            {
+                string stotal = app.Sum(a => a.SubTotal).ToString("F2");
+                SizeF size1 = graphics.MeasureString($"₱  {stotal}", font);
+                e.Graphics.DrawString("Subtotal:", font, Brushes.Black, 410, y);
+                e.Graphics.DrawString($"₱  {stotal}", font, Brushes.Black, 820 - size1.Width, y);
+
+                y += 30;
+                string discount = app.Sum(a => a.SubTotal * d.DiscountRate).ToString("F2");
+                SizeF size2 = graphics.MeasureString($"₱  {discount}", font);
+                e.Graphics.DrawString("Discounted:", font, Brushes.Black, 410, y);
+                e.Graphics.DrawString($"₱  {discount}", font, Brushes.Black, 820 - size2.Width, y);
+                y += 30;
+                string total = app.Sum(a => a.SubTotal - (a.SubTotal * d.DiscountRate)).ToString("F2");
+                y += 30;
+                Font tfont = new Font("Sans-serif", 14, FontStyle.Bold);
+                SizeF size3 = graphics.MeasureString($"₱ {total}", tfont);
+                e.Graphics.DrawString("Total Ammount:", tfont, Brushes.Black, 410, y);
+                e.Graphics.DrawString($"₱ {total}", tfont, Brushes.Black, 820 - size3.Width, y);
+
+            }
+
+       
 
         }
 

@@ -10,11 +10,9 @@ namespace ClinicSystem
 {
     public partial class AppointmentForm : Form
     {
-        private Staff staff;
         private Guna2Button lastButtonClicked;
-        public AppointmentForm(Staff staff)
+        public AppointmentForm()
         {
-            this.staff = staff;
             InitializeComponent();
 
             SetButtonColor(allAppointmentB);

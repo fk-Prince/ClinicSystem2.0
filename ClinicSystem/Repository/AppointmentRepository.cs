@@ -13,34 +13,6 @@ namespace ClinicSystem.Appointments
 {
     public class AppointmentRepository
     {
-        // List Rooms
-        public List<Room> getRoomNo()
-        {
-            List<Room> rooms = new List<Room>();
-            try
-            {
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
-                {
-                    conn.Open();
-                    using (MySqlCommand command = new MySqlCommand("SELECT * FROM Rooms_tbl", conn))
-                    {
-                        using (MySqlDataReader reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                Room room = new Room(reader.GetInt32("RoomNo"), reader["Roomtype"].ToString());
-                                rooms.Add(room);
-                            }
-                        }
-                    }               
-                }         
-            }
-            catch (MySqlException e)
-            {
-                MessageBox.Show("Error from getRoomNo DB" + e.Message);
-            }
-            return rooms;
-        }
 
         // List of appointment of doctor
         public List<Appointment> getAppointmentsbyDoctor(Doctor dr)
@@ -82,65 +54,6 @@ namespace ClinicSystem.Appointments
             }
 
             return list;
-        }
-
-        // Discount
-        public List<Discount> getDiscounts()
-        {
-            List<Discount> list = new List<Discount>();
-            try
-            {
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
-                {
-                    conn.Open();
-
-                    using (MySqlCommand command = new MySqlCommand("SELECT * FROM discount_tbl", conn))
-                    {
-                        using (MySqlDataReader reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                Discount discount = EntityMapping.GetDiscount(reader);
-                                list.Add(discount);
-                            }
-                        }
-                    }
-                }
-            }
-            catch (MySqlException ex)
-            {
-                MessageBox.Show("ERROR ON getDiscount()" + ex.Message);
-            }
-            return list;
-        }
-
-        // Discount
-        public Discount getDiscountsbyType(string type)
-        {
-           
-            try
-            {
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
-                {
-                    conn.Open();
-                    using (MySqlCommand command = new MySqlCommand("SELECT * FROM discount_tbl WHERE discounttype = @discounttype", conn))
-                    {
-                        command.Parameters.AddWithValue("discounttype", type);
-                        using (MySqlDataReader reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                return EntityMapping.GetDiscount(reader);
-                            }
-                        }
-                    }
-                }
-            }
-            catch (MySqlException ex)
-            {
-                MessageBox.Show("ERROR ON getDiscount()" + ex.Message);
-            }
-            return null;
         }
 
         // Insert appointment
@@ -219,35 +132,7 @@ namespace ClinicSystem.Appointments
                 MessageBox.Show("ERROR on insertAppointmentDetails() " + ex.Message);
             }
         }
-
-        // Patient List
-        public List<Patient> getPatients()
-        {
-            List<Patient> patients = new List<Patient>();
-            try
-            {
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
-                {
-                    conn.Open();
-                    using (MySqlCommand command = new MySqlCommand("SELECT * FROM patient_tbl", conn))
-                    {
-                        using (MySqlDataReader reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                Patient patient = EntityMapping.GetPatient(reader);
-                                patients.Add(patient);
-                            }
-                        }
-                    }
-                }
-            }
-            catch (MySqlException ex)
-            {
-                MessageBox.Show("error from getPatients() db " + ex.Message);
-            }
-            return patients;
-        }
+  
 
         // Last Appointment Detail No
         public string getAppointmentDetail()
@@ -274,72 +159,6 @@ namespace ClinicSystem.Appointments
             }
             return "0";
         }
-
-        // Doctor List by Operation 
-        public List<Doctor> getDoctors(Operation operation)
-        {
-            List<Doctor> doctorList = new List<Doctor>();
-            try
-            {
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
-                {
-                    conn.Open();
-                    string query = @"
-                        SELECT *, doctor_tbl.* FROM doctor_operation_mm_tbl
-                        LEFT JOIN doctor_tbl 
-                        ON doctor_operation_mm_tbl.DoctorID = doctor_tbl.DoctorID
-                        WHERE operationcode = @operationcode AND doctor_tbl.Active = 'Yes' 
-                        ";
-                    using (MySqlCommand command = new MySqlCommand(query, conn))
-                    {
-                        command.Parameters.AddWithValue("@operationcode", operation.OperationCode);
-                        using (MySqlDataReader reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                Doctor doctor = EntityMapping.GetDoctor(reader);
-                                doctorList.Add(doctor);
-                            }
-                        }
-                    }
-                }
-            }
-            catch (MySqlException e)
-            {
-                MessageBox.Show("Error from getDoctors DB" + e.Message);
-            }
-            return doctorList;
-        }
-
-        // Operaetion List
-        public List<Operation> getOperations()
-        {
-            List<Operation> operations = new List<Operation>();
-            try
-            {
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
-                {
-                    conn.Open();
-                    using (MySqlCommand command = new MySqlCommand("SELECT * FROM Operation_Tbl", conn))
-                    {
-                        using (MySqlDataReader reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                Operation operation = EntityMapping.GetOperation(reader);
-                                operations.Add(operation);
-                            }
-                        }
-                    }
-                }
-            }
-            catch (MySqlException e)
-            {
-                MessageBox.Show("Error from getOperations DB" + e.Message);
-            }
-            return operations;
-        }
-
 
         // Appointment List
         public List<Appointment> getAppointment()
@@ -656,5 +475,95 @@ namespace ClinicSystem.Appointments
             }
         }
 
+        public List<Appointment> getMissedAppointments()
+        {
+            List<Appointment> miseed = new List<Appointment>();
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                {
+                    conn.Open();
+
+                    string query = @"
+                            SELECT * FROM patientappointment_tbl 
+                                LEFT JOIN patient_tbl ON patientappointment_tbl.patientID = patient_tbl.PatientID 
+                                LEFT JOIN Operation_tbl ON patientappointment_tbl.OperationCode = Operation_tbl.OperationCode
+                                LEFT JOIN Doctor_tbl ON patientappointment_tbl.DoctorID = Doctor_tbl.DoctorID
+                                LEFT JOIN appointmentdetails_tbl ON patientappointment_tbl.appointmentdetailNo = appointmentdetails_tbl.appointmentdetailNo
+                                WHERE Status = 'Absent'";
+
+                    using (MySqlCommand command = new MySqlCommand(query, conn))
+                    {
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                miseed.Add(EntityMapping.GetAppointment(reader));
+                            }
+                        }
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error on getMissedAppointments() DB " + ex.Message);
+            }
+            return miseed;
+        }
+
+        public bool penaltyAppointment(Appointment app)
+        {
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                {
+                    conn.Open();
+                    string query = @"UPDATE patientAppointment_tbl 
+                                 SET `Status` = 'Reappointment', `StartSchedule` = @StartSchedule, `EndSchedule` = @EndSchedule 
+                                WHERE AppointmentDetailNo = @AppointmentDetailNo";
+                    using (MySqlCommand command = new MySqlCommand(query, conn))
+                    {
+                        command.Parameters.AddWithValue("@AppointmentDetailNo", app.AppointmentDetailNo);
+                        command.Parameters.AddWithValue("@StartSchedule", app.StartTime);
+                        command.Parameters.AddWithValue("@EndSchedule", app.EndTime);
+                        command.ExecuteNonQuery();
+                        insertPenalty(app);
+                        return true;
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error from penaltyAppointment() DB" + ex.Message);
+            }
+            return false;
+        }
+
+        private void insertPenalty(Appointment app)
+        {
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                {
+                    conn.Open();
+                    string query = @"
+                            INSERT INTO penaltyappointment_tbl (AppointmentDetailNo, PenaltyType, Amount, Reason, DateIssued) 
+                            VALUES (@AppointmentDetailNo, @PenaltyType, @Amount, @Reason, @DateIssued)";
+                    using (MySqlCommand command = new MySqlCommand(query, conn))
+                    {
+                        command.Parameters.AddWithValue("@AppointmentDetailNo", app.AppointmentDetailNo);
+                        command.Parameters.AddWithValue("@Amount", app.PenaltyAppointment.PenaltyAmount);
+                        command.Parameters.AddWithValue("@Reason", app.PenaltyAppointment.PenaltyReason);
+                        command.Parameters.AddWithValue("@DateIssued", app.PenaltyAppointment.PenaltyDate);
+                        command.Parameters.AddWithValue("@PenaltyType", app.PenaltyAppointment.PenaltyType);
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error from insertPenalty() DB" + ex.Message);
+            }
+        }
     }
 }

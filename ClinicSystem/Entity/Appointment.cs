@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ClinicSystem.Entity;
 using ClinicSystem.PatientForm;
 
 namespace ClinicSystem
@@ -13,6 +14,7 @@ namespace ClinicSystem
         private Doctor doctor;
         private Patient patient;
         private Operation operation;
+        private PenaltyAppointment penaltyAppointment;
         private double subtotal;
         private int roomno;
         private DateTime startTime;
@@ -26,22 +28,6 @@ namespace ClinicSystem
         private string diagnosis;
         private string status;
 
-        //public Appointment(Patient patient,
-        //   Doctor doctor, Operation operation,
-        //   DateTime startTime, DateTime endTime, double subtotal,
-        //   int roomno, int appointmentDetailNo, double total, string discounttype)
-        //{
-        //    this.patient = patient;
-        //    this.startTime = startTime;
-        //    this.endTime = endTime;
-        //    this.doctor = doctor;
-        //    this.roomno = roomno;
-        //    this.operation = operation;
-        //    this.subtotal = subtotal;
-        //    this.appointmentDetailNo = appointmentDetailNo;
-        //    this.total = total;
-        //    this.discounttype = discounttype;
-        //}
 
         public Appointment(Patient patient,
            Doctor doctor, Operation operation,
@@ -97,26 +83,32 @@ namespace ClinicSystem
             this.status = status;
         }
 
-        //public Appointment(Patient patient,
-        //   Doctor doctor, Operation operation,
-        //   DateTime startTime, DateTime endTime, double subtotal,
-        //   int roomno, int appointmentDetailNo, double total, string discounttype,DateTime bookingDate)
-        //{
-        //    this.bookingDate = bookingDate;
-        //    this.patient = patient;
-        //    this.startTime = startTime;
-        //    this.endTime = endTime;
-        //    this.doctor = doctor;
-        //    this.roomno = roomno;
-        //    this.operation = operation;
-        //    this.subtotal = subtotal;
-        //    this.appointmentDetailNo = appointmentDetailNo;
-        //    this.total = total;
-        //    this.discounttype = discounttype;
-        //}
+ 
+
+        public Appointment(Patient patient,
+           Doctor doctor, Operation operation,
+           DateTime startTime, DateTime endTime, double subtotal,
+           int roomno, int appointmentDetailNo, double total, string discounttype, string diagnosis, DateTime bookingDate, string status, PenaltyAppointment penaltyAppointment)
+        {
+            this.patient = patient;
+            this.startTime = startTime;
+            this.endTime = endTime;
+            this.doctor = doctor;
+            this.roomno = roomno;
+            this.operation = operation;
+            this.subtotal = subtotal;
+            this.appointmentDetailNo = appointmentDetailNo;
+            this.total = total;
+            this.discounttype = discounttype;
+            this.diagnosis = diagnosis;
+            this.bookingDate = bookingDate;
+            this.status = status;
+            this.penaltyAppointment = penaltyAppointment;
+        }
 
 
 
+        public PenaltyAppointment PenaltyAppointment { get => penaltyAppointment; }
         public Doctor Doctor { get => doctor; }
         public Operation Operation { get => operation; }
         public Patient Patient { get => patient; }

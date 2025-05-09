@@ -9,23 +9,29 @@ using ClinicSystem.Appointments;
 using ClinicSystem.PatientForm;
 using ClinicSystem.Rooms;
 using ClinicSystem.UserLoginForm;
-using static System.Net.Mime.MediaTypeNames;
+using DoctorClinic;
 
 namespace ClinicSystem
 {
     public partial class AddPatients : Form
     {
+        //REPOSITORY
         private PatientRepository patientRepository = new PatientRepository();
         private AppointmentRepository appointmentRepository = new AppointmentRepository();
+        private RoomRepository roomRepository = new RoomRepository();
+        private DoctorRepository doctorRepository = new DoctorRepository();
+        private OperationRepository operationRepository = new OperationRepository();
+
+        //UTILITY
         private Staff staff;
         private List<Control> tab = new List<Control>();
-        private List<Room> rooms;
         private int patx = 12;
         private int appx = 1100;
         private bool isPatPanelShowing = true;
 
 
         //APPOINTMENT
+        private List<Room> rooms;
         private List<Operation> operationList;
         private List<Doctor> doctorList;
         private Operation selectedOperation;
@@ -42,7 +48,7 @@ namespace ClinicSystem
 
             string id = patientRepository.getPatientId();
             lastPatientID.Text = id.ToString();
-            rooms = appointmentRepository.getRoomNo();
+            rooms = roomRepository.getRooms();
 
             tab.Add(FirstName);
             tab.Add(MiddleName);
@@ -251,7 +257,7 @@ namespace ClinicSystem
         // SHOW OPERATION
         private void showOperation()
         {
-            operationList = appointmentRepository.getOperations();
+            operationList = operationRepository.getOperations();
             if (operationList != null && operationList.Count != 0)
             {
                 foreach (Operation operation in operationList)
@@ -296,7 +302,7 @@ namespace ClinicSystem
                 }
             }
 
-            doctorList = appointmentRepository.getDoctors(selectedOperation);
+            doctorList = doctorRepository.getDoctorsByOperation(selectedOperation);
             if (doctorList != null && doctorList.Count != 0)
             {
                 foreach (Doctor doctor in doctorList)

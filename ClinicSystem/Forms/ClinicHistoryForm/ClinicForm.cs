@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.UI.WebControls;
 using System.Windows.Forms;
+using ClinicSystem.Appointments;
 using ClinicSystem.MainClinic;
 using ClinicSystem.PatientForm;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
@@ -17,13 +18,13 @@ namespace ClinicSystem.ClinicHistory
 {
     public partial class ClinicForm : Form
     {
-        private ClinicRepository db = new ClinicRepository();
+        private AppointmentRepository appointmentRepository = new AppointmentRepository();
         private List<Appointment> patientList;
         private DataTable dt = new DataTable();
         public ClinicForm(UserLoginForm.Staff staff)
         {
             InitializeComponent();
-            patientList = db.getAppointments();
+            patientList = appointmentRepository.getAppointment();
 
             past.Columns.Add("Appointment No", typeof(int));
             past.Columns.Add("Operation", typeof(string));

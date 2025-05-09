@@ -14,17 +14,18 @@ using ComboBox = System.Windows.Forms.ComboBox;
 namespace ClinicSystem
 {
     public partial class OperationForm : Form
-    {
+    { 
+        private OperationRepository operationRepository = new OperationRepository();
+
         private List<Operation> operationlist;
-        private OperationRepository db = new OperationRepository();
         private bool isAddOperationShowing = false;
         private List<Control> tab = new List<Control>();
         private List<string> roomtype;
         public OperationForm()
         {
             InitializeComponent();
-            operationlist = db.getOperationOnDoctors();
-            roomtype = db.getAvailableRoomType();
+            operationlist = operationRepository.getOperationOnDoctors();
+            roomtype = operationRepository.getAvailableRoomType();
             foreach (string item in roomtype)
             {
                 comboRoomType.Items.Add(item);
@@ -181,7 +182,7 @@ namespace ClinicSystem
             Panel pa = b.Parent as Panel;
             Operation operation = b.Tag as Operation;
             operationCode = operation.OperationCode;
-            List<Doctor> docList = db.getDoctorHaveNoOperation(operation);
+            List<Doctor> docList = operationRepository.getDoctorHaveNoOperation(operation);
             Guna2Panel p = new Guna2Panel();
             p.Size = new Size(280, 100);
             p.Location = new Point((pa.Width - p.Width) / 2, pa.Height - p.Height - 20);
@@ -265,7 +266,7 @@ namespace ClinicSystem
             string docid = but.Tag as string;
             if (!string.IsNullOrWhiteSpace(docid))
             {
-                db.setDoctorOperation(docid, operationCode);
+                operationRepository.setDoctorOperation(docid, operationCode);
                 Guna2Panel p = but.Parent as Guna2Panel ;
                 p.Dispose();
                 MessagePromp.MessagePrompCenter(this, "Successfully assigned doctor to this operation", MessageBoxIcon.Information);
@@ -424,7 +425,7 @@ namespace ClinicSystem
                 return;
             }
 
-            bool success = db.insertOperation(new Operation(opCode.ToUpper(), Capitalize(opName), DateTime.Now, opDescription, price, duration, comboRoomType.SelectedItem.ToString()));
+            bool success = operationRepository.insertOperation(new Operation(opCode.ToUpper(), Capitalize(opName), DateTime.Now, opDescription, price, duration, comboRoomType.SelectedItem.ToString()));
             if (success)
             {
                 MessagePromp.MainShowMessage(this, "Operation Added Successfully", MessageBoxIcon.Information);
@@ -458,7 +459,7 @@ namespace ClinicSystem
             opDescription.Text = "";
             opPrice.Text = "";
             opDuration.Text = "";
-            operationlist = db.getOperationOnDoctors();
+            operationlist = operationRepository.getOperationOnDoctors();
             displayOperations(operationlist, "");
             SearchBar1.Text = "";
             SearchBar1.Enabled = true;

@@ -12,16 +12,16 @@ namespace ClinicSystem.Main2
 {
     public partial class DoctorAppointmentForm : Form
     {
-        
+        private AppointmentRepository appointmentRepository = new AppointmentRepository();
+
         private List<Appointment> patientAppointments;
-        private AppointmentRepository db = new AppointmentRepository();
         private Doctor dr;
 
         public DoctorAppointmentForm(Doctor dr)
         {
             this.dr = dr;
             InitializeComponent();
-            patientAppointments = db.getAppointmentsbyDoctor(dr);
+            patientAppointments = appointmentRepository.getAppointmentsbyDoctor(dr);
             DateTime today = DateTime.Today;
             List<Appointment> filtered = patientAppointments
              .Where(pa => pa.StartTime.Date == today.Date)

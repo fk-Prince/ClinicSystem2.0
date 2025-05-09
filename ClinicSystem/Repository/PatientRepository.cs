@@ -16,9 +16,6 @@ namespace ClinicSystem
 {
     public class PatientRepository
     {
-       
-
-
         public List<Patient> getPatient()
         {
             List<Patient> patientList = new List<Patient>();
@@ -79,37 +76,6 @@ namespace ClinicSystem
                 MessageBox.Show("ERROR ON patientid() DB" + ex.Message);
             }
             return "ERROR ON DATABASE PLEASE TRY AGAIN";
-        }
-
-        public int isPatientExist(Patient patient)
-        {
-            try
-            {
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
-                {
-                    conn.Open();
-                    string query = "SELECT patientid FROM patient_tbl WHERE patientfirstname = @patientfirstname AND patientmiddlename = @patientmiddlename AND patientlastname = @patientlastname";
-                    using (MySqlCommand command = new MySqlCommand(query, conn))
-                    {
-                        command.Parameters.AddWithValue("@patientfirstname", patient.Firstname);
-                        command.Parameters.AddWithValue("@patientmiddlename", patient.Middlename);
-                        command.Parameters.AddWithValue("@patientlastname", patient.Lastname);
-                        using (MySqlDataReader reader = command.ExecuteReader())
-                        {
-                            if (reader.HasRows)
-                            {
-                                reader.Read();
-                                return reader.GetInt32("patientid");
-                            }
-                        }
-                    }
-                }
-            }
-            catch (MySqlException ex)
-            {
-                MessageBox.Show("ERROR ON isPatientExist() DB" + ex.Message);
-            }
-            return -1;
-        }
+        }   
     }
 }

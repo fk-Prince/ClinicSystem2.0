@@ -51,8 +51,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.missCount = new System.Windows.Forms.Label();
             this.revenueP = new Guna.UI2.WinForms.Guna2Panel();
-            this.tbTotalEarniings = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.increase = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.tbTotalEarniings = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.pictureRatio = new Guna.UI2.WinForms.Guna2PictureBox();
             this.panel10 = new System.Windows.Forms.Panel();
             this.rankingPanel = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
@@ -110,6 +114,7 @@
             this.panel5.SuspendLayout();
             this.settingP.SuspendLayout();
             this.revenueP.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureRatio)).BeginInit();
             this.panel10.SuspendLayout();
             this.rankingPanel.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
@@ -151,7 +156,7 @@
             this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(168)))), ((int)(((byte)(166)))));
             this.panel1.Controls.Add(this.guna2Panel1);
-            this.panel1.Location = new System.Drawing.Point(1, 0);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.MaximumSize = new System.Drawing.Size(1920, 200);
             this.panel1.MinimumSize = new System.Drawing.Size(1080, 100);
             this.panel1.Name = "panel1";
@@ -331,9 +336,9 @@
             this.settingP.Controls.Add(this.label4);
             this.settingP.Controls.Add(this.missCount);
             this.settingP.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(168)))), ((int)(((byte)(166)))));
-            this.settingP.Location = new System.Drawing.Point(869, 108);
+            this.settingP.Location = new System.Drawing.Point(834, 108);
             this.settingP.Name = "settingP";
-            this.settingP.Size = new System.Drawing.Size(200, 43);
+            this.settingP.Size = new System.Drawing.Size(235, 43);
             this.settingP.TabIndex = 5;
             // 
             // label4
@@ -341,7 +346,7 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(168)))), ((int)(((byte)(166)))));
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(3, 12);
+            this.label4.Location = new System.Drawing.Point(15, 10);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(154, 21);
             this.label4.TabIndex = 12;
@@ -352,7 +357,7 @@
             this.missCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(168)))), ((int)(((byte)(166)))));
             this.missCount.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.missCount.Image = global::ClinicSystem.Properties.Resources.appointment;
-            this.missCount.Location = new System.Drawing.Point(139, 5);
+            this.missCount.Location = new System.Drawing.Point(174, 4);
             this.missCount.Name = "missCount";
             this.missCount.Size = new System.Drawing.Size(56, 33);
             this.missCount.TabIndex = 11;
@@ -365,15 +370,42 @@
             this.revenueP.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.revenueP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(255)))), ((int)(((byte)(252)))));
             this.revenueP.BorderRadius = 10;
-            this.revenueP.Controls.Add(this.tbTotalEarniings);
+            this.revenueP.Controls.Add(this.increase);
             this.revenueP.Controls.Add(this.label1);
+            this.revenueP.Controls.Add(this.tbTotalEarniings);
+            this.revenueP.Controls.Add(this.label8);
+            this.revenueP.Controls.Add(this.label5);
+            this.revenueP.Controls.Add(this.pictureRatio);
             this.revenueP.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(168)))), ((int)(((byte)(166)))));
-            this.revenueP.Location = new System.Drawing.Point(691, 162);
-            this.revenueP.MaximumSize = new System.Drawing.Size(500, 48);
-            this.revenueP.MinimumSize = new System.Drawing.Size(312, 48);
+            this.revenueP.Location = new System.Drawing.Point(624, 162);
+            this.revenueP.MaximumSize = new System.Drawing.Size(444, 151);
+            this.revenueP.MinimumSize = new System.Drawing.Size(444, 151);
             this.revenueP.Name = "revenueP";
-            this.revenueP.Size = new System.Drawing.Size(377, 48);
+            this.revenueP.Size = new System.Drawing.Size(444, 151);
             this.revenueP.TabIndex = 6;
+            // 
+            // increase
+            // 
+            this.increase.BackColor = System.Drawing.Color.Transparent;
+            this.increase.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.increase.ForeColor = System.Drawing.Color.Lime;
+            this.increase.Location = new System.Drawing.Point(101, 116);
+            this.increase.Name = "increase";
+            this.increase.Size = new System.Drawing.Size(104, 23);
+            this.increase.TabIndex = 4;
+            this.increase.Text = "0%";
+            this.increase.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(121, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(210, 40);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Total Revenue";
             // 
             // tbTotalEarniings
             // 
@@ -381,22 +413,46 @@
             this.tbTotalEarniings.AutoSize = false;
             this.tbTotalEarniings.BackColor = System.Drawing.Color.Transparent;
             this.tbTotalEarniings.Font = new System.Drawing.Font("Segoe UI Black", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.tbTotalEarniings.Location = new System.Drawing.Point(166, 8);
+            this.tbTotalEarniings.Location = new System.Drawing.Point(229, 78);
             this.tbTotalEarniings.Name = "tbTotalEarniings";
-            this.tbTotalEarniings.Size = new System.Drawing.Size(206, 32);
+            this.tbTotalEarniings.Size = new System.Drawing.Size(211, 31);
             this.tbTotalEarniings.TabIndex = 2;
             this.tbTotalEarniings.Text = "0";
             this.tbTotalEarniings.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label1
+            // label8
             // 
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(16, 10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(138, 23);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Total Revenue";
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(98, 93);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(105, 17);
+            this.label8.TabIndex = 6;
+            this.label8.Text = "from Last Month";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(98, 76);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(109, 17);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "Revenue Change ";
+            // 
+            // pictureRatio
+            // 
+            this.pictureRatio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(168)))), ((int)(((byte)(166)))));
+            this.pictureRatio.Image = global::ClinicSystem.Properties.Resources.increaseincome;
+            this.pictureRatio.ImageRotate = 0F;
+            this.pictureRatio.Location = new System.Drawing.Point(17, 66);
+            this.pictureRatio.Name = "pictureRatio";
+            this.pictureRatio.Size = new System.Drawing.Size(75, 61);
+            this.pictureRatio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureRatio.TabIndex = 3;
+            this.pictureRatio.TabStop = false;
             // 
             // panel10
             // 
@@ -904,6 +960,8 @@
             this.settingP.ResumeLayout(false);
             this.settingP.PerformLayout();
             this.revenueP.ResumeLayout(false);
+            this.revenueP.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureRatio)).EndInit();
             this.panel10.ResumeLayout(false);
             this.rankingPanel.ResumeLayout(false);
             this.rankingPanel.PerformLayout();
@@ -994,5 +1052,9 @@
         private System.Windows.Forms.Label missCount;
         private System.Windows.Forms.Label address_label;
         private System.Windows.Forms.Timer todayAppT;
+        private Guna.UI2.WinForms.Guna2PictureBox pictureRatio;
+        private System.Windows.Forms.Label increase;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label5;
     }
 }

@@ -109,9 +109,7 @@
             // 
             // panel12
             // 
-            this.panel12.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel12.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel12.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel12.Controls.Add(this.panelRoomNo);
             this.panel12.Controls.Add(this.panel6);

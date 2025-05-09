@@ -13,7 +13,6 @@ namespace ClinicSystem
 
         private Button lastButtonClicked;
         private Doctor dr;
-        private static DoctorClinics instance;
         private int x = 1;
         public DoctorClinics(Doctor dr)
         {
@@ -24,7 +23,6 @@ namespace ClinicSystem
             Date.Text = DateTime.Now.ToString("yyyy-MM-dd");
             doctorLastname.Text = dr.DoctorLastName.Substring(0,1).ToUpper() + dr.DoctorLastName.Substring(1).ToLower() + ", " + dr.DoctorFirstName + " " + dr.DoctorMiddleName;
             pictureBox2.Image = (dr.Image == null) ? Properties.Resources.doctoruser : dr.Image;
-            instance = this;
 
 
             DoctorHome home = new DoctorHome(dr);
@@ -61,10 +59,6 @@ namespace ClinicSystem
             e.Graphics.DrawLine(pen, rect.Width - 1, 0, rect.Width - 1, rect.Height);
         }
 
-        public static DoctorClinics getInstance()
-        {
-            return instance;
-        }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
