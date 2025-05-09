@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using ClinicSystem.Appointments;
+using ClinicSystem.Forms.AppointmentsForm;
 using ClinicSystem.UserLoginForm;
 using Guna.UI2.WinForms;
 
@@ -80,6 +81,12 @@ namespace ClinicSystem
                 lastButtonClicked.ForeColor = ColorTranslator.FromHtml("#000000");
                 lastButtonClicked = btn;
             }
+        }
+
+        private void missedAppointment_Click(object sender, EventArgs e)
+        {
+            MissedAppointmentForm missed = new MissedAppointmentForm();
+            LoadForm(missed);
         }
     }
 }

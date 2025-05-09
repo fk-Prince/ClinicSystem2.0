@@ -165,6 +165,12 @@
       <DependentUpon>AppointmentForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Entity\Discount.cs" />
+    <Compile Include="Forms\AppointmentsForm\MissedAppointmentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AppointmentsForm\MissedAppointmentForm.Designer.cs">
+      <DependentUpon>MissedAppointmentForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MessagePromps\RFIDPromp.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -325,6 +331,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AppointmentsForm\AppointmentForm.resx">
       <DependentUpon>AppointmentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AppointmentsForm\MissedAppointmentForm.resx">
+      <DependentUpon>MissedAppointmentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Printer\PrintAppointmentReceipt.resx">
       <DependentUpon>PrintAppointmentReceipt.cs</DependentUpon>

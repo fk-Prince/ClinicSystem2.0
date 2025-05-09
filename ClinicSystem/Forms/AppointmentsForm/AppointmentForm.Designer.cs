@@ -32,6 +32,7 @@
             this.allAppointmentB = new Guna.UI2.WinForms.Guna2Button();
             this.addAppointmentB = new Guna.UI2.WinForms.Guna2Button();
             this.rescheduleB = new Guna.UI2.WinForms.Guna2Button();
+            this.missedAppointment = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
             // 
             // appointmentPanel
@@ -111,11 +112,33 @@
             this.rescheduleB.Click += new System.EventHandler(this.rescheduleB_Click);
             this.rescheduleB.MouseClick += new System.Windows.Forms.MouseEventHandler(this.mouseClicked);
             // 
+            // missedAppointment
+            // 
+            this.missedAppointment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(230)))), ((int)(((byte)(222)))));
+            this.missedAppointment.BorderColor = System.Drawing.Color.Gray;
+            this.missedAppointment.BorderRadius = 18;
+            this.missedAppointment.BorderThickness = 1;
+            this.missedAppointment.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.missedAppointment.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.missedAppointment.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.missedAppointment.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.missedAppointment.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(234)))), ((int)(((byte)(224)))));
+            this.missedAppointment.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.missedAppointment.ForeColor = System.Drawing.Color.Black;
+            this.missedAppointment.Location = new System.Drawing.Point(729, 12);
+            this.missedAppointment.Name = "missedAppointment";
+            this.missedAppointment.Size = new System.Drawing.Size(203, 34);
+            this.missedAppointment.TabIndex = 10073;
+            this.missedAppointment.Text = "Missed Appointment";
+            this.missedAppointment.Click += new System.EventHandler(this.missedAppointment_Click);
+            this.missedAppointment.MouseClick += new System.Windows.Forms.MouseEventHandler(this.mouseClicked);
+            // 
             // AppointmentForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(230)))), ((int)(((byte)(222)))));
             this.ClientSize = new System.Drawing.Size(1089, 719);
+            this.Controls.Add(this.missedAppointment);
             this.Controls.Add(this.rescheduleB);
             this.Controls.Add(this.addAppointmentB);
             this.Controls.Add(this.appointmentPanel);
@@ -134,5 +157,6 @@
         private Guna.UI2.WinForms.Guna2Button allAppointmentB;
         private Guna.UI2.WinForms.Guna2Button addAppointmentB;
         private Guna.UI2.WinForms.Guna2Button rescheduleB;
+        private Guna.UI2.WinForms.Guna2Button missedAppointment;
     }
 }
