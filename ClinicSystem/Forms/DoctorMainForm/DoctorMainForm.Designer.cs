@@ -33,7 +33,6 @@
             this.mainpanel = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.doctorLastname = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -45,6 +44,7 @@
             this.ClockTimer = new System.Windows.Forms.Timer(this.components);
             this.DateTimer = new System.Windows.Forms.Timer(this.components);
             this.xTimer = new System.Windows.Forms.Timer(this.components);
+            this.doctorLastname = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -88,8 +88,8 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(168)))), ((int)(((byte)(166)))));
-            this.panel2.Controls.Add(this.guna2Button1);
             this.panel2.Controls.Add(this.doctorLastname);
+            this.panel2.Controls.Add(this.guna2Button1);
             this.panel2.Controls.Add(this.pictureBox2);
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.panel3);
@@ -115,28 +115,12 @@
             this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(229)))), ((int)(((byte)(220)))));
             this.guna2Button1.Font = new System.Drawing.Font("Myanmar Text", 8.25F, System.Drawing.FontStyle.Bold);
             this.guna2Button1.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button1.Location = new System.Drawing.Point(60, 692);
+            this.guna2Button1.Location = new System.Drawing.Point(67, 693);
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.Size = new System.Drawing.Size(130, 23);
             this.guna2Button1.TabIndex = 112;
             this.guna2Button1.Text = "SIGN OUT";
             this.guna2Button1.Click += new System.EventHandler(this.signOutB_Click);
-            // 
-            // doctorLastname
-            // 
-            this.doctorLastname.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.doctorLastname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(168)))), ((int)(((byte)(166)))));
-            this.doctorLastname.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.doctorLastname.Enabled = false;
-            this.doctorLastname.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.doctorLastname.ForeColor = System.Drawing.Color.White;
-            this.doctorLastname.Location = new System.Drawing.Point(63, 671);
-            this.doctorLastname.Name = "doctorLastname";
-            this.doctorLastname.ReadOnly = true;
-            this.doctorLastname.Size = new System.Drawing.Size(130, 17);
-            this.doctorLastname.TabIndex = 111;
-            this.doctorLastname.TabStop = false;
             // 
             // pictureBox2
             // 
@@ -274,6 +258,18 @@
             this.xTimer.Interval = 1;
             this.xTimer.Tick += new System.EventHandler(this.xTimer_Tick);
             // 
+            // doctorLastname
+            // 
+            this.doctorLastname.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.doctorLastname.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.doctorLastname.Location = new System.Drawing.Point(57, 671);
+            this.doctorLastname.Name = "doctorLastname";
+            this.doctorLastname.Size = new System.Drawing.Size(151, 18);
+            this.doctorLastname.TabIndex = 113;
+            this.doctorLastname.Text = "label1";
+            this.doctorLastname.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // DoctorClinics
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -307,9 +303,9 @@
         private System.Windows.Forms.Button HomeB;
         private System.Windows.Forms.Panel mainpanel;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.TextBox doctorLastname;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Timer xTimer;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private System.Windows.Forms.Label doctorLastname;
     }
 }

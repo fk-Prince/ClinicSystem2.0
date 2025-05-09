@@ -69,7 +69,7 @@
             this.flowLayout.AutoScroll = true;
             this.flowLayout.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowLayout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(249)))), ((int)(((byte)(246)))));
-            this.flowLayout.Location = new System.Drawing.Point(0, 0);
+            this.flowLayout.Location = new System.Drawing.Point(-1, 0);
             this.flowLayout.MaximumSize = new System.Drawing.Size(1920, 1080);
             this.flowLayout.MinimumSize = new System.Drawing.Size(1088, 599);
             this.flowLayout.Name = "flowLayout";
@@ -396,6 +396,7 @@
             this.Name = "RoomsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RoomsForm";
+            this.Shown += new System.EventHandler(this.RoomsForm_Shown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

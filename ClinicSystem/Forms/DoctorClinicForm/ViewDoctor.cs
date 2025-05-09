@@ -26,11 +26,12 @@ namespace ClinicSystem.Doctors
             if (doctorList.Count == 0)
             {
                 type = "Currently We Have No Doctors";
+           
                 SearchBar.Enabled = false;
                 all.Enabled = false;
                 active.Enabled = false;
                 inactive.Enabled = false;
-            } 
+            }
             displayDoctors(doctorList, type);
         }
         public string Capitalize(string name)
@@ -47,16 +48,15 @@ namespace ClinicSystem.Doctors
             if (!string.IsNullOrWhiteSpace(type))
             {
                 Label label = new Label();
-                label.Text = $"{type}";
+                label.Text = $"{type}.";
                 label.Font = new Font("Segoe UI", 18, FontStyle.Bold);
-                label.AutoSize = true;
+                label.ForeColor = Color.Black;
+                label.AutoSize = false;
+                label.Dock = DockStyle.Fill;
                 label.TextAlign = ContentAlignment.MiddleCenter;
 
-                
-                //label.Location = new Point(flowPanel.Width / 2, 500);
                 Panel panel = new Panel();
-                panel.Size = new Size(flowPanel.Width, 400);
-                label.Location = new Point((panel.Width - label.Width) / 2 - 100,(panel.Height - label.Height) / 2 );
+                panel.Size = new Size(flowPanel.Width, 500);
                 panel.Controls.Add(label);
                 flowPanel.Controls.Add(panel);
                 return;
@@ -177,6 +177,21 @@ namespace ClinicSystem.Doctors
         private void inactive_CheckedChanged(object sender, EventArgs e)
         {
             searchDOctor();
+        }
+
+        private void ViewDoctor_Shown(object sender, EventArgs e)
+        {
+            string type = "";
+            if (doctorList.Count == 0)
+            {
+                type = "Currently We Have No Doctors";
+
+                SearchBar.Enabled = false;
+                all.Enabled = false;
+                active.Enabled = false;
+                inactive.Enabled = false;
+            }
+            displayDoctors(doctorList, type);
         }
     }
 }

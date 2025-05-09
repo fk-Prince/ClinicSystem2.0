@@ -45,7 +45,7 @@ namespace ClinicSystem.ClinicHistory
             dt.Columns.Add("Patient Name", typeof(string));
             searchGrid.DataSource = dt;
 
-            comboYear.Items.Add("All");
+            comboYear.Items.Add("All-time");
             for (int i = 2025; i <= DateTime.Now.Year; i++)
             {
                 comboYear.Items.Add(i);
@@ -76,7 +76,7 @@ namespace ClinicSystem.ClinicHistory
 
                 if (string.IsNullOrEmpty(text))
                 {
-                    if (year.Equals("All"))
+                    if (year.Equals("All-time"))
                     {
                         dt.Rows.Add(patientId, patientName);
                     }
@@ -90,7 +90,7 @@ namespace ClinicSystem.ClinicHistory
                     appointment.Patient.Lastname.StartsWith(text, StringComparison.OrdinalIgnoreCase) ||
                     appointment.Patient.Firstname.StartsWith(text, StringComparison.OrdinalIgnoreCase))
                 {
-                    if (year.Equals("All"))
+                    if (year.Equals("All-time"))
                     {
                         dt.Rows.Add(patientId, patientName);
                     }

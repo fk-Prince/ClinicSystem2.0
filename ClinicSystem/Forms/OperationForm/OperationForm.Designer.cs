@@ -591,6 +591,7 @@
             this.Name = "OperationForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "OperationForm";
+            this.Shown += new System.EventHandler(this.OperationForm_Shown);
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picturePrice)).EndInit();

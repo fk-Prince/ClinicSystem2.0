@@ -22,7 +22,7 @@ namespace ClinicSystem
             InitializeComponent();
             Clock.Text = DateTime.Now.ToString("hh:mm:ss tt");
             Date.Text = DateTime.Now.ToString("yyyy-MM-dd");
-            doctorLastname.Text = dr.DoctorLastName.Substring(0,1).ToUpper() + dr.DoctorLastName.Substring(1).ToLower();
+            doctorLastname.Text = dr.DoctorLastName.Substring(0,1).ToUpper() + dr.DoctorLastName.Substring(1).ToLower() + ", " + dr.DoctorFirstName + " " + dr.DoctorMiddleName;
             pictureBox2.Image = (dr.Image == null) ? Properties.Resources.doctoruser : dr.Image;
             instance = this;
 

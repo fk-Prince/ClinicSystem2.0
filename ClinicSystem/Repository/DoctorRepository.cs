@@ -14,6 +14,44 @@ namespace DoctorClinic
 {
     public class DoctorRepository
     {
+
+        public List<Appointment> getTodayAppointmentByDoctor(string doctorid)
+        {
+            List<Appointment> todayAppointment = new List<Appointment>();
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                {
+                    conn.Open();
+                    string query = @"
+                                SELECT * FROM patientappointment_tbl
+                                LEFT JOIN doctor_tbl ON doctor_tbl.doctorid = patientappointment_tbl.doctorid
+                                LEFT JOIN operation_tbl ON operation_tbl.operationcode = patientappointment_tbl.OperationCode
+                                LEFT JOIN patient_tbl ON patient_tbl.patientid = patientappointment_tbl.patientid
+                                LEFT JOIN appointmentdetails_tbl ON appointmentdetails_tbl.AppointmentDetailNo = patientappointment_tbl.AppointmentDetailNo
+                                WHERE patientappointment_tbl.StartSchedule BETWEEN @Start AND @End AND Status = 'Upcoming' AND EndSchedule > Now()
+                                AND patientappointment_tbl.doctorid = @doctorid";
+                    using (MySqlCommand command = new MySqlCommand(query, conn))
+                    {
+                        command.Parameters.AddWithValue("@Start", DateTime.Now.ToString("yyyy-MM-dd"));
+                        command.Parameters.AddWithValue("@End", DateTime.Now.AddDays(1).ToString("yyyy-MM-dd"));
+                        command.Parameters.AddWithValue("@doctorid", doctorid);
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                todayAppointment.Add(EntityMapping.GetAppointment(reader));
+                            }
+                        }
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error on getTodayAppointmentByDoctor() db" + ex.Message);
+            }
+            return todayAppointment;
+        }
         public List<Appointment> getPatients(string doctorID)
         {
             List<Appointment> appointments = new List<Appointment>();

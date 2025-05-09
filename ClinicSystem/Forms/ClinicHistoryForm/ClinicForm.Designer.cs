@@ -371,6 +371,7 @@
             dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
             this.upcomingGrid.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            this.upcomingGrid.RowTemplate.Height = 40;
             this.upcomingGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.upcomingGrid.Size = new System.Drawing.Size(609, 124);
             this.upcomingGrid.TabIndex = 18;
@@ -392,7 +393,7 @@
             this.upcomingGrid.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.upcomingGrid.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.upcomingGrid.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.upcomingGrid.ThemeStyle.RowsStyle.Height = 22;
+            this.upcomingGrid.ThemeStyle.RowsStyle.Height = 40;
             this.upcomingGrid.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.upcomingGrid.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
@@ -472,6 +473,7 @@
             dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.Black;
             this.pastGrid.RowsDefaultCellStyle = dataGridViewCellStyle14;
+            this.pastGrid.RowTemplate.Height = 40;
             this.pastGrid.Size = new System.Drawing.Size(609, 124);
             this.pastGrid.TabIndex = 17;
             this.pastGrid.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -492,7 +494,7 @@
             this.pastGrid.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.pastGrid.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pastGrid.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.pastGrid.ThemeStyle.RowsStyle.Height = 22;
+            this.pastGrid.ThemeStyle.RowsStyle.Height = 40;
             this.pastGrid.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.pastGrid.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 

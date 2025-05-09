@@ -48,10 +48,10 @@
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.Clock = new System.Windows.Forms.Label();
             this.Date = new System.Windows.Forms.Label();
-            this.StaffIdentity = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.xTimer = new System.Windows.Forms.Timer(this.components);
+            this.StaffIdentity = new System.Windows.Forms.Label();
             this.mainpanel.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -116,11 +116,11 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(168)))), ((int)(((byte)(166)))));
+            this.panel3.Controls.Add(this.StaffIdentity);
             this.panel3.Controls.Add(this.panel2);
             this.panel3.Controls.Add(this.guna2Button1);
             this.panel3.Controls.Add(this.Clock);
             this.panel3.Controls.Add(this.Date);
-            this.panel3.Controls.Add(this.StaffIdentity);
             this.panel3.Controls.Add(this.pictureBox2);
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.MaximumSize = new System.Drawing.Size(215, 1080);
@@ -347,7 +347,7 @@
             this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(229)))), ((int)(((byte)(220)))));
             this.guna2Button1.Font = new System.Drawing.Font("Myanmar Text", 8.25F, System.Drawing.FontStyle.Bold);
             this.guna2Button1.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button1.Location = new System.Drawing.Point(59, 692);
+            this.guna2Button1.Location = new System.Drawing.Point(69, 693);
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.Size = new System.Drawing.Size(130, 23);
             this.guna2Button1.TabIndex = 100001;
@@ -375,22 +375,6 @@
             this.Date.Size = new System.Drawing.Size(43, 25);
             this.Date.TabIndex = 100000;
             this.Date.Text = "dfg";
-            // 
-            // StaffIdentity
-            // 
-            this.StaffIdentity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.StaffIdentity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(168)))), ((int)(((byte)(166)))));
-            this.StaffIdentity.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.StaffIdentity.Enabled = false;
-            this.StaffIdentity.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StaffIdentity.ForeColor = System.Drawing.Color.White;
-            this.StaffIdentity.Location = new System.Drawing.Point(59, 671);
-            this.StaffIdentity.Name = "StaffIdentity";
-            this.StaffIdentity.ReadOnly = true;
-            this.StaffIdentity.Size = new System.Drawing.Size(130, 17);
-            this.StaffIdentity.TabIndex = 104;
-            this.StaffIdentity.TabStop = false;
             // 
             // pictureBox2
             // 
@@ -424,6 +408,18 @@
             this.xTimer.Interval = 1;
             this.xTimer.Tick += new System.EventHandler(this.xTimer_Tick);
             // 
+            // StaffIdentity
+            // 
+            this.StaffIdentity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.StaffIdentity.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StaffIdentity.Location = new System.Drawing.Point(58, 671);
+            this.StaffIdentity.Name = "StaffIdentity";
+            this.StaffIdentity.Size = new System.Drawing.Size(151, 18);
+            this.StaffIdentity.TabIndex = 100003;
+            this.StaffIdentity.Text = "label1";
+            this.StaffIdentity.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // ClinicSystem
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -449,7 +445,6 @@
         private System.Windows.Forms.Timer dateTimer;
         private System.Windows.Forms.Timer hoursTimer;
         private System.Windows.Forms.Panel mainpanel;
-        private System.Windows.Forms.TextBox StaffIdentity;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label Date;
         private System.Windows.Forms.Label Clock;
@@ -468,5 +463,6 @@
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Timer sliding;
+        private System.Windows.Forms.Label StaffIdentity;
     }
 }

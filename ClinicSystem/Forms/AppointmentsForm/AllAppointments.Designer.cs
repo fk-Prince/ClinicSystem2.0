@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.monthRadio = new System.Windows.Forms.RadioButton();
+            this.allSchedule = new System.Windows.Forms.RadioButton();
+            this.selection = new System.Windows.Forms.RadioButton();
+            this.weekRadio = new System.Windows.Forms.RadioButton();
+            this.radioToday = new System.Windows.Forms.RadioButton();
             this.datePickDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.flowPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panel9 = new System.Windows.Forms.Panel();
@@ -37,11 +42,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.radioToday = new System.Windows.Forms.RadioButton();
-            this.weekRadio = new System.Windows.Forms.RadioButton();
-            this.selection = new System.Windows.Forms.RadioButton();
-            this.allSchedule = new System.Windows.Forms.RadioButton();
-            this.monthRadio = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel11.SuspendLayout();
@@ -67,6 +67,72 @@
             this.panel1.Size = new System.Drawing.Size(1090, 46);
             this.panel1.TabIndex = 4;
             // 
+            // monthRadio
+            // 
+            this.monthRadio.AutoSize = true;
+            this.monthRadio.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.monthRadio.Location = new System.Drawing.Point(184, 13);
+            this.monthRadio.Name = "monthRadio";
+            this.monthRadio.Size = new System.Drawing.Size(70, 24);
+            this.monthRadio.TabIndex = 11;
+            this.monthRadio.TabStop = true;
+            this.monthRadio.Text = "Month";
+            this.monthRadio.UseVisualStyleBackColor = true;
+            this.monthRadio.CheckedChanged += new System.EventHandler(this.monthRadio_CheckedChanged);
+            // 
+            // allSchedule
+            // 
+            this.allSchedule.AutoSize = true;
+            this.allSchedule.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.allSchedule.Location = new System.Drawing.Point(273, 12);
+            this.allSchedule.Name = "allSchedule";
+            this.allSchedule.Size = new System.Drawing.Size(137, 24);
+            this.allSchedule.TabIndex = 10;
+            this.allSchedule.TabStop = true;
+            this.allSchedule.Text = "All Appointment";
+            this.allSchedule.UseVisualStyleBackColor = true;
+            this.allSchedule.CheckedChanged += new System.EventHandler(this.allSchedule_CheckedChanged);
+            // 
+            // selection
+            // 
+            this.selection.AutoSize = true;
+            this.selection.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.selection.Location = new System.Drawing.Point(434, 12);
+            this.selection.Name = "selection";
+            this.selection.Size = new System.Drawing.Size(101, 24);
+            this.selection.TabIndex = 9;
+            this.selection.TabStop = true;
+            this.selection.Text = "Pick a Date";
+            this.selection.UseVisualStyleBackColor = true;
+            this.selection.CheckedChanged += new System.EventHandler(this.selection_CheckedChanged);
+            // 
+            // weekRadio
+            // 
+            this.weekRadio.AutoSize = true;
+            this.weekRadio.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.weekRadio.Location = new System.Drawing.Point(104, 13);
+            this.weekRadio.Name = "weekRadio";
+            this.weekRadio.Size = new System.Drawing.Size(63, 24);
+            this.weekRadio.TabIndex = 8;
+            this.weekRadio.TabStop = true;
+            this.weekRadio.Text = "Week";
+            this.weekRadio.UseVisualStyleBackColor = true;
+            this.weekRadio.CheckedChanged += new System.EventHandler(this.weekRadio_CheckedChanged);
+            // 
+            // radioToday
+            // 
+            this.radioToday.AutoSize = true;
+            this.radioToday.Checked = true;
+            this.radioToday.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioToday.Location = new System.Drawing.Point(23, 13);
+            this.radioToday.Name = "radioToday";
+            this.radioToday.Size = new System.Drawing.Size(67, 24);
+            this.radioToday.TabIndex = 7;
+            this.radioToday.TabStop = true;
+            this.radioToday.Text = "Today";
+            this.radioToday.UseVisualStyleBackColor = true;
+            this.radioToday.CheckedChanged += new System.EventHandler(this.radioToday_CheckedChanged);
+            // 
             // datePickDate
             // 
             this.datePickDate.BorderRadius = 5;
@@ -91,7 +157,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flowPanel.AutoScroll = true;
             this.flowPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(249)))), ((int)(((byte)(246)))));
-            this.flowPanel.Location = new System.Drawing.Point(0, 32);
+            this.flowPanel.Location = new System.Drawing.Point(-1, 32);
             this.flowPanel.MaximumSize = new System.Drawing.Size(1920, 1080);
             this.flowPanel.MinimumSize = new System.Drawing.Size(1090, 523);
             this.flowPanel.Name = "flowPanel";
@@ -183,72 +249,6 @@
             this.panel2.Size = new System.Drawing.Size(1088, 556);
             this.panel2.TabIndex = 10087;
             // 
-            // radioToday
-            // 
-            this.radioToday.AutoSize = true;
-            this.radioToday.Checked = true;
-            this.radioToday.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioToday.Location = new System.Drawing.Point(23, 13);
-            this.radioToday.Name = "radioToday";
-            this.radioToday.Size = new System.Drawing.Size(67, 24);
-            this.radioToday.TabIndex = 7;
-            this.radioToday.TabStop = true;
-            this.radioToday.Text = "Today";
-            this.radioToday.UseVisualStyleBackColor = true;
-            this.radioToday.CheckedChanged += new System.EventHandler(this.radioToday_CheckedChanged);
-            // 
-            // weekRadio
-            // 
-            this.weekRadio.AutoSize = true;
-            this.weekRadio.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.weekRadio.Location = new System.Drawing.Point(104, 13);
-            this.weekRadio.Name = "weekRadio";
-            this.weekRadio.Size = new System.Drawing.Size(63, 24);
-            this.weekRadio.TabIndex = 8;
-            this.weekRadio.TabStop = true;
-            this.weekRadio.Text = "Week";
-            this.weekRadio.UseVisualStyleBackColor = true;
-            this.weekRadio.CheckedChanged += new System.EventHandler(this.weekRadio_CheckedChanged);
-            // 
-            // selection
-            // 
-            this.selection.AutoSize = true;
-            this.selection.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.selection.Location = new System.Drawing.Point(434, 12);
-            this.selection.Name = "selection";
-            this.selection.Size = new System.Drawing.Size(101, 24);
-            this.selection.TabIndex = 9;
-            this.selection.TabStop = true;
-            this.selection.Text = "Pick a Date";
-            this.selection.UseVisualStyleBackColor = true;
-            this.selection.CheckedChanged += new System.EventHandler(this.selection_CheckedChanged);
-            // 
-            // allSchedule
-            // 
-            this.allSchedule.AutoSize = true;
-            this.allSchedule.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.allSchedule.Location = new System.Drawing.Point(273, 12);
-            this.allSchedule.Name = "allSchedule";
-            this.allSchedule.Size = new System.Drawing.Size(137, 24);
-            this.allSchedule.TabIndex = 10;
-            this.allSchedule.TabStop = true;
-            this.allSchedule.Text = "All Appointment";
-            this.allSchedule.UseVisualStyleBackColor = true;
-            this.allSchedule.CheckedChanged += new System.EventHandler(this.allSchedule_CheckedChanged);
-            // 
-            // monthRadio
-            // 
-            this.monthRadio.AutoSize = true;
-            this.monthRadio.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.monthRadio.Location = new System.Drawing.Point(184, 13);
-            this.monthRadio.Name = "monthRadio";
-            this.monthRadio.Size = new System.Drawing.Size(70, 24);
-            this.monthRadio.TabIndex = 11;
-            this.monthRadio.TabStop = true;
-            this.monthRadio.Text = "Month";
-            this.monthRadio.UseVisualStyleBackColor = true;
-            this.monthRadio.CheckedChanged += new System.EventHandler(this.monthRadio_CheckedChanged);
-            // 
             // AllAppointments
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -262,6 +262,7 @@
             this.MinimumSize = new System.Drawing.Size(1089, 657);
             this.Name = "AllAppointments";
             this.Text = "AllAppointments";
+            this.Shown += new System.EventHandler(this.AllAppointments_Shown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel9.ResumeLayout(false);

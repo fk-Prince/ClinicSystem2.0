@@ -101,14 +101,17 @@ namespace ClinicSystem.Appointments
                 }
             }
             else
-            {
+            {            
                 Label label = new Label();
                 label.Text = $"CLINIC HAS NO APPOINTMENT {comboText}.";
                 label.Font = new Font("Segoe UI", 18, FontStyle.Bold);
-                label.AutoSize = true;
-                label.Location = new Point(250, 100);
+                label.ForeColor = Color.Black;
+                label.AutoSize = false;
+                label.Dock = DockStyle.Fill;
+                label.TextAlign = ContentAlignment.MiddleCenter;
+
                 Panel panel = new Panel();
-                panel.Size = new Size(900, 400);
+                panel.Size = new Size(flowPanel.Width, 500);
                 panel.Controls.Add(label);
                 flowPanel.Controls.Add(panel);
             }
@@ -237,16 +240,27 @@ namespace ClinicSystem.Appointments
             if (string.IsNullOrWhiteSpace(text))
             {
                 radioToday.Checked = true;
-                displaySchedules(patientAppointments, "");
+                List<Appointment> filtered = patientAppointments
+                .Where(pa => pa.StartTime.Day == DateTime.Now.Day)
+                .ToList();
+                displaySchedules(filtered, "TODAY");
             } else
             {
                 List<Appointment> filtered = patientAppointments
                 .Where(pa => pa.Operation.OperationName.StartsWith(text,StringComparison.OrdinalIgnoreCase) || pa.Operation.OperationCode.StartsWith(text, StringComparison.OrdinalIgnoreCase) ||
                              pa.Doctor.DoctorLastName.StartsWith(text, StringComparison.OrdinalIgnoreCase) || pa.Doctor.DoctorFirstName.StartsWith(text, StringComparison.OrdinalIgnoreCase) || pa.Doctor.DoctorID.StartsWith(text, StringComparison.OrdinalIgnoreCase) ||
-                             pa.AppointmentDetailNo.ToString().StartsWith(text, StringComparison.OrdinalIgnoreCase))
+                             pa.AppointmentDetailNo.ToString().Equals(text, StringComparison.OrdinalIgnoreCase))
                 .ToList();
                 displaySchedules(filtered, "");
             }
+        }
+
+        private void AllAppointments_Shown(object sender, EventArgs e)
+        {
+            List<Appointment> filtered = patientAppointments
+             .Where(pa => pa.StartTime.Date == DateTime.Today.Date)
+             .ToList();
+            displaySchedules(filtered, "TODAY");
         }
     }
 }

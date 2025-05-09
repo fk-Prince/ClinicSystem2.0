@@ -29,6 +29,15 @@ namespace ClinicSystem.Main2
             displaySchedules(filtered, "TODAY");
         }
 
+        private void DoctorAppointmentForm_Shown(object sender, EventArgs e)
+        {
+            DateTime today = DateTime.Today;
+            List<Appointment> filtered = patientAppointments
+                .Where(pa => pa.StartTime.Date == today.Date)
+                .ToList();
+            displaySchedules(filtered, "TODAY");
+        }
+
         private void displaySchedules(List<Appointment> filtered, string type)
         {
 
@@ -36,7 +45,7 @@ namespace ClinicSystem.Main2
             flowPanel.Controls.Clear();
             if (filtered.Count > 0)
             {
-                foreach (Appointment pa in patientAppointments)
+                foreach (Appointment pa in filtered)
                 {
                     Guna2Panel panel = new Guna2Panel();
                     panel.Size = new Size(300, 330);
@@ -101,16 +110,19 @@ namespace ClinicSystem.Main2
             }
             else
             {
-
                 Label label = new Label();
-                label.Text = $"YOU HAS NO APPOINTMENT {type}.";
+                label.Text = $"YOU HAVE NO APPOINTMENT {type}.";
                 label.Font = new Font("Segoe UI", 18, FontStyle.Bold);
-                label.AutoSize = true;
-                label.Location = new Point(250, 100);
+                label.ForeColor = Color.Black;
+                label.AutoSize = false;
+                label.Dock = DockStyle.Fill;
+                label.TextAlign = ContentAlignment.MiddleCenter;
+
                 Panel panel = new Panel();
-                panel.Size = new Size(900, 400);
+                panel.Size = new Size(flowPanel.Width, 500);
                 panel.Controls.Add(label);
                 flowPanel.Controls.Add(panel);
+
             }
         }
 
@@ -219,18 +231,36 @@ namespace ClinicSystem.Main2
                 .ToList();
             displaySchedules(filtered, "THIS DATE");
         }
-        private void label5_Click(object sender, EventArgs e)
+   
+
+        private void SearchBar1_TextChanged(object sender, EventArgs e)
         {
-            selection.Checked = !selection.Checked;
-            if (selection.Checked)
+            radioToday.Checked = false;
+            weekRadio.Checked = false;
+            monthRadio.Checked = false;
+            allSchedule.Checked = false;
+            selection.Checked = false;
+            datePickDate.Visible = false;
+
+            string text = SearchBar1.Text;
+            if (string.IsNullOrWhiteSpace(text))
             {
-                datePickDate.Visible = true;
-                pickDate();
+                radioToday.Checked = true;
+                List<Appointment> filtered = patientAppointments
+                  .Where(pa => pa.StartTime.Day == DateTime.Now.Day)
+                  .ToList();
+                displaySchedules(filtered, "TODAY");
             }
             else
             {
-                datePickDate.Visible = false;
+                List<Appointment> filtered = patientAppointments
+                .Where(pa => pa.Operation.OperationName.StartsWith(text, StringComparison.OrdinalIgnoreCase) || pa.Operation.OperationCode.StartsWith(text, StringComparison.OrdinalIgnoreCase) ||
+                             pa.AppointmentDetailNo.ToString().Equals(text, StringComparison.OrdinalIgnoreCase))
+                .ToList();
+                 displaySchedules(filtered, "");
             }
         }
+
     }
 }
+    

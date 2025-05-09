@@ -28,11 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
             this.infoDoctorPanel = new System.Windows.Forms.Panel();
+            this.todayAppP = new Guna.UI2.WinForms.Guna2Panel();
+            this.next = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.back = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.apPanel = new Guna.UI2.WinForms.Guna2Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.dataGrid = new Guna.UI2.WinForms.Guna2DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
             this.inactiveB = new Guna.UI2.WinForms.Guna2Button();
             this.activeB = new Guna.UI2.WinForms.Guna2Button();
@@ -40,7 +51,6 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.DoctorID = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.dataGrid = new Guna.UI2.WinForms.Guna2DataGridView();
             this.panel6 = new System.Windows.Forms.Panel();
             this.DoctorFullName = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -52,7 +62,6 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.Address = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.Gender = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -60,14 +69,20 @@
             this.dateHired = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.lblQC = new System.Windows.Forms.Label();
-            this.lblDentC = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.address_label = new System.Windows.Forms.Label();
             this.logo_img = new System.Windows.Forms.PictureBox();
+            this.prevSlide = new System.Windows.Forms.Timer(this.components);
+            this.nextSlide = new System.Windows.Forms.Timer(this.components);
             this.infoDoctorPanel.SuspendLayout();
+            this.todayAppP.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.next)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.back)).BeginInit();
             this.panel2.SuspendLayout();
+            this.guna2Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.drImage)).BeginInit();
             this.panel7.SuspendLayout();
@@ -85,7 +100,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.infoDoctorPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.infoDoctorPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(249)))), ((int)(((byte)(246)))));
-            this.infoDoctorPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.infoDoctorPanel.Controls.Add(this.todayAppP);
             this.infoDoctorPanel.Controls.Add(this.panel2);
             this.infoDoctorPanel.Location = new System.Drawing.Point(0, 219);
             this.infoDoctorPanel.MaximumSize = new System.Drawing.Size(1920, 1080);
@@ -93,7 +108,89 @@
             this.infoDoctorPanel.Name = "infoDoctorPanel";
             this.infoDoctorPanel.Size = new System.Drawing.Size(1080, 508);
             this.infoDoctorPanel.TabIndex = 118;
-            this.infoDoctorPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.infoDoctorPanel_Paint);
+            this.infoDoctorPanel.SizeChanged += new System.EventHandler(this.infoDoctorPanel_SizeChanged);
+            // 
+            // todayAppP
+            // 
+            this.todayAppP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.todayAppP.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.todayAppP.Controls.Add(this.next);
+            this.todayAppP.Controls.Add(this.back);
+            this.todayAppP.Controls.Add(this.apPanel);
+            this.todayAppP.Controls.Add(this.label1);
+            this.todayAppP.Location = new System.Drawing.Point(613, 494);
+            this.todayAppP.MaximumSize = new System.Drawing.Size(700, 600);
+            this.todayAppP.Name = "todayAppP";
+            this.todayAppP.Size = new System.Drawing.Size(454, 319);
+            this.todayAppP.TabIndex = 12;
+            // 
+            // next
+            // 
+            this.next.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.next.BorderRadius = 10;
+            this.next.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.next.FillColor = System.Drawing.Color.Blue;
+            this.next.Image = global::ClinicSystem.Properties.Resources.right;
+            this.next.ImageRotate = 0F;
+            this.next.Location = new System.Drawing.Point(410, 164);
+            this.next.MaximumSize = new System.Drawing.Size(40, 33);
+            this.next.MinimumSize = new System.Drawing.Size(40, 33);
+            this.next.Name = "next";
+            this.next.Size = new System.Drawing.Size(40, 33);
+            this.next.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.next.TabIndex = 11;
+            this.next.TabStop = false;
+            this.next.Click += new System.EventHandler(this.next_Click);
+            // 
+            // back
+            // 
+            this.back.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.back.BorderRadius = 10;
+            this.back.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.back.FillColor = System.Drawing.Color.Blue;
+            this.back.Image = global::ClinicSystem.Properties.Resources.left;
+            this.back.ImageRotate = 0F;
+            this.back.Location = new System.Drawing.Point(0, 164);
+            this.back.MaximumSize = new System.Drawing.Size(45, 37);
+            this.back.MinimumSize = new System.Drawing.Size(45, 37);
+            this.back.Name = "back";
+            this.back.Size = new System.Drawing.Size(45, 37);
+            this.back.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.back.TabIndex = 10;
+            this.back.TabStop = false;
+            this.back.Click += new System.EventHandler(this.back_Click);
+            // 
+            // apPanel
+            // 
+            this.apPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.apPanel.BackColor = System.Drawing.Color.Transparent;
+            this.apPanel.Location = new System.Drawing.Point(47, 68);
+            this.apPanel.MaximumSize = new System.Drawing.Size(360, 243);
+            this.apPanel.MinimumSize = new System.Drawing.Size(360, 243);
+            this.apPanel.Name = "apPanel";
+            this.apPanel.Size = new System.Drawing.Size(360, 243);
+            this.apPanel.TabIndex = 8;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(19, 17);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(427, 37);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Today\'s Upcoming Appointment";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel2
             // 
@@ -101,23 +198,126 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel2.Controls.Add(this.guna2Panel1);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.panel5);
-            this.panel2.Controls.Add(this.dataGrid);
             this.panel2.Controls.Add(this.panel6);
             this.panel2.Controls.Add(this.drImage);
             this.panel2.Controls.Add(this.panel7);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.panel8);
-            this.panel2.Controls.Add(this.label11);
             this.panel2.Controls.Add(this.panel9);
             this.panel2.Controls.Add(this.panel10);
             this.panel2.Location = new System.Drawing.Point(34, 5);
-            this.panel2.MaximumSize = new System.Drawing.Size(1300, 600);
+            this.panel2.MaximumSize = new System.Drawing.Size(1920, 1080);
             this.panel2.MinimumSize = new System.Drawing.Size(1016, 481);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1016, 481);
+            this.panel2.Size = new System.Drawing.Size(1018, 483);
             this.panel2.TabIndex = 100007;
+            // 
+            // guna2Panel1
+            // 
+            this.guna2Panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2Panel1.Controls.Add(this.label11);
+            this.guna2Panel1.Controls.Add(this.dataGrid);
+            this.guna2Panel1.Location = new System.Drawing.Point(533, 3);
+            this.guna2Panel1.MaximumSize = new System.Drawing.Size(1920, 1080);
+            this.guna2Panel1.MinimumSize = new System.Drawing.Size(480, 475);
+            this.guna2Panel1.Name = "guna2Panel1";
+            this.guna2Panel1.Size = new System.Drawing.Size(482, 477);
+            this.guna2Panel1.TabIndex = 13;
+            // 
+            // label11
+            // 
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(219, 6);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(164, 31);
+            this.label11.TabIndex = 7;
+            this.label11.Text = "Specialized";
+            // 
+            // dataGrid
+            // 
+            this.dataGrid.AllowUserToAddRows = false;
+            this.dataGrid.AllowUserToDeleteRows = false;
+            this.dataGrid.AllowUserToResizeColumns = false;
+            this.dataGrid.AllowUserToResizeRows = false;
+            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle36.BackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle36.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(168)))), ((int)(((byte)(166)))));
+            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.Color.White;
+            this.dataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle36;
+            this.dataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle37.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle37.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle37.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle37.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle37.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle37.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle37;
+            this.dataGrid.ColumnHeadersHeight = 50;
+            this.dataGrid.Cursor = System.Windows.Forms.Cursors.Arrow;
+            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle38.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle38.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle38.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGrid.DefaultCellStyle = dataGridViewCellStyle38;
+            this.dataGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(230)))), ((int)(((byte)(222)))));
+            this.dataGrid.Location = new System.Drawing.Point(122, 40);
+            this.dataGrid.MaximumSize = new System.Drawing.Size(347, 1080);
+            this.dataGrid.MinimumSize = new System.Drawing.Size(347, 100);
+            this.dataGrid.Name = "dataGrid";
+            this.dataGrid.ReadOnly = true;
+            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle39.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle39.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle39.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle39.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle39.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle39.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle39;
+            this.dataGrid.RowHeadersVisible = false;
+            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle40.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle40.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle40.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(168)))), ((int)(((byte)(166)))));
+            dataGridViewCellStyle40.SelectionForeColor = System.Drawing.Color.White;
+            this.dataGrid.RowsDefaultCellStyle = dataGridViewCellStyle40;
+            this.dataGrid.RowTemplate.Height = 40;
+            this.dataGrid.Size = new System.Drawing.Size(347, 426);
+            this.dataGrid.TabIndex = 11;
+            this.dataGrid.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.dataGrid.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dataGrid.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Black;
+            this.dataGrid.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.PaleGreen;
+            this.dataGrid.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dataGrid.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.dataGrid.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(230)))), ((int)(((byte)(222)))));
+            this.dataGrid.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.dataGrid.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataGrid.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGrid.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.dataGrid.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dataGrid.ThemeStyle.HeaderStyle.Height = 50;
+            this.dataGrid.ThemeStyle.ReadOnly = true;
+            this.dataGrid.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dataGrid.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dataGrid.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGrid.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dataGrid.ThemeStyle.RowsStyle.Height = 40;
+            this.dataGrid.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dataGrid.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
             // panel3
             // 
@@ -126,7 +326,7 @@
             this.panel3.Controls.Add(this.inactiveB);
             this.panel3.Controls.Add(this.activeB);
             this.panel3.Controls.Add(this.label2);
-            this.panel3.Location = new System.Drawing.Point(20, 442);
+            this.panel3.Location = new System.Drawing.Point(20, 443);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(504, 34);
             this.panel3.TabIndex = 12;
@@ -148,6 +348,7 @@
             this.inactiveB.Size = new System.Drawing.Size(172, 29);
             this.inactiveB.TabIndex = 2;
             this.inactiveB.Text = "Inactive";
+            this.inactiveB.Click += new System.EventHandler(this.inactiveB_Click);
             // 
             // activeB
             // 
@@ -185,7 +386,7 @@
             this.panel5.BackColor = System.Drawing.Color.Transparent;
             this.panel5.Controls.Add(this.DoctorID);
             this.panel5.Controls.Add(this.label4);
-            this.panel5.Location = new System.Drawing.Point(20, 202);
+            this.panel5.Location = new System.Drawing.Point(20, 203);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(504, 34);
             this.panel5.TabIndex = 0;
@@ -213,72 +414,13 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Doctor ID:";
             // 
-            // dataGrid
-            // 
-            this.dataGrid.AllowUserToAddRows = false;
-            this.dataGrid.AllowUserToDeleteRows = false;
-            this.dataGrid.AllowUserToResizeColumns = false;
-            this.dataGrid.AllowUserToResizeRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.PaleGreen;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
-            this.dataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
-            this.dataGrid.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
-            this.dataGrid.ColumnHeadersHeight = 50;
-            this.dataGrid.Cursor = System.Windows.Forms.Cursors.Arrow;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGrid.DefaultCellStyle = dataGridViewCellStyle9;
-            this.dataGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(230)))), ((int)(((byte)(222)))));
-            this.dataGrid.Location = new System.Drawing.Point(605, 43);
-            this.dataGrid.Name = "dataGrid";
-            this.dataGrid.ReadOnly = true;
-            this.dataGrid.RowHeadersVisible = false;
-            this.dataGrid.Size = new System.Drawing.Size(395, 424);
-            this.dataGrid.TabIndex = 11;
-            this.dataGrid.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.dataGrid.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.dataGrid.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.dataGrid.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.PaleGreen;
-            this.dataGrid.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            this.dataGrid.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.dataGrid.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(230)))), ((int)(((byte)(222)))));
-            this.dataGrid.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.dataGrid.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dataGrid.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGrid.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.dataGrid.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataGrid.ThemeStyle.HeaderStyle.Height = 50;
-            this.dataGrid.ThemeStyle.ReadOnly = true;
-            this.dataGrid.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.dataGrid.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dataGrid.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGrid.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.dataGrid.ThemeStyle.RowsStyle.Height = 22;
-            this.dataGrid.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dataGrid.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            // 
             // panel6
             // 
             this.panel6.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.panel6.BackColor = System.Drawing.Color.Transparent;
             this.panel6.Controls.Add(this.DoctorFullName);
             this.panel6.Controls.Add(this.label5);
-            this.panel6.Location = new System.Drawing.Point(20, 242);
+            this.panel6.Location = new System.Drawing.Point(20, 243);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(504, 34);
             this.panel6.TabIndex = 1;
@@ -288,7 +430,7 @@
             this.DoctorFullName.AutoSize = true;
             this.DoctorFullName.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DoctorFullName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(78)))), ((int)(((byte)(78)))));
-            this.DoctorFullName.Location = new System.Drawing.Point(90, 5);
+            this.DoctorFullName.Location = new System.Drawing.Point(90, 7);
             this.DoctorFullName.Name = "DoctorFullName";
             this.DoctorFullName.Size = new System.Drawing.Size(32, 18);
             this.DoctorFullName.TabIndex = 2;
@@ -311,7 +453,7 @@
             this.drImage.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.drImage.BackColor = System.Drawing.Color.Transparent;
             this.drImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.drImage.Location = new System.Drawing.Point(20, 66);
+            this.drImage.Location = new System.Drawing.Point(20, 67);
             this.drImage.Name = "drImage";
             this.drImage.Size = new System.Drawing.Size(128, 128);
             this.drImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -324,7 +466,7 @@
             this.panel7.BackColor = System.Drawing.Color.Transparent;
             this.panel7.Controls.Add(this.Age);
             this.panel7.Controls.Add(this.label6);
-            this.panel7.Location = new System.Drawing.Point(20, 322);
+            this.panel7.Location = new System.Drawing.Point(20, 323);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(504, 34);
             this.panel7.TabIndex = 2;
@@ -358,7 +500,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(18, 32);
+            this.label3.Location = new System.Drawing.Point(14, 18);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(182, 31);
             this.label3.TabIndex = 9;
@@ -370,7 +512,7 @@
             this.panel8.BackColor = System.Drawing.Color.Transparent;
             this.panel8.Controls.Add(this.Address);
             this.panel8.Controls.Add(this.label7);
-            this.panel8.Location = new System.Drawing.Point(20, 362);
+            this.panel8.Location = new System.Drawing.Point(20, 363);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(504, 34);
             this.panel8.TabIndex = 3;
@@ -398,26 +540,13 @@
             this.label7.TabIndex = 0;
             this.label7.Text = "Address:";
             // 
-            // label11
-            // 
-            this.label11.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(716, 4);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(164, 31);
-            this.label11.TabIndex = 7;
-            this.label11.Text = "Specialized";
-            this.label11.Click += new System.EventHandler(this.label11_Click);
-            // 
             // panel9
             // 
             this.panel9.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.panel9.BackColor = System.Drawing.Color.Transparent;
             this.panel9.Controls.Add(this.Gender);
             this.panel9.Controls.Add(this.label8);
-            this.panel9.Location = new System.Drawing.Point(20, 282);
+            this.panel9.Location = new System.Drawing.Point(20, 283);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(504, 34);
             this.panel9.TabIndex = 4;
@@ -451,7 +580,7 @@
             this.panel10.BackColor = System.Drawing.Color.Transparent;
             this.panel10.Controls.Add(this.dateHired);
             this.panel10.Controls.Add(this.label9);
-            this.panel10.Location = new System.Drawing.Point(20, 402);
+            this.panel10.Location = new System.Drawing.Point(20, 403);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(504, 34);
             this.panel10.TabIndex = 5;
@@ -481,47 +610,50 @@
             // 
             // lblQC
             // 
+            this.lblQC.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblQC.AutoSize = true;
             this.lblQC.BackColor = System.Drawing.Color.Transparent;
             this.lblQC.Font = new System.Drawing.Font("Microsoft Sans Serif", 62.25F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
                 | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQC.ForeColor = System.Drawing.Color.Transparent;
+            this.lblQC.ForeColor = System.Drawing.Color.White;
             this.lblQC.Location = new System.Drawing.Point(226, 31);
             this.lblQC.Name = "lblQC";
             this.lblQC.Size = new System.Drawing.Size(595, 95);
             this.lblQC.TabIndex = 116;
             this.lblQC.Text = "Quantum Care";
             // 
-            // lblDentC
-            // 
-            this.lblDentC.AutoSize = true;
-            this.lblDentC.BackColor = System.Drawing.Color.Transparent;
-            this.lblDentC.Font = new System.Drawing.Font("Microsoft Sans Serif", 42F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDentC.ForeColor = System.Drawing.Color.AliceBlue;
-            this.lblDentC.Location = new System.Drawing.Point(234, 128);
-            this.lblDentC.Name = "lblDentC";
-            this.lblDentC.Size = new System.Drawing.Size(171, 64);
-            this.lblDentC.TabIndex = 121;
-            this.lblDentC.Text = "Clinic";
-            // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(230)))), ((int)(((byte)(222)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(168)))), ((int)(((byte)(166)))));
+            this.panel1.Controls.Add(this.address_label);
             this.panel1.Controls.Add(this.lblQC);
-            this.panel1.Controls.Add(this.lblDentC);
             this.panel1.Controls.Add(this.logo_img);
-            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Location = new System.Drawing.Point(-1, 0);
             this.panel1.MaximumSize = new System.Drawing.Size(1920, 219);
             this.panel1.MinimumSize = new System.Drawing.Size(1080, 219);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1080, 219);
             this.panel1.TabIndex = 122;
             // 
+            // address_label
+            // 
+            this.address_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.address_label.AutoSize = true;
+            this.address_label.BackColor = System.Drawing.Color.Transparent;
+            this.address_label.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.address_label.ForeColor = System.Drawing.Color.White;
+            this.address_label.Location = new System.Drawing.Point(258, 126);
+            this.address_label.Name = "address_label";
+            this.address_label.Size = new System.Drawing.Size(331, 20);
+            this.address_label.TabIndex = 117;
+            this.address_label.Text = "506 J.P. Laurel Ave, Poblacion District, Davao City";
+            // 
             // logo_img
             // 
+            this.logo_img.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.logo_img.BackColor = System.Drawing.Color.Transparent;
             this.logo_img.Image = global::ClinicSystem.Properties.Resources.Logo;
             this.logo_img.Location = new System.Drawing.Point(22, 3);
@@ -529,6 +661,16 @@
             this.logo_img.Size = new System.Drawing.Size(219, 204);
             this.logo_img.TabIndex = 115;
             this.logo_img.TabStop = false;
+            // 
+            // prevSlide
+            // 
+            this.prevSlide.Interval = 1;
+            this.prevSlide.Tick += new System.EventHandler(this.prevSlide_Tick);
+            // 
+            // nextSlide
+            // 
+            this.nextSlide.Interval = 1;
+            this.nextSlide.Tick += new System.EventHandler(this.nextSlide_Tick);
             // 
             // DoctorHome
             // 
@@ -542,14 +684,21 @@
             this.MinimumSize = new System.Drawing.Size(1079, 718);
             this.Name = "DoctorHome";
             this.Text = "HomeForm";
+            this.Load += new System.EventHandler(this.DoctorHome_Load);
             this.infoDoctorPanel.ResumeLayout(false);
+            this.todayAppP.ResumeLayout(false);
+            this.todayAppP.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.next)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.back)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.guna2Panel1.ResumeLayout(false);
+            this.guna2Panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.drImage)).EndInit();
@@ -590,7 +739,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblQC;
         private System.Windows.Forms.PictureBox logo_img;
-        private System.Windows.Forms.Label lblDentC;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox drImage;
@@ -601,5 +749,14 @@
         private Guna.UI2.WinForms.Guna2Button inactiveB;
         private Guna.UI2.WinForms.Guna2Button activeB;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label address_label;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private Guna.UI2.WinForms.Guna2Panel todayAppP;
+        private Guna.UI2.WinForms.Guna2PictureBox next;
+        private Guna.UI2.WinForms.Guna2PictureBox back;
+        private Guna.UI2.WinForms.Guna2Panel apPanel;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Timer prevSlide;
+        private System.Windows.Forms.Timer nextSlide;
     }
 }

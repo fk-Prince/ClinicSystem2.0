@@ -19,17 +19,17 @@ namespace ClinicSystem
         private OperationRepository db = new OperationRepository();
         private bool isAddOperationShowing = false;
         private List<Control> tab = new List<Control>();
-
+        private List<string> roomtype;
         public OperationForm()
         {
             InitializeComponent();
             operationlist = db.getOperationOnDoctors();
-            List<string> roomtype = db.getAvailableRoomType();
+            roomtype = db.getAvailableRoomType();
             foreach (string item in roomtype)
             {
                 comboRoomType.Items.Add(item);
             }
-            displayOperations(operationlist);
+            displayOperations(operationlist,"No Operation");
             int y = (ClientSize.Height - addOperationPanel.Height) / 2;
             if (ClientSize.Height < 1080)
             {
@@ -49,110 +49,127 @@ namespace ClinicSystem
 
 
 
-        private void displayOperations(List<Operation> operationlist)
+        private void displayOperations(List<Operation> operationlist, string type)
         {
             flowLayout.Controls.Clear();
-
-            foreach (Operation operation in operationlist)
+            if (operationlist.Count > 0)
             {
-                Guna2Panel panel = new Guna2Panel();
-                panel.Size = new Size(300, 290);
-                panel.Location = new Point(50, 100);
-                panel.Margin = new Padding(20, 10, 10, 10);
-                panel.BackColor = Color.Transparent;
-                panel.FillColor = Color.FromArgb(111, 168, 166);
-                panel.BorderRadius = 20;
 
-
-                Label label = createLabel("Operation Code", operation.OperationCode, 10, 5);
-                panel.Controls.Add(label);
-
-                label = createLabel("Operation Name", operation.OperationName, 10, 25);
-                panel.Controls.Add(label);
-
-                label = createLabel(
-                    "Date-Added",
-                    operation.DateAdded.ToString("yyyy-MM-dd"),
-                    10,
-                    45
-                );
-                panel.Controls.Add(label);
-
-                label = createLabel("Price", operation.Price.ToString(), 10, 65);
-                panel.Controls.Add(label);
-
-                label = createLabel("Duration", operation.Duration.ToString(), 10, 85);
-                panel.Controls.Add(label);
-
-                label = createLabel("Room Type Needed", operation.OperationRoomType, 10, 105);
-                panel.Controls.Add(label);
-
-                label = new Label();
-                label.Text = "Description";
-                label.MaximumSize = new Size(200, 0);
-                label.AutoSize = true;
-                label.Location = new Point(15, 125);
-                panel.Controls.Add(label);
-
-
-                Guna2TextBox tb = new Guna2TextBox();
-                tb.Multiline = true;
-                tb.Text = operation.Description;
-                tb.Location = new Point(15, 150);
-                tb.Size = new Size(270, 60);
-                tb.ReadOnly = true;
-                tb.ForeColor = Color.Black;
-                tb.BorderRadius = 5;
-                tb.BackColor = Color.Transparent;
-                panel.Controls.Add(tb);
-
-                Panel panelLine = new Panel();
-                panelLine.Size = new Size(260, 1);
-                panelLine.BackColor = Color.Gray;
-                panelLine.Location = new Point(20, 215);
-                panel.Controls.Add(panelLine);
-
-                label = new Label();
-                label.Text = "Doctor Assigned";
-                label.MaximumSize = new Size(200, 0);
-                label.AutoSize = true;
-                label.Location = new Point(15, 225);
-                panel.Controls.Add(label);
-
-                Guna2Button b = new Guna2Button();
-                b.Image = Properties.Resources.add;
-                b.Tag = operation;
-                b.ImageSize = new Size(20, 20);
-                b.Location = new Point(260, 220);
-                b.Cursor = Cursors.Hand;
-                b.HoverState.FillColor = Color.Transparent;
-                b.Size = new Size(27, 27);
-                b.FillColor = Color.Transparent;
-                b.Click += OperationClicked;
-                b.BackColor = Color.Transparent;
-                panel.Controls.Add(b);
-
-                System.Windows.Forms.ComboBox combo = new System.Windows.Forms.ComboBox();
-                foreach (Doctor doctor in operation.Doctor)
+                foreach (Operation operation in operationlist)
                 {
-                    string fullname = doctor.DoctorLastName + ", " + doctor.DoctorFirstName + " " + doctor.DoctorMiddleName;
-                    combo.Items.Add(doctor.DoctorID + " | " + fullname);
+                    Guna2Panel panel = new Guna2Panel();
+                    panel.Size = new Size(300, 290);
+                    panel.Location = new Point(50, 100);
+                    panel.Margin = new Padding(20, 10, 10, 10);
+                    panel.BackColor = Color.Transparent;
+                    panel.FillColor = Color.FromArgb(111, 168, 166);
+                    panel.BorderRadius = 20;
+
+
+                    Label label = createLabel("Operation Code", operation.OperationCode, 10, 5);
+                    panel.Controls.Add(label);
+
+                    label = createLabel("Operation Name", operation.OperationName, 10, 25);
+                    panel.Controls.Add(label);
+
+                    label = createLabel(
+                        "Date-Added",
+                        operation.DateAdded.ToString("yyyy-MM-dd"),
+                        10,
+                        45
+                    );
+                    panel.Controls.Add(label);
+
+                    label = createLabel("Price", operation.Price.ToString(), 10, 65);
+                    panel.Controls.Add(label);
+
+                    label = createLabel("Duration", operation.Duration.ToString(), 10, 85);
+                    panel.Controls.Add(label);
+
+                    label = createLabel("Room Type Needed", operation.OperationRoomType, 10, 105);
+                    panel.Controls.Add(label);
+
+                    label = new Label();
+                    label.Text = "Description";
+                    label.MaximumSize = new Size(200, 0);
+                    label.AutoSize = true;
+                    label.Location = new Point(15, 125);
+                    panel.Controls.Add(label);
+
+
+                    Guna2TextBox tb = new Guna2TextBox();
+                    tb.Multiline = true;
+                    tb.Text = operation.Description;
+                    tb.Location = new Point(15, 150);
+                    tb.Size = new Size(270, 60);
+                    tb.ReadOnly = true;
+                    tb.ForeColor = Color.Black;
+                    tb.BorderRadius = 5;
+                    tb.BackColor = Color.Transparent;
+                    panel.Controls.Add(tb);
+
+                    Panel panelLine = new Panel();
+                    panelLine.Size = new Size(260, 1);
+                    panelLine.BackColor = Color.Gray;
+                    panelLine.Location = new Point(20, 215);
+                    panel.Controls.Add(panelLine);
+
+                    label = new Label();
+                    label.Text = "Doctor Assigned";
+                    label.MaximumSize = new Size(200, 0);
+                    label.AutoSize = true;
+                    label.Location = new Point(15, 225);
+                    panel.Controls.Add(label);
+
+                    Guna2Button b = new Guna2Button();
+                    b.Image = Properties.Resources.add;
+                    b.Tag = operation;
+                    b.ImageSize = new Size(20, 20);
+                    b.Location = new Point(260, 220);
+                    b.Cursor = Cursors.Hand;
+                    b.HoverState.FillColor = Color.Transparent;
+                    b.Size = new Size(27, 27);
+                    b.FillColor = Color.Transparent;
+                    b.Click += OperationClicked;
+                    b.BackColor = Color.Transparent;
+                    panel.Controls.Add(b);
+
+                    System.Windows.Forms.ComboBox combo = new System.Windows.Forms.ComboBox();
+                    foreach (Doctor doctor in operation.Doctor)
+                    {
+                        string fullname = doctor.DoctorLastName + ", " + doctor.DoctorFirstName + " " + doctor.DoctorMiddleName;
+                        combo.Items.Add(doctor.DoctorID + " | " + fullname);
+                    }
+                    if (operation.Doctor.Count == 0)
+                    {
+                        combo.Items.Add("No Doctor Assigned");
+                    }
+                    combo.ItemHeight = 20;
+                    combo.Location = new Point(15, 250);
+                    combo.DropDownStyle = ComboBoxStyle.DropDownList;
+                    combo.Size = new Size(270, 38);
+                    combo.MaxDropDownItems = 5;
+                    combo.IntegralHeight = false;
+                    panel.Controls.Add(combo);
+
+
+
+
+                    flowLayout.Controls.Add(panel);
                 }
-                if (operation.Doctor.Count == 0)
-                {
-                    combo.Items.Add("No Doctor Assigned");
-                }
-                combo.ItemHeight = 20;
-                combo.Location = new Point(15, 250);
-                combo.DropDownStyle = ComboBoxStyle.DropDownList;
-                combo.Size = new Size(270, 38);
-                combo.MaxDropDownItems = 5;
-                combo.IntegralHeight = false;
-                panel.Controls.Add(combo);
+            } else
+            {
+                Label label = new Label();
+                label.Text = $"{type}.";
+                label.Font = new Font("Segoe UI", 18, FontStyle.Bold);
+                label.ForeColor = Color.Black;
+                label.AutoSize = false;
+                label.Dock = DockStyle.Fill;
+                label.TextAlign = ContentAlignment.MiddleCenter;
 
-
-
-
+                Panel panel = new Panel();
+                panel.Size = new Size(flowLayout.Width, 500);
+                panel.Controls.Add(label);
                 flowLayout.Controls.Add(panel);
             }
 
@@ -267,10 +284,12 @@ namespace ClinicSystem
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
+            string type;
             List<Operation> filteredOperationList = new List<Operation>();
             if (string.IsNullOrWhiteSpace(SearchBar1.Text))
             {
                 filteredOperationList = operationlist;
+                type = "No Operation";
             }
             else
             {
@@ -280,9 +299,9 @@ namespace ClinicSystem
                    operation.OperationName.StartsWith(SearchBar1.Text, StringComparison.OrdinalIgnoreCase) ||
                    operation.OperationCode.StartsWith(SearchBar1.Text, StringComparison.OrdinalIgnoreCase)
                ).ToList();
-
+                type = "Operation doenst exists";
             }
-            displayOperations(filteredOperationList);
+            displayOperations(filteredOperationList, type);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -440,7 +459,7 @@ namespace ClinicSystem
             opPrice.Text = "";
             opDuration.Text = "";
             operationlist = db.getOperationOnDoctors();
-            displayOperations(operationlist);
+            displayOperations(operationlist, "");
             SearchBar1.Text = "";
             SearchBar1.Enabled = true;
         }
@@ -542,6 +561,15 @@ namespace ClinicSystem
                     e.IsInputKey = true;
                 }
             }
+        }
+
+        private void OperationForm_Shown(object sender, EventArgs e)
+        {
+            foreach (string item in roomtype)
+            {
+                comboRoomType.Items.Add(item);
+            }
+            displayOperations(operationlist,"No Operation");
         }
     }
 }

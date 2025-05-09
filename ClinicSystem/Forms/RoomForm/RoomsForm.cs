@@ -44,20 +44,18 @@ namespace ClinicSystem.Rooms
         {
 
             flowLayout.Controls.Clear();
-
             if (type.Equals("No Rooms"))
-            {
+            { 
                 Label label = new Label();
-                label.Text = $"Currently We Have {type}";
+                label.Text = $"Currently We Have {type}.";
                 label.Font = new Font("Segoe UI", 18, FontStyle.Bold);
-                label.AutoSize = true;
+                label.ForeColor = Color.Black;
+                label.AutoSize = false;
+                label.Dock = DockStyle.Fill;
                 label.TextAlign = ContentAlignment.MiddleCenter;
 
-
-
                 Panel panel = new Panel();
-                panel.Size = new Size(flowLayout.Width, 400);
-                label.Location = new Point((panel.Width - label.Width) / 2 - 100, (panel.Height - label.Height) / 2);
+                panel.Size = new Size(flowLayout.Width, 500);
                 panel.Controls.Add(label);
                 flowLayout.Controls.Add(panel);
                 return;
@@ -231,6 +229,16 @@ namespace ClinicSystem.Rooms
             }
             addRoomPanel.Location = new Point(-addRoomPanel.Width, y);
             addRoomPanel.Invalidate();
+        }
+
+        private void RoomsForm_Shown(object sender, EventArgs e)
+        {
+            string type = "";
+            if (roomList.Count == 0)
+            {
+                type = "No Rooms";
+            }
+            displayRooms(roomList, type);
         }
     }
 }
