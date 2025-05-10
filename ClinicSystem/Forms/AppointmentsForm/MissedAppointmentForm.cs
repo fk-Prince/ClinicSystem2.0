@@ -150,7 +150,7 @@ namespace ClinicSystem.Forms.AppointmentsForm
             }
             DateTime endSchedule = startSchedule + selectedAppointment.Operation.Duration;
 
-            PenaltyAppointment p = new PenaltyAppointment("Absent",selectedAppointment.Total * 0.20, reason.Text,DateTime.Now);
+            PenaltyAppointment p = new PenaltyAppointment("Absent",selectedAppointment.Total * 0.15, reason.Text,DateTime.Now);
 
             return new Appointment(
                 selectedAppointment.Patient,

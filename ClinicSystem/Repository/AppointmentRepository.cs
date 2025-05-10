@@ -480,12 +480,12 @@ namespace ClinicSystem.Appointments
                     conn.Open();
 
                     string query = @"
-                            SELECT * FROM patientappointment_tbl 
-                                LEFT JOIN patient_tbl ON patientappointment_tbl.patientID = patient_tbl.PatientID 
-                                LEFT JOIN Operation_tbl ON patientappointment_tbl.OperationCode = Operation_tbl.OperationCode
-                                LEFT JOIN Doctor_tbl ON patientappointment_tbl.DoctorID = Doctor_tbl.DoctorID
-                                LEFT JOIN appointmentdetails_tbl ON patientappointment_tbl.appointmentdetailNo = appointmentdetails_tbl.appointmentdetailNo
-                                WHERE Status = 'Absent'";
+                        SELECT * FROM patientappointment_tbl 
+                        LEFT JOIN patient_tbl ON patientappointment_tbl.patientID = patient_tbl.PatientID 
+                        LEFT JOIN Operation_tbl ON patientappointment_tbl.OperationCode = Operation_tbl.OperationCode
+                        LEFT JOIN Doctor_tbl ON patientappointment_tbl.DoctorID = Doctor_tbl.DoctorID
+                        LEFT JOIN appointmentdetails_tbl ON patientappointment_tbl.appointmentdetailNo = appointmentdetails_tbl.appointmentdetailNo
+                        WHERE Status = 'Absent' AND EndSchedule BETWEEN CURRENT_DATE - INTERVAL 7 DAY AND CURRENT_DATE";
 
                     using (MySqlCommand command = new MySqlCommand(query, conn))
                     {
