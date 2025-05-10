@@ -135,32 +135,8 @@ namespace ClinicSystem.Doctors
 
         private void searchDOctor()
         {
-            List<Doctor> filteredDoctor = new List<Doctor>();
-            if (string.IsNullOrWhiteSpace(SearchBar.Text))
-            {
-                filteredDoctor = doctorList;
-            }
-            else 
-            {
-                filteredDoctor = doctorList.Where(
-                    doctor =>
-                        doctor.DoctorFirstName.StartsWith(SearchBar.Text, StringComparison.OrdinalIgnoreCase) ||
-                        doctor.DoctorLastName.StartsWith(SearchBar.Text, StringComparison.OrdinalIgnoreCase) ||
-                        doctor.DoctorID.ToString().StartsWith(SearchBar.Text, StringComparison.OrdinalIgnoreCase)
-                ).ToList();
-            }
-
-            if (active.Checked)
-            {
-                filteredDoctor = filteredDoctor.Where(d => d.DoctorActive).ToList();
-            }
-            else if (inactive.Checked)
-            {
-                filteredDoctor = filteredDoctor.Where(d => !d.DoctorActive).ToList();
-            }
-            string type = filteredDoctor.Count < 1 ? "Doctor Not Found" : "";
-            displayDoctors(filteredDoctor, type);
-
+            timer1.Stop();
+            timer1.Start();
         }
 
    
@@ -192,6 +168,36 @@ namespace ClinicSystem.Doctors
                 inactive.Enabled = false;
             }
             displayDoctors(doctorList, type);
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            timer1.Stop();
+            List<Doctor> filteredDoctor = new List<Doctor>();
+            if (string.IsNullOrWhiteSpace(SearchBar.Text))
+            {
+                filteredDoctor = doctorList;
+            }
+            else
+            {
+                filteredDoctor = doctorList.Where(
+                    doctor =>
+                        doctor.DoctorFirstName.StartsWith(SearchBar.Text, StringComparison.OrdinalIgnoreCase) ||
+                        doctor.DoctorLastName.StartsWith(SearchBar.Text, StringComparison.OrdinalIgnoreCase) ||
+                        doctor.DoctorID.ToString().StartsWith(SearchBar.Text, StringComparison.OrdinalIgnoreCase)
+                ).ToList();
+            }
+
+            if (active.Checked)
+            {
+                filteredDoctor = filteredDoctor.Where(d => d.DoctorActive).ToList();
+            }
+            else if (inactive.Checked)
+            {
+                filteredDoctor = filteredDoctor.Where(d => !d.DoctorActive).ToList();
+            }
+            string type = filteredDoctor.Count < 1 ? "Doctor Not Found" : "";
+            displayDoctors(filteredDoctor, type);
         }
     }
 }

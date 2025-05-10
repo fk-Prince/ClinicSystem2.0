@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.monthRadio = new System.Windows.Forms.RadioButton();
             this.allSchedule = new System.Windows.Forms.RadioButton();
@@ -41,6 +42,8 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.flowPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.load = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel11.SuspendLayout();
@@ -231,6 +234,11 @@
             this.flowPanel.Size = new System.Drawing.Size(1083, 550);
             this.flowPanel.TabIndex = 10087;
             // 
+            // load
+            // 
+            this.load.Interval = 500;
+            this.load.Tick += new System.EventHandler(this.load_Tick);
+            // 
             // DoctorAppointmentForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -269,5 +277,7 @@
         private System.Windows.Forms.Panel panel11;
         private Guna.UI2.WinForms.Guna2TextBox SearchBar1;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer load;
     }
 }

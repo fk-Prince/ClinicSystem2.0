@@ -20,7 +20,7 @@ namespace DoctorClinic
             List<Appointment> todayAppointment = new List<Appointment>();
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
                 {
                     conn.Open();
                     string query = @"
@@ -57,7 +57,7 @@ namespace DoctorClinic
             List<Appointment> appointments = new List<Appointment>();
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
                 {
                     conn.Open();
                     string query = @"SELECT * FROM patient_tbl
@@ -88,7 +88,7 @@ namespace DoctorClinic
         {
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
                 {
                     conn.Open();
                     string query = @"UPDATE appointmentdetails_tbl 
@@ -114,7 +114,7 @@ namespace DoctorClinic
             List<Doctor> doctorList = new List<Doctor>();
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
                 {
                     conn.Open();
                     using (MySqlCommand command = new MySqlCommand("SELECT * FROM doctor_tbl", conn))
@@ -141,7 +141,7 @@ namespace DoctorClinic
             List<Doctor> doctorList = new List<Doctor>();
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
                 {
                     conn.Open();
                     string query = @"
@@ -175,7 +175,7 @@ namespace DoctorClinic
             try
             {
 
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
                 {
                     conn.Open();
 
@@ -239,7 +239,7 @@ namespace DoctorClinic
         {       
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
                 {
                     conn.Open();
                     string query = "SELECT doctorid FROM doctor_tbl ORDER BY doctorid DESC LIMIT 1";
@@ -275,7 +275,7 @@ namespace DoctorClinic
 
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
                 {
                     conn.Open();
                     string query = "SELECT * FROM doctor_tbl WHERE PIN = @PIN AND DOCTORID = @DOCTORID";
@@ -314,7 +314,7 @@ namespace DoctorClinic
         {
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
                 {
                     conn.Open();
                     string query = "SELECT * FROM doctor_tbl WHERE doctorRFID = @doctorRFID LIMIT 1";
@@ -342,7 +342,7 @@ namespace DoctorClinic
         {
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
                 {
                     conn.Open();
                     string query = "UPDATE patientappointment_tbl SET Status = 'Discharged' WHERE AppointmentDetailNo = @AppointmentDetailNo";
@@ -364,7 +364,7 @@ namespace DoctorClinic
         {
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
                 {
                     conn.Open();
                     string query =

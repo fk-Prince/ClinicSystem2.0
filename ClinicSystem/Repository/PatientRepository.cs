@@ -21,7 +21,7 @@ namespace ClinicSystem
             List<Patient> patientList = new List<Patient>();
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
                 {
                     conn.Open();
                     using (MySqlCommand command = new MySqlCommand("SELECT * FROM patient_tbl", conn))
@@ -54,7 +54,7 @@ namespace ClinicSystem
         {
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
                 {
                     conn.Open();
                     string query = "SELECT patientid FROM patient_tbl ORDER BY patientId DESC LIMIT 1";

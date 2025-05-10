@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClinicSystem.Repository
 {
-    public class DBConnection
+    public class DatabaseConnection
     {
 
         private static string driver = "server=localhost;username=root;pwd=root;database=db_clinic";

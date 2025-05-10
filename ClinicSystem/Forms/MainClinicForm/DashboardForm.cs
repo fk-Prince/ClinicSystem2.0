@@ -36,7 +36,7 @@ namespace ClinicSystem.MainClinic
             displayAppointments();
             displayDoctorStats();
             patientTotal = clinicRepository.TotalPatientLastMonth();
-            doctorTotal = clinicRepository.getDoctor();
+            doctorTotal = clinicRepository.TotalActiveDoctor();
             totalEarnings = clinicRepository.getEarnings();
             double revenueratio = clinicRepository.getPercentageIncrease();
             if (revenueratio < 0)

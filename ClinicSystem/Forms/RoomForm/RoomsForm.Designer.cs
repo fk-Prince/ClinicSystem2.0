@@ -52,6 +52,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.timerin = new System.Windows.Forms.Timer(this.components);
             this.timerout = new System.Windows.Forms.Timer(this.components);
+            this.load = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.addRoomPanel.SuspendLayout();
@@ -384,6 +385,11 @@
             this.timerout.Interval = 2;
             this.timerout.Tick += new System.EventHandler(this.timerout_Tick);
             // 
+            // load
+            // 
+            this.load.Interval = 500;
+            this.load.Tick += new System.EventHandler(this.load_Tick);
+            // 
             // RoomsForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -438,5 +444,6 @@
         private Guna.UI2.WinForms.Guna2TextBox roomDescription;
         private Guna.UI2.WinForms.Guna2Button addPatientB;
         private Guna.UI2.WinForms.Guna2Button addRoomB;
+        private System.Windows.Forms.Timer load;
     }
 }

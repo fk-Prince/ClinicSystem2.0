@@ -20,7 +20,7 @@ namespace ClinicSystem.Appointments
             List<Appointment> list = new List<Appointment>();
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
                 {
                     conn.Open();
                     string query = @"
@@ -62,12 +62,11 @@ namespace ClinicSystem.Appointments
             try
             {
                
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
                 { 
                     conn.Open();
                     insertAppointmentDetails(ap);
                     
-                    //int patientid = 0;
                     string query = @"
                             INSERT INTO patientappointment_tbl 
                                 (AppointmentDetailNo, PatientID, DoctorID, OperationCode, StartSchedule, EndSchedule, roomno)
@@ -75,9 +74,6 @@ namespace ClinicSystem.Appointments
                                 (@AppointmentDetailNo, @PatientID, @DoctorID, @OperationCode, @StartSchedule, @EndSchedule, @roomno);";
                     foreach (Appointment op in ap)
                     {
-                        //patientid = op.Patient.Patientid;
-                       
-
                         using (MySqlCommand command = new MySqlCommand(query, conn))
                         {
                             command.Parameters.AddWithValue("@AppointmentDetailNo", op.AppointmentDetailNo);
@@ -105,7 +101,7 @@ namespace ClinicSystem.Appointments
         {
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
                 {
                     conn.Open();
                     string query = @"
@@ -132,14 +128,13 @@ namespace ClinicSystem.Appointments
                 MessageBox.Show("ERROR on insertAppointmentDetails() " + ex.Message);
             }
         }
-  
 
         // Last Appointment Detail No
         public string getAppointmentDetail()
         {
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
                 {
                     conn.Open();
                     string query = "SELECT AppointmentDetailNo FROM appointmentdetails_tbl ORDER BY AppointmentDetailNo DESC LIMIT 1";
@@ -166,7 +161,7 @@ namespace ClinicSystem.Appointments
             List<Appointment> active = new List<Appointment>();
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
                 {
                     conn.Open();
 
@@ -201,7 +196,7 @@ namespace ClinicSystem.Appointments
             List<Appointment> active = new List<Appointment>();
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
                 {
                     conn.Open();
 
@@ -237,7 +232,7 @@ namespace ClinicSystem.Appointments
         {
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
                 {
                     conn.Open();
                     string query = "";
@@ -311,7 +306,7 @@ namespace ClinicSystem.Appointments
         {
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
                 {
                     conn.Open();
                     string query = "";
@@ -387,7 +382,7 @@ namespace ClinicSystem.Appointments
         {
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
                 {
                     conn.Open();
                     string query = @"UPDATE patientAppointment_tbl 
@@ -411,13 +406,12 @@ namespace ClinicSystem.Appointments
 
         }
 
-
         // PATIENT INSERTION
         public bool insertPatientWithAppointment(int staffId, Patient patient,List<Appointment> appList)
         {
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
                 {
                     conn.Open();
 
@@ -452,12 +446,11 @@ namespace ClinicSystem.Appointments
 
             return false;
         }
-
         private void insertStaffPatient(string patientid, int staffId)
         {
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
                 {
                     conn.Open();
                     string query = "INSERT INTO patient_staff_tbl (staffid, patientid) VALUES (@staffid, @patientid)";
@@ -475,12 +468,14 @@ namespace ClinicSystem.Appointments
             }
         }
 
+
+        // MISSED APPOINTMENT
         public List<Appointment> getMissedAppointments()
         {
             List<Appointment> miseed = new List<Appointment>();
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
                 {
                     conn.Open();
 
@@ -510,12 +505,11 @@ namespace ClinicSystem.Appointments
             }
             return miseed;
         }
-
         public bool penaltyAppointment(Appointment app)
         {
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
                 {
                     conn.Open();
                     string query = @"UPDATE patientAppointment_tbl 
@@ -538,16 +532,15 @@ namespace ClinicSystem.Appointments
             }
             return false;
         }
-
         private void insertPenalty(Appointment app)
         {
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
                 {
                     conn.Open();
                     string query = @"
-                            INSERT INTO penaltyappointment_tbl (AppointmentDetailNo, PenaltyType, Amount, Reason, DateIssued) 
+                            INSERT INTO appointmentpenalty_tbl (AppointmentDetailNo, PenaltyType, Amount, Reason, DateIssued) 
                             VALUES (@AppointmentDetailNo, @PenaltyType, @Amount, @Reason, @DateIssued)";
                     using (MySqlCommand command = new MySqlCommand(query, conn))
                     {

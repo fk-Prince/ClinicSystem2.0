@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.monthRadio = new System.Windows.Forms.RadioButton();
             this.allSchedule = new System.Windows.Forms.RadioButton();
@@ -42,6 +43,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel11.SuspendLayout();
@@ -249,6 +251,11 @@
             this.panel2.Size = new System.Drawing.Size(1088, 556);
             this.panel2.TabIndex = 10087;
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 500;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // AllAppointments
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -288,5 +295,6 @@
         private System.Windows.Forms.RadioButton allSchedule;
         private System.Windows.Forms.RadioButton selection;
         private System.Windows.Forms.RadioButton weekRadio;
+        private System.Windows.Forms.Timer timer1;
     }
 }

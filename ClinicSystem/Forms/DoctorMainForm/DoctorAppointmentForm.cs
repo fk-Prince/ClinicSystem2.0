@@ -235,6 +235,13 @@ namespace ClinicSystem.Main2
 
         private void SearchBar1_TextChanged(object sender, EventArgs e)
         {
+            load.Stop();
+            load.Start();   
+        }
+
+        private void load_Tick(object sender, EventArgs e)
+        {
+            load.Stop();
             radioToday.Checked = false;
             weekRadio.Checked = false;
             monthRadio.Checked = false;
@@ -257,10 +264,9 @@ namespace ClinicSystem.Main2
                 .Where(pa => pa.Operation.OperationName.StartsWith(text, StringComparison.OrdinalIgnoreCase) || pa.Operation.OperationCode.StartsWith(text, StringComparison.OrdinalIgnoreCase) ||
                              pa.AppointmentDetailNo.ToString().Equals(text, StringComparison.OrdinalIgnoreCase))
                 .ToList();
-                 displaySchedules(filtered, "");
+                displaySchedules(filtered, "");
             }
         }
-
     }
 }
     

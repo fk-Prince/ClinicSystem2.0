@@ -102,7 +102,7 @@ namespace ClinicSystem
                     MessagePromp.LoginShowMessage(this, "Wrong username or Password", MessageBoxIcon.Error);
                     return;
                 }
-                string driver = DBConnection.getConnection();
+                string driver = DatabaseConnection.getConnection();
                 MySqlConnection conn = new MySqlConnection(driver);
                 conn.Open();
 

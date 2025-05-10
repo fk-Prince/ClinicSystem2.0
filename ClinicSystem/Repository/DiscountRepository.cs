@@ -17,7 +17,7 @@ namespace ClinicSystem.Repository
             List<Discount> list = new List<Discount>();
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
                 {
                     conn.Open();
 
@@ -46,7 +46,7 @@ namespace ClinicSystem.Repository
 
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
                 {
                     conn.Open();
                     using (MySqlCommand command = new MySqlCommand("SELECT * FROM discount_tbl WHERE discounttype = @discounttype", conn))

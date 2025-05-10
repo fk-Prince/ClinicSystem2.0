@@ -107,6 +107,7 @@ namespace ClinicSystem
                     tb.ForeColor = Color.Black;
                     tb.BorderRadius = 5;
                     tb.BackColor = Color.Transparent;
+                    tb.ScrollBars = ScrollBars.Vertical;
                     panel.Controls.Add(tb);
 
                     Panel panelLine = new Panel();
@@ -285,24 +286,8 @@ namespace ClinicSystem
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            string type;
-            List<Operation> filteredOperationList = new List<Operation>();
-            if (string.IsNullOrWhiteSpace(SearchBar1.Text))
-            {
-                filteredOperationList = operationlist;
-                type = "No Operation";
-            }
-            else
-            {
-
-                filteredOperationList = operationlist.Where(
-                   operation =>
-                   operation.OperationName.StartsWith(SearchBar1.Text, StringComparison.OrdinalIgnoreCase) ||
-                   operation.OperationCode.StartsWith(SearchBar1.Text, StringComparison.OrdinalIgnoreCase)
-               ).ToList();
-                type = "Operation doenst exists";
-            }
-            displayOperations(filteredOperationList, type);
+            load.Stop();
+            load.Start();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -571,6 +556,29 @@ namespace ClinicSystem
                 comboRoomType.Items.Add(item);
             }
             displayOperations(operationlist,"No Operation");
+        }
+
+        private void load_Tick(object sender, EventArgs e)
+        {
+            load.Stop();
+            string type;
+            List<Operation> filteredOperationList = new List<Operation>();
+            if (string.IsNullOrWhiteSpace(SearchBar1.Text))
+            {
+                filteredOperationList = operationlist;
+                type = "No Operation";
+            }
+            else
+            {
+
+                filteredOperationList = operationlist.Where(
+                   operation =>
+                   operation.OperationName.StartsWith(SearchBar1.Text, StringComparison.OrdinalIgnoreCase) ||
+                   operation.OperationCode.StartsWith(SearchBar1.Text, StringComparison.OrdinalIgnoreCase)
+               ).ToList();
+                type = "Operation doenst exists";
+            }
+            displayOperations(filteredOperationList, type);
         }
     }
 }

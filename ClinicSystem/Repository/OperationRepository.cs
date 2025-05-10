@@ -15,7 +15,7 @@ namespace ClinicSystem
             List<Operation> operations = new List<Operation>();
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
                 {
                     conn.Open();
                     using (MySqlCommand command = new MySqlCommand("SELECT * FROM Operation_Tbl", conn))
@@ -42,7 +42,7 @@ namespace ClinicSystem
             List<Operation> operations = new List<Operation>();
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
                 {
                     conn.Open();
                     string query = "SELECT * FROM operation_tbl";
@@ -70,7 +70,7 @@ namespace ClinicSystem
         {
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
                 {
                     conn.Open();
                     string query =
@@ -99,7 +99,7 @@ namespace ClinicSystem
         {
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
                 {
                     conn.Open();
                     string query =
@@ -130,7 +130,7 @@ namespace ClinicSystem
             List<Operation> operations = new List<Operation>();
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
                 {
                     conn.Open();
                     string query =
@@ -160,7 +160,7 @@ namespace ClinicSystem
             List<string> roomTypes = new List<string>();
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
                 {
                     conn.Open();
                     using (MySqlCommand command = new MySqlCommand("SELECT * FROM roomtype_tbl", conn))
@@ -250,7 +250,7 @@ namespace ClinicSystem
             List<Doctor> doctorList = new List<Doctor>();
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
                 {
                     conn.Open();
                     string query = @"
@@ -285,7 +285,7 @@ namespace ClinicSystem
         {
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
                 {
                     conn.Open();
                     string query =
@@ -309,7 +309,7 @@ namespace ClinicSystem
         {
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
                 {
                     conn.Open();
                     string query =

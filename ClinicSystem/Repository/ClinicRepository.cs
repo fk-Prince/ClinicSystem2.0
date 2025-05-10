@@ -21,7 +21,7 @@ namespace ClinicSystem.MainClinic
         {
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
                 {
                     conn.Open();
                     string query = "SELECT COUNT(*) as COUNT FROM patient_tbl";
@@ -40,11 +40,11 @@ namespace ClinicSystem.MainClinic
             }
             return 0;
         }
-        public int getDoctor()
+        public int TotalActiveDoctor()
         {
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
                 {
                     conn.Open();
                     string query = "SELECT COUNT(*) as COUNT FROM doctor_tbl WHERE active = 'Yes'";
@@ -69,15 +69,15 @@ namespace ClinicSystem.MainClinic
         {
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
                 {
                     conn.Open();
                     string query = @"
                                     SELECT 
-                                        COALESCE(SUM(ad.totalWithDiscount), 0) + COALESCE(SUM(p.Amount), 0) AS Earnings
-                                    FROM appointmentdetails_tbl ad
-                                    LEFT JOIN penaltyappointment_tbl p 
-                                        ON ad.AppointmentDetailNo = p.AppointmentDetailNo";
+                                        COALESCE(SUM(appointmentdetails_tbl.totalWithDiscount), 0) + COALESCE(SUM(appointmentpenalty_tbl.Amount), 0) AS Earnings
+                                    FROM appointmentdetails_tbl 
+                                    LEFT JOIN appointmentpenalty_tbl 
+                                        ON appointmentdetails_tbl.AppointmentDetailNo = appointmentpenalty_tbl.AppointmentDetailNo";
                     using (MySqlCommand command = new MySqlCommand(query, conn))
                     {
                         using (MySqlDataReader reader = command.ExecuteReader())
@@ -100,7 +100,7 @@ namespace ClinicSystem.MainClinic
             List<Appointment> todayAppointment = new List<Appointment>();
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
                 {
                     conn.Open();
                     string query = @"
@@ -127,7 +127,7 @@ namespace ClinicSystem.MainClinic
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show("Error on getTodayAppointment() db" + ex.Message);
+                MessageBox.Show("Error on getTodayAppointment() db");
             }
             return todayAppointment;
         }
@@ -137,7 +137,7 @@ namespace ClinicSystem.MainClinic
         
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
                 {
                     conn.Open();
                     string query = @"
@@ -173,7 +173,7 @@ namespace ClinicSystem.MainClinic
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show("Error on getDoctorStats() db" + ex.Message);
+                MessageBox.Show("Error on getDoctorStats() db");
             }
             return null;
         }
@@ -182,7 +182,7 @@ namespace ClinicSystem.MainClinic
         {
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
                 {
                     conn.Open();
                     string query = @"
@@ -217,7 +217,7 @@ namespace ClinicSystem.MainClinic
                 }
             }catch (MySqlException ex)
             {
-                MessageBox.Show("Error on getDoctorStatsLast() db" + ex.Message);
+                MessageBox.Show("Error on getDoctorStatsLast() db");
             }
             return null;
         }
@@ -230,7 +230,7 @@ namespace ClinicSystem.MainClinic
             {
 
 
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
                 {
                     conn.Open();
                     string query = @"
@@ -266,7 +266,7 @@ namespace ClinicSystem.MainClinic
             {
 
 
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
                 {
                     conn.Open();
                     string query = @"
@@ -301,7 +301,7 @@ namespace ClinicSystem.MainClinic
             {
 
 
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
                 {
                     conn.Open();
                     string query = @"UPDATE patientappointment_tbl SET Status = 'Absent' WHERE AppointmentDetailNo = @AppointmentDetailNo ";
@@ -325,7 +325,7 @@ namespace ClinicSystem.MainClinic
             {
 
 
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
                 {
                     conn.Open();
                     string query = @"SELECT COUNT(*) AS miss FROM patientappointment_tbl  WHERE StartSchedule < NOW() AND Status = 'Upcoming'";
@@ -351,7 +351,7 @@ namespace ClinicSystem.MainClinic
             {
 
 
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
                 {
                     conn.Open();
                     string query = @"
@@ -365,23 +365,22 @@ namespace ClinicSystem.MainClinic
                                  FROM 
                                     (
                                         SELECT 
-                                        COALESCE(SUM(totalwithdiscount), 0) + COALESCE(SUM(penaltyappointment_tbl.amount), 0) AS Revenue
+                                        COALESCE(SUM(totalwithdiscount), 0) + COALESCE(SUM(appointmentpenalty_tbl.amount), 0) AS Revenue
                                         FROM appointmentdetails_tbl
-                                        LEFT JOIN penaltyappointment_tbl 
-                                        ON appointmentdetails_tbl.appointmentdetailno = penaltyappointment_tbl.appointmentdetailno
+                                        LEFT JOIN appointmentpenalty_tbl 
+                                        ON appointmentdetails_tbl.appointmentdetailno = appointmentpenalty_tbl.appointmentdetailno
                                         WHERE appointmentdetails_tbl.BookingDate BETWEEN DATE_FORMAT(CURRENT_DATE, '%Y-%m-01') AND LAST_DAY(CURRENT_DATE)
                                     ) AS currentmonth,
                                     (
                                         SELECT 
-                                        COALESCE(SUM(totalwithdiscount), 0) + COALESCE(SUM(penaltyappointment_tbl.amount), 0) AS Revenue
+                                        COALESCE(SUM(totalwithdiscount), 0) + COALESCE(SUM(appointmentpenalty_tbl.amount), 0) AS Revenue
                                         FROM appointmentdetails_tbl
-                                        LEFT JOIN penaltyappointment_tbl 
-                                        ON appointmentdetails_tbl.appointmentdetailno = penaltyappointment_tbl.appointmentdetailno
+                                        LEFT JOIN appointmentpenalty_tbl 
+                                        ON appointmentdetails_tbl.appointmentdetailno = appointmentpenalty_tbl.appointmentdetailno
                                         WHERE appointmentdetails_tbl.BookingDate 
                                         BETWEEN DATE_FORMAT(CURRENT_DATE - INTERVAL 1 MONTH, '%Y-%m-01') AND LAST_DAY(CURRENT_DATE - INTERVAL 1 MONTH)
                                     ) AS lastmonth
                                 ";
-                    //StartSchedule < NOW() AND Status = 'Pending'
                     using (MySqlCommand command = new MySqlCommand(query, conn))
                     {
                         using (MySqlDataReader reader = command.ExecuteReader())

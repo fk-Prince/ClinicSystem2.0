@@ -278,7 +278,7 @@
     <Compile Include="Forms\MainClinicForm\ClinicSystem.Designer.cs">
       <DependentUpon>ClinicSystem.cs</DependentUpon>
     </Compile>
-    <Compile Include="DatabaseConnection\DBConnection.cs" />
+    <Compile Include="DatabaseRelated\DatabaseConnection.cs" />
     <Compile Include="Repository\PatientRepository.cs" />
     <Compile Include="Entity\Operation.cs" />
     <Compile Include="Entity\Doctor.cs" />

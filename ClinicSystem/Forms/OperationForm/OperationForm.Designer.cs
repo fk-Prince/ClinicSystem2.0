@@ -65,6 +65,7 @@
             this.panel11 = new System.Windows.Forms.Panel();
             this.SearchBar1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.load = new System.Windows.Forms.Timer(this.components);
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picturePrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureDuration)).BeginInit();
@@ -578,6 +579,11 @@
             this.label11.TabIndex = 1;
             this.label11.Text = "Search Operation Code / Name";
             // 
+            // load
+            // 
+            this.load.Interval = 500;
+            this.load.Tick += new System.EventHandler(this.load_Tick);
+            // 
             // OperationForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -656,5 +662,6 @@
         private Guna.UI2.WinForms.Guna2TextBox opName;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
         private Guna.UI2.WinForms.Guna2TextBox SearchBar1;
+        private System.Windows.Forms.Timer load;
     }
 }

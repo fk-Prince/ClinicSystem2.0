@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.inactive = new System.Windows.Forms.RadioButton();
             this.all = new System.Windows.Forms.RadioButton();
@@ -36,6 +37,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.flowPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -146,6 +148,11 @@
             this.panel2.Size = new System.Drawing.Size(1091, 79);
             this.panel2.TabIndex = 5;
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 500;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // ViewDoctor
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -176,5 +183,6 @@
         private System.Windows.Forms.RadioButton inactive;
         private System.Windows.Forms.RadioButton all;
         private System.Windows.Forms.RadioButton active;
+        private System.Windows.Forms.Timer timer1;
     }
 }

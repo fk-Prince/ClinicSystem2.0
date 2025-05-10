@@ -20,7 +20,7 @@ namespace ClinicSystem.Rooms
             List<Room> roomList = new List<Room>(); 
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
                 {
                     conn.Open();
                     string query = "SELECT * FROM Rooms_tbl LEFT JOIN roomtype_tbl ON Rooms_tbl.RoomType = roomtype_tbl.RoomType";
@@ -48,7 +48,7 @@ namespace ClinicSystem.Rooms
         {
            try
             {
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
                 {
                     conn.Open();
 
@@ -72,7 +72,7 @@ namespace ClinicSystem.Rooms
             List<Room> roomList = new List<Room>();
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(DBConnection.getConnection()))
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
                 {
                     conn.Open();
                     using (MySqlCommand command = new MySqlCommand("SELECT * FROM roomtype_tbl", conn))

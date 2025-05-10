@@ -229,6 +229,22 @@ namespace ClinicSystem.Appointments
         }
         private void SearchBar1_TextChanged(object sender, EventArgs e)
         {
+            timer1.Stop();
+            timer1.Start();
+          
+        }
+
+        private void AllAppointments_Shown(object sender, EventArgs e)
+        {
+            List<Appointment> filtered = patientAppointments
+             .Where(pa => pa.StartTime.Date == DateTime.Today.Date)
+             .ToList();
+            displaySchedules(filtered, "TODAY");
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            timer1.Stop();
             radioToday.Checked = false;
             weekRadio.Checked = false;
             monthRadio.Checked = false;
@@ -244,23 +260,16 @@ namespace ClinicSystem.Appointments
                 .Where(pa => pa.StartTime.Day == DateTime.Now.Day)
                 .ToList();
                 displaySchedules(filtered, "TODAY");
-            } else
+            }
+            else
             {
                 List<Appointment> filtered = patientAppointments
-                .Where(pa => pa.Operation.OperationName.StartsWith(text,StringComparison.OrdinalIgnoreCase) || pa.Operation.OperationCode.StartsWith(text, StringComparison.OrdinalIgnoreCase) ||
+                .Where(pa => pa.Operation.OperationName.StartsWith(text, StringComparison.OrdinalIgnoreCase) || pa.Operation.OperationCode.StartsWith(text, StringComparison.OrdinalIgnoreCase) ||
                              pa.Doctor.DoctorLastName.StartsWith(text, StringComparison.OrdinalIgnoreCase) || pa.Doctor.DoctorFirstName.StartsWith(text, StringComparison.OrdinalIgnoreCase) || pa.Doctor.DoctorID.StartsWith(text, StringComparison.OrdinalIgnoreCase) ||
                              pa.AppointmentDetailNo.ToString().Equals(text, StringComparison.OrdinalIgnoreCase))
                 .ToList();
                 displaySchedules(filtered, "");
             }
-        }
-
-        private void AllAppointments_Shown(object sender, EventArgs e)
-        {
-            List<Appointment> filtered = patientAppointments
-             .Where(pa => pa.StartTime.Date == DateTime.Today.Date)
-             .ToList();
-            displaySchedules(filtered, "TODAY");
         }
     }
 }

@@ -202,22 +202,8 @@ namespace ClinicSystem.Rooms
 
         private void SearchBar1_TextChanged(object sender, EventArgs e)
         {
-            List<Room> filteredRoom = new List<Room>();
-            
-            if (string.IsNullOrWhiteSpace(SearchBar1.Text))
-            {
-                filteredRoom = roomList;
-            }
-            else
-            {
-
-                filteredRoom = roomList.Where(
-                   room => room.RoomNo.ToString().StartsWith(SearchBar1.Text, StringComparison.OrdinalIgnoreCase) ||
-                           room.Roomtype.StartsWith(SearchBar1.Text, StringComparison.OrdinalIgnoreCase) 
-               ).ToList();
-
-            }
-            displayRooms(filteredRoom,"");
+            load.Stop();
+            load.Start();         
         }
 
         private void flowLayout_SizeChanged(object sender, EventArgs e)
@@ -240,6 +226,27 @@ namespace ClinicSystem.Rooms
                 type = "No Rooms";
             }
             displayRooms(roomList, type);
+        }
+
+        private void load_Tick(object sender, EventArgs e)
+        {
+            load.Stop();
+            List<Room> filteredRoom = new List<Room>();
+
+            if (string.IsNullOrWhiteSpace(SearchBar1.Text))
+            {
+                filteredRoom = roomList;
+            }
+            else
+            {
+
+                filteredRoom = roomList.Where(
+                   room => room.RoomNo.ToString().StartsWith(SearchBar1.Text, StringComparison.OrdinalIgnoreCase) ||
+                           room.Roomtype.StartsWith(SearchBar1.Text, StringComparison.OrdinalIgnoreCase)
+               ).ToList();
+
+            }
+            displayRooms(filteredRoom, "");
         }
     }
 }
