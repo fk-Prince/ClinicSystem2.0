@@ -21,7 +21,6 @@
 DROP DATABASE IF EXISTS db_clinic;
 CREATE DATABASE db_clinic;
 USE db_clinic;
-
 DROP TABLE IF EXISTS `appointmentdetails_tbl`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
@@ -44,8 +43,36 @@ CREATE TABLE `appointmentdetails_tbl` (
 
 LOCK TABLES `appointmentdetails_tbl` WRITE;
 /*!40000 ALTER TABLE `appointmentdetails_tbl` DISABLE KEYS */;
-INSERT INTO `appointmentdetails_tbl` VALUES (1,NULL,5000.00,5000.00,'No Discount','2025-04-11 15:15:07'),(2,'',3000.00,2100.00,'PagIbig','2025-05-01 20:16:12'),(3,'',5000.00,3500.00,'PagIbig','2025-04-15 13:16:12'),(4,'',3000.00,3000.00,'No Discount','2025-05-01 20:17:18'),(5,NULL,5000.00,3500.00,'PagIbig','2025-05-01 20:17:36'),(6,'',3000.00,1500.00,'Senior','2025-05-01 20:18:49'),(7,NULL,3000.00,3000.00,'No Discount','2025-05-03 12:38:28'),(8,NULL,5000.00,5000.00,'No Discount','2025-05-03 12:38:28'),(9,NULL,5000.00,3500.00,'PagIbig','2025-05-03 12:39:09'),(10,NULL,3000.00,2100.00,'PagIbig','2025-05-03 12:39:09'),(11,NULL,5000.00,3500.00,'PagIbig','2025-05-03 15:50:02');
+INSERT INTO `appointmentdetails_tbl` VALUES (1,'Patient presents with dental caries on tooth #14. A dental filling is indicated to restore the structure and function.',5000.00,5000.00,'No Discount','2025-04-11 15:15:07'),(2,'',3000.00,2100.00,'PagIbig','2025-05-01 20:16:12'),(3,'',5000.00,3500.00,'PagIbig','2025-04-15 13:16:12'),(4,'',3000.00,3000.00,'No Discount','2025-05-01 20:17:18'),(5,NULL,5000.00,3500.00,'PagIbig','2025-05-01 20:17:36'),(6,'',3000.00,1500.00,'Senior','2025-05-01 20:18:49'),(7,'',3000.00,3000.00,'No Discount','2025-05-03 12:38:28'),(8,NULL,5000.00,5000.00,'No Discount','2025-05-03 12:38:28'),(9,NULL,5000.00,3500.00,'PagIbig','2025-05-03 12:39:09'),(10,NULL,3000.00,2100.00,'PagIbig','2025-05-03 12:39:09'),(11,NULL,5000.00,3500.00,'PagIbig','2025-05-03 15:50:02'),(12,NULL,5000.00,5000.00,'No Discount','2025-05-03 18:39:35'),(13,NULL,5000.00,3500.00,'PagIbig','2025-05-08 16:46:07'),(14,NULL,1500.00,1050.00,'PagIbig','2025-05-08 19:12:54'),(15,NULL,1500.00,1050.00,'PagIbig','2025-05-10 10:15:37');
 /*!40000 ALTER TABLE `appointmentdetails_tbl` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `appointmentpenalty_tbl`
+--
+
+DROP TABLE IF EXISTS `appointmentpenalty_tbl`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `appointmentpenalty_tbl` (
+  `AppointmentDetailNo` bigint NOT NULL,
+  `PenaltyType` varchar(45) NOT NULL,
+  `Amount` decimal(10,2) NOT NULL,
+  `Reason` varchar(100) NOT NULL,
+  `DateIssued` datetime NOT NULL,
+  PRIMARY KEY (`AppointmentDetailNo`),
+  CONSTRAINT `fk` FOREIGN KEY (`AppointmentDetailNo`) REFERENCES `patientappointment_tbl` (`AppointmentDetailNo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `appointmentpenalty_tbl`
+--
+
+LOCK TABLES `appointmentpenalty_tbl` WRITE;
+/*!40000 ALTER TABLE `appointmentpenalty_tbl` DISABLE KEYS */;
+INSERT INTO `appointmentpenalty_tbl` VALUES (9,'Absent',700.00,'Sick','2025-05-10 11:02:16');
+/*!40000 ALTER TABLE `appointmentpenalty_tbl` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -97,7 +124,7 @@ CREATE TABLE `doctor_operation_mm_tbl` (
 
 LOCK TABLES `doctor_operation_mm_tbl` WRITE;
 /*!40000 ALTER TABLE `doctor_operation_mm_tbl` DISABLE KEYS */;
-INSERT INTO `doctor_operation_mm_tbl` VALUES ('DE301','D2025-000001'),('GE44','D2025-000002'),('GE44','D2025-000001'),('DE301','D2025-000003'),('DE301','D2025-000002');
+INSERT INTO `doctor_operation_mm_tbl` VALUES ('DE301','D2025-000001'),('GE44','D2025-000002'),('GE44','D2025-000001'),('DE301','D2025-000003'),('DE301','D2025-000002'),('DE301','D2025-000004'),('ES001','D2025-000001'),('DE301','D2025-000005'),('ES001','D2025-000005'),('GE44','D2025-000005'),('GE44','D2025-000003'),('IU001','D2025-000001'),('PI001','D2025-000001'),('ES001','D2025-000003'),('ES001','D2025-000004');
 /*!40000 ALTER TABLE `doctor_operation_mm_tbl` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -196,7 +223,7 @@ CREATE TABLE `patient_staff_tbl` (
 
 LOCK TABLES `patient_staff_tbl` WRITE;
 /*!40000 ALTER TABLE `patient_staff_tbl` DISABLE KEYS */;
-INSERT INTO `patient_staff_tbl` VALUES ('P2025-000001',1),('P2025-000002',1),('P2025-000003',1),('P2025-000004',1),('P2025-000005',1);
+INSERT INTO `patient_staff_tbl` VALUES ('P2025-000001',1),('P2025-000002',1),('P2025-000003',1),('P2025-000004',1),('P2025-000005',1),('P2025-000006',1),('P2025-000007',1);
 /*!40000 ALTER TABLE `patient_staff_tbl` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -230,7 +257,7 @@ CREATE TABLE `patient_tbl` (
 
 LOCK TABLES `patient_tbl` WRITE;
 /*!40000 ALTER TABLE `patient_tbl` DISABLE KEYS */;
-INSERT INTO `patient_tbl` VALUES ('P2025-000001','Prince','Iba','Sestoso','Roxas Avenue','Male','2002-11-21',NULL,22),('P2025-000002','Aeyc','Reyes','Winn','Manila','Female','2001-07-12','09771171913',23),('P2025-000003','Arra','P','Santos','Tagum','Female','2024-11-27','09778015471',0),('P2025-000004','Jake','M','Maunas','Mandug','Male','1955-03-10','09777161232',70),('P2025-000005','Rafael','B','Ababa','Davao','Male','2024-11-25',NULL,0);
+INSERT INTO `patient_tbl` VALUES ('P2025-000001','Prince','Iba','Sestoso','Roxas Avenue','Male','2002-11-21',NULL,22),('P2025-000002','Aeyc','Reyes','Winn','Manila','Female','2001-07-12','09771171913',23),('P2025-000003','Arra','P','Santos','Tagum','Female','2024-11-27','09778015471',0),('P2025-000004','Jake','M','Maunas','Mandug','Male','1955-03-10','09777161232',70),('P2025-000005','Rafael','B','Ababa','Davao','Male','2024-11-25',NULL,0),('P2025-000006','Mason','D','Bon','Manila','Male','2025-01-28','09771171913',0),('P2025-000007','John','Rey','Reyes','Cebu	','Male','2024-10-14','09771171913',0);
 /*!40000 ALTER TABLE `patient_tbl` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -260,7 +287,7 @@ CREATE TABLE `patientappointment_tbl` (
   CONSTRAINT `doctorid` FOREIGN KEY (`DoctorID`) REFERENCES `doctor_operation_mm_tbl` (`doctorId`),
   CONSTRAINT `operat` FOREIGN KEY (`OperationCode`) REFERENCES `doctor_operation_mm_tbl` (`operationCode`) ON UPDATE CASCADE,
   CONSTRAINT `P` FOREIGN KEY (`PatientID`) REFERENCES `patient_tbl` (`patientId`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -269,7 +296,7 @@ CREATE TABLE `patientappointment_tbl` (
 
 LOCK TABLES `patientappointment_tbl` WRITE;
 /*!40000 ALTER TABLE `patientappointment_tbl` DISABLE KEYS */;
-INSERT INTO `patientappointment_tbl` VALUES (1,'P2025-000001',555,'DE301','D2025-000002','2025-03-05 09:30:00','2025-03-05 11:30:00','Absence'),(2,'P2025-000002',601,'GE44','D2025-000002','2025-07-24 09:30:00','2025-07-24 11:00:00','Upcoming'),(3,'P2025-000002',555,'DE301','D2025-000002','2025-04-12 20:00:00','2025-04-12 22:00:00','Upcoming'),(4,'P2025-000003',601,'GE44','D2025-000002','2025-07-18 11:30:00','2025-07-18 13:00:00','Upcoming'),(5,'P2025-000003',555,'DE301','D2025-000003','2025-02-12 20:00:00','2025-02-12 22:00:00','Upcoming'),(6,'P2025-000004',506,'GE44','D2025-000002','2025-05-23 11:30:00','2025-05-23 13:00:00','Upcoming'),(7,'P2025-000004',101,'GE44','D2025-000002','2025-05-29 10:00:00','2025-05-29 11:30:00','Upcoming'),(8,'P2025-000004',555,'DE301','D2025-000003','2025-05-29 12:00:00','2025-05-29 14:00:00','Upcoming'),(9,'P2025-000003',555,'DE301','D2025-000003','2025-05-03 14:00:00','2025-05-03 16:00:00','upcoming'),(10,'P2025-000003',101,'GE44','D2025-000002','2025-05-07 21:00:00','2025-05-07 22:30:00','Upcoming'),(11,'P2025-000005',602,'DE301','D2025-000003','2025-12-27 09:30:00','2025-12-27 11:30:00','Upcoming');
+INSERT INTO `patientappointment_tbl` VALUES (1,'P2025-000001',555,'DE301','D2025-000002','2025-06-01 09:00:00','2025-06-01 11:00:00','Discharged'),(2,'P2025-000002',601,'GE44','D2025-000002','2025-07-25 11:00:00','2025-07-25 12:30:00','Upcoming'),(3,'P2025-000002',555,'DE301','D2025-000002','2025-06-27 20:30:00','2025-06-27 22:30:00','Upcoming'),(4,'P2025-000003',601,'GE44','D2025-000002','2025-06-28 14:00:00','2025-06-28 15:30:00','Upcoming'),(5,'P2025-000003',555,'DE301','D2025-000003','2025-08-29 20:30:00','2025-08-29 22:30:00','Upcoming'),(6,'P2025-000004',506,'GE44','D2025-000002','2025-05-23 11:30:00','2025-05-23 13:00:00','Upcoming'),(7,'P2025-000004',101,'GE44','D2025-000002','2025-05-29 10:00:00','2025-05-29 11:30:00','Upcoming'),(8,'P2025-000004',555,'DE301','D2025-000003','2025-05-01 12:00:00','2025-05-01 15:00:00','Absent'),(9,'P2025-000003',555,'DE301','D2025-000003','2025-08-28 20:30:00','2025-08-28 22:30:00','Reappointment'),(10,'P2025-000003',101,'GE44','D2025-000002','2025-05-07 21:00:00','2025-05-07 22:30:00','Upcoming'),(11,'P2025-000005',602,'DE301','D2025-000003','2025-12-27 09:30:00','2025-12-27 11:30:00','Upcoming'),(12,'P2025-000006',555,'DE301','D2025-000002','2025-08-28 09:00:00','2025-08-28 11:00:00','Upcoming'),(13,'P2025-000001',602,'DE301','D2025-000002','2025-08-15 09:00:00','2025-08-15 11:00:00','Upcoming'),(14,'P2025-000003',101,'ES001','D2025-000003','2025-04-01 12:00:00','2025-04-01 15:00:00','Upcoming'),(15,'P2025-000001',506,'ES001','D2025-000003','2025-08-06 10:00:00','2025-08-06 10:20:00','Upcoming');
 /*!40000 ALTER TABLE `patientappointment_tbl` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -358,152 +385,6 @@ UNLOCK TABLES;
 --
 -- Dumping routines for database 'db_clinic'
 --
-/*!50003 DROP PROCEDURE IF EXISTS `GetDoctorStats` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `GetDoctorStats`()
-BEGIN
-     DECLARE global_doctorid VARCHAR(20);
-
-    SELECT patientappointment_tbl.doctorid
-    INTO global_doctorid
-    FROM patientappointment_tbl
-    GROUP BY patientappointment_tbl.doctorid
-    ORDER BY COUNT(patientappointment_tbl.AppointmentDetailNo) DESC
-    LIMIT 1;
-
-  
-    SELECT 
-        doctor_tbl.*,
-        COUNT(DISTINCT patientappointment_tbl.AppointmentDetailNo) AS NumberOfPatients,
-        COUNT( doctor_operation_mm_tbl.operationcode) AS TotalOperation
-    FROM patientappointment_tbl
-    LEFT JOIN doctor_tbl ON doctor_tbl.doctorid = patientappointment_tbl.doctorid
-    LEFT JOIN doctor_operation_mm_tbl ON doctor_operation_mm_tbl.operationcode = patientappointment_tbl.OperationCode AND  doctor_tbl.doctorid = doctor_operation_mm_tbl.doctorid
-    LEFT JOIN appointmentdetails_tbl ON appointmentdetails_tbl.AppointmentDetailNo = patientappointment_tbl.AppointmentDetailNo
-    WHERE patientappointment_tbl.doctorid = global_doctorid
-	AND appointmentdetails_tbl.BookingDate BETWEEN DATE_FORMAT(CURRENT_DATE, '%Y-%m-01') AND LAST_DAY(CURRENT_DATE)
-    GROUP BY doctor_tbl.doctorid;
-
-
-    SELECT 
-        CAST(SUM(appointmentdetails_tbl.totalWithDiscount) AS DECIMAL(10,2)) AS REVENUE
-    FROM appointmentdetails_tbl
-    INNER JOIN patientappointment_tbl 
-	ON appointmentdetails_tbl.AppointmentDetailNo = patientappointment_tbl.AppointmentDetailNo
-    WHERE patientappointment_tbl.doctorid = global_doctorid
-	AND appointmentdetails_tbl.BookingDate BETWEEN DATE_FORMAT(CURRENT_DATE, '%Y-%m-01') AND LAST_DAY(CURRENT_DATE);
-END ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `GetLastMonthDoctorStats` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `GetLastMonthDoctorStats`()
-BEGIN
-	DECLARE global_doctorid VARCHAR(50);
-
-	SELECT 
-		patientappointment_tbl.doctorid
-    INTO global_doctorid
-    FROM patientappointment_tbl
-    GROUP BY patientappointment_tbl.doctorid
-    ORDER BY COUNT(patientappointment_tbl.AppointmentDetailNo) DESC
-    LIMIT 1;
-
-  
-    SELECT 
-        doctor_tbl.*,
-       COUNT(DISTINCT patientappointment_tbl.AppointmentDetailNo) AS totalAppointment,
-        COUNT(DISTINCT patientappointment_tbl.patientid) as totalPatient
-    FROM patientappointment_tbl
-    LEFT JOIN doctor_tbl ON doctor_tbl.doctorid = patientappointment_tbl.doctorid
-    LEFT JOIN doctor_operation_mm_tbl ON doctor_operation_mm_tbl.operationcode = patientappointment_tbl.OperationCode AND  doctor_tbl.doctorid = doctor_operation_mm_tbl.doctorid
-    LEFT JOIN appointmentdetails_tbl ON appointmentdetails_tbl.AppointmentDetailNo = patientappointment_tbl.AppointmentDetailNo
-    WHERE patientappointment_tbl.doctorid = global_doctorid
-	AND appointmentdetails_tbl.BookingDate BETWEEN DATE_FORMAT(CURRENT_DATE - INTERVAL 1 MONTH, '%Y-%m-01')  AND LAST_DAY(CURRENT_DATE - INTERVAL 1 MONTH)    
-    GROUP BY doctor_tbl.doctorid;
-
-
-    SELECT 
-        CAST(SUM(appointmentdetails_tbl.totalWithDiscount) AS DECIMAL(10,2)) AS REVENUE
-    FROM appointmentdetails_tbl
-    INNER JOIN patientappointment_tbl 
-	ON appointmentdetails_tbl.AppointmentDetailNo = patientappointment_tbl.AppointmentDetailNo
-    WHERE patientappointment_tbl.doctorid = global_doctorid
-	AND appointmentdetails_tbl.BookingDate BETWEEN DATE_FORMAT(CURRENT_DATE - INTERVAL 1 MONTH, '%Y-%m-01') AND LAST_DAY(CURRENT_DATE - INTERVAL 1 MONTH);
-END ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `GetMonthDoctorStats` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `GetMonthDoctorStats`()
-BEGIN
-	DECLARE global_doctorid VARCHAR(50);
-
-    SELECT 
-		patientappointment_tbl.doctorid
-    INTO global_doctorid
-    FROM patientappointment_tbl
-    GROUP BY patientappointment_tbl.doctorid
-    ORDER BY COUNT(patientappointment_tbl.AppointmentDetailNo) DESC
-    LIMIT 1;
-
-  
-    SELECT 
-        doctor_tbl.*,
-        COUNT(DISTINCT patientappointment_tbl.AppointmentDetailNo) AS totalAppointment,
-        COUNT(DISTINCT patientappointment_tbl.patientid) as totalPatient
-    FROM patientappointment_tbl
-    LEFT JOIN doctor_tbl ON doctor_tbl.doctorid = patientappointment_tbl.doctorid
-    LEFT JOIN doctor_operation_mm_tbl ON doctor_operation_mm_tbl.operationcode = patientappointment_tbl.OperationCode AND  doctor_tbl.doctorid = doctor_operation_mm_tbl.doctorid
-    LEFT JOIN appointmentdetails_tbl ON appointmentdetails_tbl.AppointmentDetailNo = patientappointment_tbl.AppointmentDetailNo
-    WHERE patientappointment_tbl.doctorid = global_doctorid
-	AND appointmentdetails_tbl.BookingDate BETWEEN DATE_FORMAT(CURRENT_DATE, '%Y-%m-01') AND LAST_DAY(CURRENT_DATE)
-    GROUP BY doctor_tbl.doctorid;
-
-
-    SELECT 
-        CAST(SUM(appointmentdetails_tbl.totalWithDiscount) AS DECIMAL(10,2)) AS REVENUE
-    FROM appointmentdetails_tbl
-    INNER JOIN patientappointment_tbl 
-	ON appointmentdetails_tbl.AppointmentDetailNo = patientappointment_tbl.AppointmentDetailNo
-    WHERE patientappointment_tbl.doctorid = global_doctorid
-	AND appointmentdetails_tbl.BookingDate BETWEEN DATE_FORMAT(CURRENT_DATE, '%Y-%m-01') AND LAST_DAY(CURRENT_DATE);
-END ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -514,4 +395,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-05-03 17:44:45
+-- Dump completed on 2025-05-10 11:07:43
