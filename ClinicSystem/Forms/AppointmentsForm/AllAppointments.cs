@@ -23,6 +23,8 @@ namespace ClinicSystem.Appointments
           
             patientAppointments = db.getAppointment();
 
+
+
             DateTime today = DateTime.Today;
             List<Appointment> filtered = patientAppointments
              .Where(pa => pa.StartTime.Date == today.Date)
