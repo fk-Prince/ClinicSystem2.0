@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.infoDoctorPanel = new System.Windows.Forms.Panel();
             this.todayAppP = new Guna.UI2.WinForms.Guna2Panel();
             this.next = new Guna.UI2.WinForms.Guna2PictureBox();
@@ -247,53 +247,53 @@
             this.dataGrid.AllowUserToDeleteRows = false;
             this.dataGrid.AllowUserToResizeColumns = false;
             this.dataGrid.AllowUserToResizeRows = false;
-            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle36.BackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle36.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(168)))), ((int)(((byte)(166)))));
-            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.Color.White;
-            this.dataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle36;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(168)))), ((int)(((byte)(166)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
+            this.dataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle37.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle37.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle37.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle37.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle37.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle37.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle37;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGrid.ColumnHeadersHeight = 50;
             this.dataGrid.Cursor = System.Windows.Forms.Cursors.Arrow;
-            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle38.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle38.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle38.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGrid.DefaultCellStyle = dataGridViewCellStyle38;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGrid.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(230)))), ((int)(((byte)(222)))));
             this.dataGrid.Location = new System.Drawing.Point(122, 40);
             this.dataGrid.MaximumSize = new System.Drawing.Size(347, 1080);
             this.dataGrid.MinimumSize = new System.Drawing.Size(347, 100);
             this.dataGrid.Name = "dataGrid";
             this.dataGrid.ReadOnly = true;
-            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle39.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle39.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle39.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle39.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle39.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle39.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle39;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dataGrid.RowHeadersVisible = false;
-            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle40.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle40.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle40.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(168)))), ((int)(((byte)(166)))));
-            dataGridViewCellStyle40.SelectionForeColor = System.Drawing.Color.White;
-            this.dataGrid.RowsDefaultCellStyle = dataGridViewCellStyle40;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(168)))), ((int)(((byte)(166)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White;
+            this.dataGrid.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dataGrid.RowTemplate.Height = 40;
             this.dataGrid.Size = new System.Drawing.Size(347, 426);
             this.dataGrid.TabIndex = 11;
@@ -372,11 +372,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(78)))), ((int)(((byte)(78)))));
-            this.label2.Location = new System.Drawing.Point(10, 7);
+            this.label2.Location = new System.Drawing.Point(5, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 18);
+            this.label2.Size = new System.Drawing.Size(43, 17);
             this.label2.TabIndex = 0;
             this.label2.Text = "Status";
             // 
@@ -394,11 +394,11 @@
             // DoctorID
             // 
             this.DoctorID.AutoSize = true;
-            this.DoctorID.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DoctorID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DoctorID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(78)))), ((int)(((byte)(78)))));
-            this.DoctorID.Location = new System.Drawing.Point(98, 8);
+            this.DoctorID.Location = new System.Drawing.Point(100, 7);
             this.DoctorID.Name = "DoctorID";
-            this.DoctorID.Size = new System.Drawing.Size(17, 18);
+            this.DoctorID.Size = new System.Drawing.Size(19, 21);
             this.DoctorID.TabIndex = 1;
             this.DoctorID.Text = "0";
             this.DoctorID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -406,11 +406,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(78)))), ((int)(((byte)(78)))));
-            this.label4.Location = new System.Drawing.Point(4, 6);
+            this.label4.Location = new System.Drawing.Point(5, 9);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(78, 18);
+            this.label4.Size = new System.Drawing.Size(67, 17);
             this.label4.TabIndex = 0;
             this.label4.Text = "Doctor ID:";
             // 
@@ -428,11 +428,11 @@
             // DoctorFullName
             // 
             this.DoctorFullName.AutoSize = true;
-            this.DoctorFullName.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DoctorFullName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DoctorFullName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(78)))), ((int)(((byte)(78)))));
-            this.DoctorFullName.Location = new System.Drawing.Point(90, 7);
+            this.DoctorFullName.Location = new System.Drawing.Point(100, 7);
             this.DoctorFullName.Name = "DoctorFullName";
-            this.DoctorFullName.Size = new System.Drawing.Size(32, 18);
+            this.DoctorFullName.Size = new System.Drawing.Size(34, 21);
             this.DoctorFullName.TabIndex = 2;
             this.DoctorFullName.Text = "Dr. ";
             this.DoctorFullName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -440,11 +440,11 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(78)))), ((int)(((byte)(78)))));
-            this.label5.Location = new System.Drawing.Point(4, 6);
+            this.label5.Location = new System.Drawing.Point(5, 9);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(86, 18);
+            this.label5.Size = new System.Drawing.Size(73, 17);
             this.label5.TabIndex = 0;
             this.label5.Text = "Full Name: ";
             // 
@@ -453,7 +453,7 @@
             this.drImage.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.drImage.BackColor = System.Drawing.Color.Transparent;
             this.drImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.drImage.Location = new System.Drawing.Point(20, 67);
+            this.drImage.Location = new System.Drawing.Point(20, 49);
             this.drImage.Name = "drImage";
             this.drImage.Size = new System.Drawing.Size(128, 128);
             this.drImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -474,11 +474,11 @@
             // Age
             // 
             this.Age.AutoSize = true;
-            this.Age.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Age.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Age.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(78)))), ((int)(((byte)(78)))));
-            this.Age.Location = new System.Drawing.Point(45, 6);
+            this.Age.Location = new System.Drawing.Point(100, 7);
             this.Age.Name = "Age";
-            this.Age.Size = new System.Drawing.Size(17, 18);
+            this.Age.Size = new System.Drawing.Size(19, 21);
             this.Age.TabIndex = 2;
             this.Age.Text = "0";
             this.Age.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -486,11 +486,11 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(78)))), ((int)(((byte)(78)))));
-            this.label6.Location = new System.Drawing.Point(4, 6);
+            this.label6.Location = new System.Drawing.Point(5, 9);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(41, 18);
+            this.label6.Size = new System.Drawing.Size(34, 17);
             this.label6.TabIndex = 0;
             this.label6.Text = "Age:";
             // 
@@ -499,10 +499,10 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(14, 18);
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(13, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(182, 31);
+            this.label3.Size = new System.Drawing.Size(191, 37);
             this.label3.TabIndex = 9;
             this.label3.Text = "Identification";
             // 
@@ -520,11 +520,11 @@
             // Address
             // 
             this.Address.AutoSize = true;
-            this.Address.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Address.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Address.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(78)))), ((int)(((byte)(78)))));
-            this.Address.Location = new System.Drawing.Point(82, 5);
+            this.Address.Location = new System.Drawing.Point(100, 7);
             this.Address.Name = "Address";
-            this.Address.Size = new System.Drawing.Size(17, 18);
+            this.Address.Size = new System.Drawing.Size(19, 21);
             this.Address.TabIndex = 3;
             this.Address.Text = "0";
             this.Address.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -532,11 +532,11 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(78)))), ((int)(((byte)(78)))));
-            this.label7.Location = new System.Drawing.Point(4, 6);
+            this.label7.Location = new System.Drawing.Point(5, 9);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(71, 18);
+            this.label7.Size = new System.Drawing.Size(59, 17);
             this.label7.TabIndex = 0;
             this.label7.Text = "Address:";
             // 
@@ -554,11 +554,11 @@
             // Gender
             // 
             this.Gender.AutoSize = true;
-            this.Gender.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Gender.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Gender.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(78)))), ((int)(((byte)(78)))));
-            this.Gender.Location = new System.Drawing.Point(74, 6);
+            this.Gender.Location = new System.Drawing.Point(100, 7);
             this.Gender.Name = "Gender";
-            this.Gender.Size = new System.Drawing.Size(17, 18);
+            this.Gender.Size = new System.Drawing.Size(19, 21);
             this.Gender.TabIndex = 4;
             this.Gender.Text = "0";
             this.Gender.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -566,11 +566,11 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(78)))), ((int)(((byte)(78)))));
-            this.label8.Location = new System.Drawing.Point(4, 6);
+            this.label8.Location = new System.Drawing.Point(5, 9);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(64, 18);
+            this.label8.Size = new System.Drawing.Size(54, 17);
             this.label8.TabIndex = 0;
             this.label8.Text = "Gender:";
             // 
@@ -588,11 +588,11 @@
             // dateHired
             // 
             this.dateHired.AutoSize = true;
-            this.dateHired.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateHired.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateHired.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(78)))), ((int)(((byte)(78)))));
-            this.dateHired.Location = new System.Drawing.Point(103, 5);
+            this.dateHired.Location = new System.Drawing.Point(100, 7);
             this.dateHired.Name = "dateHired";
-            this.dateHired.Size = new System.Drawing.Size(17, 18);
+            this.dateHired.Size = new System.Drawing.Size(19, 21);
             this.dateHired.TabIndex = 4;
             this.dateHired.Text = "0";
             this.dateHired.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -600,11 +600,11 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(78)))), ((int)(((byte)(78)))));
-            this.label9.Location = new System.Drawing.Point(4, 6);
+            this.label9.Location = new System.Drawing.Point(5, 9);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(89, 18);
+            this.label9.Size = new System.Drawing.Size(75, 17);
             this.label9.TabIndex = 0;
             this.label9.Text = "Date-Hired:";
             // 

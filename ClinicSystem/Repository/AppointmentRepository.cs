@@ -7,6 +7,7 @@ using ClinicSystem.PatientForm;
 using ClinicSystem.Repository;
 using ClinicSystem.Rooms;
 using ClinicSystem.UserLoginForm;
+using Google.Protobuf.WellKnownTypes;
 using MySql.Data.MySqlClient;
 
 namespace ClinicSystem.Appointments
@@ -556,6 +557,126 @@ namespace ClinicSystem.Appointments
             catch (MySqlException ex)
             {
                 MessageBox.Show("Error from insertPenalty() DB" + ex.Message);
+            }       
+        }
+
+        internal List<Doctor> getAvailableDoctors(Operation selectedOperation, string startSchedule, string endSchedule)
+        {
+            List<Doctor> doctorList = new List<Doctor>();
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
+                {
+                    conn.Open();
+                    string query = @"
+                            SELECT distinct doctor_tbl.* FROM doctor_tbl 
+                                LEFT JOIN doctor_operation_mm_tbl ON doctor_tbl.doctorid = doctor_operation_mm_tbl.doctorid
+                            WHERE doctor_operation_mm_tbl.operationcode = @OperationCode AND doctor_tbl.Active = 'Yes' AND doctor_operation_mm_tbl.doctorid NOT IN (
+	                            SELECT  
+                                    patientappointment_tbl.doctorid 
+                                FROM patientappointment_tbl
+                                WHERE 
+                                    (@StartTime BETWEEN StartSchedule AND EndSchedule) OR
+                                    (@EndTime  BETWEEN StartSchedule AND EndSchedule) OR
+                                    (StartSchedule BETWEEN @StartTime AND @EndTime ) OR
+                                    (EndSchedule BETWEEN @StartTime  AND @EndTime)
+                            )
+                            ";
+                    using (MySqlCommand command = new MySqlCommand(query, conn))
+                    {
+                        command.Parameters.AddWithValue("@OperationCode", selectedOperation.OperationCode);
+                        command.Parameters.AddWithValue("@StartTime", startSchedule);
+                        command.Parameters.AddWithValue("@EndTime", endSchedule);
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read()) {
+                                doctorList.Add(EntityMapping.GetDoctor(reader));
+                            }
+                        }
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error from getAvailableDoctors() DB" + ex.Message);
+            }
+         
+            return doctorList;
+        }
+
+        public List<Room> getRoomAvailable(Operation selectedOperation, string startSchedule, string endSchedule)
+        {
+            List<Room> roomAvailable = new List<Room>();
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
+                {
+                    conn.Open();
+                    string query = @"               
+                            SELECT DISTINCT rooms_tbl.* FROM rooms_tbl
+                                LEFT JOIN operation_tbl on operation_tbl.roomtype = rooms_tbl.roomtype
+                                LEFT JOIN doctor_operation_mm_tbl ON doctor_operation_mm_tbl.operationcode = operation_tbl.operationcode
+                                LEFT JOIN patientappointment_tbl ON patientappointment_tbl.RoomNo = rooms_tbl.roomNo
+                            WHERE operation_tbl.operationcode = @OperationCode AND rooms_tbl.roomNo NOT IN (
+	                            SELECT 
+                                    patientappointment_tbl.roomno 
+                                FROM patientappointment_tbl
+                                WHERE 
+                                    (@StartTime BETWEEN StartSchedule AND EndSchedule) OR
+                                    (@EndTime  BETWEEN StartSchedule AND EndSchedule) OR
+                                    (StartSchedule BETWEEN @StartTime  AND @EndTime ) OR
+                                    (EndSchedule BETWEEN @StartTime  AND @EndTime )
+                            )
+                            ";
+                    using (MySqlCommand command = new MySqlCommand(query, conn))
+                    {
+                        command.Parameters.AddWithValue("@OperationCode", selectedOperation.OperationCode);
+                        command.Parameters.AddWithValue("@StartTime", startSchedule);
+                        command.Parameters.AddWithValue("@EndTime", endSchedule);
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                Room room = new Room(reader.GetInt32("roomno"), reader.GetString("roomtype"));
+                                roomAvailable.Add(room);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error from getRoomAvailable() DB" + ex.Message);
+            }
+
+            return roomAvailable;
+        }
+
+        internal void setDiscount()
+        {
+           try
+            {
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
+                {
+                    conn.Open();
+                    string query = @"               
+                                INSERT INTO discount_tbl (DiscountType , DiscountRate, DiscountDescription) 
+                                  VALUES
+                               (@DiscountType , @DiscountRate, @DiscountDescription);
+                            ";
+                    using (MySqlCommand command = new MySqlCommand(query, conn))
+                    {
+                        command.Parameters.AddWithValue("@DiscountType","No Discount");
+                        command.Parameters.AddWithValue("@DiscountRate", "0.000");
+                        command.Parameters.AddWithValue("@DiscountDescription", "No Discount");
+                        command.ExecuteNonQuery();
+                    }
+                }
+
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error from setDiscount() DB" + ex.Message);
             }
         }
     }

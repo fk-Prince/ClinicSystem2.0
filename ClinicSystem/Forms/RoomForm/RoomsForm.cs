@@ -22,14 +22,14 @@ namespace ClinicSystem.Rooms
             InitializeComponent();
             roomList = db.getRooms();
             roomType = db.getRoomType();
-            string type = "";
-            if (roomList.Count == 0)
+            string type = "No Rooms";
+            displayRooms(roomList, "No Rooms");
+            roomType.ForEach(room => comboBox1.Items.Add(room.Roomtype));
+            if (roomType.Count == 0)
             {
-                type = "No Rooms";
+                comboBox1.Items.Add("No registered room type.          ");
+                comboBox1.SelectedIndex = 0;
             }
-            displayRooms(roomList, type);
-            roomType.ForEach(room => comboRoomType.Items.Add(room.Roomtype));
-
 
             //RESIZE 
             int y = (ClientSize.Height - addRoomPanel.Height) / 2;
@@ -45,7 +45,7 @@ namespace ClinicSystem.Rooms
         {
 
             flowLayout.Controls.Clear();
-            if (type.Equals("No Rooms"))
+            if (roomList.Count == 0 && type.Equals("No Rooms"))
             { 
                 Label label = new Label();
                 label.Text = $"Currently We Have {type}.";
@@ -103,6 +103,7 @@ namespace ClinicSystem.Rooms
             label.AutoSize = true;
             label.Location = new Point(x, y);
             label.BackColor = Color.FromArgb(111, 168, 166);
+            label.Font = new Font("Segui UI", 10, FontStyle.Regular);
             return label;
         }
 
@@ -141,13 +142,18 @@ namespace ClinicSystem.Rooms
 
         private void addPatientB_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(roomno.Text) || comboRoomType.SelectedIndex == -1)
+            if (string.IsNullOrWhiteSpace(roomno.Text.Trim()) || comboBox1.SelectedIndex == -1 || string.IsNullOrWhiteSpace(roomDescription.Text.Trim()))
             {
                 MessagePromp.MainShowMessage(this, "Empty Field", MessageBoxIcon.Error);
                 return;
             }
+            if(roomDescription.Text.Trim().Equals("No registered room type.          "))
+            {
+                MessagePromp.MainShowMessage(this, "No registered room type.", MessageBoxIcon.Error);
+                return;
+            }
 
-            string roomtype = comboRoomType.SelectedItem.ToString();
+            string roomtype = comboBox1.SelectedItem.ToString();
             int roomNumber;
             if (!int.TryParse(roomno.Text, out roomNumber))
             {
@@ -168,8 +174,11 @@ namespace ClinicSystem.Rooms
             db.insertRoom(room);
             MessagePromp.MainShowMessage(this, "Successfully Added", MessageBoxIcon.Information);
             roomno.Text = "";
-            comboRoomType.SelectedIndex = -1;
+            comboBox1.SelectedIndex = -1;
             roomList.Add(room);
+            roomDescription.Text = "";
+            timerout.Start();
+            displayRooms(roomList, "No Rooms");
         }
         private void addRoomB_Click(object sender, EventArgs e)
         {
@@ -177,14 +186,17 @@ namespace ClinicSystem.Rooms
             addRoomB.Enabled = true;
             addRoomPanel.Visible = true;
             flowLayout.Visible = false;
+            roomno.Text = "";
+            comboBox1.SelectedIndex = -1;
+            roomDescription.Text = "";
         }
 
         private void comboRoomType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboRoomType.SelectedIndex == -1) return;
+            if (comboBox1.SelectedIndex == -1) return;
             foreach (Room r in roomType)
             {
-                if (r.Roomtype.Equals(comboRoomType.SelectedItem.ToString()))
+                if (r.Roomtype.Equals(comboBox1.SelectedItem.ToString()))
                 {
                     roomDescription.Text = r.RoomDescription;
                     break;

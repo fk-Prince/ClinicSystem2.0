@@ -13,6 +13,7 @@ using ClinicSystem.Appointments;
 using ClinicSystem.UserLoginForm;
 using TheArtOfDevHtmlRenderer.Adapters;
 using ClinicSystem.Repository;
+using System.Diagnostics.Eventing.Reader;
 
 namespace ClinicSystem
 {
@@ -198,7 +199,7 @@ namespace ClinicSystem
                 e.Graphics.DrawString("Penalty Fee:", font, Brushes.Black, 410, y);
                 e.Graphics.DrawString($"₱  {selected.PenaltyAppointment.PenaltyAmount.ToString("F2")}", font, Brushes.Black, 820 - size2.Width, y);   
             } 
-            else
+            else if (type.Equals("Add"))
             {
                 string stotal = app.Sum(a => a.SubTotal).ToString("F2");
                 SizeF size1 = graphics.MeasureString($"₱  {stotal}", font);

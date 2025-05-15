@@ -75,11 +75,7 @@ namespace ClinicSystem.Doctors
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            DoctorOperation doc = new DoctorOperation();
-            LoadForm(doc);
-        }
+       
 
         private void mouseClicked(object sender, MouseEventArgs e)
         {

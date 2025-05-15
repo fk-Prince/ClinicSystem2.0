@@ -395,6 +395,7 @@ namespace ClinicSystem.MainClinic
                 Guna2Panel panel = button.Parent as Guna2Panel;
                 if (panel != null)
                 {
+                   
                     Timer t = new Timer();
                     t.Tag = panel;
                     t.Interval = 15;
@@ -443,9 +444,11 @@ namespace ClinicSystem.MainClinic
                 y += panel.Height;
             }
 
-            if (panels.Count == 0)
+            if (missCounter == 0)
             {
                 panel10.Controls.Remove(p);
+                panel10.Invalidate();
+                MessagePromp.MainShowMessageBig(this, "You have no notifications left.", MessageBoxIcon.Information);
             }
         }
 
@@ -515,6 +518,8 @@ namespace ClinicSystem.MainClinic
                 panels.Add(s);
             }
         }
+
+      
 
         private void todayAppT_Tick(object sender, EventArgs e)
         {

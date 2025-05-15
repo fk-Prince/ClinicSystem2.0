@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.operationFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.comboRoomType = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.comboRoomType = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.picturePrice = new System.Windows.Forms.PictureBox();
             this.button3 = new System.Windows.Forms.Button();
@@ -105,29 +105,25 @@
             // 
             // comboRoomType
             // 
-            this.comboRoomType.BackColor = System.Drawing.Color.Transparent;
-            this.comboRoomType.BorderRadius = 5;
-            this.comboRoomType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.comboRoomType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboRoomType.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.comboRoomType.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.comboRoomType.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboRoomType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(44)))), ((int)(((byte)(54)))));
+            this.comboRoomType.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboRoomType.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.comboRoomType.FormattingEnabled = true;
             this.comboRoomType.IntegralHeight = false;
-            this.comboRoomType.ItemHeight = 20;
-            this.comboRoomType.Location = new System.Drawing.Point(186, 2);
-            this.comboRoomType.MaxDropDownItems = 5;
+            this.comboRoomType.Location = new System.Drawing.Point(188, 2);
             this.comboRoomType.Name = "comboRoomType";
-            this.comboRoomType.Size = new System.Drawing.Size(205, 26);
+            this.comboRoomType.Size = new System.Drawing.Size(205, 29);
             this.comboRoomType.TabIndex = 2;
             this.comboRoomType.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.taab);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label1.Location = new System.Drawing.Point(3, 8);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(116, 17);
+            this.label1.Size = new System.Drawing.Size(106, 17);
             this.label1.TabIndex = 1;
             this.label1.Text = "Operation Room";
             // 
@@ -216,10 +212,11 @@
             this.opDescription.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.opDescription.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.opDescription.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.opDescription.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.opDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(44)))), ((int)(((byte)(54)))));
+            this.opDescription.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.opDescription.ForeColor = System.Drawing.SystemColors.ControlText;
             this.opDescription.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.opDescription.Location = new System.Drawing.Point(185, 6);
+            this.opDescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.opDescription.MaxLength = 200;
             this.opDescription.Multiline = true;
             this.opDescription.Name = "opDescription";
@@ -232,9 +229,11 @@
             // Description
             // 
             this.Description.AutoSize = true;
+            this.Description.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Description.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Description.Location = new System.Drawing.Point(3, 8);
             this.Description.Name = "Description";
-            this.Description.Size = new System.Drawing.Size(82, 17);
+            this.Description.Size = new System.Drawing.Size(74, 17);
             this.Description.TabIndex = 1;
             this.Description.Text = "Description";
             // 
@@ -260,10 +259,11 @@
             this.opDuration.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.opDuration.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.opDuration.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.opDuration.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.opDuration.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(44)))), ((int)(((byte)(54)))));
+            this.opDuration.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.opDuration.ForeColor = System.Drawing.SystemColors.ControlText;
             this.opDuration.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.opDuration.Location = new System.Drawing.Point(185, 2);
+            this.opDuration.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.opDuration.Name = "opDuration";
             this.opDuration.PlaceholderText = "";
             this.opDuration.SelectedText = "";
@@ -275,9 +275,11 @@
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label6.Location = new System.Drawing.Point(3, 8);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(147, 17);
+            this.label6.Size = new System.Drawing.Size(132, 17);
             this.label6.TabIndex = 1;
             this.label6.Text = "Duration (HH:MM:SS)";
             // 
@@ -303,10 +305,11 @@
             this.opPrice.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.opPrice.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.opPrice.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.opPrice.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.opPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(44)))), ((int)(((byte)(54)))));
+            this.opPrice.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.opPrice.ForeColor = System.Drawing.SystemColors.ControlText;
             this.opPrice.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.opPrice.Location = new System.Drawing.Point(186, 2);
+            this.opPrice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.opPrice.MaxLength = 9;
             this.opPrice.Name = "opPrice";
             this.opPrice.PlaceholderText = "";
@@ -320,9 +323,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label4.Location = new System.Drawing.Point(3, 8);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(42, 17);
+            this.label4.Size = new System.Drawing.Size(36, 17);
             this.label4.TabIndex = 1;
             this.label4.Text = "Price";
             // 
@@ -348,10 +353,11 @@
             this.opName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.opName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.opName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.opName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.opName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(44)))), ((int)(((byte)(54)))));
+            this.opName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.opName.ForeColor = System.Drawing.SystemColors.ControlText;
             this.opName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.opName.Location = new System.Drawing.Point(185, 3);
+            this.opName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.opName.MaxLength = 45;
             this.opName.Name = "opName";
             this.opName.PlaceholderText = "";
@@ -365,9 +371,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label3.Location = new System.Drawing.Point(3, 8);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(115, 17);
+            this.label3.Size = new System.Drawing.Size(106, 17);
             this.label3.TabIndex = 1;
             this.label3.Text = "Operation Name";
             // 
@@ -393,10 +401,11 @@
             this.opCode.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.opCode.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.opCode.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.opCode.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.opCode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(44)))), ((int)(((byte)(54)))));
+            this.opCode.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.opCode.ForeColor = System.Drawing.SystemColors.ControlText;
             this.opCode.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.opCode.Location = new System.Drawing.Point(185, 3);
+            this.opCode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.opCode.MaxLength = 10;
             this.opCode.Name = "opCode";
             this.opCode.PlaceholderText = "";
@@ -409,9 +418,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label2.Location = new System.Drawing.Point(3, 8);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(111, 17);
+            this.label2.Size = new System.Drawing.Size(102, 17);
             this.label2.TabIndex = 1;
             this.label2.Text = "Operation Code";
             // 
@@ -443,7 +454,7 @@
             // addOperationPanel
             // 
             this.addOperationPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(255)))), ((int)(((byte)(252)))));
-            this.addOperationPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.addOperationPanel.BorderColor = System.Drawing.Color.Gray;
             this.addOperationPanel.BorderRadius = 20;
             this.addOperationPanel.BorderThickness = 1;
             this.addOperationPanel.Controls.Add(this.guna2Button2);
@@ -460,7 +471,7 @@
             this.addOperationPanel.Controls.Add(this.label8);
             this.addOperationPanel.Controls.Add(this.pictureCode);
             this.addOperationPanel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(168)))), ((int)(((byte)(166)))));
-            this.addOperationPanel.Location = new System.Drawing.Point(-458, 138);
+            this.addOperationPanel.Location = new System.Drawing.Point(-459, 139);
             this.addOperationPanel.Name = "addOperationPanel";
             this.addOperationPanel.Size = new System.Drawing.Size(460, 560);
             this.addOperationPanel.TabIndex = 10;
@@ -515,7 +526,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(255)))), ((int)(((byte)(252)))));
             this.panel1.Controls.Add(this.flowLayout);
-            this.panel1.Location = new System.Drawing.Point(1, 130);
+            this.panel1.Location = new System.Drawing.Point(0, 131);
             this.panel1.MaximumSize = new System.Drawing.Size(1920, 1080);
             this.panel1.MinimumSize = new System.Drawing.Size(1088, 588);
             this.panel1.Name = "panel1";
@@ -557,10 +568,12 @@
             this.SearchBar1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.SearchBar1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.SearchBar1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.SearchBar1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchBar1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchBar1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.SearchBar1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.SearchBar1.IconLeft = global::ClinicSystem.Properties.Resources.search24;
             this.SearchBar1.Location = new System.Drawing.Point(10, 28);
+            this.SearchBar1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.SearchBar1.Name = "SearchBar1";
             this.SearchBar1.PlaceholderText = "";
             this.SearchBar1.SelectedText = "";
@@ -572,12 +585,12 @@
             // 
             this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(3, 5);
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(4, 6);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(217, 20);
+            this.label11.Size = new System.Drawing.Size(191, 17);
             this.label11.TabIndex = 1;
-            this.label11.Text = "Search Operation Code / Name";
+            this.label11.Text = "Search Operation Code | Name";
             // 
             // load
             // 
@@ -655,7 +668,6 @@
         private Guna.UI2.WinForms.Guna2Button addOperationB;
         private Guna.UI2.WinForms.Guna2Panel addOperationPanel;
         private Guna.UI2.WinForms.Guna2TextBox opCode;
-        private Guna.UI2.WinForms.Guna2ComboBox comboRoomType;
         private Guna.UI2.WinForms.Guna2TextBox opDescription;
         private Guna.UI2.WinForms.Guna2TextBox opDuration;
         private Guna.UI2.WinForms.Guna2TextBox opPrice;
@@ -663,5 +675,6 @@
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
         private Guna.UI2.WinForms.Guna2TextBox SearchBar1;
         private System.Windows.Forms.Timer load;
+        private System.Windows.Forms.ComboBox comboRoomType;
     }
 }

@@ -73,7 +73,7 @@ namespace ClinicSystem.Doctors
                 }
             }
         }
-
+        
         private void button1_Click(object sender, EventArgs e)
         {
             ofd.Filter = "Image Files (*.jpg, *.png)|*.jpg;*.png";
@@ -87,7 +87,15 @@ namespace ClinicSystem.Doctors
                 drPicture.Text = "";
                 drPicture.FlatAppearance.BorderSize = 0;
                 pictureBox1.BringToFront();
-            } 
+            }
+            else
+            {
+                drPicture.FlatAppearance.BorderSize = 1;
+                drPicture.Text = "Browse";
+                pictureBox1.ImageLocation = null;
+                image = null;
+                drPicture.BringToFront();
+            }
         }
 
         private void addDentistB_Click(object sender, EventArgs e)
@@ -114,7 +122,7 @@ namespace ClinicSystem.Doctors
 
 
             if (!enterPIN.Text.Equals(confirmedPIN.Text,StringComparison.OrdinalIgnoreCase)){
-                MessagePromp.MainShowMessage(this, "PIN NOT MATCH, Try again.", MessageBoxIcon.Error);
+                MessagePromp.MainShowMessageBig(this, "PIN NOT MATCH, Try again.", MessageBoxIcon.Error);
                 return;
             }
 
@@ -133,13 +141,13 @@ namespace ClinicSystem.Doctors
 
             if (ageInt < 18)
             {
-                MessagePromp.MainShowMessage(this, "Doctor must be above 18 years old.", MessageBoxIcon.Error);
+                MessagePromp.MainShowMessageBig(this, "Doctor must be above 18 years old.", MessageBoxIcon.Error);
                 return;
             }
 
             if (!string.IsNullOrWhiteSpace(contactNumber.Text.Trim()) && (!long.TryParse(contactNumber.Text, out _) || !Regex.IsMatch(contactNumber.Text.Trim(), @"^9\d{9}$")))
             {
-                MessagePromp.MainShowMessage(this, "Invalid Contact Number", MessageBoxIcon.Error);
+                MessagePromp.MainShowMessageBig(this, "Invalid Contact Number", MessageBoxIcon.Error);
                 return;
             }
             string contact = contactNumber.Text.Trim();
@@ -172,7 +180,6 @@ namespace ClinicSystem.Doctors
 
                 doctorID.Text = doctorRepository.getDoctorLastID();
                 lrfid.Visible = false;
-                tbrfid.Visible = false;
                 firstName.Text = "";
                 middleName.Text = "";
                 lastName.Text = "";
@@ -247,13 +254,15 @@ namespace ClinicSystem.Doctors
                                     rf += "*";
                                 }
                             }
-                            tbrfid.Text = rf;
+                            doctorID.Text = rf;
                             lrfid.Visible = true;
-                            tbrfid.Visible = true;
+                            doctorID.Visible = true;
                         }
                     }
                 });
             }
         }
+
+
     }
 }

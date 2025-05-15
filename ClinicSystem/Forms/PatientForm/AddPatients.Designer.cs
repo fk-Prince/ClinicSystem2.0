@@ -67,14 +67,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.appPanel = new Guna.UI2.WinForms.Guna2Panel();
             this.addAppointment = new Guna.UI2.WinForms.Guna2Button();
-            this.panel7 = new System.Windows.Forms.Panel();
+            this.p4 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.comboRoom = new System.Windows.Forms.ComboBox();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.p3 = new System.Windows.Forms.Panel();
             this.comboDoctor = new System.Windows.Forms.ComboBox();
             this.textBox14 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.panel12 = new System.Windows.Forms.Panel();
+            this.p5 = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
             this.scheduleDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.textBox16 = new System.Windows.Forms.TextBox();
@@ -90,22 +90,23 @@
             this.TotalBill = new Guna.UI2.WinForms.Guna2TextBox();
             this.textBox18 = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.p2 = new System.Windows.Forms.Panel();
             this.comboOperation = new System.Windows.Forms.ComboBox();
             this.textBox15 = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.RemoveStack = new System.Windows.Forms.Button();
             this.Add = new System.Windows.Forms.Button();
             this.tbListOperation = new System.Windows.Forms.TextBox();
-            this.panel18 = new System.Windows.Forms.Panel();
+            this.p1 = new System.Windows.Forms.Panel();
+            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.PatientAppointmentNo = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.textBox21 = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.switchButton = new Guna.UI2.WinForms.Guna2Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.pid = new System.Windows.Forms.Panel();
-            this.lastPatientID = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lastPatientID = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -122,17 +123,18 @@
             this.panelLastName.SuspendLayout();
             this.panelMidName.SuspendLayout();
             this.appPanel.SuspendLayout();
-            this.panel7.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel12.SuspendLayout();
+            this.p4.SuspendLayout();
+            this.p3.SuspendLayout();
+            this.p5.SuspendLayout();
             this.panel13.SuspendLayout();
             this.panel15.SuspendLayout();
             this.panel14.SuspendLayout();
             this.panel19.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel18.SuspendLayout();
+            this.p2.SuspendLayout();
+            this.p1.SuspendLayout();
+            this.guna2Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
-            this.pid.SuspendLayout();
             this.panel10.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -169,7 +171,7 @@
             this.patPanel.Controls.Add(this.panelAge);
             this.patPanel.Controls.Add(this.panelLastName);
             this.patPanel.Controls.Add(this.panelMidName);
-            this.patPanel.Location = new System.Drawing.Point(13, 204);
+            this.patPanel.Location = new System.Drawing.Point(14, 222);
             this.patPanel.MaximumSize = new System.Drawing.Size(1500, 1080);
             this.patPanel.MinimumSize = new System.Drawing.Size(1055, 400);
             this.patPanel.Name = "patPanel";
@@ -186,7 +188,7 @@
             this.panelGender.Controls.Add(this.label8);
             this.panelGender.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.panelGender.ForeColor = System.Drawing.Color.Black;
-            this.panelGender.Location = new System.Drawing.Point(35, 259);
+            this.panelGender.Location = new System.Drawing.Point(35, 254);
             this.panelGender.Name = "panelGender";
             this.panelGender.Size = new System.Drawing.Size(419, 46);
             this.panelGender.TabIndex = 10051;
@@ -194,20 +196,22 @@
             // rFemale
             // 
             this.rFemale.AutoSize = true;
+            this.rFemale.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rFemale.Location = new System.Drawing.Point(244, 10);
             this.rFemale.Name = "rFemale";
-            this.rFemale.Size = new System.Drawing.Size(75, 24);
+            this.rFemale.Size = new System.Drawing.Size(78, 25);
             this.rFemale.TabIndex = 10002;
-            this.rFemale.TabStop = true;
             this.rFemale.Text = "Female";
             this.rFemale.UseVisualStyleBackColor = true;
             // 
             // rMale
             // 
             this.rMale.AutoSize = true;
+            this.rMale.Checked = true;
+            this.rMale.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rMale.Location = new System.Drawing.Point(151, 10);
             this.rMale.Name = "rMale";
-            this.rMale.Size = new System.Drawing.Size(60, 24);
+            this.rMale.Size = new System.Drawing.Size(62, 25);
             this.rMale.TabIndex = 10001;
             this.rMale.TabStop = true;
             this.rMale.Text = "Male";
@@ -225,11 +229,11 @@
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(78)))), ((int)(((byte)(78)))));
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label8.Location = new System.Drawing.Point(6, 13);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(63, 20);
+            this.label8.Size = new System.Drawing.Size(51, 17);
             this.label8.TabIndex = 10000;
             this.label8.Text = "Gender";
             // 
@@ -243,7 +247,7 @@
             this.panelContNum.Controls.Add(this.ContactNo);
             this.panelContNum.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.panelContNum.ForeColor = System.Drawing.Color.Black;
-            this.panelContNum.Location = new System.Drawing.Point(35, 311);
+            this.panelContNum.Location = new System.Drawing.Point(35, 306);
             this.panelContNum.Name = "panelContNum";
             this.panelContNum.Size = new System.Drawing.Size(419, 37);
             this.panelContNum.TabIndex = 10057;
@@ -271,11 +275,11 @@
             // 
             this.label15.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(78)))), ((int)(((byte)(78)))));
+            this.label15.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label15.Location = new System.Drawing.Point(4, 9);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(125, 20);
+            this.label15.Size = new System.Drawing.Size(104, 17);
             this.label15.TabIndex = 10000;
             this.label15.Text = "Contact Number";
             // 
@@ -289,7 +293,7 @@
             this.ContactNo.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.ContactNo.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.ContactNo.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.ContactNo.Font = new System.Drawing.Font("Arial", 12F);
+            this.ContactNo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ContactNo.ForeColor = System.Drawing.Color.Black;
             this.ContactNo.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.ContactNo.IconLeft = global::ClinicSystem.Properties.Resources.ph;
@@ -314,7 +318,7 @@
             this.panelAddress.Controls.Add(this.label5);
             this.panelAddress.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.panelAddress.ForeColor = System.Drawing.Color.Black;
-            this.panelAddress.Location = new System.Drawing.Point(35, 144);
+            this.panelAddress.Location = new System.Drawing.Point(35, 139);
             this.panelAddress.Name = "panelAddress";
             this.panelAddress.Size = new System.Drawing.Size(993, 63);
             this.panelAddress.TabIndex = 10053;
@@ -329,7 +333,7 @@
             this.Address.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.Address.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.Address.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.Address.Font = new System.Drawing.Font("Arial", 12F);
+            this.Address.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Address.ForeColor = System.Drawing.Color.Black;
             this.Address.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.Address.Location = new System.Drawing.Point(140, 5);
@@ -355,11 +359,11 @@
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(78)))), ((int)(((byte)(78)))));
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label5.Location = new System.Drawing.Point(4, 7);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(68, 20);
+            this.label5.Size = new System.Drawing.Size(56, 17);
             this.label5.TabIndex = 10000;
             this.label5.Text = "Address";
             // 
@@ -372,7 +376,7 @@
             this.panelBirthDate.Controls.Add(this.label6);
             this.panelBirthDate.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.panelBirthDate.ForeColor = System.Drawing.Color.Black;
-            this.panelBirthDate.Location = new System.Drawing.Point(35, 213);
+            this.panelBirthDate.Location = new System.Drawing.Point(35, 208);
             this.panelBirthDate.Name = "panelBirthDate";
             this.panelBirthDate.Size = new System.Drawing.Size(419, 40);
             this.panelBirthDate.TabIndex = 10055;
@@ -382,7 +386,7 @@
             this.BirthDate.BorderRadius = 5;
             this.BirthDate.Checked = true;
             this.BirthDate.FillColor = System.Drawing.Color.PaleGreen;
-            this.BirthDate.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.BirthDate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BirthDate.Format = System.Windows.Forms.DateTimePickerFormat.Long;
             this.BirthDate.Location = new System.Drawing.Point(140, 6);
             this.BirthDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
@@ -405,11 +409,11 @@
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(78)))), ((int)(((byte)(78)))));
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label6.Location = new System.Drawing.Point(4, 10);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(99, 20);
+            this.label6.Size = new System.Drawing.Size(81, 17);
             this.label6.TabIndex = 10000;
             this.label6.Text = "Date of Birth";
             // 
@@ -423,7 +427,7 @@
             this.panelFirstName.Controls.Add(this.label2);
             this.panelFirstName.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.panelFirstName.ForeColor = System.Drawing.Color.Black;
-            this.panelFirstName.Location = new System.Drawing.Point(35, 17);
+            this.panelFirstName.Location = new System.Drawing.Point(35, 18);
             this.panelFirstName.Margin = new System.Windows.Forms.Padding(50);
             this.panelFirstName.MaximumSize = new System.Drawing.Size(620, 35);
             this.panelFirstName.MinimumSize = new System.Drawing.Size(419, 35);
@@ -450,7 +454,7 @@
             this.FirstName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.FirstName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.FirstName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.FirstName.Font = new System.Drawing.Font("Arial", 12F);
+            this.FirstName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FirstName.ForeColor = System.Drawing.Color.Black;
             this.FirstName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.FirstName.Location = new System.Drawing.Point(140, 3);
@@ -468,11 +472,11 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(78)))), ((int)(((byte)(78)))));
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label2.Location = new System.Drawing.Point(4, 8);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 20);
+            this.label2.Size = new System.Drawing.Size(71, 17);
             this.label2.TabIndex = 10000;
             this.label2.Text = "First Name";
             // 
@@ -500,13 +504,14 @@
             this.Age.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.Age.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.Age.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.Age.Font = new System.Drawing.Font("Arial", 12F);
+            this.Age.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Age.ForeColor = System.Drawing.Color.Black;
             this.Age.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.Age.Location = new System.Drawing.Point(61, 6);
             this.Age.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Age.Name = "Age";
             this.Age.PlaceholderText = "";
+            this.Age.ReadOnly = true;
             this.Age.SelectedText = "";
             this.Age.Size = new System.Drawing.Size(76, 29);
             this.Age.TabIndex = 10060;
@@ -523,11 +528,11 @@
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(78)))), ((int)(((byte)(78)))));
-            this.label7.Location = new System.Drawing.Point(3, 9);
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label7.Location = new System.Drawing.Point(10, 11);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(38, 20);
+            this.label7.Size = new System.Drawing.Size(31, 17);
             this.label7.TabIndex = 10000;
             this.label7.Text = "Age";
             // 
@@ -555,7 +560,7 @@
             this.LastName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.LastName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.LastName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.LastName.Font = new System.Drawing.Font("Arial", 12F);
+            this.LastName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LastName.ForeColor = System.Drawing.Color.Black;
             this.LastName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.LastName.Location = new System.Drawing.Point(140, 3);
@@ -581,11 +586,11 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(78)))), ((int)(((byte)(78)))));
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label4.Location = new System.Drawing.Point(6, 7);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(86, 20);
+            this.label4.Size = new System.Drawing.Size(70, 17);
             this.label4.TabIndex = 10000;
             this.label4.Text = "Last Name";
             // 
@@ -613,7 +618,7 @@
             this.MiddleName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.MiddleName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.MiddleName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.MiddleName.Font = new System.Drawing.Font("Arial", 12F);
+            this.MiddleName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MiddleName.ForeColor = System.Drawing.Color.Black;
             this.MiddleName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.MiddleName.Location = new System.Drawing.Point(140, 3);
@@ -638,11 +643,11 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(78)))), ((int)(((byte)(78)))));
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label3.Location = new System.Drawing.Point(4, 7);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(105, 20);
+            this.label3.Size = new System.Drawing.Size(92, 17);
             this.label3.TabIndex = 10000;
             this.label3.Text = "Middle  Name";
             // 
@@ -654,17 +659,17 @@
             this.appPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.appPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(249)))), ((int)(((byte)(245)))));
             this.appPanel.Controls.Add(this.addAppointment);
-            this.appPanel.Controls.Add(this.panel7);
-            this.appPanel.Controls.Add(this.panel3);
-            this.appPanel.Controls.Add(this.panel12);
+            this.appPanel.Controls.Add(this.p4);
+            this.appPanel.Controls.Add(this.p3);
+            this.appPanel.Controls.Add(this.p5);
             this.appPanel.Controls.Add(this.panel19);
-            this.appPanel.Controls.Add(this.panel4);
+            this.appPanel.Controls.Add(this.p2);
             this.appPanel.Controls.Add(this.RemoveStack);
             this.appPanel.Controls.Add(this.Add);
             this.appPanel.Controls.Add(this.tbListOperation);
-            this.appPanel.Controls.Add(this.panel18);
-            this.appPanel.Location = new System.Drawing.Point(1085, 190);
-            this.appPanel.MaximumSize = new System.Drawing.Size(1500, 1080);
+            this.appPanel.Controls.Add(this.p1);
+            this.appPanel.Location = new System.Drawing.Point(1086, 208);
+            this.appPanel.MaximumSize = new System.Drawing.Size(1920, 1080);
             this.appPanel.MinimumSize = new System.Drawing.Size(1055, 432);
             this.appPanel.Name = "appPanel";
             this.appPanel.Size = new System.Drawing.Size(1055, 432);
@@ -690,28 +695,32 @@
             this.addAppointment.Name = "addAppointment";
             this.addAppointment.Size = new System.Drawing.Size(337, 42);
             this.addAppointment.TabIndex = 10100;
+            this.addAppointment.TabStop = false;
             this.addAppointment.Text = "Confirm Appointment";
             this.addAppointment.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             this.addAppointment.Click += new System.EventHandler(this.addAppointment_Click);
             // 
-            // panel7
+            // p4
             // 
-            this.panel7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel7.Controls.Add(this.label11);
-            this.panel7.Controls.Add(this.comboRoom);
-            this.panel7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel7.Location = new System.Drawing.Point(3, 167);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(399, 50);
-            this.panel7.TabIndex = 10098;
+            this.p4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.p4.Controls.Add(this.label11);
+            this.p4.Controls.Add(this.comboRoom);
+            this.p4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.p4.Location = new System.Drawing.Point(49, 171);
+            this.p4.MaximumSize = new System.Drawing.Size(600, 48);
+            this.p4.MinimumSize = new System.Drawing.Size(402, 48);
+            this.p4.Name = "p4";
+            this.p4.Size = new System.Drawing.Size(402, 48);
+            this.p4.TabIndex = 10098;
             // 
             // label11
             // 
-            this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(16, 18);
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(16, 15);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(61, 15);
+            this.label11.Size = new System.Drawing.Size(68, 17);
             this.label11.TabIndex = 10000;
             this.label11.Text = "Room No.";
             // 
@@ -720,74 +729,87 @@
             this.comboRoom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comboRoom.BackColor = System.Drawing.Color.White;
             this.comboRoom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboRoom.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboRoom.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboRoom.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.comboRoom.FormattingEnabled = true;
             this.comboRoom.IntegralHeight = false;
-            this.comboRoom.ItemHeight = 16;
-            this.comboRoom.Location = new System.Drawing.Point(128, 12);
+            this.comboRoom.ItemHeight = 21;
+            this.comboRoom.Location = new System.Drawing.Point(97, 9);
+            this.comboRoom.MaximumSize = new System.Drawing.Size(400, 0);
+            this.comboRoom.MinimumSize = new System.Drawing.Size(264, 0);
             this.comboRoom.Name = "comboRoom";
-            this.comboRoom.Size = new System.Drawing.Size(261, 24);
+            this.comboRoom.Size = new System.Drawing.Size(294, 29);
+            this.comboRoom.Sorted = true;
             this.comboRoom.TabIndex = 10102;
+            this.comboRoom.TabStop = false;
             // 
-            // panel3
+            // p3
             // 
-            this.panel3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel3.Controls.Add(this.comboDoctor);
-            this.panel3.Controls.Add(this.textBox14);
-            this.panel3.Controls.Add(this.label12);
-            this.panel3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel3.Location = new System.Drawing.Point(3, 113);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(399, 48);
-            this.panel3.TabIndex = 10093;
+            this.p3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.p3.Controls.Add(this.comboDoctor);
+            this.p3.Controls.Add(this.textBox14);
+            this.p3.Controls.Add(this.label12);
+            this.p3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.p3.Location = new System.Drawing.Point(49, 117);
+            this.p3.MaximumSize = new System.Drawing.Size(600, 48);
+            this.p3.MinimumSize = new System.Drawing.Size(402, 48);
+            this.p3.Name = "p3";
+            this.p3.Size = new System.Drawing.Size(402, 48);
+            this.p3.TabIndex = 10093;
             // 
             // comboDoctor
             // 
             this.comboDoctor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comboDoctor.BackColor = System.Drawing.Color.White;
             this.comboDoctor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboDoctor.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboDoctor.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboDoctor.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.comboDoctor.FormattingEnabled = true;
             this.comboDoctor.IntegralHeight = false;
-            this.comboDoctor.ItemHeight = 16;
-            this.comboDoctor.Location = new System.Drawing.Point(128, 11);
+            this.comboDoctor.ItemHeight = 21;
+            this.comboDoctor.Location = new System.Drawing.Point(97, 9);
+            this.comboDoctor.MaximumSize = new System.Drawing.Size(400, 0);
+            this.comboDoctor.MinimumSize = new System.Drawing.Size(264, 0);
             this.comboDoctor.Name = "comboDoctor";
-            this.comboDoctor.Size = new System.Drawing.Size(261, 24);
+            this.comboDoctor.Size = new System.Drawing.Size(294, 29);
+            this.comboDoctor.Sorted = true;
             this.comboDoctor.TabIndex = 10101;
+            this.comboDoctor.TabStop = false;
             this.comboDoctor.SelectedIndexChanged += new System.EventHandler(this.comboDoctor_SelectedIndexChanged);
             // 
             // textBox14
             // 
             this.textBox14.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox14.Location = new System.Drawing.Point(125, 14);
+            this.textBox14.Location = new System.Drawing.Point(127, 14);
             this.textBox14.Name = "textBox14";
             this.textBox14.Size = new System.Drawing.Size(0, 23);
             this.textBox14.TabIndex = 1;
             // 
             // label12
             // 
-            this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(19, 17);
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(16, 15);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(48, 15);
+            this.label12.Size = new System.Drawing.Size(54, 17);
             this.label12.TabIndex = 10000;
             this.label12.Text = "Doctors";
             // 
-            // panel12
+            // p5
             // 
-            this.panel12.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel12.Controls.Add(this.panel13);
-            this.panel12.Controls.Add(this.label14);
-            this.panel12.Controls.Add(this.panel15);
-            this.panel12.Controls.Add(this.panel14);
-            this.panel12.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel12.Location = new System.Drawing.Point(13, 219);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(374, 206);
-            this.panel12.TabIndex = 10094;
+            this.p5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.p5.Controls.Add(this.panel13);
+            this.p5.Controls.Add(this.label14);
+            this.p5.Controls.Add(this.panel15);
+            this.p5.Controls.Add(this.panel14);
+            this.p5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.p5.Location = new System.Drawing.Point(66, 225);
+            this.p5.MaximumSize = new System.Drawing.Size(500, 206);
+            this.p5.MinimumSize = new System.Drawing.Size(374, 206);
+            this.p5.Name = "p5";
+            this.p5.Size = new System.Drawing.Size(374, 206);
+            this.p5.TabIndex = 10094;
             // 
             // panel13
             // 
@@ -805,9 +827,9 @@
             this.scheduleDate.BorderRadius = 5;
             this.scheduleDate.Checked = true;
             this.scheduleDate.FillColor = System.Drawing.Color.PaleGreen;
-            this.scheduleDate.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.scheduleDate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.scheduleDate.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.scheduleDate.Location = new System.Drawing.Point(95, 4);
+            this.scheduleDate.Location = new System.Drawing.Point(95, 3);
             this.scheduleDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.scheduleDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.scheduleDate.Name = "scheduleDate";
@@ -827,9 +849,10 @@
             // 
             this.label13.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(4, 11);
+            this.label13.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(16, 8);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(31, 15);
+            this.label13.Size = new System.Drawing.Size(35, 17);
             this.label13.TabIndex = 10000;
             this.label13.Text = "Date";
             // 
@@ -837,10 +860,10 @@
             // 
             this.label14.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(95, 22);
+            this.label14.Font = new System.Drawing.Font("Segoe UI Black", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.label14.Location = new System.Drawing.Point(91, 22);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(178, 21);
+            this.label14.Size = new System.Drawing.Size(189, 21);
             this.label14.TabIndex = 10000;
             this.label14.Text = "Appointment Schedule";
             // 
@@ -858,11 +881,12 @@
             // 
             this.startC.BackColor = System.Drawing.Color.White;
             this.startC.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.startC.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startC.Enabled = false;
+            this.startC.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.startC.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.startC.FormattingEnabled = true;
             this.startC.IntegralHeight = false;
-            this.startC.ItemHeight = 18;
+            this.startC.ItemHeight = 21;
             this.startC.Items.AddRange(new object[] {
             "09:00:00 AM",
             "09:30:00 AM",
@@ -889,30 +913,32 @@
             "08:00:00 PM",
             "08:30:00 PM",
             "09:00:00 PM"});
-            this.startC.Location = new System.Drawing.Point(178, 11);
+            this.startC.Location = new System.Drawing.Point(175, 8);
             this.startC.Name = "startC";
-            this.startC.Size = new System.Drawing.Size(186, 26);
+            this.startC.Size = new System.Drawing.Size(186, 29);
             this.startC.TabIndex = 10103;
+            this.startC.TabStop = false;
             this.startC.SelectedIndexChanged += new System.EventHandler(this.startC_SelectedIndexChanged);
             // 
             // label16
             // 
             this.label16.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(3, 15);
+            this.label16.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(16, 14);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(140, 15);
+            this.label16.Size = new System.Drawing.Size(76, 17);
             this.label16.TabIndex = 10000;
-            this.label16.Text = "Start-Time    (HH:MM:SS)";
+            this.label16.Text = "Start-Time  ";
             // 
             // panel14
             // 
             this.panel14.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel14.Controls.Add(this.End);
             this.panel14.Controls.Add(this.label17);
-            this.panel14.Location = new System.Drawing.Point(3, 157);
+            this.panel14.Location = new System.Drawing.Point(0, 157);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(371, 44);
+            this.panel14.Size = new System.Drawing.Size(374, 44);
             this.panel14.TabIndex = 10002;
             // 
             // End
@@ -925,27 +951,30 @@
             this.End.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.End.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.End.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.End.Font = new System.Drawing.Font("Bahnschrift SemiLight", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.End.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.End.ForeColor = System.Drawing.Color.Black;
             this.End.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.End.Location = new System.Drawing.Point(175, 8);
+            this.End.Location = new System.Drawing.Point(172, 8);
+            this.End.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.End.MaxLength = 100;
             this.End.Name = "End";
             this.End.PlaceholderText = "";
+            this.End.ReadOnly = true;
             this.End.SelectedText = "";
-            this.End.Size = new System.Drawing.Size(186, 26);
+            this.End.Size = new System.Drawing.Size(186, 29);
             this.End.TabIndex = 10061;
+            this.End.TabStop = false;
             // 
             // label17
             // 
             this.label17.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label17.Location = new System.Drawing.Point(4, 14);
+            this.label17.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(18, 14);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(139, 15);
+            this.label17.Size = new System.Drawing.Size(75, 17);
             this.label17.TabIndex = 10000;
-            this.label17.Text = "End-Time     (HH:MM:SS)";
+            this.label17.Text = "End-Time   ";
             // 
             // panel19
             // 
@@ -969,16 +998,18 @@
             this.TotalBill.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.TotalBill.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.TotalBill.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TotalBill.Font = new System.Drawing.Font("Bahnschrift SemiLight", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TotalBill.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TotalBill.ForeColor = System.Drawing.Color.Black;
             this.TotalBill.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TotalBill.Location = new System.Drawing.Point(83, 10);
+            this.TotalBill.Location = new System.Drawing.Point(83, 9);
+            this.TotalBill.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TotalBill.MaxLength = 100;
             this.TotalBill.Name = "TotalBill";
             this.TotalBill.PlaceholderText = "";
             this.TotalBill.SelectedText = "";
             this.TotalBill.Size = new System.Drawing.Size(237, 26);
             this.TotalBill.TabIndex = 10060;
+            this.TotalBill.TabStop = false;
             // 
             // textBox18
             // 
@@ -992,38 +1023,45 @@
             // 
             this.label18.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(13, 13);
+            this.label18.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(13, 12);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(59, 19);
+            this.label18.Size = new System.Drawing.Size(56, 17);
             this.label18.TabIndex = 10000;
             this.label18.Text = "Total Bill";
             // 
-            // panel4
+            // p2
             // 
-            this.panel4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel4.Controls.Add(this.comboOperation);
-            this.panel4.Controls.Add(this.textBox15);
-            this.panel4.Controls.Add(this.label19);
-            this.panel4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel4.Location = new System.Drawing.Point(0, 59);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(402, 48);
-            this.panel4.TabIndex = 10091;
+            this.p2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.p2.Controls.Add(this.comboOperation);
+            this.p2.Controls.Add(this.textBox15);
+            this.p2.Controls.Add(this.label19);
+            this.p2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.p2.Location = new System.Drawing.Point(49, 63);
+            this.p2.MaximumSize = new System.Drawing.Size(600, 48);
+            this.p2.MinimumSize = new System.Drawing.Size(402, 48);
+            this.p2.Name = "p2";
+            this.p2.Size = new System.Drawing.Size(402, 48);
+            this.p2.TabIndex = 10091;
             // 
             // comboOperation
             // 
             this.comboOperation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comboOperation.BackColor = System.Drawing.Color.White;
             this.comboOperation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboOperation.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboOperation.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboOperation.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.comboOperation.FormattingEnabled = true;
             this.comboOperation.IntegralHeight = false;
-            this.comboOperation.ItemHeight = 16;
-            this.comboOperation.Location = new System.Drawing.Point(127, 14);
+            this.comboOperation.ItemHeight = 21;
+            this.comboOperation.Location = new System.Drawing.Point(97, 9);
+            this.comboOperation.MaximumSize = new System.Drawing.Size(400, 0);
+            this.comboOperation.MinimumSize = new System.Drawing.Size(264, 0);
             this.comboOperation.Name = "comboOperation";
-            this.comboOperation.Size = new System.Drawing.Size(264, 24);
+            this.comboOperation.Size = new System.Drawing.Size(294, 29);
+            this.comboOperation.Sorted = true;
             this.comboOperation.TabIndex = 10065;
+            this.comboOperation.TabStop = false;
             this.comboOperation.SelectedIndexChanged += new System.EventHandler(this.comboOperation_SelectedIndexChanged);
             // 
             // textBox15
@@ -1036,11 +1074,12 @@
             // 
             // label19
             // 
-            this.label19.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(17, 15);
+            this.label19.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(16, 15);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(60, 15);
+            this.label19.Size = new System.Drawing.Size(67, 17);
             this.label19.TabIndex = 10000;
             this.label19.Text = "Operation";
             // 
@@ -1055,6 +1094,7 @@
             this.RemoveStack.Name = "RemoveStack";
             this.RemoveStack.Size = new System.Drawing.Size(24, 24);
             this.RemoveStack.TabIndex = 10097;
+            this.RemoveStack.TabStop = false;
             this.RemoveStack.UseVisualStyleBackColor = true;
             this.RemoveStack.Click += new System.EventHandler(this.RemoveStack_Click);
             // 
@@ -1069,6 +1109,7 @@
             this.Add.Name = "Add";
             this.Add.Size = new System.Drawing.Size(24, 24);
             this.Add.TabIndex = 10095;
+            this.Add.TabStop = false;
             this.Add.UseVisualStyleBackColor = true;
             this.Add.Click += new System.EventHandler(this.Add_Click);
             // 
@@ -1083,18 +1124,33 @@
             this.tbListOperation.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.tbListOperation.Size = new System.Drawing.Size(573, 227);
             this.tbListOperation.TabIndex = 10096;
+            this.tbListOperation.TabStop = false;
             // 
-            // panel18
+            // p1
             // 
-            this.panel18.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel18.Controls.Add(this.PatientAppointmentNo);
-            this.panel18.Controls.Add(this.textBox21);
-            this.panel18.Controls.Add(this.label20);
-            this.panel18.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel18.Location = new System.Drawing.Point(3, 19);
-            this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(399, 34);
-            this.panel18.TabIndex = 10092;
+            this.p1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.p1.Controls.Add(this.guna2Panel1);
+            this.p1.Controls.Add(this.textBox21);
+            this.p1.Controls.Add(this.label20);
+            this.p1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.p1.Location = new System.Drawing.Point(49, 9);
+            this.p1.MaximumSize = new System.Drawing.Size(600, 34);
+            this.p1.MinimumSize = new System.Drawing.Size(402, 48);
+            this.p1.Name = "p1";
+            this.p1.Size = new System.Drawing.Size(402, 48);
+            this.p1.TabIndex = 10092;
+            // 
+            // guna2Panel1
+            // 
+            this.guna2Panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2Panel1.Controls.Add(this.PatientAppointmentNo);
+            this.guna2Panel1.Controls.Add(this.guna2PictureBox1);
+            this.guna2Panel1.Location = new System.Drawing.Point(151, 11);
+            this.guna2Panel1.MaximumSize = new System.Drawing.Size(324, 26);
+            this.guna2Panel1.MinimumSize = new System.Drawing.Size(230, 26);
+            this.guna2Panel1.Name = "guna2Panel1";
+            this.guna2Panel1.Size = new System.Drawing.Size(230, 26);
+            this.guna2Panel1.TabIndex = 10065;
             // 
             // PatientAppointmentNo
             // 
@@ -1108,35 +1164,58 @@
             this.PatientAppointmentNo.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.PatientAppointmentNo.Enabled = false;
             this.PatientAppointmentNo.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.PatientAppointmentNo.Font = new System.Drawing.Font("Bahnschrift SemiLight", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PatientAppointmentNo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PatientAppointmentNo.ForeColor = System.Drawing.Color.Black;
             this.PatientAppointmentNo.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.PatientAppointmentNo.Location = new System.Drawing.Point(127, 4);
+            this.PatientAppointmentNo.Location = new System.Drawing.Point(2, 0);
+            this.PatientAppointmentNo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PatientAppointmentNo.MaximumSize = new System.Drawing.Size(324, 26);
             this.PatientAppointmentNo.MaxLength = 100;
+            this.PatientAppointmentNo.MinimumSize = new System.Drawing.Size(195, 26);
             this.PatientAppointmentNo.Name = "PatientAppointmentNo";
             this.PatientAppointmentNo.PlaceholderText = "";
             this.PatientAppointmentNo.SelectedText = "";
-            this.PatientAppointmentNo.Size = new System.Drawing.Size(262, 26);
+            this.PatientAppointmentNo.Size = new System.Drawing.Size(195, 26);
             this.PatientAppointmentNo.TabIndex = 10059;
+            this.PatientAppointmentNo.TabStop = false;
             this.PatientAppointmentNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2PictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.guna2PictureBox1.Image = global::ClinicSystem.Properties.Resources.trash;
+            this.guna2PictureBox1.ImageRotate = 0F;
+            this.guna2PictureBox1.Location = new System.Drawing.Point(199, -9);
+            this.guna2PictureBox1.MaximumSize = new System.Drawing.Size(35, 35);
+            this.guna2PictureBox1.MinimumSize = new System.Drawing.Size(35, 35);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.Size = new System.Drawing.Size(35, 35);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox1.TabIndex = 10104;
+            this.guna2PictureBox1.TabStop = false;
+            this.guna2PictureBox1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // textBox21
             // 
             this.textBox21.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox21.Location = new System.Drawing.Point(125, 7);
+            this.textBox21.Location = new System.Drawing.Point(127, 14);
             this.textBox21.Name = "textBox21";
             this.textBox21.Size = new System.Drawing.Size(0, 23);
             this.textBox21.TabIndex = 1;
             // 
             // label20
             // 
-            this.label20.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(15, 8);
+            this.label20.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(16, 15);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(100, 15);
+            this.label20.Size = new System.Drawing.Size(108, 17);
             this.label20.TabIndex = 10000;
             this.label20.Text = "Appointment No.";
+            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // switchButton
             // 
@@ -1158,59 +1237,52 @@
             this.switchButton.Name = "switchButton";
             this.switchButton.Size = new System.Drawing.Size(183, 40);
             this.switchButton.TabIndex = 10063;
+            this.switchButton.TabStop = false;
             this.switchButton.Click += new System.EventHandler(this.guna2Button2_Click);
             // 
             // panel2
             // 
             this.panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel2.BackColor = System.Drawing.Color.Transparent;
-            this.panel2.Controls.Add(this.pid);
             this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.lastPatientID);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.panel2.ForeColor = System.Drawing.Color.Black;
             this.panel2.Location = new System.Drawing.Point(20, 124);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(250, 44);
+            this.panel2.Size = new System.Drawing.Size(313, 44);
             this.panel2.TabIndex = 10061;
-            // 
-            // pid
-            // 
-            this.pid.Controls.Add(this.lastPatientID);
-            this.pid.Font = new System.Drawing.Font("Myanmar Text", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pid.Location = new System.Drawing.Point(92, 8);
-            this.pid.Name = "pid";
-            this.pid.Size = new System.Drawing.Size(145, 26);
-            this.pid.TabIndex = 10001;
-            // 
-            // lastPatientID
-            // 
-            this.lastPatientID.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lastPatientID.AutoSize = true;
-            this.lastPatientID.Location = new System.Drawing.Point(22, 4);
-            this.lastPatientID.Name = "lastPatientID";
-            this.lastPatientID.Size = new System.Drawing.Size(0, 27);
-            this.lastPatientID.TabIndex = 10001;
             // 
             // textBox1
             // 
             this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox1.Location = new System.Drawing.Point(51, 12);
+            this.textBox1.Location = new System.Drawing.Point(82, 12);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(0, 27);
             this.textBox1.TabIndex = 1;
+            // 
+            // lastPatientID
+            // 
+            this.lastPatientID.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lastPatientID.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
+            this.lastPatientID.Location = new System.Drawing.Point(131, 3);
+            this.lastPatientID.Name = "lastPatientID";
+            this.lastPatientID.Size = new System.Drawing.Size(181, 38);
+            this.lastPatientID.TabIndex = 10001;
+            this.lastPatientID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lastPatientID.UseCompatibleTextRendering = true;
             // 
             // label9
             // 
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(78)))), ((int)(((byte)(78)))));
-            this.label9.Location = new System.Drawing.Point(3, 12);
+            this.label9.Location = new System.Drawing.Point(18, 12);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(90, 20);
+            this.label9.Size = new System.Drawing.Size(86, 21);
             this.label9.TabIndex = 10000;
             this.label9.Text = "Patient ID";
             // 
@@ -1286,12 +1358,12 @@
             this.panelMidName.PerformLayout();
             this.appPanel.ResumeLayout(false);
             this.appPanel.PerformLayout();
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel12.ResumeLayout(false);
-            this.panel12.PerformLayout();
+            this.p4.ResumeLayout(false);
+            this.p4.PerformLayout();
+            this.p3.ResumeLayout(false);
+            this.p3.PerformLayout();
+            this.p5.ResumeLayout(false);
+            this.p5.PerformLayout();
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
             this.panel15.ResumeLayout(false);
@@ -1300,14 +1372,14 @@
             this.panel14.PerformLayout();
             this.panel19.ResumeLayout(false);
             this.panel19.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            this.panel18.ResumeLayout(false);
-            this.panel18.PerformLayout();
+            this.p2.ResumeLayout(false);
+            this.p2.PerformLayout();
+            this.p1.ResumeLayout(false);
+            this.p1.PerformLayout();
+            this.guna2Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.pid.ResumeLayout(false);
-            this.pid.PerformLayout();
             this.panel10.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -1316,7 +1388,6 @@
         #endregion
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel pid;
         private System.Windows.Forms.Label lastPatientID;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label9;
@@ -1357,12 +1428,12 @@
         private Guna.UI2.WinForms.Guna2TextBox ContactNo;
         private Guna.UI2.WinForms.Guna2Button switchButton;
         private Guna.UI2.WinForms.Guna2Panel appPanel;
-        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel p4;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel p3;
         private System.Windows.Forms.TextBox textBox14;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Panel p5;
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.TextBox textBox16;
         private System.Windows.Forms.Label label13;
@@ -1374,13 +1445,13 @@
         private System.Windows.Forms.Panel panel19;
         private System.Windows.Forms.TextBox textBox18;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel p2;
         private System.Windows.Forms.TextBox textBox15;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Button RemoveStack;
         private System.Windows.Forms.Button Add;
         private System.Windows.Forms.TextBox tbListOperation;
-        private System.Windows.Forms.Panel panel18;
+        private System.Windows.Forms.Panel p1;
         private System.Windows.Forms.TextBox textBox21;
         private System.Windows.Forms.Label label20;
         private Guna.UI2.WinForms.Guna2TextBox PatientAppointmentNo;
@@ -1396,5 +1467,7 @@
         private System.Windows.Forms.ComboBox startC;
         private System.Windows.Forms.RadioButton rFemale;
         private System.Windows.Forms.RadioButton rMale;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
     }
 }

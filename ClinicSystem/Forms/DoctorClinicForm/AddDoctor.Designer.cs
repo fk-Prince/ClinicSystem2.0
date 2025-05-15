@@ -32,14 +32,15 @@
             this.panel13 = new System.Windows.Forms.Panel();
             this.label13 = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
-            this.tbrfid = new System.Windows.Forms.TextBox();
+            this.doctorID = new System.Windows.Forms.Label();
             this.lrfid = new System.Windows.Forms.Label();
-            this.doctorID = new System.Windows.Forms.TextBox();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panelGender = new System.Windows.Forms.Panel();
             this.textBox6 = new System.Windows.Forms.TextBox();
+            this.rFemale = new System.Windows.Forms.RadioButton();
+            this.rMale = new System.Windows.Forms.RadioButton();
             this.label14 = new System.Windows.Forms.Label();
             this.panelContNum = new System.Windows.Forms.Panel();
             this.confirmedPIN = new Guna.UI2.WinForms.Guna2TextBox();
@@ -85,8 +86,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.ofd = new System.Windows.Forms.OpenFileDialog();
-            this.rFemale = new System.Windows.Forms.RadioButton();
-            this.rMale = new System.Windows.Forms.RadioButton();
             this.panel13.SuspendLayout();
             this.panel14.SuspendLayout();
             this.panelGender.SuspendLayout();
@@ -147,9 +146,8 @@
             // panel14
             // 
             this.panel14.BackColor = System.Drawing.Color.Transparent;
-            this.panel14.Controls.Add(this.tbrfid);
-            this.panel14.Controls.Add(this.lrfid);
             this.panel14.Controls.Add(this.doctorID);
+            this.panel14.Controls.Add(this.lrfid);
             this.panel14.Controls.Add(this.guna2Button1);
             this.panel14.Controls.Add(this.textBox4);
             this.panel14.Controls.Add(this.label2);
@@ -160,22 +158,18 @@
             this.panel14.Size = new System.Drawing.Size(619, 54);
             this.panel14.TabIndex = 10061;
             // 
-            // tbrfid
+            // doctorID
             // 
-            this.tbrfid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.doctorID.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbrfid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(249)))), ((int)(((byte)(245)))));
-            this.tbrfid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbrfid.Enabled = false;
-            this.tbrfid.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.tbrfid.Location = new System.Drawing.Point(466, 17);
-            this.tbrfid.Name = "tbrfid";
-            this.tbrfid.Size = new System.Drawing.Size(150, 20);
-            this.tbrfid.TabIndex = 10069;
-            this.tbrfid.TabStop = false;
-            this.tbrfid.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tbrfid.Visible = false;
+            this.doctorID.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.doctorID.Location = new System.Drawing.Point(137, 8);
+            this.doctorID.Name = "doctorID";
+            this.doctorID.Size = new System.Drawing.Size(227, 38);
+            this.doctorID.TabIndex = 10070;
+            this.doctorID.Text = "asd";
+            this.doctorID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.doctorID.UseCompatibleTextRendering = true;
             // 
             // lrfid
             // 
@@ -183,26 +177,13 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lrfid.AutoSize = true;
-            this.lrfid.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lrfid.Location = new System.Drawing.Point(427, 17);
+            this.lrfid.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lrfid.Location = new System.Drawing.Point(491, 17);
             this.lrfid.Name = "lrfid";
             this.lrfid.Size = new System.Drawing.Size(44, 20);
             this.lrfid.TabIndex = 10068;
             this.lrfid.Text = "RFID ";
             this.lrfid.Visible = false;
-            // 
-            // doctorID
-            // 
-            this.doctorID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(249)))), ((int)(((byte)(245)))));
-            this.doctorID.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.doctorID.Enabled = false;
-            this.doctorID.Location = new System.Drawing.Point(122, 17);
-            this.doctorID.Name = "doctorID";
-            this.doctorID.Size = new System.Drawing.Size(138, 20);
-            this.doctorID.TabIndex = 10001;
-            this.doctorID.TabStop = false;
-            this.doctorID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.doctorID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Number_Only);
             // 
             // guna2Button1
             // 
@@ -211,9 +192,10 @@
             this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(158)))), ((int)(((byte)(153)))));
             this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(319, 4);
+            this.guna2Button1.Location = new System.Drawing.Point(383, 3);
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.Size = new System.Drawing.Size(88, 45);
             this.guna2Button1.TabIndex = 10067;
@@ -232,11 +214,11 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(78)))), ((int)(((byte)(78)))));
-            this.label2.Location = new System.Drawing.Point(12, 17);
+            this.label2.Location = new System.Drawing.Point(18, 17);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(87, 20);
+            this.label2.Size = new System.Drawing.Size(83, 21);
             this.label2.TabIndex = 10000;
             this.label2.Text = "Doctor ID";
             // 
@@ -263,15 +245,41 @@
             this.textBox6.Size = new System.Drawing.Size(0, 27);
             this.textBox6.TabIndex = 1;
             // 
+            // rFemale
+            // 
+            this.rFemale.AutoSize = true;
+            this.rFemale.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rFemale.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.rFemale.Location = new System.Drawing.Point(161, 8);
+            this.rFemale.Name = "rFemale";
+            this.rFemale.Size = new System.Drawing.Size(78, 25);
+            this.rFemale.TabIndex = 10103;
+            this.rFemale.TabStop = true;
+            this.rFemale.Text = "Female";
+            this.rFemale.UseVisualStyleBackColor = true;
+            // 
+            // rMale
+            // 
+            this.rMale.AutoSize = true;
+            this.rMale.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rMale.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.rMale.Location = new System.Drawing.Point(90, 8);
+            this.rMale.Name = "rMale";
+            this.rMale.Size = new System.Drawing.Size(62, 25);
+            this.rMale.TabIndex = 10102;
+            this.rMale.TabStop = true;
+            this.rMale.Text = "Male";
+            this.rMale.UseVisualStyleBackColor = true;
+            // 
             // label14
             // 
             this.label14.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(78)))), ((int)(((byte)(78)))));
-            this.label14.Location = new System.Drawing.Point(7, 11);
+            this.label14.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label14.Location = new System.Drawing.Point(3, 12);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(63, 20);
+            this.label14.Size = new System.Drawing.Size(51, 17);
             this.label14.TabIndex = 10000;
             this.label14.Text = "Gender";
             // 
@@ -300,9 +308,11 @@
             this.confirmedPIN.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.confirmedPIN.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.confirmedPIN.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.confirmedPIN.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.confirmedPIN.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.confirmedPIN.ForeColor = System.Drawing.SystemColors.ControlText;
             this.confirmedPIN.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.confirmedPIN.Location = new System.Drawing.Point(248, 3);
+            this.confirmedPIN.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.confirmedPIN.MaxLength = 45;
             this.confirmedPIN.Name = "confirmedPIN";
             this.confirmedPIN.PlaceholderText = "";
@@ -333,11 +343,11 @@
             // 
             this.label16.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(78)))), ((int)(((byte)(78)))));
+            this.label16.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label16.Location = new System.Drawing.Point(138, 8);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(90, 20);
+            this.label16.Size = new System.Drawing.Size(75, 17);
             this.label16.TabIndex = 10000;
             this.label16.Text = "Confirm Pin";
             // 
@@ -373,10 +383,11 @@
             this.Address.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.Address.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.Address.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.Address.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.Address.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(42)))), ((int)(((byte)(58)))));
+            this.Address.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Address.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Address.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.Address.Location = new System.Drawing.Point(177, 6);
+            this.Address.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Address.MaxLength = 100;
             this.Address.Multiline = true;
             this.Address.Name = "Address";
@@ -390,11 +401,11 @@
             // 
             this.label17.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(78)))), ((int)(((byte)(78)))));
-            this.label17.Location = new System.Drawing.Point(4, 7);
+            this.label17.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label17.Location = new System.Drawing.Point(3, 8);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(68, 20);
+            this.label17.Size = new System.Drawing.Size(56, 17);
             this.label17.TabIndex = 10000;
             this.label17.Text = "Address";
             // 
@@ -418,7 +429,8 @@
             this.dateHired.Checked = true;
             this.dateHired.Enabled = false;
             this.dateHired.FillColor = System.Drawing.Color.PaleGreen;
-            this.dateHired.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.dateHired.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateHired.ForeColor = System.Drawing.SystemColors.ControlText;
             this.dateHired.Format = System.Windows.Forms.DateTimePickerFormat.Long;
             this.dateHired.Location = new System.Drawing.Point(177, 6);
             this.dateHired.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
@@ -441,11 +453,11 @@
             // 
             this.lblDateHired.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblDateHired.AutoSize = true;
-            this.lblDateHired.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDateHired.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(78)))), ((int)(((byte)(78)))));
-            this.lblDateHired.Location = new System.Drawing.Point(4, 12);
+            this.lblDateHired.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDateHired.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblDateHired.Location = new System.Drawing.Point(3, 11);
             this.lblDateHired.Name = "lblDateHired";
-            this.lblDateHired.Size = new System.Drawing.Size(86, 20);
+            this.lblDateHired.Size = new System.Drawing.Size(71, 17);
             this.lblDateHired.TabIndex = 10000;
             this.lblDateHired.Text = "Date Hired";
             // 
@@ -475,11 +487,11 @@
             // 
             this.label19.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(78)))), ((int)(((byte)(78)))));
-            this.label19.Location = new System.Drawing.Point(4, 9);
+            this.label19.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label19.Location = new System.Drawing.Point(3, 11);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(86, 20);
+            this.label19.Size = new System.Drawing.Size(71, 17);
             this.label19.TabIndex = 10000;
             this.label19.Text = "First Name";
             // 
@@ -493,10 +505,11 @@
             this.firstName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.firstName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.firstName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.firstName.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.firstName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(42)))), ((int)(((byte)(58)))));
+            this.firstName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.firstName.ForeColor = System.Drawing.SystemColors.ControlText;
             this.firstName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.firstName.Location = new System.Drawing.Point(175, 6);
+            this.firstName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.firstName.MaxLength = 100;
             this.firstName.Name = "firstName";
             this.firstName.PlaceholderText = "";
@@ -538,10 +551,11 @@
             this.Age.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.Age.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.Age.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.Age.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.Age.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(42)))), ((int)(((byte)(58)))));
+            this.Age.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Age.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Age.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.Age.Location = new System.Drawing.Point(47, 8);
+            this.Age.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Age.MaxLength = 100;
             this.Age.Name = "Age";
             this.Age.PlaceholderText = "";
@@ -555,11 +569,11 @@
             // 
             this.label20.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(78)))), ((int)(((byte)(78)))));
-            this.label20.Location = new System.Drawing.Point(3, 10);
+            this.label20.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label20.Location = new System.Drawing.Point(3, 12);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(38, 20);
+            this.label20.Size = new System.Drawing.Size(31, 17);
             this.label20.TabIndex = 10000;
             this.label20.Text = "Age";
             // 
@@ -587,10 +601,11 @@
             this.lastName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.lastName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.lastName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.lastName.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lastName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(42)))), ((int)(((byte)(58)))));
+            this.lastName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lastName.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lastName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.lastName.Location = new System.Drawing.Point(177, 6);
+            this.lastName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lastName.MaxLength = 100;
             this.lastName.Name = "lastName";
             this.lastName.PlaceholderText = "";
@@ -612,11 +627,11 @@
             // 
             this.label21.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(78)))), ((int)(((byte)(78)))));
-            this.label21.Location = new System.Drawing.Point(4, 8);
+            this.label21.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label21.Location = new System.Drawing.Point(3, 9);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(86, 20);
+            this.label21.Size = new System.Drawing.Size(70, 17);
             this.label21.TabIndex = 10000;
             this.label21.Text = "Last Name";
             // 
@@ -644,10 +659,11 @@
             this.middleName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.middleName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.middleName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.middleName.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.middleName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(42)))), ((int)(((byte)(58)))));
+            this.middleName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.middleName.ForeColor = System.Drawing.SystemColors.ControlText;
             this.middleName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.middleName.Location = new System.Drawing.Point(175, 6);
+            this.middleName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.middleName.MaxLength = 100;
             this.middleName.Name = "middleName";
             this.middleName.PlaceholderText = "";
@@ -669,13 +685,13 @@
             // 
             this.label22.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(78)))), ((int)(((byte)(78)))));
-            this.label22.Location = new System.Drawing.Point(4, 10);
+            this.label22.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label22.Location = new System.Drawing.Point(3, 10);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(105, 20);
+            this.label22.Size = new System.Drawing.Size(88, 17);
             this.label22.TabIndex = 10000;
-            this.label22.Text = "Middle  Name";
+            this.label22.Text = "Middle Name";
             // 
             // panel1
             // 
@@ -711,9 +727,11 @@
             this.enterPIN.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.enterPIN.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.enterPIN.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.enterPIN.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.enterPIN.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enterPIN.ForeColor = System.Drawing.SystemColors.ControlText;
             this.enterPIN.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.enterPIN.Location = new System.Drawing.Point(248, 6);
+            this.enterPIN.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.enterPIN.MaxLength = 45;
             this.enterPIN.Name = "enterPIN";
             this.enterPIN.PlaceholderText = "";
@@ -736,11 +754,11 @@
             // 
             this.lblPin.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblPin.AutoSize = true;
-            this.lblPin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(78)))), ((int)(((byte)(78)))));
-            this.lblPin.Location = new System.Drawing.Point(133, 9);
+            this.lblPin.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPin.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblPin.Location = new System.Drawing.Point(138, 10);
             this.lblPin.Name = "lblPin";
-            this.lblPin.Size = new System.Drawing.Size(95, 20);
+            this.lblPin.Size = new System.Drawing.Size(80, 17);
             this.lblPin.TabIndex = 10000;
             this.lblPin.Text = "PIN Number";
             // 
@@ -803,7 +821,7 @@
             this.drPicture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.drPicture.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.drPicture.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.drPicture.Location = new System.Drawing.Point(887, 5);
+            this.drPicture.Location = new System.Drawing.Point(884, 22);
             this.drPicture.MaximumSize = new System.Drawing.Size(128, 128);
             this.drPicture.MinimumSize = new System.Drawing.Size(128, 128);
             this.drPicture.Name = "drPicture";
@@ -832,7 +850,7 @@
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.White;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label10.Location = new System.Drawing.Point(207, 9);
+            this.label10.Location = new System.Drawing.Point(207, 12);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(27, 15);
             this.label10.TabIndex = 10058;
@@ -848,11 +866,12 @@
             this.contactNumber.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.contactNumber.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.contactNumber.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.contactNumber.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.contactNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(42)))), ((int)(((byte)(58)))));
+            this.contactNumber.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contactNumber.ForeColor = System.Drawing.SystemColors.ControlText;
             this.contactNumber.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.contactNumber.IconLeft = global::ClinicSystem.Properties.Resources.ph;
-            this.contactNumber.Location = new System.Drawing.Point(177, 3);
+            this.contactNumber.Location = new System.Drawing.Point(177, 5);
+            this.contactNumber.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.contactNumber.MaxLength = 10;
             this.contactNumber.Name = "contactNumber";
             this.contactNumber.PlaceholderText = "";
@@ -867,11 +886,11 @@
             // 
             this.label15.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(78)))), ((int)(((byte)(78)))));
-            this.label15.Location = new System.Drawing.Point(4, 9);
+            this.label15.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label15.Location = new System.Drawing.Point(3, 10);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(125, 20);
+            this.label15.Size = new System.Drawing.Size(104, 17);
             this.label15.TabIndex = 10000;
             this.label15.Text = "Contact Number";
             // 
@@ -879,7 +898,7 @@
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(887, 5);
+            this.pictureBox1.Location = new System.Drawing.Point(884, 22);
             this.pictureBox1.MaximumSize = new System.Drawing.Size(128, 128);
             this.pictureBox1.MinimumSize = new System.Drawing.Size(128, 128);
             this.pictureBox1.Name = "pictureBox1";
@@ -907,28 +926,6 @@
             // ofd
             // 
             this.ofd.FileName = "openFileDialog1";
-            // 
-            // rFemale
-            // 
-            this.rFemale.AutoSize = true;
-            this.rFemale.Location = new System.Drawing.Point(167, 8);
-            this.rFemale.Name = "rFemale";
-            this.rFemale.Size = new System.Drawing.Size(75, 24);
-            this.rFemale.TabIndex = 10103;
-            this.rFemale.TabStop = true;
-            this.rFemale.Text = "Female";
-            this.rFemale.UseVisualStyleBackColor = true;
-            // 
-            // rMale
-            // 
-            this.rMale.AutoSize = true;
-            this.rMale.Location = new System.Drawing.Point(90, 8);
-            this.rMale.Name = "rMale";
-            this.rMale.Size = new System.Drawing.Size(60, 24);
-            this.rMale.TabIndex = 10102;
-            this.rMale.TabStop = true;
-            this.rMale.Text = "Male";
-            this.rMale.UseVisualStyleBackColor = true;
             // 
             // AddDoctor
             // 
@@ -1018,7 +1015,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox p2;
         private System.Windows.Forms.PictureBox p1;
-        private System.Windows.Forms.TextBox doctorID;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label15;
@@ -1034,8 +1030,8 @@
         private Guna.UI2.WinForms.Guna2Button addDentistB;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private System.Windows.Forms.Label lrfid;
-        private System.Windows.Forms.TextBox tbrfid;
         private System.Windows.Forms.RadioButton rFemale;
         private System.Windows.Forms.RadioButton rMale;
+        private System.Windows.Forms.Label doctorID;
     }
 }

@@ -125,6 +125,7 @@ namespace ClinicSystem.Doctors
             label.AutoSize = true;
             label.Location = new Point(x, y);
             label.BackColor = Color.FromArgb(111, 168, 166);
+            label.Font = new Font("Segui UI", 10, FontStyle.Regular);
             return label;
         }
 

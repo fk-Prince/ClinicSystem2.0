@@ -122,6 +122,7 @@ namespace ClinicSystem
             datePickerBDay.Value = DateTimePicker.MinimumDateTime;
             tbStartTime.Text = "";
             tbEndTime.Text = "";
+            status.Text = "";
             tbDiagnosis.Text = "";
             filtered.Clear();
             selectedPatient = null;
@@ -161,13 +162,16 @@ namespace ClinicSystem
                     tbDiagnosis.Text = app.Diagnosis;
                     tbStartTime.Text = app.StartTime.ToString("yyyy-MM-dd hh:mm:ss tt");
                     tbEndTime.Text = app.EndTime.ToString("yyyy-MM-dd hh:mm:ss tt");
+                    status.Text = app.Status;
                     selectedAppointment = app;
-                    if (!app.Status.Equals("Discharged", StringComparison.OrdinalIgnoreCase) || !app.Status.Equals("Reappointment", StringComparison.OrdinalIgnoreCase))
-                    {
-                        guna2Button4.Visible = true;
-                    } else
+                    if (app.Status.Equals("Discharged", StringComparison.OrdinalIgnoreCase))
                     {
                         guna2Button4.Visible = false;
+                        save.Visible = false;
+                    } else
+                    {
+                        guna2Button4.Visible = true;
+                        save.Visible = true;
                     }
                     break;
                 }
@@ -385,6 +389,16 @@ namespace ClinicSystem
             {
                 MessagePromp.MainShowMessage(this, "Succefully Discharged .", MessageBoxIcon.Information);
                 guna2Button4.Visible = false;
+                save.Visible = false;
+                status.Text = "Discharged";
+                patientAppointments = doctorRepository.getPatientByDoctor(dr.DoctorID);
+                foreach (Appointment pas in patientAppointments)
+                {
+                    if (selectedAppointment.Patient.Patientid == pas.Patient.Patientid)
+                    {
+                        filtered.Add(pas);
+                    }
+                }
             }
 
 

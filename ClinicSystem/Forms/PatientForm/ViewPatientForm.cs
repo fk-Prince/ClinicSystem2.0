@@ -124,7 +124,7 @@ namespace ClinicSystem
                     tbGender.Text = selected.Patient.Gender;
                     tbAddress.Text = selected.Patient.Address;
                     datepickBirthDay.Value = selected.Patient.Birthdate;
-
+                    tbContactNumber.Text = selected.Patient.ContactNumber;
                     filter.Clear();
                     foreach (Appointment pas in appointmentList)
                     {
@@ -185,10 +185,9 @@ namespace ClinicSystem
                 {
                     string dr = $"{appointment.Doctor.DoctorID}  | {appointment.Doctor.DoctorLastName}, {appointment.Doctor.DoctorFirstName}  {appointment.Doctor.DoctorMiddleName}";
                     tbDoctor.Text = dr;
-                    tbOperation.Text = appointment.Operation.OperationName;
+                    tbOperation.Text = appointment.Operation.OperationCode + "  |  "+appointment.Operation.OperationName;
                     tbDoctorDiagnosis.Text = appointment.Diagnosis;
                     break;
-                    
                 }
             }
         }
@@ -204,6 +203,36 @@ namespace ClinicSystem
             {
                 isPatientList = !isPatientList;
             }
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel8_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

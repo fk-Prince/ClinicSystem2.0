@@ -258,12 +258,10 @@ namespace ClinicSystem
         private void showOperation()
         {
             operationList = operationRepository.getOperations();
+
             if (operationList != null && operationList.Count != 0)
             {
-                foreach (Operation operation in operationList)
-                {
-                    comboOperation.Items.Add(operation.OperationName);
-                }
+                operationList.ForEach(op => comboOperation.Items.Add(op.OperationCode + "  |  " + op.OperationName));
             }
             else
             {
@@ -276,14 +274,17 @@ namespace ClinicSystem
         private void comboOperation_SelectedIndexChanged(object sender, EventArgs e)
         {
             comboDoctor.Items.Clear();
+        
             if (comboOperation == null || comboOperation.SelectedItem == null) return;
-            string operationNameSelected = comboOperation.SelectedItem.ToString();
-            if (string.IsNullOrWhiteSpace(operationNameSelected)) return;
+            startC.Enabled = true;
+            string[] operationNameSelected = comboOperation.SelectedItem.ToString().Split('|');
+            if (string.IsNullOrWhiteSpace(operationNameSelected[0])) return;
 
             selectedOperation = null;
             foreach (Operation operation in operationList)
             {
-                if (operation.OperationName.Equals(operationNameSelected, StringComparison.OrdinalIgnoreCase))
+                if (operation.OperationName.Equals(operationNameSelected[1].Trim(), StringComparison.OrdinalIgnoreCase) &&
+                    operation.OperationCode.Equals(operationNameSelected[0].Trim(), StringComparison.OrdinalIgnoreCase))
                 {
                     comboRoom.Items.Clear();
                     selectedOperation = operation;
@@ -296,25 +297,28 @@ namespace ClinicSystem
                             comboRoom.Items.Add(room.RoomNo + " | " + room.Roomtype);
                         }
                     }
-                    if (filter.Count == 0) comboRoom.Items.Add("No Room Available");
-                    comboRoom.SelectedIndex = 0;
+                    if (filter.Count == 0)
+                    {
+                        comboRoom.Items.Add("No Room Available");
+                        comboRoom.SelectedIndex = 0;
+                    }
                     break;
                 }
             }
-
-            doctorList = doctorRepository.getDoctorsByOperation(selectedOperation);
+            if (selectedOperation != null)  doctorList = doctorRepository.getDoctorsByOperation(selectedOperation);
             if (doctorList != null && doctorList.Count != 0)
             {
                 foreach (Doctor doctor in doctorList)
                 {
-                    comboDoctor.Items.Add(doctor.DoctorID + ",   " + doctor.DoctorLastName + ", " + doctor.DoctorFirstName + " " + doctor.DoctorMiddleName);
+                    comboDoctor.Items.Add(doctor.DoctorID + " | " + doctor.DoctorLastName + ", " + doctor.DoctorFirstName + " " + doctor.DoctorMiddleName);
                 }
             }
             else
-            {
+            {           
                 comboDoctor.Items.Add("No Doctor Available");
+                comboDoctor.SelectedIndex = 0;
             }
-            comboDoctor.SelectedIndex = 0;
+ 
         }
 
         // DISPLAY CHECK
@@ -433,19 +437,27 @@ namespace ClinicSystem
         //COMBO DOCTOR
         private void comboDoctor_SelectedIndexChanged(object sender, EventArgs e)
         {
+            getDoctor();
+        }
+
+        private void getDoctor()
+        {
+
             if (comboDoctor.SelectedIndex == -1) return;
-            string[] doc = comboDoctor.SelectedItem.ToString().Split(',');
+            string[] doc = comboDoctor.SelectedItem.ToString().Split('|');
             if (doctorList != null && doctorList.Count != 0)
             {
                 foreach (Doctor doctor in doctorList)
-                {
-                    if (doc[0].Equals(doctor.DoctorID))
+                { 
+                    if (doc[0].Trim().Equals(doctor.DoctorID))
                     {
                         selectedDoctor = doctor;
+                        break;
                     }
                 }
             }
         }
+
 
 
         //CHECK IF COMBO SELECTED
@@ -479,6 +491,7 @@ namespace ClinicSystem
         //CALCULATE THE ENDTIME
         private void startC_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (selectedOperation == null) return;
 
             DateTime date = scheduleDate.Value;
             if (startC.SelectedIndex == -1) return;
@@ -488,9 +501,42 @@ namespace ClinicSystem
                                     "hh:mm:ss tt",
                                     CultureInfo.InvariantCulture
                                 );
+            start = date.Date
+                   .AddHours(start.Hour)
+                   .AddMinutes(start.Minute)
+                   .AddSeconds(start.Second);
+
             DateTime end = start + selectedOperation.Duration;
             End.Text = end.ToString("hh:mm:ss tt");
-     
+            getDoctor();
+            if (comboDoctor.SelectedIndex == -1)
+            {
+
+                comboDoctor.Items.Clear();
+                List<Doctor> availableDoctor = appointmentRepository.getAvailableDoctors(selectedOperation, start.ToString("yyyy-MM-dd HH:mm:ss"), end.ToString("yyyy-MM-dd HH:mm:ss"));
+                if (availableDoctor != null && availableDoctor.Count != 0)
+                {
+                    foreach (Doctor doctor in availableDoctor)
+                    {
+                        comboDoctor.Items.Add(doctor.DoctorID + "  |  " + doctor.DoctorLastName + ", " + doctor.DoctorFirstName + " " + doctor.DoctorMiddleName);
+                    }
+                }
+                else
+                {
+                    comboDoctor.Items.Add("No Doctor Available");
+                }
+                comboDoctor.SelectedIndex = 0;
+            }
+            if (comboRoom.SelectedIndex == -1)
+            {
+                comboRoom.Items.Clear();
+                List<Room> availableRoom = appointmentRepository.getRoomAvailable(selectedOperation, start.ToString("yyyy-MM-dd HH:mm:ss"), end.ToString("yyyy-MM-dd HH:mm:ss"));
+                availableRoom.ForEach(room => comboRoom.Items.Add(room.RoomNo + "  |  " + room.Roomtype));
+
+                if (availableRoom.Count() == 0) comboRoom.Items.Add("No Room Available");
+                comboRoom.SelectedIndex = 0;
+            }
+
         }
 
 
@@ -609,6 +655,26 @@ namespace ClinicSystem
             appx = ClientSize.Width;
             appPanel.Location = new Point(ClientSize.Width, appPanel.Location.Y);
             appPanel.Invalidate();
+
+
+            p1.Location = new Point((tbListOperation.Left - p1.Width) - 20, p1.Location.Y);
+            p2.Location = new Point((tbListOperation.Left - p2.Width) - 20, p2.Location.Y);
+            p3.Location = new Point((tbListOperation.Left - p3.Width) - 20, p3.Location.Y);
+            p4.Location = new Point((tbListOperation.Left - p4.Width) - 20, p4.Location.Y);
+            p5.Location = new Point((tbListOperation.Left - p5.Width) - 90, p5.Location.Y);
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            scheduleDate.Value = DateTime.Now;
+            startC.SelectedIndex = -1;
+            selectedDoctor = null;
+            selectedOperation = null;
+            comboOperation.SelectedIndex = -1;
+            //lastSelected = null;
+            End.Text = "";
+            comboRoom.Items.Clear();
+            comboDoctor.Items.Clear();
         }
     }
 }

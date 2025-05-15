@@ -163,7 +163,7 @@
             this.flowPanel.MaximumSize = new System.Drawing.Size(1920, 1080);
             this.flowPanel.MinimumSize = new System.Drawing.Size(1090, 523);
             this.flowPanel.Name = "flowPanel";
-            this.flowPanel.Size = new System.Drawing.Size(1090, 523);
+            this.flowPanel.Size = new System.Drawing.Size(1090, 526);
             this.flowPanel.TabIndex = 3;
             // 
             // panel9
@@ -174,7 +174,7 @@
             this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(230)))), ((int)(((byte)(222)))));
             this.panel9.Controls.Add(this.panel11);
             this.panel9.Controls.Add(this.label7);
-            this.panel9.Location = new System.Drawing.Point(0, -2);
+            this.panel9.Location = new System.Drawing.Point(0, -1);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(1090, 97);
             this.panel9.TabIndex = 10086;
@@ -199,10 +199,12 @@
             this.SearchBar1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.SearchBar1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.SearchBar1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.SearchBar1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchBar1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchBar1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.SearchBar1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.SearchBar1.IconLeft = global::ClinicSystem.Properties.Resources.search24;
             this.SearchBar1.Location = new System.Drawing.Point(10, 28);
+            this.SearchBar1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.SearchBar1.Name = "SearchBar1";
             this.SearchBar1.PlaceholderText = "";
             this.SearchBar1.SelectedText = "";
@@ -248,7 +250,7 @@
             this.panel2.MaximumSize = new System.Drawing.Size(1920, 1080);
             this.panel2.MinimumSize = new System.Drawing.Size(1088, 556);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1088, 556);
+            this.panel2.Size = new System.Drawing.Size(1088, 558);
             this.panel2.TabIndex = 10087;
             // 
             // timer1
@@ -260,13 +262,13 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(168)))), ((int)(((byte)(166)))));
-            this.ClientSize = new System.Drawing.Size(1089, 657);
+            this.ClientSize = new System.Drawing.Size(1089, 659);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel9);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximumSize = new System.Drawing.Size(1920, 1080);
-            this.MinimumSize = new System.Drawing.Size(1089, 657);
+            this.MinimumSize = new System.Drawing.Size(1089, 659);
             this.Name = "AllAppointments";
             this.Text = "AllAppointments";
             this.Shown += new System.EventHandler(this.AllAppointments_Shown);

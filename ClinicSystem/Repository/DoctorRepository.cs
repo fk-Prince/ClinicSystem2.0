@@ -15,6 +15,42 @@ namespace DoctorClinic
     public class DoctorRepository
     {
 
+        public List<Doctor> getAvailableDoctors(Operation operaiton)
+        {
+            List<Doctor> availableDoctors = new List<Doctor>();
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
+                {
+                    conn.Open();
+                    string query = @"
+                                SELECT * FROM patientappointment_tbl
+                                LEFT JOIN doctor_tbl ON doctor_tbl.doctorid = patientappointment_tbl.doctorid
+                                LEFT JOIN operation_tbl ON operation_tbl.operationcode = patientappointment_tbl.OperationCode
+                                LEFT JOIN patient_tbl ON patient_tbl.patientid = patientappointment_tbl.patientid
+                                LEFT JOIN appointmentdetails_tbl ON appointmentdetails_tbl.AppointmentDetailNo = patientappointment_tbl.AppointmentDetailNo
+                                WHERE patientappointment_tbl.StartSchedule BETWEEN @Start AND @End AND Status = 'Upcoming' AND EndSchedule > Now()
+                                AND patientappointment_tbl.doctorid = @doctorid";
+                    using (MySqlCommand command = new MySqlCommand(query, conn))
+                    {
+           
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                availableDoctors.Add(EntityMapping.GetDoctor(reader));
+                            }
+                        }
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error on getTodayAppointmentByDoctor() db" + ex.Message);
+            }
+            return availableDoctors;
+        }
+
         public List<Appointment> getTodayAppointmentByDoctor(string doctorid)
         {
             List<Appointment> todayAppointment = new List<Appointment>();

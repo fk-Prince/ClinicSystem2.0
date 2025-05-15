@@ -18,6 +18,7 @@ namespace ClinicSystem
             SetButtonColor(allAppointmentB);
             SetButtonColor(addAppointmentB);
             SetButtonColor(rescheduleB);
+            SetButtonColor(missedAppointment);
 
             AllAppointments allAppointments = new AllAppointments();
             LoadForm(allAppointments);
@@ -36,6 +37,13 @@ namespace ClinicSystem
 
         public void LoadForm(Form f)
         {
+            foreach (Control c in appointmentPanel.Controls)
+            {
+                if (c is Form && c.Name == f.Name)
+                {
+                    return;
+                }
+            }
             if (appointmentPanel.Controls.Count > 0)
             {
                 appointmentPanel.Controls.Clear();

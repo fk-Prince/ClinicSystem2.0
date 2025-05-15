@@ -38,7 +38,7 @@
             this.addRoomPanel = new Guna.UI2.WinForms.Guna2Panel();
             this.addPatientB = new Guna.UI2.WinForms.Guna2Button();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.roomDescription = new Guna.UI2.WinForms.Guna2TextBox();
+            this.roomDescription = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
@@ -47,8 +47,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.roomno = new Guna.UI2.WinForms.Guna2TextBox();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.comboRoomType = new Guna.UI2.WinForms.Guna2ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.timerin = new System.Windows.Forms.Timer(this.components);
             this.timerout = new System.Windows.Forms.Timer(this.components);
@@ -99,10 +99,12 @@
             this.SearchBar1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.SearchBar1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.SearchBar1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.SearchBar1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchBar1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchBar1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.SearchBar1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.SearchBar1.IconLeft = global::ClinicSystem.Properties.Resources.search24;
             this.SearchBar1.Location = new System.Drawing.Point(10, 22);
+            this.SearchBar1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.SearchBar1.Name = "SearchBar1";
             this.SearchBar1.PlaceholderText = "";
             this.SearchBar1.SelectedText = "";
@@ -114,12 +116,12 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Myanmar Text", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(5, 2);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(223, 27);
+            this.label1.Size = new System.Drawing.Size(194, 17);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Search Room No. / Room Types";
+            this.label1.Text = "Search Room No. | Room Types";
             // 
             // panel2
             // 
@@ -161,7 +163,9 @@
             // addRoomPanel
             // 
             this.addRoomPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(249)))), ((int)(((byte)(246)))));
+            this.addRoomPanel.BorderColor = System.Drawing.Color.Gray;
             this.addRoomPanel.BorderRadius = 30;
+            this.addRoomPanel.BorderThickness = 1;
             this.addRoomPanel.Controls.Add(this.addPatientB);
             this.addRoomPanel.Controls.Add(this.panel4);
             this.addRoomPanel.Controls.Add(this.button3);
@@ -169,7 +173,7 @@
             this.addRoomPanel.Controls.Add(this.panel10);
             this.addRoomPanel.Controls.Add(this.panel9);
             this.addRoomPanel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(168)))), ((int)(((byte)(166)))));
-            this.addRoomPanel.Location = new System.Drawing.Point(-373, 147);
+            this.addRoomPanel.Location = new System.Drawing.Point(-372, 144);
             this.addRoomPanel.Name = "addRoomPanel";
             this.addRoomPanel.Size = new System.Drawing.Size(371, 517);
             this.addRoomPanel.TabIndex = 11;
@@ -201,51 +205,42 @@
             this.panel4.Controls.Add(this.label3);
             this.panel4.Controls.Add(this.label2);
             this.panel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel4.Location = new System.Drawing.Point(45, 272);
+            this.panel4.Location = new System.Drawing.Point(26, 257);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(292, 103);
+            this.panel4.Size = new System.Drawing.Size(333, 131);
             this.panel4.TabIndex = 10060;
             // 
             // roomDescription
             // 
-            this.roomDescription.BorderRadius = 5;
-            this.roomDescription.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.roomDescription.DefaultText = "";
-            this.roomDescription.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.roomDescription.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.roomDescription.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.roomDescription.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.roomDescription.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.roomDescription.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roomDescription.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.roomDescription.Location = new System.Drawing.Point(98, 7);
+            this.roomDescription.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.roomDescription.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.roomDescription.Location = new System.Drawing.Point(98, 1);
             this.roomDescription.Multiline = true;
             this.roomDescription.Name = "roomDescription";
-            this.roomDescription.PlaceholderText = "";
+            this.roomDescription.ReadOnly = true;
             this.roomDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.roomDescription.SelectedText = "";
-            this.roomDescription.Size = new System.Drawing.Size(191, 89);
-            this.roomDescription.TabIndex = 1;
+            this.roomDescription.Size = new System.Drawing.Size(231, 127);
+            this.roomDescription.TabIndex = 3;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(3, 33);
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label3.Location = new System.Drawing.Point(3, 24);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(89, 20);
+            this.label3.Size = new System.Drawing.Size(74, 17);
             this.label3.TabIndex = 2;
             this.label3.Text = "Description";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(5, 13);
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label2.Location = new System.Drawing.Point(3, 7);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 20);
+            this.label2.Size = new System.Drawing.Size(43, 17);
             this.label2.TabIndex = 0;
             this.label2.Text = "Room";
             // 
@@ -282,19 +277,19 @@
             this.panel10.Controls.Add(this.label9);
             this.panel10.Controls.Add(this.roomno);
             this.panel10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel10.Location = new System.Drawing.Point(45, 145);
+            this.panel10.Location = new System.Drawing.Point(26, 130);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(292, 40);
+            this.panel10.Size = new System.Drawing.Size(333, 40);
             this.panel10.TabIndex = 1;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(3, 14);
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label9.Location = new System.Drawing.Point(3, 9);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(80, 20);
+            this.label9.Size = new System.Drawing.Size(68, 17);
             this.label9.TabIndex = 0;
             this.label9.Text = "Room No.";
             // 
@@ -308,57 +303,53 @@
             this.roomno.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.roomno.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.roomno.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.roomno.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.roomno.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.roomno.ForeColor = System.Drawing.SystemColors.ControlText;
             this.roomno.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.roomno.Location = new System.Drawing.Point(99, 7);
+            this.roomno.Location = new System.Drawing.Point(98, 4);
+            this.roomno.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.roomno.MaxLength = 10;
             this.roomno.Name = "roomno";
             this.roomno.PlaceholderText = "";
             this.roomno.SelectedText = "";
-            this.roomno.Size = new System.Drawing.Size(190, 27);
+            this.roomno.Size = new System.Drawing.Size(231, 32);
             this.roomno.TabIndex = 0;
             this.roomno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumberOnly);
             // 
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.Color.Transparent;
+            this.panel9.Controls.Add(this.comboBox1);
             this.panel9.Controls.Add(this.label7);
-            this.panel9.Controls.Add(this.comboRoomType);
             this.panel9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel9.Location = new System.Drawing.Point(45, 213);
+            this.panel9.Location = new System.Drawing.Point(26, 198);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(292, 40);
+            this.panel9.Size = new System.Drawing.Size(333, 40);
             this.panel9.TabIndex = 3;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.comboBox1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.IntegralHeight = false;
+            this.comboBox1.Location = new System.Drawing.Point(98, 6);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(231, 29);
+            this.comboBox1.TabIndex = 1;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboRoomType_SelectedIndexChanged);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(3, 14);
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label7.Location = new System.Drawing.Point(3, 9);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(90, 20);
+            this.label7.Size = new System.Drawing.Size(74, 17);
             this.label7.TabIndex = 0;
             this.label7.Text = "Room Type";
-            // 
-            // comboRoomType
-            // 
-            this.comboRoomType.BackColor = System.Drawing.Color.Transparent;
-            this.comboRoomType.BorderRadius = 5;
-            this.comboRoomType.CustomizableEdges.BottomLeft = false;
-            this.comboRoomType.CustomizableEdges.BottomRight = false;
-            this.comboRoomType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.comboRoomType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboRoomType.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.comboRoomType.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.comboRoomType.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.comboRoomType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.comboRoomType.ItemHeight = 20;
-            this.comboRoomType.Location = new System.Drawing.Point(99, 8);
-            this.comboRoomType.Name = "comboRoomType";
-            this.comboRoomType.Size = new System.Drawing.Size(190, 26);
-            this.comboRoomType.TabIndex = 10061;
-            this.comboRoomType.SelectedIndexChanged += new System.EventHandler(this.comboRoomType_SelectedIndexChanged);
             // 
             // panel3
             // 
@@ -368,7 +359,7 @@
             this.panel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(249)))), ((int)(((byte)(246)))));
             this.panel3.Controls.Add(this.flowLayout);
-            this.panel3.Location = new System.Drawing.Point(2, 120);
+            this.panel3.Location = new System.Drawing.Point(3, 117);
             this.panel3.MaximumSize = new System.Drawing.Size(1920, 1080);
             this.panel3.MinimumSize = new System.Drawing.Size(1088, 599);
             this.panel3.Name = "panel3";
@@ -439,11 +430,11 @@
         private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2TextBox SearchBar1;
         private Guna.UI2.WinForms.Guna2Panel addRoomPanel;
-        private Guna.UI2.WinForms.Guna2ComboBox comboRoomType;
         private Guna.UI2.WinForms.Guna2TextBox roomno;
-        private Guna.UI2.WinForms.Guna2TextBox roomDescription;
         private Guna.UI2.WinForms.Guna2Button addPatientB;
         private Guna.UI2.WinForms.Guna2Button addRoomB;
         private System.Windows.Forms.Timer load;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox roomDescription;
     }
 }

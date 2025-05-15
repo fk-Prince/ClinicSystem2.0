@@ -111,7 +111,7 @@ namespace ClinicSystem.Appointments
                 label.TextAlign = ContentAlignment.MiddleCenter;
 
                 Panel panel = new Panel();
-                panel.Size = new Size(flowPanel.Width, 500);
+                panel.Size = new Size(flowPanel.Width - 10, 500);
                 panel.Controls.Add(label);
                 flowPanel.Controls.Add(panel);
             }
@@ -124,6 +124,7 @@ namespace ClinicSystem.Appointments
             label.MaximumSize = new Size(280, 30);
             label.AutoSize = true;
             label.Location = new Point(x, y);
+            label.Font = new Font("Segui UI", 11, FontStyle.Regular);
             return label;
         }
 

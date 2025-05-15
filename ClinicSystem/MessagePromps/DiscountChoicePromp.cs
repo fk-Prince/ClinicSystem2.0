@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using ClinicSystem.Appointments;
 using ClinicSystem.PatientForm;
 using ClinicSystem.Repository;
+using Guna.UI2.WinForms;
 using MySql.Data.MySqlClient;
 using MySqlX.XDevAPI;
 
@@ -56,7 +57,6 @@ namespace ClinicSystem.UserLoginForm
                 return;
             }
 
-
             selectedDiscount = discount.FirstOrDefault(d => d.Discounttype == combo.SelectedItem.ToString());
             previousindex = combo.SelectedIndex;
             if (selectedDiscount == null) return;
@@ -66,6 +66,7 @@ namespace ClinicSystem.UserLoginForm
       
         private void confirm(object sender, EventArgs e)
         {
+
             List<Appointment> newApp = new List<Appointment>() ;
             if (staffid == 0)
             {
@@ -191,13 +192,32 @@ namespace ClinicSystem.UserLoginForm
 
             ComboBox discountType = new ComboBox();
             discountType.DropDownStyle = ComboBoxStyle.DropDownList;
+   
+            if (discount.Count == 0)
+            {
+                DialogResult res = MessageBox.Show("Do you want to register a No Discount to continue?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (res == DialogResult.Yes)
+                {
+                    appointmentRepository.setDiscount();
+                    selectedDiscount = discount.FirstOrDefault(d => d.Discounttype == discountType.SelectedItem.ToString());
+                    discountType.SelectedItem = "No Discount"; 
+                }
+                else
+                {
+                    return;
+                }
+            }
+            
+
+            discount = discountRepository.getDiscounts();
             foreach (Discount disc in discount)
             {
                 discountType.Items.Add(disc.Discounttype);
             }
             discountType.SelectedItem = "No Discount";
-            selectedDiscount = discount.FirstOrDefault(e => e.Discounttype.Equals(discountType.Text));
+            selectedDiscount = discount.FirstOrDefault(d => d.Discounttype == discountType.SelectedItem.ToString());
             previousindex = discountType.SelectedIndex;
+          
             discountType.SelectedIndexChanged += selected;
             discountType.Size = new Size(250, 40);
             discountType.Location = new Point(50, 110);

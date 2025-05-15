@@ -99,7 +99,6 @@ namespace ClinicSystem.ClinicHistory
                     {
                         dt.Rows.Add(patientId, patientName);
                     }
-                   
                 }
    
             }
@@ -113,7 +112,6 @@ namespace ClinicSystem.ClinicHistory
         private void tbPatientId_TextChanged(object sender, EventArgs e)
         {
             string text = tbPatient.Text;
-
             displayPatientGrid(text);
 
         }
@@ -143,20 +141,18 @@ namespace ClinicSystem.ClinicHistory
             upcomingGrid.ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.White;
             upcomingGrid.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             upcomingGrid.Columns[0].Width = 50;
+
             searchGrid.Columns[0].Width = 100;
             searchGrid.Columns[1].Width = 200;
-            
+           
         }
 
         private void searchGrid_MouseClick(object sender, MouseEventArgs e)
         {
-
             var hit = searchGrid.HitTest(e.X, e.Y);
-
             if (hit.Type == DataGridViewHitTestType.Cell && hit.RowIndex >= 0)
             {
                 DataGridViewRow row = searchGrid.Rows[hit.RowIndex];
-
                 string patientId = searchGrid.Rows[row.Index].Cells["Patient ID"].Value.ToString();
                 display(patientId);
             }
@@ -207,6 +203,17 @@ namespace ClinicSystem.ClinicHistory
             string text = tbPatient.Text;
 
             displayPatientGrid(text);
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ClinicForm_SizeChanged(object sender, EventArgs e)
+        {
+            upP.Location = new Point(upP.Location.X, p1.Bottom + 30);
+            pastP.Location = new Point(pastP.Location.X, upP.Bottom + 30);
         }
     }
 }

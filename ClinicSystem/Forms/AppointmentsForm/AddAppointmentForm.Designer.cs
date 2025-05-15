@@ -30,31 +30,32 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.appPanel = new Guna.UI2.WinForms.Guna2Panel();
-            this.addAppointment = new Guna.UI2.WinForms.Guna2Button();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.lName = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.comboPatientID = new System.Windows.Forms.ComboBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.comboRoom = new System.Windows.Forms.ComboBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.fName = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.comboDoctor = new System.Windows.Forms.ComboBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.mP = new System.Windows.Forms.Panel();
             this.mName = new Guna.UI2.WinForms.Guna2TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.panel16 = new System.Windows.Forms.Panel();
+            this.lP = new System.Windows.Forms.Panel();
+            this.lName = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.fP = new System.Windows.Forms.Panel();
+            this.fName = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.addAppointment = new Guna.UI2.WinForms.Guna2Button();
+            this.p4 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.comboRoom = new System.Windows.Forms.ComboBox();
+            this.p3 = new System.Windows.Forms.Panel();
+            this.comboDoctor = new System.Windows.Forms.ComboBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.p5 = new System.Windows.Forms.Panel();
             this.panel17 = new System.Windows.Forms.Panel();
             this.scheduleDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.textBox5 = new System.Windows.Forms.TextBox();
@@ -70,35 +71,42 @@
             this.TotalBill = new Guna.UI2.WinForms.Guna2TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
-            this.panel23 = new System.Windows.Forms.Panel();
+            this.p2 = new System.Windows.Forms.Panel();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.comboOperation = new System.Windows.Forms.ComboBox();
             this.label22 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.Add = new System.Windows.Forms.Button();
             this.tbListOperation = new System.Windows.Forms.TextBox();
-            this.panel24 = new System.Windows.Forms.Panel();
+            this.p1 = new System.Windows.Forms.Panel();
+            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.PatientAppointmentNo = new Guna.UI2.WinForms.Guna2TextBox();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.Add = new System.Windows.Forms.Button();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.panel1.SuspendLayout();
             this.appPanel.SuspendLayout();
-            this.panel5.SuspendLayout();
+            this.guna2Panel1.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel9.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel16.SuspendLayout();
+            this.mP.SuspendLayout();
+            this.lP.SuspendLayout();
+            this.fP.SuspendLayout();
+            this.p4.SuspendLayout();
+            this.p3.SuspendLayout();
+            this.p5.SuspendLayout();
             this.panel17.SuspendLayout();
             this.panel20.SuspendLayout();
             this.panel21.SuspendLayout();
             this.panel22.SuspendLayout();
-            this.panel23.SuspendLayout();
-            this.panel24.SuspendLayout();
+            this.p2.SuspendLayout();
+            this.p1.SuspendLayout();
+            this.guna2Panel2.SuspendLayout();
             this.panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -123,27 +131,285 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.appPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.appPanel.Controls.Add(this.guna2Panel1);
             this.appPanel.Controls.Add(this.addAppointment);
-            this.appPanel.Controls.Add(this.panel5);
-            this.appPanel.Controls.Add(this.panel3);
-            this.appPanel.Controls.Add(this.panel6);
-            this.appPanel.Controls.Add(this.panel2);
-            this.appPanel.Controls.Add(this.panel9);
-            this.appPanel.Controls.Add(this.panel4);
-            this.appPanel.Controls.Add(this.panel16);
+            this.appPanel.Controls.Add(this.p4);
+            this.appPanel.Controls.Add(this.p3);
+            this.appPanel.Controls.Add(this.p5);
             this.appPanel.Controls.Add(this.panel22);
-            this.appPanel.Controls.Add(this.panel23);
+            this.appPanel.Controls.Add(this.p2);
             this.appPanel.Controls.Add(this.button2);
             this.appPanel.Controls.Add(this.Add);
             this.appPanel.Controls.Add(this.tbListOperation);
-            this.appPanel.Controls.Add(this.panel24);
+            this.appPanel.Controls.Add(this.p1);
             this.appPanel.Location = new System.Drawing.Point(12, 81);
-            this.appPanel.MaximumSize = new System.Drawing.Size(1500, 1080);
+            this.appPanel.MaximumSize = new System.Drawing.Size(1920, 1080);
             this.appPanel.MinimumSize = new System.Drawing.Size(1055, 432);
             this.appPanel.Name = "appPanel";
             this.appPanel.Size = new System.Drawing.Size(1055, 554);
             this.appPanel.TabIndex = 10090;
             this.appPanel.Click += new System.EventHandler(this.close);
+            // 
+            // guna2Panel1
+            // 
+            this.guna2Panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(249)))), ((int)(((byte)(246)))));
+            this.guna2Panel1.Controls.Add(this.guna2PictureBox2);
+            this.guna2Panel1.Controls.Add(this.panel3);
+            this.guna2Panel1.Controls.Add(this.mP);
+            this.guna2Panel1.Controls.Add(this.lP);
+            this.guna2Panel1.Controls.Add(this.fP);
+            this.guna2Panel1.Location = new System.Drawing.Point(17, 15);
+            this.guna2Panel1.MaximumSize = new System.Drawing.Size(1920, 250);
+            this.guna2Panel1.MinimumSize = new System.Drawing.Size(1032, 100);
+            this.guna2Panel1.Name = "guna2Panel1";
+            this.guna2Panel1.Size = new System.Drawing.Size(1032, 100);
+            this.guna2Panel1.TabIndex = 10102;
+            this.guna2Panel1.SizeChanged += new System.EventHandler(this.guna2Panel1_SizeChanged);
+            // 
+            // panel3
+            // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel3.Controls.Add(this.comboPatientID);
+            this.panel3.Controls.Add(this.textBox1);
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel3.Location = new System.Drawing.Point(10, 3);
+            this.panel3.MaximumSize = new System.Drawing.Size(500, 34);
+            this.panel3.MinimumSize = new System.Drawing.Size(334, 34);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(334, 34);
+            this.panel3.TabIndex = 10074;
+            // 
+            // comboPatientID
+            // 
+            this.comboPatientID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboPatientID.BackColor = System.Drawing.Color.White;
+            this.comboPatientID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboPatientID.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.comboPatientID.FormattingEnabled = true;
+            this.comboPatientID.IntegralHeight = false;
+            this.comboPatientID.Location = new System.Drawing.Point(138, 3);
+            this.comboPatientID.MaximumSize = new System.Drawing.Size(300, 0);
+            this.comboPatientID.MinimumSize = new System.Drawing.Size(182, 0);
+            this.comboPatientID.Name = "comboPatientID";
+            this.comboPatientID.Size = new System.Drawing.Size(191, 28);
+            this.comboPatientID.TabIndex = 10001;
+            this.comboPatientID.TabStop = false;
+            this.comboPatientID.SelectedIndexChanged += new System.EventHandler(this.comboPatientID_SelectedIndexChanged);
+            this.comboPatientID.Click += new System.EventHandler(this.close);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox1.Location = new System.Drawing.Point(93, 7);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(0, 23);
+            this.textBox1.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.label2.Location = new System.Drawing.Point(5, 7);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(63, 17);
+            this.label2.TabIndex = 10000;
+            this.label2.Text = "Patient ID";
+            // 
+            // mP
+            // 
+            this.mP.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.mP.Controls.Add(this.mName);
+            this.mP.Controls.Add(this.label4);
+            this.mP.Controls.Add(this.textBox4);
+            this.mP.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mP.Location = new System.Drawing.Point(350, 54);
+            this.mP.MaximumSize = new System.Drawing.Size(500, 34);
+            this.mP.MinimumSize = new System.Drawing.Size(310, 34);
+            this.mP.Name = "mP";
+            this.mP.Size = new System.Drawing.Size(334, 34);
+            this.mP.TabIndex = 10076;
+            this.mP.Click += new System.EventHandler(this.close);
+            // 
+            // mName
+            // 
+            this.mName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.mName.BorderRadius = 5;
+            this.mName.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.mName.DefaultText = "";
+            this.mName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.mName.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.mName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.mName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.mName.Enabled = false;
+            this.mName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.mName.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mName.ForeColor = System.Drawing.Color.Black;
+            this.mName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.mName.Location = new System.Drawing.Point(138, 4);
+            this.mName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.mName.MaximumSize = new System.Drawing.Size(400, 26);
+            this.mName.MaxLength = 100;
+            this.mName.MinimumSize = new System.Drawing.Size(167, 26);
+            this.mName.Name = "mName";
+            this.mName.PlaceholderText = "";
+            this.mName.SelectedText = "";
+            this.mName.Size = new System.Drawing.Size(191, 26);
+            this.mName.TabIndex = 10092;
+            this.mName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.label4.Location = new System.Drawing.Point(5, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(131, 17);
+            this.label4.TabIndex = 10000;
+            this.label4.Text = "Patient Middle Name";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox4.Location = new System.Drawing.Point(93, 7);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(0, 23);
+            this.textBox4.TabIndex = 1;
+            // 
+            // lP
+            // 
+            this.lP.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lP.Controls.Add(this.lName);
+            this.lP.Controls.Add(this.label5);
+            this.lP.Controls.Add(this.textBox6);
+            this.lP.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lP.Location = new System.Drawing.Point(691, 54);
+            this.lP.MaximumSize = new System.Drawing.Size(500, 34);
+            this.lP.MinimumSize = new System.Drawing.Size(310, 34);
+            this.lP.Name = "lP";
+            this.lP.Size = new System.Drawing.Size(334, 34);
+            this.lP.TabIndex = 10077;
+            this.lP.Click += new System.EventHandler(this.close);
+            // 
+            // lName
+            // 
+            this.lName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lName.BorderRadius = 5;
+            this.lName.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.lName.DefaultText = "";
+            this.lName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.lName.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.lName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.lName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.lName.Enabled = false;
+            this.lName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.lName.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lName.ForeColor = System.Drawing.Color.Black;
+            this.lName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.lName.Location = new System.Drawing.Point(138, 4);
+            this.lName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.lName.MaximumSize = new System.Drawing.Size(400, 26);
+            this.lName.MaxLength = 100;
+            this.lName.MinimumSize = new System.Drawing.Size(167, 26);
+            this.lName.Name = "lName";
+            this.lName.PlaceholderText = "";
+            this.lName.SelectedText = "";
+            this.lName.Size = new System.Drawing.Size(191, 26);
+            this.lName.TabIndex = 10092;
+            this.lName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.label5.Location = new System.Drawing.Point(5, 9);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(113, 17);
+            this.label5.TabIndex = 10000;
+            this.label5.Text = "Patient Last Name";
+            // 
+            // textBox6
+            // 
+            this.textBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox6.Location = new System.Drawing.Point(93, 7);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(0, 23);
+            this.textBox6.TabIndex = 1;
+            // 
+            // fP
+            // 
+            this.fP.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.fP.Controls.Add(this.fName);
+            this.fP.Controls.Add(this.label3);
+            this.fP.Controls.Add(this.textBox2);
+            this.fP.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fP.Location = new System.Drawing.Point(10, 54);
+            this.fP.MaximumSize = new System.Drawing.Size(500, 34);
+            this.fP.MinimumSize = new System.Drawing.Size(310, 34);
+            this.fP.Name = "fP";
+            this.fP.Size = new System.Drawing.Size(334, 34);
+            this.fP.TabIndex = 10075;
+            this.fP.Click += new System.EventHandler(this.close);
+            // 
+            // fName
+            // 
+            this.fName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.fName.BorderRadius = 5;
+            this.fName.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.fName.DefaultText = "";
+            this.fName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.fName.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.fName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.fName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.fName.Enabled = false;
+            this.fName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.fName.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fName.ForeColor = System.Drawing.Color.Black;
+            this.fName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.fName.Location = new System.Drawing.Point(138, 4);
+            this.fName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.fName.MaximumSize = new System.Drawing.Size(400, 26);
+            this.fName.MaxLength = 100;
+            this.fName.MinimumSize = new System.Drawing.Size(167, 26);
+            this.fName.Name = "fName";
+            this.fName.PlaceholderText = "";
+            this.fName.SelectedText = "";
+            this.fName.Size = new System.Drawing.Size(191, 26);
+            this.fName.TabIndex = 10091;
+            this.fName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.label3.Location = new System.Drawing.Point(5, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(114, 17);
+            this.label3.TabIndex = 10000;
+            this.label3.Text = "Patient First Name";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox2.Location = new System.Drawing.Point(93, 7);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(0, 23);
+            this.textBox2.TabIndex = 1;
             // 
             // addAppointment
             // 
@@ -169,125 +435,28 @@
             this.addAppointment.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             this.addAppointment.Click += new System.EventHandler(this.addAppointment_Click);
             // 
-            // panel5
+            // p4
             // 
-            this.panel5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel5.Controls.Add(this.lName);
-            this.panel5.Controls.Add(this.label5);
-            this.panel5.Controls.Add(this.textBox6);
-            this.panel5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel5.Location = new System.Drawing.Point(724, 57);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(310, 34);
-            this.panel5.TabIndex = 10077;
-            this.panel5.Click += new System.EventHandler(this.close);
-            // 
-            // lName
-            // 
-            this.lName.BorderRadius = 5;
-            this.lName.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.lName.DefaultText = "";
-            this.lName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.lName.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.lName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.lName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.lName.Enabled = false;
-            this.lName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.lName.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lName.ForeColor = System.Drawing.Color.Black;
-            this.lName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.lName.Location = new System.Drawing.Point(140, 3);
-            this.lName.MaxLength = 100;
-            this.lName.Name = "lName";
-            this.lName.PlaceholderText = "";
-            this.lName.SelectedText = "";
-            this.lName.Size = new System.Drawing.Size(167, 26);
-            this.lName.TabIndex = 10092;
-            this.lName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label5
-            // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(4, 11);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(103, 15);
-            this.label5.TabIndex = 10000;
-            this.label5.Text = "Patient Last Name";
-            // 
-            // textBox6
-            // 
-            this.textBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox6.Location = new System.Drawing.Point(81, 7);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(0, 23);
-            this.textBox6.TabIndex = 1;
-            // 
-            // panel3
-            // 
-            this.panel3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel3.Controls.Add(this.comboPatientID);
-            this.panel3.Controls.Add(this.textBox1);
-            this.panel3.Controls.Add(this.label2);
-            this.panel3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel3.Location = new System.Drawing.Point(35, 6);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(310, 34);
-            this.panel3.TabIndex = 10074;
-            // 
-            // comboPatientID
-            // 
-            this.comboPatientID.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboPatientID.BackColor = System.Drawing.Color.White;
-            this.comboPatientID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboPatientID.FormattingEnabled = true;
-            this.comboPatientID.IntegralHeight = false;
-            this.comboPatientID.Location = new System.Drawing.Point(123, 5);
-            this.comboPatientID.Name = "comboPatientID";
-            this.comboPatientID.Size = new System.Drawing.Size(182, 23);
-            this.comboPatientID.TabIndex = 10001;
-            this.comboPatientID.TabStop = false;
-            this.comboPatientID.SelectedIndexChanged += new System.EventHandler(this.comboPatientID_SelectedIndexChanged);
-            this.comboPatientID.Click += new System.EventHandler(this.close);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox1.Location = new System.Drawing.Point(81, 7);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(0, 23);
-            this.textBox1.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(4, 10);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 15);
-            this.label2.TabIndex = 10000;
-            this.label2.Text = "Patient ID";
-            // 
-            // panel6
-            // 
-            this.panel6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel6.Controls.Add(this.label7);
-            this.panel6.Controls.Add(this.comboRoom);
-            this.panel6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel6.Location = new System.Drawing.Point(23, 278);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(409, 50);
-            this.panel6.TabIndex = 10098;
-            this.panel6.Click += new System.EventHandler(this.close);
+            this.p4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.p4.Controls.Add(this.label7);
+            this.p4.Controls.Add(this.comboRoom);
+            this.p4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.p4.Location = new System.Drawing.Point(46, 292);
+            this.p4.MaximumSize = new System.Drawing.Size(600, 48);
+            this.p4.MinimumSize = new System.Drawing.Size(409, 48);
+            this.p4.Name = "p4";
+            this.p4.Size = new System.Drawing.Size(409, 48);
+            this.p4.TabIndex = 10098;
+            this.p4.Click += new System.EventHandler(this.close);
             // 
             // label7
             // 
-            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(21, 18);
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.label7.Location = new System.Drawing.Point(16, 15);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(61, 15);
+            this.label7.Size = new System.Drawing.Size(68, 17);
             this.label7.TabIndex = 10000;
             this.label7.Text = "Room No.";
             // 
@@ -296,98 +465,49 @@
             this.comboRoom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comboRoom.BackColor = System.Drawing.Color.White;
             this.comboRoom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboRoom.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboRoom.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.comboRoom.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.comboRoom.FormattingEnabled = true;
             this.comboRoom.IntegralHeight = false;
-            this.comboRoom.ItemHeight = 15;
-            this.comboRoom.Location = new System.Drawing.Point(128, 13);
+            this.comboRoom.ItemHeight = 21;
+            this.comboRoom.Location = new System.Drawing.Point(127, 9);
+            this.comboRoom.MaximumSize = new System.Drawing.Size(400, 0);
+            this.comboRoom.MinimumSize = new System.Drawing.Size(271, 0);
             this.comboRoom.Name = "comboRoom";
-            this.comboRoom.Size = new System.Drawing.Size(271, 23);
+            this.comboRoom.Size = new System.Drawing.Size(271, 29);
             this.comboRoom.TabIndex = 10102;
             this.comboRoom.Click += new System.EventHandler(this.close);
             // 
-            // panel2
+            // p3
             // 
-            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel2.Controls.Add(this.fName);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.textBox2);
-            this.panel2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel2.Location = new System.Drawing.Point(35, 57);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(310, 34);
-            this.panel2.TabIndex = 10075;
-            this.panel2.Click += new System.EventHandler(this.close);
-            // 
-            // fName
-            // 
-            this.fName.BorderRadius = 5;
-            this.fName.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.fName.DefaultText = "";
-            this.fName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.fName.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.fName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.fName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.fName.Enabled = false;
-            this.fName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.fName.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.fName.ForeColor = System.Drawing.Color.Black;
-            this.fName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.fName.Location = new System.Drawing.Point(138, 4);
-            this.fName.MaxLength = 100;
-            this.fName.Name = "fName";
-            this.fName.PlaceholderText = "";
-            this.fName.SelectedText = "";
-            this.fName.Size = new System.Drawing.Size(167, 26);
-            this.fName.TabIndex = 10091;
-            this.fName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(4, 11);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(104, 15);
-            this.label3.TabIndex = 10000;
-            this.label3.Text = "Patient First Name";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox2.Location = new System.Drawing.Point(81, 7);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(0, 23);
-            this.textBox2.TabIndex = 1;
-            // 
-            // panel9
-            // 
-            this.panel9.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel9.Controls.Add(this.comboDoctor);
-            this.panel9.Controls.Add(this.textBox3);
-            this.panel9.Controls.Add(this.label8);
-            this.panel9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel9.Location = new System.Drawing.Point(23, 224);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(409, 48);
-            this.panel9.TabIndex = 10093;
-            this.panel9.Click += new System.EventHandler(this.close);
+            this.p3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.p3.Controls.Add(this.comboDoctor);
+            this.p3.Controls.Add(this.textBox3);
+            this.p3.Controls.Add(this.label8);
+            this.p3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.p3.Location = new System.Drawing.Point(46, 241);
+            this.p3.MaximumSize = new System.Drawing.Size(600, 48);
+            this.p3.MinimumSize = new System.Drawing.Size(409, 48);
+            this.p3.Name = "p3";
+            this.p3.Size = new System.Drawing.Size(409, 48);
+            this.p3.TabIndex = 10093;
+            this.p3.Click += new System.EventHandler(this.close);
             // 
             // comboDoctor
             // 
             this.comboDoctor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comboDoctor.BackColor = System.Drawing.Color.White;
             this.comboDoctor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboDoctor.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboDoctor.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.comboDoctor.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.comboDoctor.FormattingEnabled = true;
             this.comboDoctor.IntegralHeight = false;
-            this.comboDoctor.ItemHeight = 15;
-            this.comboDoctor.Location = new System.Drawing.Point(128, 12);
+            this.comboDoctor.ItemHeight = 21;
+            this.comboDoctor.Location = new System.Drawing.Point(127, 9);
+            this.comboDoctor.MaximumSize = new System.Drawing.Size(400, 0);
+            this.comboDoctor.MinimumSize = new System.Drawing.Size(271, 0);
             this.comboDoctor.Name = "comboDoctor";
-            this.comboDoctor.Size = new System.Drawing.Size(271, 23);
+            this.comboDoctor.Size = new System.Drawing.Size(271, 29);
             this.comboDoctor.TabIndex = 10101;
             this.comboDoctor.SelectedIndexChanged += new System.EventHandler(this.comboDoctor_SelectedIndexChanged);
             this.comboDoctor.Click += new System.EventHandler(this.close);
@@ -402,81 +522,30 @@
             // 
             // label8
             // 
-            this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(24, 17);
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.label8.Location = new System.Drawing.Point(16, 15);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(48, 15);
+            this.label8.Size = new System.Drawing.Size(54, 17);
             this.label8.TabIndex = 10000;
             this.label8.Text = "Doctors";
             // 
-            // panel4
+            // p5
             // 
-            this.panel4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel4.Controls.Add(this.mName);
-            this.panel4.Controls.Add(this.label4);
-            this.panel4.Controls.Add(this.textBox4);
-            this.panel4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel4.Location = new System.Drawing.Point(381, 57);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(310, 34);
-            this.panel4.TabIndex = 10076;
-            this.panel4.Click += new System.EventHandler(this.close);
-            // 
-            // mName
-            // 
-            this.mName.BorderRadius = 5;
-            this.mName.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.mName.DefaultText = "";
-            this.mName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.mName.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.mName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.mName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.mName.Enabled = false;
-            this.mName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.mName.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.mName.ForeColor = System.Drawing.Color.Black;
-            this.mName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.mName.Location = new System.Drawing.Point(140, 4);
-            this.mName.MaxLength = 100;
-            this.mName.Name = "mName";
-            this.mName.PlaceholderText = "";
-            this.mName.SelectedText = "";
-            this.mName.Size = new System.Drawing.Size(167, 26);
-            this.mName.TabIndex = 10092;
-            this.mName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label4
-            // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(4, 11);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(119, 15);
-            this.label4.TabIndex = 10000;
-            this.label4.Text = "Patient Middle Name";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox4.Location = new System.Drawing.Point(81, 7);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(0, 23);
-            this.textBox4.TabIndex = 1;
-            // 
-            // panel16
-            // 
-            this.panel16.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel16.Controls.Add(this.panel17);
-            this.panel16.Controls.Add(this.label18);
-            this.panel16.Controls.Add(this.panel20);
-            this.panel16.Controls.Add(this.panel21);
-            this.panel16.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel16.Location = new System.Drawing.Point(42, 334);
-            this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(374, 206);
-            this.panel16.TabIndex = 10094;
-            this.panel16.Click += new System.EventHandler(this.close);
+            this.p5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.p5.Controls.Add(this.panel17);
+            this.p5.Controls.Add(this.label18);
+            this.p5.Controls.Add(this.panel20);
+            this.p5.Controls.Add(this.panel21);
+            this.p5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.p5.Location = new System.Drawing.Point(70, 345);
+            this.p5.MaximumSize = new System.Drawing.Size(500, 300);
+            this.p5.MinimumSize = new System.Drawing.Size(374, 206);
+            this.p5.Name = "p5";
+            this.p5.Size = new System.Drawing.Size(374, 206);
+            this.p5.TabIndex = 10094;
+            this.p5.Click += new System.EventHandler(this.close);
             // 
             // panel17
             // 
@@ -494,9 +563,9 @@
             this.scheduleDate.BorderRadius = 5;
             this.scheduleDate.Checked = true;
             this.scheduleDate.FillColor = System.Drawing.Color.PaleGreen;
-            this.scheduleDate.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.scheduleDate.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.scheduleDate.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.scheduleDate.Location = new System.Drawing.Point(95, 4);
+            this.scheduleDate.Location = new System.Drawing.Point(95, 3);
             this.scheduleDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.scheduleDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.scheduleDate.Name = "scheduleDate";
@@ -517,9 +586,10 @@
             // 
             this.label15.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(4, 11);
+            this.label15.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.label15.Location = new System.Drawing.Point(16, 10);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(31, 15);
+            this.label15.Size = new System.Drawing.Size(35, 17);
             this.label15.TabIndex = 10000;
             this.label15.Text = "Date";
             // 
@@ -527,10 +597,10 @@
             // 
             this.label18.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(95, 22);
+            this.label18.Font = new System.Drawing.Font("Segoe UI Black", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(91, 22);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(178, 21);
+            this.label18.Size = new System.Drawing.Size(189, 21);
             this.label18.TabIndex = 10000;
             this.label18.Text = "Appointment Schedule";
             // 
@@ -549,11 +619,11 @@
             this.startC.BackColor = System.Drawing.Color.White;
             this.startC.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.startC.Enabled = false;
-            this.startC.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startC.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.startC.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.startC.FormattingEnabled = true;
             this.startC.IntegralHeight = false;
-            this.startC.ItemHeight = 15;
+            this.startC.ItemHeight = 21;
             this.startC.Items.AddRange(new object[] {
             "09:00:00 AM",
             "09:30:00 AM",
@@ -580,10 +650,10 @@
             "08:00:00 PM",
             "08:30:00 PM",
             "09:00:00 PM"});
-            this.startC.Location = new System.Drawing.Point(178, 12);
+            this.startC.Location = new System.Drawing.Point(175, 8);
             this.startC.MaxDropDownItems = 5;
             this.startC.Name = "startC";
-            this.startC.Size = new System.Drawing.Size(186, 23);
+            this.startC.Size = new System.Drawing.Size(186, 29);
             this.startC.TabIndex = 10103;
             this.startC.SelectedIndexChanged += new System.EventHandler(this.startC_SelectedIndexChanged);
             this.startC.Click += new System.EventHandler(this.close);
@@ -592,9 +662,10 @@
             // 
             this.label19.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(3, 15);
+            this.label19.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.label19.Location = new System.Drawing.Point(16, 14);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(74, 15);
+            this.label19.Size = new System.Drawing.Size(84, 17);
             this.label19.TabIndex = 10000;
             this.label19.Text = "Start-Time    ";
             // 
@@ -603,9 +674,9 @@
             this.panel21.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel21.Controls.Add(this.End);
             this.panel21.Controls.Add(this.label20);
-            this.panel21.Location = new System.Drawing.Point(3, 157);
+            this.panel21.Location = new System.Drawing.Point(0, 157);
             this.panel21.Name = "panel21";
-            this.panel21.Size = new System.Drawing.Size(371, 44);
+            this.panel21.Size = new System.Drawing.Size(374, 44);
             this.panel21.TabIndex = 10002;
             // 
             // End
@@ -617,27 +688,28 @@
             this.End.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.End.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.End.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.End.Enabled = false;
             this.End.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.End.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.End.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.End.ForeColor = System.Drawing.Color.Black;
             this.End.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.End.Location = new System.Drawing.Point(175, 8);
+            this.End.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.End.MaxLength = 100;
             this.End.Name = "End";
             this.End.PlaceholderText = "";
+            this.End.ReadOnly = true;
             this.End.SelectedText = "";
-            this.End.Size = new System.Drawing.Size(186, 26);
+            this.End.Size = new System.Drawing.Size(186, 29);
             this.End.TabIndex = 10061;
             // 
             // label20
             // 
             this.label20.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label20.Location = new System.Drawing.Point(4, 14);
+            this.label20.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.label20.Location = new System.Drawing.Point(16, 14);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(67, 15);
+            this.label20.Size = new System.Drawing.Size(75, 17);
             this.label20.TabIndex = 10000;
             this.label20.Text = "End-Time   ";
             // 
@@ -665,10 +737,11 @@
             this.TotalBill.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.TotalBill.Enabled = false;
             this.TotalBill.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TotalBill.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.TotalBill.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.TotalBill.ForeColor = System.Drawing.Color.Black;
             this.TotalBill.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.TotalBill.Location = new System.Drawing.Point(83, 10);
+            this.TotalBill.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TotalBill.MaxLength = 100;
             this.TotalBill.Name = "TotalBill";
             this.TotalBill.PlaceholderText = "";
@@ -688,24 +761,27 @@
             // 
             this.label21.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.label21.Location = new System.Drawing.Point(13, 13);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(59, 19);
+            this.label21.Size = new System.Drawing.Size(56, 17);
             this.label21.TabIndex = 10000;
             this.label21.Text = "Total Bill";
             // 
-            // panel23
+            // p2
             // 
-            this.panel23.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel23.Controls.Add(this.textBox8);
-            this.panel23.Controls.Add(this.comboOperation);
-            this.panel23.Controls.Add(this.label22);
-            this.panel23.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel23.Location = new System.Drawing.Point(23, 170);
-            this.panel23.Name = "panel23";
-            this.panel23.Size = new System.Drawing.Size(409, 48);
-            this.panel23.TabIndex = 10091;
-            this.panel23.Click += new System.EventHandler(this.close);
+            this.p2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.p2.Controls.Add(this.textBox8);
+            this.p2.Controls.Add(this.comboOperation);
+            this.p2.Controls.Add(this.label22);
+            this.p2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.p2.Location = new System.Drawing.Point(46, 190);
+            this.p2.MaximumSize = new System.Drawing.Size(600, 48);
+            this.p2.MinimumSize = new System.Drawing.Size(409, 48);
+            this.p2.Name = "p2";
+            this.p2.Size = new System.Drawing.Size(409, 48);
+            this.p2.TabIndex = 10091;
+            this.p2.Click += new System.EventHandler(this.close);
             // 
             // textBox8
             // 
@@ -720,27 +796,145 @@
             this.comboOperation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comboOperation.BackColor = System.Drawing.Color.White;
             this.comboOperation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboOperation.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboOperation.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.comboOperation.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.comboOperation.FormattingEnabled = true;
             this.comboOperation.IntegralHeight = false;
-            this.comboOperation.ItemHeight = 15;
-            this.comboOperation.Location = new System.Drawing.Point(128, 15);
+            this.comboOperation.ItemHeight = 21;
+            this.comboOperation.Location = new System.Drawing.Point(127, 9);
+            this.comboOperation.MaximumSize = new System.Drawing.Size(400, 0);
+            this.comboOperation.MinimumSize = new System.Drawing.Size(271, 0);
             this.comboOperation.Name = "comboOperation";
-            this.comboOperation.Size = new System.Drawing.Size(271, 23);
+            this.comboOperation.Size = new System.Drawing.Size(271, 29);
             this.comboOperation.TabIndex = 10065;
             this.comboOperation.SelectedIndexChanged += new System.EventHandler(this.comboOperation_SelectedIndexChanged);
             this.comboOperation.Click += new System.EventHandler(this.close);
             // 
             // label22
             // 
-            this.label22.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label22.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(19, 18);
+            this.label22.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.label22.Location = new System.Drawing.Point(16, 15);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(60, 15);
+            this.label22.Size = new System.Drawing.Size(67, 17);
             this.label22.TabIndex = 10000;
             this.label22.Text = "Operation";
+            // 
+            // tbListOperation
+            // 
+            this.tbListOperation.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbListOperation.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.tbListOperation.Location = new System.Drawing.Point(461, 168);
+            this.tbListOperation.Multiline = true;
+            this.tbListOperation.Name = "tbListOperation";
+            this.tbListOperation.ReadOnly = true;
+            this.tbListOperation.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tbListOperation.Size = new System.Drawing.Size(573, 227);
+            this.tbListOperation.TabIndex = 10096;
+            // 
+            // p1
+            // 
+            this.p1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.p1.Controls.Add(this.guna2Panel2);
+            this.p1.Controls.Add(this.textBox10);
+            this.p1.Controls.Add(this.label23);
+            this.p1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.p1.Location = new System.Drawing.Point(46, 138);
+            this.p1.MaximumSize = new System.Drawing.Size(600, 48);
+            this.p1.MinimumSize = new System.Drawing.Size(409, 48);
+            this.p1.Name = "p1";
+            this.p1.Size = new System.Drawing.Size(409, 48);
+            this.p1.TabIndex = 10092;
+            this.p1.Click += new System.EventHandler(this.close);
+            // 
+            // guna2Panel2
+            // 
+            this.guna2Panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2Panel2.Controls.Add(this.PatientAppointmentNo);
+            this.guna2Panel2.Controls.Add(this.guna2PictureBox1);
+            this.guna2Panel2.Location = new System.Drawing.Point(154, 11);
+            this.guna2Panel2.MaximumSize = new System.Drawing.Size(324, 26);
+            this.guna2Panel2.MinimumSize = new System.Drawing.Size(230, 26);
+            this.guna2Panel2.Name = "guna2Panel2";
+            this.guna2Panel2.Size = new System.Drawing.Size(230, 26);
+            this.guna2Panel2.TabIndex = 10103;
+            // 
+            // PatientAppointmentNo
+            // 
+            this.PatientAppointmentNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.PatientAppointmentNo.BorderRadius = 5;
+            this.PatientAppointmentNo.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.PatientAppointmentNo.DefaultText = "";
+            this.PatientAppointmentNo.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.PatientAppointmentNo.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.PatientAppointmentNo.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.PatientAppointmentNo.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.PatientAppointmentNo.Enabled = false;
+            this.PatientAppointmentNo.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.PatientAppointmentNo.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.PatientAppointmentNo.ForeColor = System.Drawing.Color.Black;
+            this.PatientAppointmentNo.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.PatientAppointmentNo.Location = new System.Drawing.Point(2, 0);
+            this.PatientAppointmentNo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PatientAppointmentNo.MaximumSize = new System.Drawing.Size(324, 26);
+            this.PatientAppointmentNo.MaxLength = 100;
+            this.PatientAppointmentNo.MinimumSize = new System.Drawing.Size(195, 26);
+            this.PatientAppointmentNo.Name = "PatientAppointmentNo";
+            this.PatientAppointmentNo.PlaceholderText = "";
+            this.PatientAppointmentNo.SelectedText = "";
+            this.PatientAppointmentNo.Size = new System.Drawing.Size(195, 26);
+            this.PatientAppointmentNo.TabIndex = 10059;
+            this.PatientAppointmentNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox10
+            // 
+            this.textBox10.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox10.Location = new System.Drawing.Point(130, 14);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(0, 23);
+            this.textBox10.TabIndex = 1;
+            // 
+            // label23
+            // 
+            this.label23.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.label23.Location = new System.Drawing.Point(16, 15);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(108, 17);
+            this.label23.TabIndex = 10000;
+            this.label23.Text = "Appointment No.";
+            // 
+            // panel8
+            // 
+            this.panel8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel8.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(230)))), ((int)(((byte)(222)))));
+            this.panel8.Controls.Add(this.label1);
+            this.panel8.Location = new System.Drawing.Point(-2, 0);
+            this.panel8.MaximumSize = new System.Drawing.Size(1920, 70);
+            this.panel8.MinimumSize = new System.Drawing.Size(1090, 70);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(1090, 70);
+            this.panel8.TabIndex = 10084;
+            this.panel8.Click += new System.EventHandler(this.close);
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(348, 9);
+            this.label1.MaximumSize = new System.Drawing.Size(1920, 37);
+            this.label1.MinimumSize = new System.Drawing.Size(335, 37);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(335, 37);
+            this.label1.TabIndex = 10081;
+            this.label1.Text = "Patient Appointment ";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // button2
             // 
@@ -770,102 +964,38 @@
             this.Add.UseVisualStyleBackColor = true;
             this.Add.Click += new System.EventHandler(this.Add_Click);
             // 
-            // tbListOperation
+            // guna2PictureBox1
             // 
-            this.tbListOperation.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbListOperation.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.tbListOperation.Location = new System.Drawing.Point(461, 168);
-            this.tbListOperation.Multiline = true;
-            this.tbListOperation.Name = "tbListOperation";
-            this.tbListOperation.ReadOnly = true;
-            this.tbListOperation.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tbListOperation.Size = new System.Drawing.Size(573, 227);
-            this.tbListOperation.TabIndex = 10096;
-            // 
-            // panel24
-            // 
-            this.panel24.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel24.Controls.Add(this.PatientAppointmentNo);
-            this.panel24.Controls.Add(this.textBox10);
-            this.panel24.Controls.Add(this.label23);
-            this.panel24.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel24.Location = new System.Drawing.Point(23, 130);
-            this.panel24.Name = "panel24";
-            this.panel24.Size = new System.Drawing.Size(409, 34);
-            this.panel24.TabIndex = 10092;
-            this.panel24.Click += new System.EventHandler(this.close);
-            // 
-            // PatientAppointmentNo
-            // 
-            this.PatientAppointmentNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.PatientAppointmentNo.BorderRadius = 5;
-            this.PatientAppointmentNo.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.PatientAppointmentNo.DefaultText = "";
-            this.PatientAppointmentNo.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.PatientAppointmentNo.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.PatientAppointmentNo.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.PatientAppointmentNo.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.PatientAppointmentNo.Enabled = false;
-            this.PatientAppointmentNo.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.PatientAppointmentNo.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.PatientAppointmentNo.ForeColor = System.Drawing.Color.Black;
-            this.PatientAppointmentNo.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.PatientAppointmentNo.Location = new System.Drawing.Point(127, 4);
-            this.PatientAppointmentNo.MaxLength = 100;
-            this.PatientAppointmentNo.Name = "PatientAppointmentNo";
-            this.PatientAppointmentNo.PlaceholderText = "";
-            this.PatientAppointmentNo.SelectedText = "";
-            this.PatientAppointmentNo.Size = new System.Drawing.Size(272, 26);
-            this.PatientAppointmentNo.TabIndex = 10059;
-            this.PatientAppointmentNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox10
-            // 
-            this.textBox10.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox10.Location = new System.Drawing.Point(130, 7);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(0, 23);
-            this.textBox10.TabIndex = 1;
-            // 
-            // label23
-            // 
-            this.label23.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(20, 8);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(100, 15);
-            this.label23.TabIndex = 10000;
-            this.label23.Text = "Appointment No.";
-            // 
-            // panel8
-            // 
-            this.panel8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.guna2PictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel8.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(230)))), ((int)(((byte)(222)))));
-            this.panel8.Controls.Add(this.label1);
-            this.panel8.Location = new System.Drawing.Point(0, 0);
-            this.panel8.MaximumSize = new System.Drawing.Size(1920, 70);
-            this.panel8.MinimumSize = new System.Drawing.Size(1090, 70);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(1090, 70);
-            this.panel8.TabIndex = 10084;
-            this.panel8.Click += new System.EventHandler(this.close);
+            this.guna2PictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.guna2PictureBox1.Image = global::ClinicSystem.Properties.Resources.trash;
+            this.guna2PictureBox1.ImageRotate = 0F;
+            this.guna2PictureBox1.Location = new System.Drawing.Point(199, -8);
+            this.guna2PictureBox1.MaximumSize = new System.Drawing.Size(35, 35);
+            this.guna2PictureBox1.MinimumSize = new System.Drawing.Size(35, 35);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.Size = new System.Drawing.Size(35, 35);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox1.TabIndex = 10103;
+            this.guna2PictureBox1.TabStop = false;
+            this.guna2PictureBox1.Click += new System.EventHandler(this.guna2Button2_Click);
             // 
-            // label1
+            // guna2PictureBox2
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.guna2PictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(348, 9);
-            this.label1.MaximumSize = new System.Drawing.Size(1920, 37);
-            this.label1.MinimumSize = new System.Drawing.Size(335, 37);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(335, 37);
-            this.label1.TabIndex = 10081;
-            this.label1.Text = "Patient Appointment ";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.guna2PictureBox2.Image = global::ClinicSystem.Properties.Resources.trash;
+            this.guna2PictureBox2.ImageRotate = 0F;
+            this.guna2PictureBox2.Location = new System.Drawing.Point(962, -20);
+            this.guna2PictureBox2.MaximumSize = new System.Drawing.Size(70, 70);
+            this.guna2PictureBox2.MinimumSize = new System.Drawing.Size(70, 70);
+            this.guna2PictureBox2.Name = "guna2PictureBox2";
+            this.guna2PictureBox2.Size = new System.Drawing.Size(70, 70);
+            this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox2.TabIndex = 10104;
+            this.guna2PictureBox2.TabStop = false;
+            this.guna2PictureBox2.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // AddAppointmentForm
             // 
@@ -877,23 +1007,25 @@
             this.MinimumSize = new System.Drawing.Size(1089, 654);
             this.Name = "AddAppointmentForm";
             this.Text = "AddAppointmentForm";
+            this.SizeChanged += new System.EventHandler(this.AddAppointmentForm_SizeChanged);
             this.panel1.ResumeLayout(false);
             this.appPanel.ResumeLayout(false);
             this.appPanel.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
+            this.guna2Panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            this.panel16.ResumeLayout(false);
-            this.panel16.PerformLayout();
+            this.mP.ResumeLayout(false);
+            this.mP.PerformLayout();
+            this.lP.ResumeLayout(false);
+            this.lP.PerformLayout();
+            this.fP.ResumeLayout(false);
+            this.fP.PerformLayout();
+            this.p4.ResumeLayout(false);
+            this.p4.PerformLayout();
+            this.p3.ResumeLayout(false);
+            this.p3.PerformLayout();
+            this.p5.ResumeLayout(false);
+            this.p5.PerformLayout();
             this.panel17.ResumeLayout(false);
             this.panel17.PerformLayout();
             this.panel20.ResumeLayout(false);
@@ -902,11 +1034,14 @@
             this.panel21.PerformLayout();
             this.panel22.ResumeLayout(false);
             this.panel22.PerformLayout();
-            this.panel23.ResumeLayout(false);
-            this.panel23.PerformLayout();
-            this.panel24.ResumeLayout(false);
-            this.panel24.PerformLayout();
+            this.p2.ResumeLayout(false);
+            this.p2.PerformLayout();
+            this.p1.ResumeLayout(false);
+            this.p1.PerformLayout();
+            this.guna2Panel2.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -919,25 +1054,25 @@
         private System.Windows.Forms.ComboBox comboPatientID;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel fP;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel lP;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel mP;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Panel panel8;
         private Guna.UI2.WinForms.Guna2Panel appPanel;
         private System.Windows.Forms.ComboBox comboOperation;
-        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel p4;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox comboRoom;
-        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Panel p3;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Panel panel16;
+        private System.Windows.Forms.Panel p5;
         private System.Windows.Forms.Panel panel17;
         private Guna.UI2.WinForms.Guna2DateTimePicker scheduleDate;
         private System.Windows.Forms.TextBox textBox5;
@@ -953,13 +1088,12 @@
         private Guna.UI2.WinForms.Guna2TextBox TotalBill;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Panel panel23;
+        private System.Windows.Forms.Panel p2;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox tbListOperation;
-        private System.Windows.Forms.Panel panel24;
-        private Guna.UI2.WinForms.Guna2TextBox PatientAppointmentNo;
+        private System.Windows.Forms.Panel p1;
         private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.ComboBox comboDoctor;
@@ -968,5 +1102,10 @@
         private Guna.UI2.WinForms.Guna2TextBox mName;
         private Guna.UI2.WinForms.Guna2TextBox fName;
         private Guna.UI2.WinForms.Guna2Button addAppointment;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
+        private Guna.UI2.WinForms.Guna2TextBox PatientAppointmentNo;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
     }
 }

@@ -255,67 +255,6 @@ namespace ClinicSystem
             e.Graphics.DrawImage(faded, new Rectangle(0, 0, panel5.Width, panel5.Height));
         }
 
-
-
-
-        //   private void LoginButton_Click(object sender, EventArgs e)
-        //{
-
-        //    string username = Username.Text.Trim();
-        //    string password = Password.Text.Trim();
-
-        //    try
-        //    {
-        //        if (string.IsNullOrWhiteSpace(Username.Text) || string.IsNullOrWhiteSpace(Password.Text) || Username.Text == "User Name" || Password.Text == "Password")
-        //        {
-        //            MessagePromp.LoginShowMessage(this, "Wrong username or Password", MessageBoxIcon.Error);
-        //            return;
-        //        }
-        //        string driver = "server=localhost;username=root;password=root;database=db_clinic";
-        //        MySqlConnection conn = new MySqlConnection(driver);
-        //        conn.Open();
-
-        //        string query = "SELECT Username, Password, StaffId FROM staff_tbl WHERE USERNAME = @USERNAME AND PASSWORD = @PASSWORD";
-        //        MySqlCommand command = new MySqlCommand(query, conn);
-
-        //        command.Parameters.AddWithValue("@USERNAME", username);
-        //        command.Parameters.AddWithValue("@PASSWORD", password);
-
-        //        MySqlDataReader reader = command.ExecuteReader();
-        //        if (reader.HasRows == false)
-        //        {
-        //            MessagePromp.LoginShowMessage(this, "Wrong Username or Password", MessageBoxIcon.Error);
-
-        //            return;
-        //        }
-        //        while (reader.Read())
-        //        {
-        //            guna2Button1.Enabled = false;
-
-        //            Staff staff = new Staff(int.Parse(reader["StaffID"].ToString()), reader["Username"].ToString(), reader["Password"].ToString());
-        //            MessagePromp.LoginShowMessage(this, "Successfully Login", MessageBoxIcon.Information);
-        //            Timer timer = new Timer();
-        //            timer.Interval = 1000;
-        //            timer.Tick += (s, y) =>
-        //            {
-        //                timer.Stop();
-        //                this.Hide();
-        //                ClinicSystem clinicSystem = new ClinicSystem(staff);
-        //                clinicSystem.Show();
-        //            };
-        //            timer.Start();
-        //            DoctorLogin dl = DoctorLogin.GetInstance();
-        //            dl.Close();
-        //        }
-        //        conn.Close();
-        //    }
-        //    catch (MySqlException ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-
-        //}
-
     }
 }
         

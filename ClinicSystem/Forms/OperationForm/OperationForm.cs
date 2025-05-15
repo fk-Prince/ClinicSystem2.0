@@ -26,10 +26,11 @@ namespace ClinicSystem
             InitializeComponent();
             operationlist = operationRepository.getOperationOnDoctors();
             roomtype = operationRepository.getAvailableRoomType();
-            foreach (string item in roomtype)
-            {
-                comboRoomType.Items.Add(item);
-            }
+            //foreach (string item in roomtype)
+            //{
+            //    comboRoomType.Items.Add(item);
+            //}
+ 
             displayOperations(operationlist,"No Operation");
             int y = (ClientSize.Height - addOperationPanel.Height) / 2;
             if (ClientSize.Height < 1080)
@@ -42,8 +43,8 @@ namespace ClinicSystem
             tab.Add(opName);
             tab.Add(opDuration);
             tab.Add(opPrice);
-            tab.Add(opDescription);
             tab.Add(comboRoomType);
+            tab.Add(opDescription);
             tab.Add(guna2Button2);
         }
 
@@ -187,10 +188,11 @@ namespace ClinicSystem
             Guna2Panel p = new Guna2Panel();
             p.Size = new Size(280, 100);
             p.Location = new Point((pa.Width - p.Width) / 2, pa.Height - p.Height - 20);
-            p.FillColor = Color.LightGreen;
+            p.FillColor = Color.LimeGreen;
             p.BackColor = Color.Transparent;
             p.BorderRadius = 10;
-            p.BorderColor = Color.LightGray;
+            p.BorderColor = Color.Black;
+            p.BorderThickness = 2;
             pa.Controls.Add(p);
             p.BringToFront();
 
@@ -270,6 +272,8 @@ namespace ClinicSystem
                 operationRepository.setDoctorOperation(docid, operationCode);
                 Guna2Panel p = but.Parent as Guna2Panel ;
                 p.Dispose();
+                operationlist = operationRepository.getOperationOnDoctors();
+                displayOperations(operationlist, "No Operation");
                 MessagePromp.MessagePrompCenter(this, "Successfully assigned doctor to this operation", MessageBoxIcon.Information);
             } 
         }
@@ -281,6 +285,7 @@ namespace ClinicSystem
             label.MaximumSize = new Size(280, 30);
             label.AutoSize = true;
             label.Location = new Point(x, y);
+            label.Font = new Font("Segui UI", 10, FontStyle.Regular);
             return label;
         }
 
@@ -361,64 +366,64 @@ namespace ClinicSystem
                 || string.IsNullOrWhiteSpace(opPrice.Text)
                 || string.IsNullOrWhiteSpace(opDuration.Text))
             {
-                MessagePromp.MainShowMessage(this, "Please fill up all fields", MessageBoxIcon.Error);
+                MessagePromp.MainShowMessageBig(this, "Please fill up all fields", MessageBoxIcon.Error);
                 return;
             }
 
             bool duplicateCode = operationlist.Any(operation => operation.OperationCode.Equals(opCode, StringComparison.OrdinalIgnoreCase));
             if (duplicateCode)
             {
-                MessagePromp.MainShowMessage(this, "Duplicate Operation Code", MessageBoxIcon.Error);
+                MessagePromp.MainShowMessageBig(this, "Duplicate Operation Code", MessageBoxIcon.Error);
                 return;
             }
 
             bool operationName = operationlist.Any(operation => operation.OperationName.Equals(opName, StringComparison.OrdinalIgnoreCase));
             if (operationName)
             {
-                MessagePromp.MainShowMessage(this, "Try Different Operation Name", MessageBoxIcon.Error);
+                MessagePromp.MainShowMessageBig(this, "Try Different Operation Name", MessageBoxIcon.Error);
                 return;
             }
             double price;
             if (!double.TryParse(opPrice.Text, out price))
             {
-                MessagePromp.MainShowMessage(this, "Invalid Price", MessageBoxIcon.Error);
+                MessagePromp.MainShowMessageBig(this, "Invalid Price", MessageBoxIcon.Error);
                 return;
             }
             price = double.Parse(price.ToString("F2"));
 
             if (price >= 1000000000)
             {
-                MessagePromp.MainShowMessage(this, "Price is too big.", MessageBoxIcon.Error);
+                MessagePromp.MainShowMessageBig(this, "Price is too big.", MessageBoxIcon.Error);
                 return;
             }
 
             TimeSpan duration;
             if (!TimeSpan.TryParseExact(opDuration.Text, @"hh\:mm\:ss", null, out duration))
             {
-                MessagePromp.MainShowMessage(this, "Invalid Duration", MessageBoxIcon.Error);
+                MessagePromp.MainShowMessageBig(this, "Invalid Duration", MessageBoxIcon.Error);
                 return;
             }
             if (duration == TimeSpan.Zero)
             {
-                MessagePromp.MainShowMessage(this, "Invalid Duration", MessageBoxIcon.Error);
+                MessagePromp.MainShowMessageBig(this, "Invalid Duration", MessageBoxIcon.Error);
                 return;
             }
 
-            if (comboRoomType.SelectedIndex == -1)
+            if (comboRoomType.SelectedIndex == -1 || comboRoomType.SelectedItem.ToString().Equals("No registered room type.       "))
             {
-                MessagePromp.MainShowMessage(this, "Select room type for this operation.", MessageBoxIcon.Error);
+                MessagePromp.MainShowMessageBig(this, "Select room type for this operation.", MessageBoxIcon.Error);
                 return;
             }
 
             bool success = operationRepository.insertOperation(new Operation(opCode.ToUpper(), Capitalize(opName), DateTime.Now, opDescription, price, duration, comboRoomType.SelectedItem.ToString()));
             if (success)
             {
-                MessagePromp.MainShowMessage(this, "Operation Added Successfully", MessageBoxIcon.Information);
+                MessagePromp.MainShowMessageBig(this, "Operation Added Successfully", MessageBoxIcon.Information);
                 reset();
             }
             else
             {
-                MessagePromp.MainShowMessage(this, "Operation Failed to Add", MessageBoxIcon.Error);
+                MessagePromp.MainShowMessageBig(this, "Operation Failed to Add", MessageBoxIcon.Error);
 
             }
         }
@@ -444,6 +449,7 @@ namespace ClinicSystem
             opDescription.Text = "";
             opPrice.Text = "";
             opDuration.Text = "";
+            timerout.Start();
             operationlist = operationRepository.getOperationOnDoctors();
             displayOperations(operationlist, "");
             SearchBar1.Text = "";
@@ -555,6 +561,11 @@ namespace ClinicSystem
             {
                 comboRoomType.Items.Add(item);
             }
+            if (roomtype.Count == 0) {
+                comboRoomType.Items.Add("No registered room type.       ");
+                comboRoomType.SelectedIndex = 0;
+            }
+
             displayOperations(operationlist,"No Operation");
         }
 
@@ -580,5 +591,6 @@ namespace ClinicSystem
             }
             displayOperations(filteredOperationList, type);
         }
+
     }
 }

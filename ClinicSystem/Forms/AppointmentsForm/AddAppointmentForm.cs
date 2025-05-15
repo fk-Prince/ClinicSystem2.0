@@ -75,7 +75,7 @@ namespace ClinicSystem.Appointments
             lName.Text = selectedPatient.Lastname;
             string opNumber = appointmentRepository.getAppointmentDetail();
             PatientAppointmentNo.Text = opNumber;
-            operationList.ForEach(op => comboOperation.Items.Add(op.OperationCode + "  |  " +op.OperationName));
+            operationList.ForEach(op => comboOperation.Items.Add(op.OperationCode + "  |  " + op.OperationName));
         }
 
         // Operation Selected
@@ -90,15 +90,15 @@ namespace ClinicSystem.Appointments
             if (doctorList != null && doctorList.Count != 0)
             {
                 foreach (Doctor doctor in doctorList)
-                {     
-                   comboDoctor.Items.Add(doctor.DoctorID + "  |  " + doctor.DoctorLastName + ", " + doctor.DoctorFirstName + " " + doctor.DoctorMiddleName);                
+                {
+                    comboDoctor.Items.Add(doctor.DoctorID + "  |  " + doctor.DoctorLastName + ", " + doctor.DoctorFirstName + " " + doctor.DoctorMiddleName);
                 }
             }
             else
             {
                 comboDoctor.Items.Add("No Doctor Available");
+                comboDoctor.SelectedIndex = 0;
             }
-            comboDoctor.SelectedIndex = 0;
             List<Room> filter = new List<Room>();
             foreach (Room room in rooms)
             {
@@ -108,12 +108,21 @@ namespace ClinicSystem.Appointments
                     comboRoom.Items.Add(room.RoomNo + "  |  " + room.Roomtype);
                 }
             }
-            if (filter.Count == 0) comboRoom.Items.Add("No Room Available");
-            comboRoom.SelectedIndex = 0;
+            if (filter.Count == 0)
+            {
+                comboRoom.Items.Add("No Room Available");
+                comboRoom.SelectedIndex = 0;
+            }
+
         }
 
         // Doctor Selected
         private void comboDoctor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            getDoctor();
+        }
+
+        private void getDoctor()
         {
             if (comboDoctor.SelectedIndex == -1) return;
             string[] doc = comboDoctor.SelectedItem.ToString().Split('|');
@@ -140,15 +149,15 @@ namespace ClinicSystem.Appointments
                 return;
             }
 
-            if (!appointmentRepository.isScheduleAvailable(appointment, "room"))
-            {
-                MessagePromp.MainShowMessageBig(this, "This room is occupied this time.", MessageBoxIcon.Error);
-                return;
-            }
-
             if (!appointmentRepository.isScheduleAvailable(appointment, "doctor"))
             {
                 MessagePromp.MainShowMessageBig(this, "Schedule conflicts with the doctor schedule.", MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!appointmentRepository.isScheduleAvailable(appointment, "room"))
+            {
+                MessagePromp.MainShowMessageBig(this, "This room is occupied this time.", MessageBoxIcon.Error);
                 return;
             }
 
@@ -222,7 +231,7 @@ namespace ClinicSystem.Appointments
             DateTime endSchedule = startSchedule + selectedOperation.Duration;
             int roomno = int.Parse(comboRoom.SelectedItem.ToString().Split(' ')[0].Trim());
             return new Appointment(selectedPatient, selectedDoctor, selectedOperation,
-                startSchedule, endSchedule, selectedOperation.Price, 
+                startSchedule, endSchedule, selectedOperation.Price,
                 roomno, int.Parse(PatientAppointmentNo.Text));
         }
         private bool isAlreadyAdded()
@@ -321,7 +330,7 @@ namespace ClinicSystem.Appointments
                 return;
             }
 
-            DiscountChoicePromp.showChoices(this, selectedPatient,0, patientSchedules, (confirmed, patientSchedules) =>
+            DiscountChoicePromp.showChoices(this, selectedPatient, 0, patientSchedules, (confirmed, patientSchedules) =>
             {
                 if (confirmed)
                 {
@@ -361,8 +370,105 @@ namespace ClinicSystem.Appointments
                                     "hh:mm:ss tt",
                                     CultureInfo.InvariantCulture
                                 );
+
+
+            start = date.Date.AddHours(start.Hour).AddMinutes(start.Minute).AddSeconds(start.Second);
+
             DateTime end = start + selectedOperation.Duration;
             End.Text = end.ToString("hh:mm:ss tt");
+
+            //DateTime startSchedule = date
+            //                    .AddHours(start.Hour)
+            //                    .AddMinutes(start.Minute);
+            //DateTime endSchedule = startSchedule + selectedOperation.Duration;
+            getDoctor();
+            if (comboDoctor.SelectedIndex == -1)
+            {
+
+                comboDoctor.Items.Clear();
+                List<Doctor> availableDoctor = appointmentRepository.getAvailableDoctors(selectedOperation, start.ToString("yyyy-MM-dd HH:mm:ss"), end.ToString("yyyy-MM-dd HH:mm:ss"));
+                if (availableDoctor != null && availableDoctor.Count != 0)
+                {
+                    foreach (Doctor doctor in availableDoctor)
+                    {
+                        comboDoctor.Items.Add(doctor.DoctorID + "  |  " + doctor.DoctorLastName + ", " + doctor.DoctorFirstName + " " + doctor.DoctorMiddleName);
+                    }
+                }
+                else
+                {
+                    comboDoctor.Items.Add("No Doctor Available");
+                }
+                comboDoctor.SelectedIndex = 0;
+            }
+            if (comboRoom.SelectedIndex == -1)
+            {
+                comboRoom.Items.Clear();
+                List<Room> availableRoom = appointmentRepository.getRoomAvailable(selectedOperation, start.ToString("yyyy-MM-dd HH:mm:ss"), end.ToString("yyyy-MM-dd HH:mm:ss"));
+                availableRoom.ForEach(room => comboRoom.Items.Add(room.RoomNo + "  |  " + room.Roomtype));
+
+                if (availableRoom.Count() == 0) comboRoom.Items.Add("No Room Available");
+                comboRoom.SelectedIndex = 0;
+            }
+
+        }
+
+        private void guna2Panel1_SizeChanged(object sender, EventArgs e)
+        {
+         
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            scheduleDate.Value = DateTime.Now;
+            startC.SelectedIndex = -1;
+            End.Text = "";
+            TotalBill.Text = "";
+            text.Clear();
+            tbListOperation.Text = "";
+            selectedPatient = null;
+            selectedDoctor = null;
+            selectedOperation = null;
+            PatientAppointmentNo.Text = "";
+            lastSelected = null;
+            patientSchedules.Clear();
+            comboRoom.Items.Clear();
+            comboOperation.Items.Clear();
+            comboDoctor.Items.Clear();
+            comboPatientID.SelectedIndex = -1;
+            fName.Text = "";
+            mName.Text = "";
+            lName.Text = "";
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            scheduleDate.Value = DateTime.Now;
+            startC.SelectedIndex = -1;
+            selectedDoctor = null;
+            selectedOperation = null;
+            comboOperation.SelectedIndex = -1;
+            //lastSelected = null;
+            End.Text = "";
+            comboRoom.Items.Clear();
+            comboDoctor.Items.Clear();
+        }
+
+        private void AddAppointmentForm_SizeChanged(object sender, EventArgs e)
+        {
+            mP.Location = new Point(fP.Right + 25, mP.Location.Y);
+            lP.Location = new Point(mP.Right + 25, lP.Location.Y);
+            p1.Location = new Point((tbListOperation.Left - p1.Width) - 20, p1.Location.Y);
+            p2.Location = new Point((tbListOperation.Left - p2.Width) - 20, p2.Location.Y);
+            p3.Location = new Point((tbListOperation.Left - p3.Width) - 20, p3.Location.Y);
+            p4.Location = new Point((tbListOperation.Left - p4.Width) - 20, p4.Location.Y);
+            p5.Location = new Point((tbListOperation.Left - p5.Width) - 90, p5.Location.Y);
+            p1.Invalidate();
+            p2.Invalidate();
+            p3.Invalidate();
+            p4.Invalidate();
+            p5.Invalidate();
+            lP.Invalidate();
+            mP.Invalidate();
         }
     }
 }
