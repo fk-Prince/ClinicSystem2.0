@@ -310,7 +310,7 @@
             this.opPrice.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.opPrice.Location = new System.Drawing.Point(186, 2);
             this.opPrice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.opPrice.MaxLength = 8;
+            this.opPrice.MaxLength = 10;
             this.opPrice.Name = "opPrice";
             this.opPrice.PlaceholderText = "";
             this.opPrice.SelectedText = "";
@@ -471,7 +471,7 @@
             this.addOperationPanel.Controls.Add(this.label8);
             this.addOperationPanel.Controls.Add(this.pictureCode);
             this.addOperationPanel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(168)))), ((int)(((byte)(166)))));
-            this.addOperationPanel.Location = new System.Drawing.Point(-459, 139);
+            this.addOperationPanel.Location = new System.Drawing.Point(-460, 139);
             this.addOperationPanel.Name = "addOperationPanel";
             this.addOperationPanel.Size = new System.Drawing.Size(460, 560);
             this.addOperationPanel.TabIndex = 10;
@@ -526,7 +526,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(255)))), ((int)(((byte)(252)))));
             this.panel1.Controls.Add(this.flowLayout);
-            this.panel1.Location = new System.Drawing.Point(0, 131);
+            this.panel1.Location = new System.Drawing.Point(-1, 131);
             this.panel1.MaximumSize = new System.Drawing.Size(1920, 1080);
             this.panel1.MinimumSize = new System.Drawing.Size(1088, 588);
             this.panel1.Name = "panel1";
