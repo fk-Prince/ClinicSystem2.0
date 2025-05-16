@@ -58,6 +58,11 @@ namespace ClinicSystem
             //tab.Add(Gender);
             tab.Add(ContactNo);
 
+            foreach (Control control in tab)
+            {
+                control.PreviewKeyDown += taab;
+            }
+
             appx = ClientSize.Width;
             appPanel.Location = new Point(ClientSize.Width, appPanel.Location.Y);
             BirthDate.Value = DateTime.Now;
@@ -676,5 +681,9 @@ namespace ClinicSystem
             comboRoom.Items.Clear();
             comboDoctor.Items.Clear();
         }
+
+     
+
+
     }
 }

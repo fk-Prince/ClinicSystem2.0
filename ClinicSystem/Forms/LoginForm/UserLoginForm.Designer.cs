@@ -31,13 +31,17 @@
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.bgClinic_img = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.logo_img = new System.Windows.Forms.PictureBox();
             this.dentalClinic_label = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.QuantumCare_Label = new System.Windows.Forms.Label();
             this.address_label = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.passwordToggle = new System.Windows.Forms.Button();
+            this.Password = new Guna.UI2.WinForms.Guna2TextBox();
             this.Username = new Guna.UI2.WinForms.Guna2TextBox();
             this.staffPortal_label = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -46,17 +50,13 @@
             this.lblPassword = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
-            this.bgClinic_img = new System.Windows.Forms.PictureBox();
-            this.logo_img = new System.Windows.Forms.PictureBox();
-            this.passwordToggle = new System.Windows.Forms.Button();
-            this.Password = new Guna.UI2.WinForms.Guna2TextBox();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bgClinic_img)).BeginInit();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.logo_img)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bgClinic_img)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.logo_img)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -82,6 +82,19 @@
             this.panel5.TabIndex = 105;
             this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
+            // bgClinic_img
+            // 
+            this.bgClinic_img.BackColor = System.Drawing.Color.Transparent;
+            this.bgClinic_img.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bgClinic_img.Image = global::ClinicSystem.Properties.Resources.bg_clinic;
+            this.bgClinic_img.Location = new System.Drawing.Point(0, 0);
+            this.bgClinic_img.Name = "bgClinic_img";
+            this.bgClinic_img.Size = new System.Drawing.Size(476, 167);
+            this.bgClinic_img.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.bgClinic_img.TabIndex = 0;
+            this.bgClinic_img.TabStop = false;
+            this.bgClinic_img.Visible = false;
+            // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(229)))), ((int)(((byte)(220)))));
@@ -94,6 +107,17 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(476, 131);
             this.panel4.TabIndex = 102;
+            // 
+            // logo_img
+            // 
+            this.logo_img.BackColor = System.Drawing.Color.Transparent;
+            this.logo_img.Image = global::ClinicSystem.Properties.Resources.Logo;
+            this.logo_img.Location = new System.Drawing.Point(24, 12);
+            this.logo_img.Name = "logo_img";
+            this.logo_img.Size = new System.Drawing.Size(104, 103);
+            this.logo_img.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.logo_img.TabIndex = 0;
+            this.logo_img.TabStop = false;
             // 
             // dentalClinic_label
             // 
@@ -180,6 +204,50 @@
             this.guna2Button1.Text = "Login";
             this.guna2Button1.Click += new System.EventHandler(this.LoginButton_Click);
             // 
+            // passwordToggle
+            // 
+            this.passwordToggle.BackColor = System.Drawing.Color.White;
+            this.passwordToggle.FlatAppearance.BorderSize = 0;
+            this.passwordToggle.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.passwordToggle.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.passwordToggle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.passwordToggle.ForeColor = System.Drawing.Color.White;
+            this.passwordToggle.Image = global::ClinicSystem.Properties.Resources.shows;
+            this.passwordToggle.Location = new System.Drawing.Point(413, 230);
+            this.passwordToggle.Name = "passwordToggle";
+            this.passwordToggle.Size = new System.Drawing.Size(31, 24);
+            this.passwordToggle.TabIndex = 3;
+            this.passwordToggle.TabStop = false;
+            this.passwordToggle.UseVisualStyleBackColor = false;
+            this.passwordToggle.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // Password
+            // 
+            this.Password.BackColor = System.Drawing.Color.Transparent;
+            this.Password.BorderRadius = 18;
+            this.Password.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.Password.DefaultText = "a";
+            this.Password.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.Password.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.Password.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.Password.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.Password.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.Password.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Password.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Password.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.Password.IconLeftSize = new System.Drawing.Size(50, 50);
+            this.Password.IconRight = global::ClinicSystem.Properties.Resources.shows;
+            this.Password.IconRightOffset = new System.Drawing.Point(10, 0);
+            this.Password.Location = new System.Drawing.Point(29, 225);
+            this.Password.Margin = new System.Windows.Forms.Padding(0);
+            this.Password.Name = "Password";
+            this.Password.PlaceholderText = "Password ...";
+            this.Password.SelectedText = "";
+            this.Password.Size = new System.Drawing.Size(424, 36);
+            this.Password.TabIndex = 106;
+            this.Password.TextOffset = new System.Drawing.Point(10, 0);
+            this.Password.UseSystemPasswordChar = true;
+            // 
             // Username
             // 
             this.Username.BackColor = System.Drawing.Color.Transparent;
@@ -240,6 +308,7 @@
             this.guna2Button3.Name = "guna2Button3";
             this.guna2Button3.Size = new System.Drawing.Size(136, 34);
             this.guna2Button3.TabIndex = 111;
+            this.guna2Button3.TabStop = false;
             this.guna2Button3.Text = "EXIT";
             this.guna2Button3.Click += new System.EventHandler(this.Exit_Click);
             // 
@@ -294,74 +363,6 @@
             this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
             this.guna2BorderlessForm1.TransparentWhileDrag = true;
             // 
-            // bgClinic_img
-            // 
-            this.bgClinic_img.BackColor = System.Drawing.Color.Transparent;
-            this.bgClinic_img.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bgClinic_img.Image = global::ClinicSystem.Properties.Resources.bg_clinic;
-            this.bgClinic_img.Location = new System.Drawing.Point(0, 0);
-            this.bgClinic_img.Name = "bgClinic_img";
-            this.bgClinic_img.Size = new System.Drawing.Size(476, 167);
-            this.bgClinic_img.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.bgClinic_img.TabIndex = 0;
-            this.bgClinic_img.TabStop = false;
-            this.bgClinic_img.Visible = false;
-            // 
-            // logo_img
-            // 
-            this.logo_img.BackColor = System.Drawing.Color.Transparent;
-            this.logo_img.Image = global::ClinicSystem.Properties.Resources.Logo;
-            this.logo_img.Location = new System.Drawing.Point(24, 12);
-            this.logo_img.Name = "logo_img";
-            this.logo_img.Size = new System.Drawing.Size(104, 103);
-            this.logo_img.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.logo_img.TabIndex = 0;
-            this.logo_img.TabStop = false;
-            // 
-            // passwordToggle
-            // 
-            this.passwordToggle.BackColor = System.Drawing.Color.White;
-            this.passwordToggle.FlatAppearance.BorderSize = 0;
-            this.passwordToggle.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.passwordToggle.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.passwordToggle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.passwordToggle.ForeColor = System.Drawing.Color.White;
-            this.passwordToggle.Image = global::ClinicSystem.Properties.Resources.shows;
-            this.passwordToggle.Location = new System.Drawing.Point(413, 230);
-            this.passwordToggle.Name = "passwordToggle";
-            this.passwordToggle.Size = new System.Drawing.Size(31, 24);
-            this.passwordToggle.TabIndex = 3;
-            this.passwordToggle.TabStop = false;
-            this.passwordToggle.UseVisualStyleBackColor = false;
-            this.passwordToggle.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // Password
-            // 
-            this.Password.BackColor = System.Drawing.Color.Transparent;
-            this.Password.BorderRadius = 18;
-            this.Password.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.Password.DefaultText = "a";
-            this.Password.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.Password.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.Password.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.Password.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.Password.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.Password.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Password.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Password.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.Password.IconLeftSize = new System.Drawing.Size(50, 50);
-            this.Password.IconRight = global::ClinicSystem.Properties.Resources.shows;
-            this.Password.IconRightOffset = new System.Drawing.Point(10, 0);
-            this.Password.Location = new System.Drawing.Point(29, 225);
-            this.Password.Margin = new System.Windows.Forms.Padding(0);
-            this.Password.Name = "Password";
-            this.Password.PlaceholderText = "Password ...";
-            this.Password.SelectedText = "";
-            this.Password.Size = new System.Drawing.Size(424, 36);
-            this.Password.TabIndex = 106;
-            this.Password.TextOffset = new System.Drawing.Point(10, 0);
-            this.Password.UseSystemPasswordChar = true;
-            // 
             // LoginUserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -374,13 +375,13 @@
             this.Text = "Form1";
             this.panel1.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bgClinic_img)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.logo_img)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bgClinic_img)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.logo_img)).EndInit();
             this.ResumeLayout(false);
 
         }

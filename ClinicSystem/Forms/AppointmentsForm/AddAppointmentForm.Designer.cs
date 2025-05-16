@@ -205,8 +205,9 @@
             // comboPatientID
             // 
             this.comboPatientID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboPatientID.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboPatientID.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.comboPatientID.BackColor = System.Drawing.Color.White;
-            this.comboPatientID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboPatientID.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.comboPatientID.FormattingEnabled = true;
             this.comboPatientID.IntegralHeight = false;
@@ -218,7 +219,9 @@
             this.comboPatientID.TabIndex = 10001;
             this.comboPatientID.TabStop = false;
             this.comboPatientID.SelectedIndexChanged += new System.EventHandler(this.comboPatientID_SelectedIndexChanged);
+            this.comboPatientID.TextChanged += new System.EventHandler(this.comboPatientID_TextChanged);
             this.comboPatientID.Click += new System.EventHandler(this.close);
+            this.comboPatientID.KeyDown += new System.Windows.Forms.KeyEventHandler(this.comboPatientID_KeyDown);
             // 
             // textBox1
             // 

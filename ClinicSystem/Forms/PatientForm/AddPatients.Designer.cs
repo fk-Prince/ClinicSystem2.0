@@ -171,7 +171,7 @@
             this.patPanel.Controls.Add(this.panelAge);
             this.patPanel.Controls.Add(this.panelLastName);
             this.patPanel.Controls.Add(this.panelMidName);
-            this.patPanel.Location = new System.Drawing.Point(14, 222);
+            this.patPanel.Location = new System.Drawing.Point(14, 250);
             this.patPanel.MaximumSize = new System.Drawing.Size(1500, 1080);
             this.patPanel.MinimumSize = new System.Drawing.Size(1055, 400);
             this.patPanel.Name = "patPanel";
@@ -498,7 +498,7 @@
             // 
             this.Age.BorderRadius = 5;
             this.Age.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.Age.DefaultText = "0";
+            this.Age.DefaultText = "";
             this.Age.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.Age.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.Age.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -621,7 +621,7 @@
             this.MiddleName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MiddleName.ForeColor = System.Drawing.Color.Black;
             this.MiddleName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.MiddleName.Location = new System.Drawing.Point(140, 3);
+            this.MiddleName.Location = new System.Drawing.Point(140, 4);
             this.MiddleName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MiddleName.MaxLength = 100;
             this.MiddleName.Name = "MiddleName";
@@ -668,7 +668,7 @@
             this.appPanel.Controls.Add(this.Add);
             this.appPanel.Controls.Add(this.tbListOperation);
             this.appPanel.Controls.Add(this.p1);
-            this.appPanel.Location = new System.Drawing.Point(1086, 208);
+            this.appPanel.Location = new System.Drawing.Point(1086, 236);
             this.appPanel.MaximumSize = new System.Drawing.Size(1920, 1080);
             this.appPanel.MinimumSize = new System.Drawing.Size(1055, 432);
             this.appPanel.Name = "appPanel";
@@ -835,6 +835,7 @@
             this.scheduleDate.Name = "scheduleDate";
             this.scheduleDate.Size = new System.Drawing.Size(269, 29);
             this.scheduleDate.TabIndex = 10002;
+            this.scheduleDate.TabStop = false;
             this.scheduleDate.Value = new System.DateTime(2025, 4, 24, 19, 16, 22, 663);
             // 
             // textBox16
@@ -1293,7 +1294,7 @@
             this.panel10.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(230)))), ((int)(((byte)(222)))));
             this.panel10.Controls.Add(this.label1);
-            this.panel10.Location = new System.Drawing.Point(0, 0);
+            this.panel10.Location = new System.Drawing.Point(-1, 0);
             this.panel10.MaximumSize = new System.Drawing.Size(1920, 103);
             this.panel10.MinimumSize = new System.Drawing.Size(1080, 103);
             this.panel10.Name = "panel10";
@@ -1338,6 +1339,7 @@
             this.Name = "AddPatients";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddPatient";
+
             this.panel1.ResumeLayout(false);
             this.patPanel.ResumeLayout(false);
             this.panelGender.ResumeLayout(false);

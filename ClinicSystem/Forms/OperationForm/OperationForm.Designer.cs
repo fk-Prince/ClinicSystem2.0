@@ -310,7 +310,7 @@
             this.opPrice.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.opPrice.Location = new System.Drawing.Point(186, 2);
             this.opPrice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.opPrice.MaxLength = 9;
+            this.opPrice.MaxLength = 8;
             this.opPrice.Name = "opPrice";
             this.opPrice.PlaceholderText = "";
             this.opPrice.SelectedText = "";
@@ -540,7 +540,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayout.AutoScroll = true;
             this.flowLayout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(255)))), ((int)(((byte)(252)))));
-            this.flowLayout.Location = new System.Drawing.Point(-1, 0);
+            this.flowLayout.Location = new System.Drawing.Point(0, 0);
             this.flowLayout.MaximumSize = new System.Drawing.Size(1920, 1080);
             this.flowLayout.MinimumSize = new System.Drawing.Size(1088, 588);
             this.flowLayout.Name = "flowLayout";

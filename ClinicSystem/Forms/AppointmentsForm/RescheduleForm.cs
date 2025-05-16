@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
+using ClinicSystem.PatientForm;
 using ClinicSystem.Rooms;
 using ClinicSystem.UserLoginForm;
 
@@ -20,43 +21,91 @@ namespace ClinicSystem.Appointments
             activeAppointments = appointmentRepository.getReAppointment();
           
             DateTime currentDate = DateTime.Now;
-
+            AutoCompleteStringCollection auto = new AutoCompleteStringCollection();
             foreach (Appointment appointment in activeAppointments)
             {
-                comboAppointment.Items.Add(appointment.AppointmentDetailNo);
-            }
+                comboAppointment.Items.Add(appointment.AppointmentDetailNo + " | " + appointment.Patient.Lastname + ", " + appointment.Patient.Firstname + " " + appointment.Patient.Middlename);
+                auto.Add(appointment.AppointmentDetailNo + " | " + appointment.Patient.Lastname);
+                auto.Add(appointment.Patient.Patientid + " | " + appointment.Patient.Lastname);
+                auto.Add(appointment.Patient.Lastname + ", " + appointment.Patient.Firstname + $" {appointment.Patient.Middlename} | " + appointment.Patient.Patientid);
+            }     
+            comboAppointment.AutoCompleteCustomSource = auto;
             dateSchedulePicker.Value = DateTime.Now;
+        }
+        private void comboAppointment_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (selectedAppointment != null)
+                {
+                    display(selectedAppointment);
+                }
+                else
+                {
+                    clear();
+                }
+            }
+        }
+        private void comboAppointment_TextChanged(object sender, EventArgs e)
+        {
+            string id = comboAppointment.Text;
+            if (string.IsNullOrWhiteSpace(id)) return;
+
+            selectedAppointment = activeAppointments.FirstOrDefault(p =>
+                p.Patient.Patientid.Equals(id.Split('|')[0].Trim(), StringComparison.OrdinalIgnoreCase) ||
+                p.AppointmentDetailNo.ToString().Equals(id.Split('|')[0].Trim(), StringComparison.OrdinalIgnoreCase) ||
+                p.Patient.Lastname.Equals(id.Split(',')[0].Trim(), StringComparison.OrdinalIgnoreCase)
+            );
+        }
+
+        private void clear()
+        {
+            StartTime.Enabled = false;
+            doctorL.Text = "";
+            tbPname.Text = "";
+            tbOname.Text = "";
+            roomNo.Text = "";
+            dateSchedulePicker.Value = DateTime.Now;
+            StartTime.SelectedIndex = -1;
+            EndTime.Text = "";
+        }
+
+        private void display(Appointment selectedAppointment)
+        {
+            comboAppointment.Text = selectedAppointment.AppointmentDetailNo.ToString();
+            string fullname = $"{selectedAppointment.Patient.Firstname}  " +
+                                 $"{selectedAppointment.Patient.Middlename}  " +
+                                 $"{selectedAppointment.Patient.Lastname}";
+            tbPname.Text = fullname;
+            tbOname.Text = selectedAppointment.Operation.OperationName;
+
+
+            string dfullname = $"{selectedAppointment.Doctor.DoctorFirstName} " +
+                               $"{selectedAppointment.Doctor.DoctorMiddleName}  " +
+                               $"{selectedAppointment.Doctor.DoctorLastName}";
+            doctorL.Text = dfullname;
+            roomNo.Text = selectedAppointment.RoomNo.ToString();
+            StartTime.Enabled = true;
+            dateSchedulePicker.Value = selectedAppointment.StartTime;
+            StartTime.SelectedItem = selectedAppointment.StartTime.ToString("hh:mm:ss tt");
+            EndTime.Text = selectedAppointment.EndTime.ToString("hh:mm:ss tt");
+            StartTime.Enabled = true;
         }
         private void comboAppointment_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboAppointment.SelectedIndex == -1) return;
-            int comboA = int.Parse(comboAppointment.SelectedItem.ToString());
+            int comboA = int.Parse(comboAppointment.SelectedItem.ToString().Split('|')[0].Trim());
             foreach (Appointment selected in activeAppointments)
             {
                 if (selected.AppointmentDetailNo == comboA)
                 {
                     selectedAppointment = selected;
+                    break;
                 }
             }
             if (selectedAppointment != null)
             {
-
-                string fullname = $"{selectedAppointment.Patient.Firstname}  " +
-                                  $"{selectedAppointment.Patient.Middlename}  " +
-                                  $"{selectedAppointment.Patient.Lastname}";
-                tbPname.Text = fullname;
-                tbOname.Text = selectedAppointment.Operation.OperationName;
-
-
-                string dfullname = $"{selectedAppointment.Doctor.DoctorFirstName} " +
-                                   $"{selectedAppointment.Doctor.DoctorMiddleName}  " +
-                                   $"{selectedAppointment.Doctor.DoctorLastName}";
-                doctorL.Text = dfullname;
-                roomNo.Text = selectedAppointment.RoomNo.ToString();
-   
-                dateSchedulePicker.Value = selectedAppointment.StartTime;
-                StartTime.SelectedItem = selectedAppointment.StartTime.ToString("hh:mm:ss tt");
-                EndTime.Text = selectedAppointment.EndTime.ToString("hh:mm:ss tt");
+                display(selectedAppointment);
             }
         }
 
@@ -126,6 +175,9 @@ namespace ClinicSystem.Appointments
                 PrintAppointmentReceipt prrr = new PrintAppointmentReceipt(app.Patient, temp, "Reappointment");
                 prrr.print();
                 MessagePromp.MainShowMessage(this, "Appointment is updated.", MessageBoxIcon.Information);
+                clear();
+                comboAppointment.SelectedIndex = -1;
+                comboAppointment.Text = "";
             }
 
         }

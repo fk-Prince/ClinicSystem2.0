@@ -38,11 +38,14 @@ namespace ClinicSystem.Appointments
             rooms = roomRepository.getRooms();
             operationList = operationRepository.getOperations();
 
+            AutoCompleteStringCollection auto = new AutoCompleteStringCollection();   
             foreach (Patient patient in patientList)
             {
-                comboPatientID.Items.Add(patient.Patientid);
+                comboPatientID.Items.Add(patient.Patientid + " | " + patient.Lastname);
+                auto.Add(patient.Patientid + " | " + patient.Lastname);
+                auto.Add(patient.Lastname + ", " + patient.Firstname + $" {patient.Middlename} | " + patient.Patientid);
             }
-
+            comboPatientID.AutoCompleteCustomSource = auto;
 
             scheduleDate.Value = DateTime.Now;
         }
@@ -69,13 +72,52 @@ namespace ClinicSystem.Appointments
                 tbListOperation.Text = "";
                 patientSchedules.Clear();
             }
-            selectedPatient = patientList.FirstOrDefault(p => p.Patientid.Equals(comboPatientID.SelectedItem.ToString()));
+           
+            selectedPatient = patientList.FirstOrDefault(p => p.Patientid.Equals(comboPatientID.SelectedItem.ToString().Split('|')[0].Trim()));
             fName.Text = selectedPatient.Firstname;
             mName.Text = selectedPatient.Middlename;
             lName.Text = selectedPatient.Lastname;
             string opNumber = appointmentRepository.getAppointmentDetail();
             PatientAppointmentNo.Text = opNumber;
             operationList.ForEach(op => comboOperation.Items.Add(op.OperationCode + "  |  " + op.OperationName));
+        }
+        private void comboPatientID_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (selectedPatient != null)
+                {
+                    fName.Text = selectedPatient.Firstname;
+                    mName.Text = selectedPatient.Middlename;
+                    lName.Text = selectedPatient.Lastname;
+                    comboPatientID.Text = selectedPatient.Patientid;
+                    comboOperation.Items.Clear();
+                    operationList.ForEach(op => comboOperation.Items.Add(op.OperationCode + "  |  " + op.OperationName));
+                    string opNumber = appointmentRepository.getAppointmentDetail();
+                    PatientAppointmentNo.Text = opNumber;
+                } else
+                {
+                    fName.Text = "";
+                    mName.Text = "";
+                    lName.Text = "";
+                }
+            }
+        }
+        private void comboPatientID_TextChanged(object sender, EventArgs e)
+        {
+            string id = comboPatientID.Text;
+            if (string.IsNullOrWhiteSpace(id)) return;
+
+            selectedPatient = patientList.FirstOrDefault(p =>
+                p.Patientid.Equals(id.Split('|')[0].Trim(), StringComparison.OrdinalIgnoreCase) ||
+                p.Lastname.Equals(id.Split(',')[0].Trim(), StringComparison.OrdinalIgnoreCase)
+            );
+            if (selectedPatient != null)
+            {
+                fName.Text = selectedPatient.Firstname;
+                mName.Text = selectedPatient.Middlename;
+                lName.Text = selectedPatient.Lastname;    
+            }
         }
 
         // Operation Selected
@@ -435,6 +477,7 @@ namespace ClinicSystem.Appointments
             comboOperation.Items.Clear();
             comboDoctor.Items.Clear();
             comboPatientID.SelectedIndex = -1;
+            comboPatientID.Text = "";
             fName.Text = "";
             mName.Text = "";
             lName.Text = "";
@@ -470,5 +513,7 @@ namespace ClinicSystem.Appointments
             lP.Invalidate();
             mP.Invalidate();
         }
+
+        
     }
 }

@@ -23,13 +23,46 @@ namespace ClinicSystem.Forms.AppointmentsForm
         {
             InitializeComponent();
             missedAppointments = appointmentRepository.getMissedAppointments();
-            missedAppointments.ForEach(e => comboAppointment.Items.Add(e.AppointmentDetailNo));
+            AutoCompleteStringCollection auto = new AutoCompleteStringCollection();
+            foreach (Appointment appointment in missedAppointments)
+            {
+                comboAppointment.Items.Add(appointment.AppointmentDetailNo + " | "  + appointment.Patient.Lastname + ", " +
+                    appointment.Patient.Firstname + " " + appointment.Patient.Middlename);
+                auto.Add(appointment.AppointmentDetailNo + " | " + appointment.Patient.Lastname);
+                auto.Add(appointment.Patient.Lastname + ", " + appointment.Patient.Firstname + $" {appointment.Patient.Middlename} | " + appointment.Patient.Patientid);
+            }
+            comboAppointment.AutoCompleteCustomSource = auto;
         }
+        private void comboAppointment_TextChanged(object sender, EventArgs e)
+        {
+            string id = comboAppointment.Text;
+            if (string.IsNullOrWhiteSpace(id)) return;
+
+            selectedAppointment = missedAppointments.FirstOrDefault(p =>
+                p.AppointmentDetailNo.ToString().Equals(id.Split('|')[0].Trim(), StringComparison.OrdinalIgnoreCase) ||
+                p.Patient.Lastname.Equals(id.Split(',')[0].Trim(), StringComparison.OrdinalIgnoreCase)
+            );
+        }
+
+        private void comboAppointment_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (selectedAppointment != null)
+                {
+                    display(selectedAppointment);
+                }else
+                {
+                    reset();
+                }
+            }
+        }
+
 
         private void comboAppointment_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboAppointment.SelectedIndex == -1) return;
-            int comboA = int.Parse(comboAppointment.SelectedItem.ToString());
+            int comboA = int.Parse(comboAppointment.SelectedItem.ToString().Split('|')[0].Trim());
             foreach (Appointment selected in missedAppointments)
             {
                 if (selected.AppointmentDetailNo == comboA)
@@ -39,26 +72,43 @@ namespace ClinicSystem.Forms.AppointmentsForm
             }
             if (selectedAppointment != null)
             {
-
-                string fullname = $"{selectedAppointment.Patient.Firstname}  " +
-                                  $"{selectedAppointment.Patient.Middlename}  " +
-                                  $"{selectedAppointment.Patient.Lastname}";
-                tbPname.Text = fullname;
-                tbOname.Text = selectedAppointment.Operation.OperationName;
-
-
-                string dfullname = $"{selectedAppointment.Doctor.DoctorFirstName} " +
-                                   $"{selectedAppointment.Doctor.DoctorMiddleName}  " +
-                                   $"{selectedAppointment.Doctor.DoctorLastName}";
-                doctorL.Text = dfullname;
-                roomNo.Text = selectedAppointment.RoomNo.ToString();
-
-                dateSchedulePicker.Value = selectedAppointment.StartTime;
-                StartTime.SelectedItem = selectedAppointment.StartTime.ToString("hh:mm:ss tt");
-                EndTime.Text = selectedAppointment.EndTime.ToString("hh:mm:ss tt");
-                total.Text = selectedAppointment.Total.ToString("F2");
-                totalFee.Text = (selectedAppointment.SubTotal * 0.2).ToString("F2");
+                display(selectedAppointment);
             }
+        }
+        private void display(Appointment selectedAppointmemnt)
+        {
+            comboAppointment.Text = selectedAppointment.AppointmentDetailNo.ToString();
+            string fullname = $"{selectedAppointment.Patient.Firstname}  " +
+                                 $"{selectedAppointment.Patient.Middlename}  " +
+                                 $"{selectedAppointment.Patient.Lastname}";
+            tbPname.Text = fullname;
+            tbOname.Text = selectedAppointment.Operation.OperationName;
+            string dfullname = $"{selectedAppointment.Doctor.DoctorFirstName} " +
+                               $"{selectedAppointment.Doctor.DoctorMiddleName}  " +
+                               $"{selectedAppointment.Doctor.DoctorLastName}";
+            doctorL.Text = dfullname;
+            roomNo.Text = selectedAppointment.RoomNo.ToString();
+            dateSchedulePicker.Value = selectedAppointment.StartTime;
+            StartTime.SelectedItem = selectedAppointment.StartTime.ToString("hh:mm:ss tt");
+            EndTime.Text = selectedAppointment.EndTime.ToString("hh:mm:ss tt");
+            total.Text = selectedAppointment.Total.ToString("F2");
+            totalFee.Text = (selectedAppointment.SubTotal * 0.2).ToString("F2");
+            StartTime.Enabled = true;
+        }
+
+        private void reset()
+        {
+            doctorL.Text = "";
+            tbPname.Text = "";
+            tbOname.Text = "";
+            roomNo.Text = "";
+            dateSchedulePicker.Value = DateTime.Now;
+            StartTime.SelectedIndex = -1;
+            EndTime.Text = "";
+            reason.Text = "";
+            total.Text = "";
+            totalFee.Text = "";
+            StartTime.Enabled = false;
         }
 
         private void updateAppointmentB_Click(object sender, EventArgs e)
@@ -102,21 +152,28 @@ namespace ClinicSystem.Forms.AppointmentsForm
             {
                 List<Appointment> temp = new List<Appointment>();
                 temp.Add(app);
-                for (int i = 0; i < missedAppointments.Count; i++)
-                {
-                    Appointment a = missedAppointments[i];
-                    if (a.AppointmentDetailNo == app.AppointmentDetailNo)
-                    {
-                        missedAppointments[i] = app;
-                        selectedAppointment = app;
-                        break;
-                    }
-                }
+                //for (int i = 0; i < missedAppointments.Count; i++)
+                //{
+                //    Appointment a = missedAppointments[i];
+                //    if (a.AppointmentDetailNo == app.AppointmentDetailNo)
+                //    {
+                //        missedAppointments[i] = app;
+                //        selectedAppointment = app;
+                //        break;
+                //    }
+                //}
+                missedAppointments.Remove(app);
+                comboAppointment.Items.RemoveAt(comboAppointment.SelectedIndex);
                 PrintAppointmentReceipt prrr = new PrintAppointmentReceipt(app.Patient, temp, "Penalty");
                 prrr.print();
                 MessagePromp.MainShowMessage(this, "Appointment is updated.", MessageBoxIcon.Information);
+                reset();
+                comboAppointment.SelectedIndex = -1;
+                comboAppointment.Text = "";
             }
         }
+
+      
 
         private Appointment isAppointmentValid()
         {
@@ -181,5 +238,7 @@ namespace ClinicSystem.Forms.AppointmentsForm
             //panel2.Invalidate();
         
         }
+
+       
     }
 }

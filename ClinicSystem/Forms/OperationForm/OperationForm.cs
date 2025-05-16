@@ -46,6 +46,11 @@ namespace ClinicSystem
             tab.Add(comboRoomType);
             tab.Add(opDescription);
             tab.Add(guna2Button2);
+
+            foreach (Control control in tab)
+            {
+                control.PreviewKeyDown += taab;
+            }
         }
 
 
@@ -449,6 +454,7 @@ namespace ClinicSystem
             opDescription.Text = "";
             opPrice.Text = "";
             opDuration.Text = "";
+            comboRoomType.SelectedIndex = -1;
             timerout.Start();
             operationlist = operationRepository.getOperationOnDoctors();
             displayOperations(operationlist, "");

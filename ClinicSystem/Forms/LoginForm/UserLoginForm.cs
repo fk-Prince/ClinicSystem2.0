@@ -61,10 +61,10 @@ namespace ClinicSystem
         {
         
             panel4.BackColor = ColorTranslator.FromHtml("#A6E5DC");
-            dentalClinic_label.Font = new Font("Lucida Bright", 20, FontStyle.Italic);
-            QuantumCare_Label.Font = new Font("Matura MT Script Capitals", 30, FontStyle.Bold | FontStyle.Italic | FontStyle.Underline);
+            //dentalClinic_label.Font = new Font("Lucida Bright", 20, FontStyle.Italic);
+            //QuantumCare_Label.Font = new Font("Matura MT Script Capitals", 30, FontStyle.Bold | FontStyle.Italic | FontStyle.Underline);
             panel3.Region = Region.FromHrgn(dll.CreateRoundRectRgn(0, 0, panel3.Width, panel3.Height, 30, 30));
-            staffPortal_label.Font = new Font("Lucida Bright", 26, FontStyle.Bold);
+            //staffPortal_label.Font = new Font("Lucida Bright", 26, FontStyle.Bold);
             staffPortal_label.ForeColor = ColorTranslator.FromHtml("#6FA8A6");
            
          

@@ -35,10 +35,14 @@ namespace ClinicSystem.Doctors
             tab.Add(Address);
             tab.Add(dateHired);
             tab.Add(Age);
-            //tab.Add(Gender); 
             tab.Add(contactNumber);
             tab.Add(enterPIN);
             tab.Add(confirmedPIN);
+
+            foreach (Control control in tab)
+            {
+                control.PreviewKeyDown += taab;
+            }
         }
         private void TextOnly(object sender, KeyPressEventArgs e)
         {
@@ -105,7 +109,6 @@ namespace ClinicSystem.Doctors
                 string.IsNullOrWhiteSpace(lastName.Text) ||
                 string.IsNullOrWhiteSpace(Address.Text) ||
                 string.IsNullOrWhiteSpace(Age.Text) ||
-                
                 string.IsNullOrWhiteSpace(contactNumber.Text) ||
                 string.IsNullOrWhiteSpace(enterPIN.Text) ||
                 string.IsNullOrWhiteSpace(confirmedPIN.Text)) {
