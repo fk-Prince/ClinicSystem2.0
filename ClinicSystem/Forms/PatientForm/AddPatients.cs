@@ -266,7 +266,7 @@ namespace ClinicSystem
 
             if (operationList != null && operationList.Count != 0)
             {
-                operationList.ForEach(op => comboOperation.Items.Add(op.OperationCode + "  |  " + op.OperationName));
+                operationList.ForEach(op => comboOperation.Items.Add(op.OperationCode + "     |     " + op.OperationName));
             }
             else
             {
@@ -315,7 +315,7 @@ namespace ClinicSystem
             {
                 foreach (Doctor doctor in doctorList)
                 {
-                    comboDoctor.Items.Add(doctor.DoctorID + " | " + doctor.DoctorLastName + ", " + doctor.DoctorFirstName + " " + doctor.DoctorMiddleName);
+                    comboDoctor.Items.Add(doctor.DoctorID + "   | " + doctor.DoctorLastName + ", " + doctor.DoctorFirstName + " " + doctor.DoctorMiddleName);
                 }
             }
             else
@@ -523,7 +523,7 @@ namespace ClinicSystem
                 {
                     foreach (Doctor doctor in availableDoctor)
                     {
-                        comboDoctor.Items.Add(doctor.DoctorID + "  |  " + doctor.DoctorLastName + ", " + doctor.DoctorFirstName + " " + doctor.DoctorMiddleName);
+                        comboDoctor.Items.Add(doctor.DoctorID + "   | " + doctor.DoctorLastName + ", " + doctor.DoctorFirstName + " " + doctor.DoctorMiddleName);
                     }
                 }
                 else

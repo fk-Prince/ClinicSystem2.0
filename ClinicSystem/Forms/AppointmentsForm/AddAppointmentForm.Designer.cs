@@ -167,7 +167,6 @@
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(1032, 100);
             this.guna2Panel1.TabIndex = 10102;
-            this.guna2Panel1.SizeChanged += new System.EventHandler(this.guna2Panel1_SizeChanged);
             // 
             // guna2PictureBox2
             // 

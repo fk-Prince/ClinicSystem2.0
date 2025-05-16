@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
+using System.Text;
 using System.Windows.Forms;
 using ClinicSystem.PatientForm;
 using ClinicSystem.Rooms;
@@ -79,8 +80,10 @@ namespace ClinicSystem.Appointments
             lName.Text = selectedPatient.Lastname;
             string opNumber = appointmentRepository.getAppointmentDetail();
             PatientAppointmentNo.Text = opNumber;
-            operationList.ForEach(op => comboOperation.Items.Add(op.OperationCode + "  |  " + op.OperationName));
+            operationList.ForEach(op => comboOperation.Items.Add(op.OperationCode + "     |     " + op.OperationName));
         }
+
+
         private void comboPatientID_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -133,7 +136,7 @@ namespace ClinicSystem.Appointments
             {
                 foreach (Doctor doctor in doctorList)
                 {
-                    comboDoctor.Items.Add(doctor.DoctorID + "  |  " + doctor.DoctorLastName + ", " + doctor.DoctorFirstName + " " + doctor.DoctorMiddleName);
+                    comboDoctor.Items.Add(doctor.DoctorID + "    |  " + doctor.DoctorLastName + ", " + doctor.DoctorFirstName + " " + doctor.DoctorMiddleName);
                 }
             }
             else
@@ -155,15 +158,15 @@ namespace ClinicSystem.Appointments
                 comboRoom.Items.Add("No Room Available");
                 comboRoom.SelectedIndex = 0;
             }
-
         }
+
+       
 
         // Doctor Selected
         private void comboDoctor_SelectedIndexChanged(object sender, EventArgs e)
         {
             getDoctor();
         }
-
         private void getDoctor()
         {
             if (comboDoctor.SelectedIndex == -1) return;
@@ -454,11 +457,6 @@ namespace ClinicSystem.Appointments
 
         }
 
-        private void guna2Panel1_SizeChanged(object sender, EventArgs e)
-        {
-         
-        }
-
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             scheduleDate.Value = DateTime.Now;
@@ -514,6 +512,6 @@ namespace ClinicSystem.Appointments
             mP.Invalidate();
         }
 
-        
+       
     }
 }
