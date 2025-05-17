@@ -133,7 +133,7 @@
             // 
             this.doctorPin.BorderRadius = 5;
             this.doctorPin.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.doctorPin.DefaultText = "11111";
+            this.doctorPin.DefaultText = "0977";
             this.doctorPin.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.doctorPin.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.doctorPin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -157,7 +157,7 @@
             // 
             this.doctorID.BorderRadius = 5;
             this.doctorID.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.doctorID.DefaultText = "D2025-000002";
+            this.doctorID.DefaultText = "D2025-000001";
             this.doctorID.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.doctorID.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.doctorID.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
