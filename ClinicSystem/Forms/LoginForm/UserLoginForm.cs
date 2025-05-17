@@ -43,8 +43,6 @@ namespace ClinicSystem
 
             Load += LoginUserForm_Load;
 
-           
-
             tab.Add(Username);
             tab.Add(Password);
             tab.Add(guna2Button1);
@@ -52,10 +50,7 @@ namespace ClinicSystem
             instance = this;
         }
 
-        private void data(object sender, SerialDataReceivedEventArgs e)
-        {
-            
-        }
+
 
         private void LoginUserForm_Load(object sender, EventArgs e)
         {

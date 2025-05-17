@@ -50,7 +50,7 @@ namespace ClinicSystem.MainClinic
                 increase.ForeColor = Color.Lime;
             }
             increase.Text = revenueratio.ToString() + "%";
-            tbTotalEarniings.Text = "₱ " + totalEarnings.ToString();
+            tbTotalEarniings.Text = "₱ " + totalEarnings.ToString("F2");
             panel4.Region = Region.FromHrgn(dll.CreateRoundRectRgn(0, 0, panel4.Width, panel4.Height, 50, 50));
             panel8.Region = Region.FromHrgn(dll.CreateRoundRectRgn(0, 0, panel8.Width, panel8.Height, 50, 50));
 
@@ -285,19 +285,18 @@ namespace ClinicSystem.MainClinic
         private int bv = 0;
         private void panel10_SizeChanged(object sender, EventArgs e)
         {
-            int xc, x, b = 0;
+            int xc, x = 0;
             if (ClientSize.Width >= 1500)
             {
                 bv = (panel1.Location.Y + panel1.Height) + 125;
                 x = (ClientSize.Width - rankingPanel.Width) / 2;
                 xc = 100;
-                b = 25;
                 panel4.Location = new Point(xc, bv);
             }
             else
             {
                 bv = (panel1.Location.Y + panel1.Height) + 10;
-                b = 5;
+
                 xc = 10;
                 panel4.Location = new Point(xc, bv);
                 x = panel4.Right + xc;
@@ -309,7 +308,7 @@ namespace ClinicSystem.MainClinic
             todayAppX = ClientSize.Width + 10;
             panel8.Location = new Point(xc, panel4.Bottom + 25);
             rankingPanel.Location = new Point(x, bv);
-            todayAppP.Location = new Point(todayAppX, revenueP.Bottom + 50);
+            todayAppP.Location = new Point(todayAppX, revenueP.Bottom + 30);
             settingP.Location = new Point(settingX, panel1.Bottom + 20);
             revenueP.Location = new Point(revenueX, settingP.Bottom + 20);
 
@@ -524,9 +523,9 @@ namespace ClinicSystem.MainClinic
         private void todayAppT_Tick(object sender, EventArgs e)
         {
             todayAppX -= 20;
-            if (todayAppX < (ClientSize.Width - todayAppP.Width) - 10)
+            if (todayAppX < (ClientSize.Width - todayAppP.Width) - 20)
             {
-                todayAppX = (ClientSize.Width - todayAppP.Width) - 10;
+                todayAppX = (ClientSize.Width - todayAppP.Width) - 20;
                 todayAppT.Stop();
             }
             todayAppP.Location = new Point(todayAppX, todayAppP.Location.Y);

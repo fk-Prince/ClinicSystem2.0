@@ -113,7 +113,6 @@ namespace ClinicSystem.ClinicHistory
         {
             string text = tbPatient.Text;
             displayPatientGrid(text);
-
         }
         DataTable past = new DataTable();
         DataTable upcomming = new DataTable();
@@ -132,7 +131,8 @@ namespace ClinicSystem.ClinicHistory
             pastGrid.ColumnHeadersDefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#5CA8A3");
             pastGrid.ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.White;
             pastGrid.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            pastGrid.Columns[0].Width = 50;
+            pastGrid.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            pastGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
 
             upcomingGrid.EnableHeadersVisualStyles = false;
             upcomingGrid.ColumnHeadersDefaultCellStyle.BackColor = ColorTranslator.FromHtml("#5CA8A3");
@@ -140,8 +140,11 @@ namespace ClinicSystem.ClinicHistory
             upcomingGrid.ColumnHeadersDefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#5CA8A3");
             upcomingGrid.ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.White;
             upcomingGrid.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            upcomingGrid.Columns[0].Width = 50;
+            upcomingGrid.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            upcomingGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
 
+            upcomingGrid.Columns[0].Width = 50;
+            pastGrid.Columns[0].Width = 50;
             searchGrid.Columns[0].Width = 100;
             searchGrid.Columns[1].Width = 200;
            
@@ -162,6 +165,7 @@ namespace ClinicSystem.ClinicHistory
             past.Clear();
             DateTime now = DateTime.Now;
             upcomming.Clear();
+            bill.Text = "₱ " + patientList.Where(e => patientId == e.Patient.Patientid).ToList().Sum(p => p.Total).ToString("F2");
             foreach (Appointment a in patientList)
             {
                 if (a.Patient.Patientid == patientId)
@@ -176,22 +180,24 @@ namespace ClinicSystem.ClinicHistory
                     if (now > a.StartTime)
                     {
                         past.Rows.Add(
-                            a.AppointmentDetailNo,
-                            a.Operation.OperationCode + " | " + a.Operation.OperationName,
-                            a.Doctor.DoctorID + " | " + a.Doctor.DoctorFirstName + "  " + a.Doctor.DoctorMiddleName + "  " + a.Doctor.DoctorLastName,
-                            a.StartTime.ToString("yyyy-MM-dd hh:mm:ss tt"),
-                            a.EndTime.ToString("yyyy-MM-dd hh:mm:ss tt"),
-                            a.BookingDate.ToString("yyyy-MM-dd hh:mm:ss tt"));
+                             a.AppointmentDetailNo,
+                             a.Operation.OperationCode + " | " + a.Operation.OperationName,
+                             a.Doctor.DoctorID + " | " + a.Doctor.DoctorFirstName + "  " + a.Doctor.DoctorMiddleName + "  " + a.Doctor.DoctorLastName,
+                             a.StartTime.ToString("yyyy-MM-dd") + Environment.NewLine + a.StartTime.ToString("hh:mm:ss tt"),
+                             a.EndTime.ToString("yyyy-MM-dd") + Environment.NewLine + a.EndTime.ToString("hh:mm:ss tt"),
+                             a.BookingDate.ToString("yyyy-MM-dd") + Environment.NewLine + a.BookingDate.ToString("hh:mm:ss tt")
+                        );
                     }
                     else
                     {
                         upcomming.Rows.Add(
-                           a.AppointmentDetailNo,
-                           a.Operation.OperationCode + " | " + a.Operation.OperationName,
-                           a.Doctor.DoctorID + " | " + a.Doctor.DoctorFirstName + "  " + a.Doctor.DoctorMiddleName + "  " + a.Doctor.DoctorLastName,
-                           a.StartTime.ToString("yyyy-MM-dd hh:mm:ss tt"),
-                           a.EndTime.ToString("yyyy-MM-dd hh:mm:ss tt"),
-                           a.BookingDate.ToString("yyyy-MM-dd hh:mm:ss tt"));
+                              a.AppointmentDetailNo,
+                              a.Operation.OperationCode + " | " + a.Operation.OperationName,
+                              a.Doctor.DoctorID + " | " + a.Doctor.DoctorFirstName + "  " + a.Doctor.DoctorMiddleName + "  " + a.Doctor.DoctorLastName,
+                              a.StartTime.ToString("yyyy-MM-dd") + Environment.NewLine + a.StartTime.ToString("hh:mm:ss tt"),
+                              a.EndTime.ToString("yyyy-MM-dd") + Environment.NewLine + a.EndTime.ToString("hh:mm:ss tt"),
+                              a.BookingDate.ToString("yyyy-MM-dd") + Environment.NewLine + a.BookingDate.ToString("hh:mm:ss tt")
+                        );
                     }
                 }
 

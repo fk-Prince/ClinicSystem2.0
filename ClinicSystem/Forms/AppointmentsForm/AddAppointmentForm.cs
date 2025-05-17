@@ -4,7 +4,9 @@ using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+using ClinicSystem.MessagePromps;
 using ClinicSystem.PatientForm;
 using ClinicSystem.Rooms;
 using ClinicSystem.UserLoginForm;
@@ -80,6 +82,8 @@ namespace ClinicSystem.Appointments
             lName.Text = selectedPatient.Lastname;
             string opNumber = appointmentRepository.getAppointmentDetail();
             PatientAppointmentNo.Text = opNumber;
+            Add.Enabled = true;
+            Remove.Enabled = true;
             operationList.ForEach(op => comboOperation.Items.Add(op.OperationCode + "     |     " + op.OperationName));
         }
 
@@ -98,6 +102,8 @@ namespace ClinicSystem.Appointments
                     operationList.ForEach(op => comboOperation.Items.Add(op.OperationCode + "  |  " + op.OperationName));
                     string opNumber = appointmentRepository.getAppointmentDetail();
                     PatientAppointmentNo.Text = opNumber;
+                    Add.Enabled = true;
+                    Remove.Enabled = true;
                 } else
                 {
                     fName.Text = "";
@@ -129,6 +135,8 @@ namespace ClinicSystem.Appointments
             if (comboOperation.SelectedIndex == -1) return;
             selectedOperation = operationList.Find(op => op.OperationCode == comboOperation.SelectedItem.ToString().Split('|')[0].Trim());
             startC.Enabled = true;
+            startC.SelectedIndex = -1;
+            End.Text = "";
             comboDoctor.Items.Clear();
             comboRoom.Items.Clear();
             doctorList = doctorRepository.getDoctorsByOperation(selectedOperation);
@@ -187,7 +195,9 @@ namespace ClinicSystem.Appointments
         private void Add_Click(object sender, EventArgs e)
         {
             if (!isComboValid()) return;
+
             if (isAlreadyAdded()) return;
+
             Appointment appointment = isScheduleValid();
             if (appointment == null)
             {
@@ -196,19 +206,19 @@ namespace ClinicSystem.Appointments
 
             if (!appointmentRepository.isScheduleAvailable(appointment, "doctor"))
             {
-                MessagePromp.MainShowMessageBig(this, "Schedule conflicts with the doctor schedule.", MessageBoxIcon.Error);
+                MessagePromp.ShowCenter(this, "Schedule conflicts with the doctor schedule.", MessageBoxIcon.Error);
                 return;
             }
 
             if (!appointmentRepository.isScheduleAvailable(appointment, "room"))
             {
-                MessagePromp.MainShowMessageBig(this, "This room is occupied this time.", MessageBoxIcon.Error);
+                MessagePromp.ShowCenter(this, "This room is occupied this time.", MessageBoxIcon.Error);
                 return;
             }
 
             if (!appointmentRepository.isScheduleAvailable(appointment, "patient"))
             {
-                MessagePromp.MainShowMessageBig(this, "Schedule conflicts with the patient schedule.", MessageBoxIcon.Error);
+                MessagePromp.ShowCenter(this, "Schedule conflicts with the patient schedule.", MessageBoxIcon.Error);
                 return;
             }
 
@@ -229,7 +239,7 @@ namespace ClinicSystem.Appointments
 
                 if (isOverlap)
                 {
-                    MessagePromp.MainShowMessageBig(this, "Schedule conflicts with the patient schedule.", MessageBoxIcon.Error);
+                    MessagePromp.ShowCenter(this, "Schedule conflicts with the patient schedule.", MessageBoxIcon.Error);
                     return;
                 }
             }
@@ -245,6 +255,7 @@ namespace ClinicSystem.Appointments
             {
                 totalBill += ap.SubTotal;
             }
+            reset2(); 
             TotalBill.Text = totalBill.ToString("F2");
         }
 
@@ -252,8 +263,8 @@ namespace ClinicSystem.Appointments
         {
             DateTime date = scheduleDate.Value.Date;
             if (startC.SelectedIndex == -1)
-            {
-                MessagePromp.MainShowMessageBig(this, "No StartTime", MessageBoxIcon.Error);
+            { 
+                MessagePromp.ShowCenter(this, "No StartTime.", MessageBoxIcon.Error);
                 return null;
             }
             DateTime start = DateTime.ParseExact(
@@ -270,7 +281,7 @@ namespace ClinicSystem.Appointments
             DateTime currentDateTime = DateTime.Now;
             if (startSchedule < currentDateTime)
             {
-                MessagePromp.MainShowMessageBig(this, "Time is already past.", MessageBoxIcon.Error);
+                MessagePromp.ShowCenter(this, "Time is already past.", MessageBoxIcon.Error);
                 return null;
             }
             DateTime endSchedule = startSchedule + selectedOperation.Duration;
@@ -279,42 +290,43 @@ namespace ClinicSystem.Appointments
                 startSchedule, endSchedule, selectedOperation.Price,
                 roomno, int.Parse(PatientAppointmentNo.Text));
         }
-        private bool isAlreadyAdded()
-        {
-            if (patientSchedules != null && patientSchedules.Count != 0)
-            {
-                foreach (Appointment vb in patientSchedules)
-                {
-                    if (vb.Operation.OperationName.Equals(selectedOperation.OperationName))
-                    {
-                        MessagePromp.MainShowMessageBig(this, "This operation is already added.", MessageBoxIcon.Error);
-                        return true;
-                    }
-                }
-            }
 
-            return false;
-        }
+         private bool isAlreadyAdded()
+         {
+             if (patientSchedules != null && patientSchedules.Count != 0)
+             {
+                 foreach (Appointment vb in patientSchedules)
+                 {
+                     if (vb.Operation.OperationName.Equals(selectedOperation.OperationName))
+                     {
+                        DialogResult result = MessageBox.Show("Operation already added. Do you want to add again?", "Operation Already Added", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        return result == DialogResult.No;
+                     }
+                 }
+             }
+
+             return false;
+         }
         private bool isComboValid()
         {
             if (comboOperation.SelectedItem == null || string.IsNullOrWhiteSpace(comboOperation.SelectedItem.ToString()))
             {
-                MessagePromp.MainShowMessage(this, "No Operation Selected.", MessageBoxIcon.Error);
+                MessagePromp.ShowCenter(this, "No Operation Selected.", MessageBoxIcon.Error);
                 return false;
             }
             if (comboOperation.SelectedItem.Equals("No Operation Available"))
             {
-                MessagePromp.MainShowMessage(this, "No Operation Available.", MessageBoxIcon.Error);
+                MessagePromp.ShowCenter(this, "No Operation Available.", MessageBoxIcon.Error);
                 return false;
             }
             if (comboDoctor.SelectedItem == null || string.IsNullOrWhiteSpace(comboDoctor.SelectedItem.ToString()))
             {
-                MessagePromp.MainShowMessage(this, "No Doctor Selected.", MessageBoxIcon.Error);
+                MessagePromp.ShowCenter(this, "No Doctor Selected.", MessageBoxIcon.Error);
                 return false;
             }
             if (comboDoctor.SelectedItem.Equals("No Doctor Available"))
             {
-                MessagePromp.MainShowMessage(this, "No Doctor Available.", MessageBoxIcon.Error);
+                MessagePromp.ShowCenter(this, "No Doctor Available.", MessageBoxIcon.Error);
                 return false;
             }
             return true;
@@ -322,56 +334,59 @@ namespace ClinicSystem.Appointments
         private void displayAppointment(Appointment appointment)
         {
             string fullname = appointment.Doctor.DoctorLastName + ", " + appointment.Doctor.DoctorFirstName + " " + appointment.Doctor.DoctorMiddleName;
-            string displayText = $"Operation Name:  {selectedOperation.OperationName}  {Environment.NewLine}" +
-                                 $"Operation Bill:  {selectedOperation.Price.ToString("F2")}  {Environment.NewLine}" +
+            string displayText =
+                                 $"Appointment No.:  {appointment.AppointmentDetailNo.ToString()}  {Environment.NewLine}" +
+                                 $"Operation Name:  {appointment.Operation.OperationName}  {Environment.NewLine}" +
+                                 $"Operation Bill:  {appointment.Operation.Price.ToString("F2")}  {Environment.NewLine}" +
                                  $"Doctor Assigned: Dr.{fullname}  {Environment.NewLine}" +
                                  $"RoomNo:  {appointment.RoomNo} {Environment.NewLine}" +
                                  $"StartTime: {appointment.StartTime.ToString("yyyy-MM-dd hh:mm:ss tt")} {Environment.NewLine}" +
                                  $"EndTime:  {appointment.EndTime.ToString("yyyy-MM-dd hh:mm:ss tt")}{Environment.NewLine}" +
                                  "------------------------------------------------------------------------------------------------------------" + Environment.NewLine;
-            tbListOperation.Text += displayText;
+            tbListOperation.Clear();
             text.Push(displayText);
+            foreach (string text in text)
+            {
+                  tbListOperation.Text += text;
+            }
         }
         private void removeLast(object sender, EventArgs e)
         {
             if (text == null || text.Count == 0) return;
             text.Pop();
             tbListOperation.Text = "";
-            foreach (string t in text)
-            {
-                tbListOperation.Text += t;
-            }
-
-            if (patientSchedules.Count >= 0)
+       
+            if (patientSchedules.Count > 0)
             {
                 Appointment lastSchedule = patientSchedules.Last();
                 patientSchedules.Remove(lastSchedule);
 
                 if (double.TryParse(TotalBill.Text, out double bill))
                 {
-                    bill -= lastSelected.Price;
+                    bill -= lastSchedule.Operation.Price;
                     TotalBill.Text = bill.ToString("F2");
                 }
-            }
 
-            if (patientSchedules.Count > 0)
-            {
-                Appointment lastPatientSchedule = patientSchedules.Last();
-                patientSchedules.Remove(lastPatientSchedule);
             }
 
             foreach (string t in text)
             {
-                tbListOperation.Text += t;
+                tbListOperation.Text = t;
             }
 
             PatientAppointmentNo.Text = (int.Parse(PatientAppointmentNo.Text) - 1).ToString();
         }
         private void addAppointment_Click(object sender, EventArgs e)
         {
+
+            if (selectedPatient == null)
+            {
+                MessagePromp.ShowCenter(this, "No Selected Patient.", MessageBoxIcon.Error);
+                return;
+            }
             if (patientSchedules.Count <= 0)
             {
-                MessagePromp.MainShowMessage(this, "Please Add an Operation.", MessageBoxIcon.Error);
+                MessagePromp.ShowCenter(this, "Please Add an Operation.", MessageBoxIcon.Error);
                 return;
             }
 
@@ -381,27 +396,9 @@ namespace ClinicSystem.Appointments
                 {
                     PrintAppointmentReceipt prrr = new PrintAppointmentReceipt(selectedPatient, patientSchedules, "Add");
                     prrr.print();
-
-                    MessagePromp.MainShowMessage(this, "Appoinment Added", MessageBoxIcon.Information);
-                    scheduleDate.Value = DateTime.Now;
-                    startC.SelectedIndex = -1;
-                    End.Text = "";
-                    TotalBill.Text = "";
-                    text.Clear();
-                    tbListOperation.Text = "";
-                    selectedPatient = null;
-                    selectedDoctor = null;
-                    selectedOperation = null;
-                    PatientAppointmentNo.Text = "";
-                    lastSelected = null;
-                    patientSchedules.Clear();
-                    comboRoom.Items.Clear();
-                    comboOperation.Items.Clear();
-                    comboDoctor.Items.Clear();
-                    comboPatientID.SelectedIndex = -1;
-                    fName.Text = "";
-                    mName.Text = "";
-                    lName.Text = "";
+                    MessagePromp.ShowCenter(this, "Appointment added successfully.", MessageBoxIcon.Information);
+                    //MessagePromp.MainShowMessage(this, "Appoinment Added", MessageBoxIcon.Information);
+                    reset();
                 }
             });
         }
@@ -459,6 +456,11 @@ namespace ClinicSystem.Appointments
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
+            reset();
+        }
+
+        private void reset()
+        {
             scheduleDate.Value = DateTime.Now;
             startC.SelectedIndex = -1;
             End.Text = "";
@@ -479,14 +481,24 @@ namespace ClinicSystem.Appointments
             fName.Text = "";
             mName.Text = "";
             lName.Text = "";
+            Add.Enabled = false;
+            startC.Enabled = false;
+            Remove.Enabled = false;
+
         }
 
         private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            reset2();
+        }
+
+        private void reset2()
         {
             scheduleDate.Value = DateTime.Now;
             startC.SelectedIndex = -1;
             selectedDoctor = null;
             selectedOperation = null;
+            startC.Enabled = false;
             comboOperation.SelectedIndex = -1;
             //lastSelected = null;
             End.Text = "";
@@ -510,8 +522,7 @@ namespace ClinicSystem.Appointments
             p5.Invalidate();
             lP.Invalidate();
             mP.Invalidate();
-        }
 
-       
+        }
     }
 }

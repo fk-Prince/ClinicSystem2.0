@@ -174,10 +174,10 @@
             this.guna2Panel1.Controls.Add(this.QuantumCare_label);
             this.guna2Panel1.Controls.Add(this.logo_img);
             this.guna2Panel1.Location = new System.Drawing.Point(13, 3);
-            this.guna2Panel1.MaximumSize = new System.Drawing.Size(703, 150);
-            this.guna2Panel1.MinimumSize = new System.Drawing.Size(703, 82);
+            this.guna2Panel1.MaximumSize = new System.Drawing.Size(800, 150);
+            this.guna2Panel1.MinimumSize = new System.Drawing.Size(800, 82);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(703, 93);
+            this.guna2Panel1.Size = new System.Drawing.Size(800, 93);
             this.guna2Panel1.TabIndex = 107;
             // 
             // address_label
@@ -198,12 +198,12 @@
             this.QuantumCare_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.QuantumCare_label.AutoSize = true;
             this.QuantumCare_label.BackColor = System.Drawing.Color.Transparent;
-            this.QuantumCare_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
-                | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.QuantumCare_label.Font = new System.Drawing.Font("Georgia", 50.25F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
+                | System.Drawing.FontStyle.Underline))));
             this.QuantumCare_label.ForeColor = System.Drawing.Color.White;
             this.QuantumCare_label.Location = new System.Drawing.Point(192, 2);
             this.QuantumCare_label.Name = "QuantumCare_label";
-            this.QuantumCare_label.Size = new System.Drawing.Size(481, 76);
+            this.QuantumCare_label.Size = new System.Drawing.Size(547, 77);
             this.QuantumCare_label.TabIndex = 1;
             this.QuantumCare_label.Text = "Quantum Care";
             // 
@@ -213,7 +213,7 @@
             this.logo_img.BackColor = System.Drawing.Color.Transparent;
             this.logo_img.Image = global::ClinicSystem.Properties.Resources.Logo;
             this.logo_img.InitialImage = null;
-            this.logo_img.Location = new System.Drawing.Point(0, -13);
+            this.logo_img.Location = new System.Drawing.Point(43, -14);
             this.logo_img.Name = "logo_img";
             this.logo_img.Size = new System.Drawing.Size(200, 119);
             this.logo_img.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

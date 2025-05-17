@@ -132,28 +132,19 @@ namespace ClinicSystem.Appointments
         // TODAY APPOINTMENT
         private void radioToday_CheckedChanged(object sender, EventArgs e)
         {
-            radioTodayChecked();
-        }
-  
-        private void radioTodayChecked()
-        {
             DateTime today = DateTime.Today;
             List<Appointment> filtered = patientAppointments
              .Where(pa => pa.StartTime.Date == today.Date)
              .ToList();
             displaySchedules(filtered, "TODAY");
         }
+  
 
         // WEEK APPOINTMENT
         private void weekRadio_CheckedChanged(object sender, EventArgs e)
         {
-            radioWeekChecked();
-        }
-
-        private void radioWeekChecked()
-        {
             DateTime week = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd"));
-            
+
 
             List<Appointment> filtered = patientAppointments
              .Where(pa => week <= pa.StartTime && pa.StartTime < week.AddDays(7))
@@ -165,29 +156,20 @@ namespace ClinicSystem.Appointments
         //MONTH APPOINTMENT
         private void monthRadio_CheckedChanged(object sender, EventArgs e)
         {
-            radioMonthChecked();
-        }
-    
-        private void radioMonthChecked()
-        {
             DateTime month = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd"));
             DateTime start = new DateTime(month.Year, month.Month, 1);
             DateTime end = start.AddMonths(1).AddDays(-1);
-         
+
             List<Appointment> filtered = patientAppointments
             .Where(pa => pa.StartTime >= start && pa.StartTime <= end)
             .ToList();
 
             displaySchedules(filtered, "THIS MONTH");
         }
-
+    
+       
         //ALL APPOINTMENT
         private void allSchedule_CheckedChanged(object sender, EventArgs e)
-        {
-            radioAllChecked();
-        }
-   
-        private void radioAllChecked()
         {
             DateTime dateNow = DateTime.Now;
             List<Appointment> filtered = new List<Appointment>();
@@ -202,6 +184,7 @@ namespace ClinicSystem.Appointments
             filtered = patientAppointments;
             displaySchedules(filtered, "");
         }
+   
 
         // APPOINTMENT SELECTION
         private void selection_CheckedChanged(object sender, EventArgs e)

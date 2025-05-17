@@ -171,7 +171,7 @@
             this.patPanel.Controls.Add(this.panelAge);
             this.patPanel.Controls.Add(this.panelLastName);
             this.patPanel.Controls.Add(this.panelMidName);
-            this.patPanel.Location = new System.Drawing.Point(14, 250);
+            this.patPanel.Location = new System.Drawing.Point(10, 247);
             this.patPanel.MaximumSize = new System.Drawing.Size(1500, 1080);
             this.patPanel.MinimumSize = new System.Drawing.Size(1055, 400);
             this.patPanel.Name = "patPanel";
@@ -668,7 +668,7 @@
             this.appPanel.Controls.Add(this.Add);
             this.appPanel.Controls.Add(this.tbListOperation);
             this.appPanel.Controls.Add(this.p1);
-            this.appPanel.Location = new System.Drawing.Point(1086, 236);
+            this.appPanel.Location = new System.Drawing.Point(1082, 233);
             this.appPanel.MaximumSize = new System.Drawing.Size(1920, 1080);
             this.appPanel.MinimumSize = new System.Drawing.Size(1055, 432);
             this.appPanel.Name = "appPanel";
@@ -998,6 +998,7 @@
             this.TotalBill.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.TotalBill.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.TotalBill.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.TotalBill.Enabled = false;
             this.TotalBill.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.TotalBill.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TotalBill.ForeColor = System.Drawing.Color.Black;
@@ -1339,7 +1340,6 @@
             this.Name = "AddPatients";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddPatient";
-
             this.panel1.ResumeLayout(false);
             this.patPanel.ResumeLayout(false);
             this.panelGender.ResumeLayout(false);

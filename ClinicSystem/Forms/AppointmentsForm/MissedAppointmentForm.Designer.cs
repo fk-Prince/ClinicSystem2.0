@@ -60,12 +60,13 @@
             this.dateSchedulePicker = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.panelPatName = new System.Windows.Forms.Panel();
+            this.tbPname = new Guna.UI2.WinForms.Guna2TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panelOperName = new System.Windows.Forms.Panel();
+            this.tbOname = new Guna.UI2.WinForms.Guna2TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.tbOname = new Guna.UI2.WinForms.Guna2TextBox();
-            this.tbPname = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -85,6 +86,7 @@
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(230)))), ((int)(((byte)(222)))));
+            this.guna2Panel1.Controls.Add(this.label13);
             this.guna2Panel1.Controls.Add(this.guna2Panel2);
             this.guna2Panel1.Controls.Add(this.label1);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -104,11 +106,11 @@
             this.guna2Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(249)))), ((int)(((byte)(246)))));
             this.guna2Panel2.Controls.Add(this.updateAppointmentB);
             this.guna2Panel2.Controls.Add(this.panel12);
-            this.guna2Panel2.Location = new System.Drawing.Point(3, 97);
+            this.guna2Panel2.Location = new System.Drawing.Point(0, 97);
             this.guna2Panel2.MaximumSize = new System.Drawing.Size(1920, 1080);
             this.guna2Panel2.MinimumSize = new System.Drawing.Size(1086, 588);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(1089, 588);
+            this.guna2Panel2.Size = new System.Drawing.Size(1092, 588);
             this.guna2Panel2.TabIndex = 10083;
             // 
             // updateAppointmentB
@@ -124,7 +126,7 @@
             this.updateAppointmentB.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(168)))), ((int)(((byte)(166)))));
             this.updateAppointmentB.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.updateAppointmentB.ForeColor = System.Drawing.Color.White;
-            this.updateAppointmentB.Location = new System.Drawing.Point(737, 506);
+            this.updateAppointmentB.Location = new System.Drawing.Point(740, 506);
             this.updateAppointmentB.Name = "updateAppointmentB";
             this.updateAppointmentB.Size = new System.Drawing.Size(337, 42);
             this.updateAppointmentB.TabIndex = 10092;
@@ -152,7 +154,7 @@
             this.panel12.MaximumSize = new System.Drawing.Size(1920, 1080);
             this.panel12.MinimumSize = new System.Drawing.Size(788, 419);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(1000, 496);
+            this.panel12.Size = new System.Drawing.Size(1003, 496);
             this.panel12.TabIndex = 10091;
             // 
             // panel3
@@ -162,7 +164,7 @@
             this.panel3.Controls.Add(this.reason);
             this.panel3.Controls.Add(this.label12);
             this.panel3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel3.Location = new System.Drawing.Point(183, 302);
+            this.panel3.Location = new System.Drawing.Point(184, 302);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(559, 103);
             this.panel3.TabIndex = 10092;
@@ -207,7 +209,7 @@
             this.panel2.Controls.Add(this.totalFee);
             this.panel2.Controls.Add(this.label11);
             this.panel2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel2.Location = new System.Drawing.Point(457, 452);
+            this.panel2.Location = new System.Drawing.Point(458, 452);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(285, 42);
             this.panel2.TabIndex = 10091;
@@ -252,7 +254,7 @@
             this.panelAppNo.Controls.Add(this.label2);
             this.panelAppNo.Controls.Add(this.comboAppointment);
             this.panelAppNo.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelAppNo.Location = new System.Drawing.Point(3, 1);
+            this.panelAppNo.Location = new System.Drawing.Point(4, 1);
             this.panelAppNo.Name = "panelAppNo";
             this.panelAppNo.Size = new System.Drawing.Size(468, 42);
             this.panelAppNo.TabIndex = 10083;
@@ -291,7 +293,7 @@
             this.panel1.Controls.Add(this.total);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(457, 406);
+            this.panel1.Location = new System.Drawing.Point(458, 406);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(285, 42);
             this.panel1.TabIndex = 10089;
@@ -335,7 +337,7 @@
             this.panelRoomNo.Controls.Add(this.roomNo);
             this.panelRoomNo.Controls.Add(this.label9);
             this.panelRoomNo.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelRoomNo.Location = new System.Drawing.Point(731, 1);
+            this.panelRoomNo.Location = new System.Drawing.Point(732, 1);
             this.panelRoomNo.Name = "panelRoomNo";
             this.panelRoomNo.Size = new System.Drawing.Size(268, 42);
             this.panelRoomNo.TabIndex = 10085;
@@ -379,7 +381,7 @@
             this.panel6.Controls.Add(this.EndTime);
             this.panel6.Controls.Add(this.label6);
             this.panel6.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel6.Location = new System.Drawing.Point(183, 256);
+            this.panel6.Location = new System.Drawing.Point(184, 256);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(559, 42);
             this.panel6.TabIndex = 10087;
@@ -424,7 +426,7 @@
             this.panelDentName.Controls.Add(this.doctorL);
             this.panelDentName.Controls.Add(this.label8);
             this.panelDentName.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelDentName.Location = new System.Drawing.Point(183, 42);
+            this.panelDentName.Location = new System.Drawing.Point(184, 42);
             this.panelDentName.Name = "panelDentName";
             this.panelDentName.Size = new System.Drawing.Size(559, 42);
             this.panelDentName.TabIndex = 10085;
@@ -456,7 +458,7 @@
             this.panel5.Controls.Add(this.StartTime);
             this.panel5.Controls.Add(this.label5);
             this.panel5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel5.Location = new System.Drawing.Point(183, 212);
+            this.panel5.Location = new System.Drawing.Point(184, 212);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(559, 42);
             this.panel5.TabIndex = 10086;
@@ -520,7 +522,7 @@
             this.panelDateSched.Controls.Add(this.dateSchedulePicker);
             this.panelDateSched.Controls.Add(this.label4);
             this.panelDateSched.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelDateSched.Location = new System.Drawing.Point(183, 168);
+            this.panelDateSched.Location = new System.Drawing.Point(184, 168);
             this.panelDateSched.Name = "panelDateSched";
             this.panelDateSched.Size = new System.Drawing.Size(559, 42);
             this.panelDateSched.TabIndex = 10085;
@@ -558,10 +560,32 @@
             this.panelPatName.Controls.Add(this.tbPname);
             this.panelPatName.Controls.Add(this.label3);
             this.panelPatName.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelPatName.Location = new System.Drawing.Point(183, 83);
+            this.panelPatName.Location = new System.Drawing.Point(184, 83);
             this.panelPatName.Name = "panelPatName";
             this.panelPatName.Size = new System.Drawing.Size(559, 42);
             this.panelPatName.TabIndex = 10084;
+            // 
+            // tbPname
+            // 
+            this.tbPname.BorderRadius = 5;
+            this.tbPname.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbPname.DefaultText = "";
+            this.tbPname.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tbPname.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tbPname.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbPname.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbPname.Enabled = false;
+            this.tbPname.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbPname.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPname.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.tbPname.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbPname.Location = new System.Drawing.Point(229, 8);
+            this.tbPname.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPname.Name = "tbPname";
+            this.tbPname.PlaceholderText = "";
+            this.tbPname.SelectedText = "";
+            this.tbPname.Size = new System.Drawing.Size(323, 25);
+            this.tbPname.TabIndex = 10090;
             // 
             // label3
             // 
@@ -580,10 +604,32 @@
             this.panelOperName.Controls.Add(this.tbOname);
             this.panelOperName.Controls.Add(this.label7);
             this.panelOperName.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelOperName.Location = new System.Drawing.Point(183, 127);
+            this.panelOperName.Location = new System.Drawing.Point(184, 127);
             this.panelOperName.Name = "panelOperName";
             this.panelOperName.Size = new System.Drawing.Size(559, 39);
             this.panelOperName.TabIndex = 10085;
+            // 
+            // tbOname
+            // 
+            this.tbOname.BorderRadius = 5;
+            this.tbOname.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbOname.DefaultText = "";
+            this.tbOname.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tbOname.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tbOname.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbOname.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbOname.Enabled = false;
+            this.tbOname.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbOname.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbOname.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.tbOname.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbOname.Location = new System.Drawing.Point(229, 6);
+            this.tbOname.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbOname.Name = "tbOname";
+            this.tbOname.PlaceholderText = "";
+            this.tbOname.SelectedText = "";
+            this.tbOname.Size = new System.Drawing.Size(323, 25);
+            this.tbOname.TabIndex = 10092;
             // 
             // label7
             // 
@@ -610,49 +656,17 @@
             this.label1.Text = "Missed Appointments";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // tbOname
+            // label13
             // 
-            this.tbOname.BorderRadius = 5;
-            this.tbOname.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbOname.DefaultText = "";
-            this.tbOname.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.tbOname.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.tbOname.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbOname.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbOname.Enabled = false;
-            this.tbOname.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbOname.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbOname.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.tbOname.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbOname.Location = new System.Drawing.Point(229, 6);
-            this.tbOname.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tbOname.Name = "tbOname";
-            this.tbOname.PlaceholderText = "";
-            this.tbOname.SelectedText = "";
-            this.tbOname.Size = new System.Drawing.Size(323, 25);
-            this.tbOname.TabIndex = 10092;
-            // 
-            // tbPname
-            // 
-            this.tbPname.BorderRadius = 5;
-            this.tbPname.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbPname.DefaultText = "";
-            this.tbPname.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.tbPname.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.tbPname.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbPname.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbPname.Enabled = false;
-            this.tbPname.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbPname.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbPname.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.tbPname.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbPname.Location = new System.Drawing.Point(229, 8);
-            this.tbPname.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tbPname.Name = "tbPname";
-            this.tbPname.PlaceholderText = "";
-            this.tbPname.SelectedText = "";
-            this.tbPname.Size = new System.Drawing.Size(323, 25);
-            this.tbPname.TabIndex = 10090;
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(0, 83);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(572, 13);
+            this.label13.TabIndex = 10084;
+            this.label13.Text = "Note:  Rescheduling is only allowed within 1 week of the original appointment. a " +
+    "15% penalty will be charged";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // MissedAppointmentForm
             // 
@@ -665,6 +679,7 @@
             this.Name = "MissedAppointmentForm";
             this.Text = "MissedAppointmentForm";
             this.guna2Panel1.ResumeLayout(false);
+            this.guna2Panel1.PerformLayout();
             this.guna2Panel2.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -733,5 +748,6 @@
         private System.Windows.Forms.Label label12;
         private Guna.UI2.WinForms.Guna2TextBox tbOname;
         private Guna.UI2.WinForms.Guna2TextBox tbPname;
+        private System.Windows.Forms.Label label13;
     }
 }

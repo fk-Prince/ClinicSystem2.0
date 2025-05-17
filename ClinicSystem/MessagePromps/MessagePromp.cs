@@ -130,7 +130,7 @@ namespace ClinicSystem.UserLoginForm
             instance.loginAnim();
         }
 
-        public static void MessagePrompCenter(Form f, string message, MessageBoxIcon icon)
+        public static void ShowCenter(Form f, string message, MessageBoxIcon icon)
         {
             if (instance != null && f.Controls.Contains(instance))
             {
@@ -142,7 +142,6 @@ namespace ClinicSystem.UserLoginForm
             instance.Location = new Point((f.Width - instance.Width) / 2, (f.Height - instance.Height) / 2);
             f.Controls.Add(instance);
             instance.BringToFront();
-            //instance.mainAnim(f, 0, 0);
         }
 
         private void mainAnim(Form f, int stop, int start)

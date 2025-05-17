@@ -193,7 +193,7 @@ namespace ClinicSystem
             Guna2Panel p = new Guna2Panel();
             p.Size = new Size(280, 100);
             p.Location = new Point((pa.Width - p.Width) / 2, pa.Height - p.Height - 20);
-            p.FillColor = Color.LimeGreen;
+            p.FillColor = Color.FromArgb(150, 210, 205);
             p.BackColor = Color.Transparent;
             p.BorderRadius = 10;
             p.BorderColor = Color.Black;
@@ -216,7 +216,7 @@ namespace ClinicSystem
             p.Controls.Add(label);
 
             ComboBox c = new ComboBox();
-            docList.ForEach(dd => c.Items.Add($"{dd.DoctorID} | {dd.DoctorLastName}  {dd.DoctorFirstName} {dd.DoctorMiddleName}"));
+            docList.ForEach(dd => c.Items.Add($"{dd.DoctorID} | {dd.DoctorLastName},  {dd.DoctorFirstName} {dd.DoctorMiddleName}"));
             c.ItemHeight = 20;
             c.SelectedIndexChanged += selectedDoctor;
             c.Location = new Point(10, 30);
@@ -269,8 +269,12 @@ namespace ClinicSystem
 
         private void addDoctorOperation(object sender, EventArgs e)
         {
-          
-            if (but.Tag == null) return;
+
+            if (but.Tag == null)
+            {
+                MessagePromp.ShowCenter(this, "No Selected Doctor", MessageBoxIcon.Error);
+                return;
+            }
             string docid = but.Tag as string;
             if (!string.IsNullOrWhiteSpace(docid))
             {
@@ -279,7 +283,7 @@ namespace ClinicSystem
                 p.Dispose();
                 operationlist = operationRepository.getOperationOnDoctors();
                 displayOperations(operationlist, "No Operation");
-                MessagePromp.MessagePrompCenter(this, "Successfully assigned doctor to this operation", MessageBoxIcon.Information);
+                MessagePromp.ShowCenter(this, "Successfully assigned doctor to this operation", MessageBoxIcon.Information);
             } 
         }
 
@@ -371,64 +375,64 @@ namespace ClinicSystem
                 || string.IsNullOrWhiteSpace(opPrice.Text)
                 || string.IsNullOrWhiteSpace(opDuration.Text))
             {
-                MessagePromp.MainShowMessageBig(this, "Please fill up all fields", MessageBoxIcon.Error);
+                MessagePromp.ShowCenter(this, "Please fill up all fields", MessageBoxIcon.Error);
                 return;
             }
 
             bool duplicateCode = operationlist.Any(operation => operation.OperationCode.Equals(opCode, StringComparison.OrdinalIgnoreCase));
             if (duplicateCode)
             {
-                MessagePromp.MainShowMessageBig(this, "Duplicate Operation Code", MessageBoxIcon.Error);
+                MessagePromp.ShowCenter(this, "Duplicate Operation Code", MessageBoxIcon.Error);
                 return;
             }
 
             bool operationName = operationlist.Any(operation => operation.OperationName.Equals(opName, StringComparison.OrdinalIgnoreCase));
             if (operationName)
             {
-                MessagePromp.MainShowMessageBig(this, "Try Different Operation Name", MessageBoxIcon.Error);
+                MessagePromp.ShowCenter(this, "Try Different Operation Name", MessageBoxIcon.Error);
                 return;
             }
             double price;
             if (!double.TryParse(opPrice.Text, out price))
             {
-                MessagePromp.MainShowMessageBig(this, "Invalid Price", MessageBoxIcon.Error);
+                MessagePromp.ShowCenter(this, "Invalid Price", MessageBoxIcon.Error);
                 return;
             }
             price = double.Parse(price.ToString("F2"));
 
             if (price >= 1000000000)
             {
-                MessagePromp.MainShowMessageBig(this, "Price is too big.", MessageBoxIcon.Error);
+                MessagePromp.ShowCenter(this, "Price is too big.", MessageBoxIcon.Error);
                 return;
             }
 
             TimeSpan duration;
             if (!TimeSpan.TryParseExact(opDuration.Text, @"hh\:mm\:ss", null, out duration))
             {
-                MessagePromp.MainShowMessageBig(this, "Invalid Duration", MessageBoxIcon.Error);
+                MessagePromp.ShowCenter(this, "Invalid Duration", MessageBoxIcon.Error);
                 return;
             }
             if (duration == TimeSpan.Zero)
             {
-                MessagePromp.MainShowMessageBig(this, "Invalid Duration", MessageBoxIcon.Error);
+                MessagePromp.ShowCenter(this, "Invalid Duration", MessageBoxIcon.Error);
                 return;
             }
 
             if (comboRoomType.SelectedIndex == -1 || comboRoomType.SelectedItem.ToString().Equals("No registered room type.       "))
             {
-                MessagePromp.MainShowMessageBig(this, "Select room type for this operation.", MessageBoxIcon.Error);
+                MessagePromp.ShowCenter(this, "Select room type for this operation.", MessageBoxIcon.Error);
                 return;
             }
 
             bool success = operationRepository.insertOperation(new Operation(opCode.ToUpper(), Capitalize(opName), DateTime.Now, opDescription, price, duration, comboRoomType.SelectedItem.ToString()));
             if (success)
             {
-                MessagePromp.MainShowMessageBig(this, "Operation Added Successfully", MessageBoxIcon.Information);
+                MessagePromp.ShowCenter(this, "Operation Added Successfully", MessageBoxIcon.Information);
                 reset();
             }
             else
             {
-                MessagePromp.MainShowMessageBig(this, "Operation Failed to Add", MessageBoxIcon.Error);
+                MessagePromp.ShowCenter(this, "Operation Failed to Add", MessageBoxIcon.Error);
 
             }
         }

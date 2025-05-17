@@ -188,17 +188,15 @@ namespace ClinicSystem
             {
                 string text = searchPatient.Text;
                 List<Appointment> filtered = new List<Appointment>();
-                if (int.TryParse(text, out int id))
-                {
-                    filtered = patientAppointments.Where(pa => pa.Patient.Patientid.Equals(id)).ToList();
-                }
-                else
-                {
-                    filtered = patientAppointments.Where(pa =>
-                    pa.Patient.Firstname.StartsWith(text) ||
-                    pa.Patient.Middlename.StartsWith(text) ||
-                    pa.Patient.Lastname.StartsWith(text)).ToList();
-                }
+              
+                filtered = patientAppointments.Where(pa =>
+                pa.Patient.Firstname.StartsWith(text, StringComparison.OrdinalIgnoreCase) ||
+                pa.Patient.Middlename.StartsWith(text, StringComparison.OrdinalIgnoreCase) ||
+                pa.Patient.Lastname.StartsWith(text, StringComparison.OrdinalIgnoreCase) ||
+                pa.Patient.Patientid.StartsWith(text, StringComparison.OrdinalIgnoreCase) ||
+                pa.Patient.Patientid.EndsWith(text, StringComparison.OrdinalIgnoreCase))
+                    .ToList();
+                
                 addRows(filtered);
             }
         }

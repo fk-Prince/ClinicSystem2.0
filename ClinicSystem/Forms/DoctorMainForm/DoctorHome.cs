@@ -51,14 +51,14 @@ namespace ClinicSystem
             {
                 inactiveB.FillColor = Color.FromArgb(183, 230, 222);
                 inactiveB.ForeColor = Color.FromArgb(34, 44, 54);
-
+                inactiveB.BorderThickness = 0;
                 activeB.FillColor = Color.FromArgb(111, 168, 166);
                 activeB.ForeColor = Color.White;
             } else
             {
                 activeB.FillColor = Color.FromArgb(183, 230, 222);
                 activeB.ForeColor = Color.FromArgb(34, 44, 54);
-
+                activeB.BorderThickness = 0;
                 inactiveB.FillColor = Color.FromArgb(111, 168, 166);
                 inactiveB.ForeColor = Color.White;
 

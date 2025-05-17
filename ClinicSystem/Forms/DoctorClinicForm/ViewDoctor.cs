@@ -185,7 +185,8 @@ namespace ClinicSystem.Doctors
                     doctor =>
                         doctor.DoctorFirstName.StartsWith(SearchBar.Text, StringComparison.OrdinalIgnoreCase) ||
                         doctor.DoctorLastName.StartsWith(SearchBar.Text, StringComparison.OrdinalIgnoreCase) ||
-                        doctor.DoctorID.ToString().StartsWith(SearchBar.Text, StringComparison.OrdinalIgnoreCase)
+                        doctor.DoctorID.ToString().StartsWith(SearchBar.Text, StringComparison.OrdinalIgnoreCase) ||
+                        doctor.DoctorID.ToString().EndsWith(SearchBar.Text, StringComparison.OrdinalIgnoreCase)
                 ).ToList();
             }
 

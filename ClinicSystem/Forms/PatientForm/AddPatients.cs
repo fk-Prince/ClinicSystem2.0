@@ -104,13 +104,13 @@ namespace ClinicSystem
               string.IsNullOrWhiteSpace(age) ||
               string.IsNullOrWhiteSpace(bday.ToString()))
             {
-                MessagePromp.MainShowMessage(this, "Please fill up all fields", MessageBoxIcon.Error);
+                MessagePromp.ShowCenter(this, "Please fill up all fields", MessageBoxIcon.Error);
                 return false;
             }
 
             if (!rMale.Checked && !rFemale.Checked)
             {
-                MessagePromp.MainShowMessage(this, "Choose gender", MessageBoxIcon.Error);
+                MessagePromp.ShowCenter(this, "Choose gender", MessageBoxIcon.Error);
                 return false;
             }
             string gender = rMale.Checked ? "Male" : "Female";
@@ -118,26 +118,26 @@ namespace ClinicSystem
           
             if (bday > DateTime.Now)
             {
-                MessagePromp.MainShowMessage(this, "Invalid Birthdate", MessageBoxIcon.Error);
+                MessagePromp.ShowCenter(this, "Invalid Birthdate", MessageBoxIcon.Error);
                 return false;
             }
 
             int ageInt = 0;
             if (!int.TryParse(age, out ageInt))
             {
-                MessagePromp.MainShowMessage(this, "Invalid Age", MessageBoxIcon.Error);
+                MessagePromp.ShowCenter(this, "Invalid Age", MessageBoxIcon.Error);
                 return false ;
             }
 
             if (ageInt > 120 || ageInt < 0)
             {
-                MessagePromp.MainShowMessage(this, "Invalid Age", MessageBoxIcon.Error);
+                MessagePromp.ShowCenter(this, "Invalid Age", MessageBoxIcon.Error);
                 return false;
             }
 
             if (!string.IsNullOrWhiteSpace(contact) && (!long.TryParse(contact, out _) || !Regex.IsMatch(contact, @"^9\d{9}$")))
             {
-                MessagePromp.MainShowMessage(this, "Invalid Contact Number", MessageBoxIcon.Error);
+                MessagePromp.ShowCenter(this, "Invalid Contact Number", MessageBoxIcon.Error);
                 return false;
             }
             if (contact.Length != 0)
@@ -262,8 +262,8 @@ namespace ClinicSystem
         // SHOW OPERATION
         private void showOperation()
         {
+            comboOperation.Items.Clear();
             operationList = operationRepository.getOperations();
-
             if (operationList != null && operationList.Count != 0)
             {
                 operationList.ForEach(op => comboOperation.Items.Add(op.OperationCode + "     |     " + op.OperationName));
@@ -282,6 +282,8 @@ namespace ClinicSystem
         
             if (comboOperation == null || comboOperation.SelectedItem == null) return;
             startC.Enabled = true;
+            startC.SelectedIndex = -1;
+            End.Text = "";
             string[] operationNameSelected = comboOperation.SelectedItem.ToString().Split('|');
             if (string.IsNullOrWhiteSpace(operationNameSelected[0])) return;
 
@@ -339,19 +341,19 @@ namespace ClinicSystem
 
             if (!appointmentRepository.isScheduleAvailable(appointment, "room"))
             {
-                MessagePromp.MainShowMessageBig(this, "This room is occupied this time.", MessageBoxIcon.Error);
+                MessagePromp.ShowCenter(this, "This room is occupied this time.", MessageBoxIcon.Error);
                 return;
             }
 
             if (!appointmentRepository.isScheduleAvailable(appointment, "doctor"))
             {
-                MessagePromp.MainShowMessageBig(this, "Schedule conflicts with the doctor schedule.", MessageBoxIcon.Error);
+                MessagePromp.ShowCenter(this, "Schedule conflicts with the doctor schedule.", MessageBoxIcon.Error);
                 return;
             }
 
             if (!appointmentRepository.isScheduleAvailable(appointment, "patient"))
             {
-                MessagePromp.MainShowMessageBig(this, "Schedule conflicts with the patient schedule.", MessageBoxIcon.Error);
+                MessagePromp.ShowCenter(this, "Schedule conflicts with the patient schedule.", MessageBoxIcon.Error);
                 return;
             }
 
@@ -372,7 +374,7 @@ namespace ClinicSystem
 
                 if (isOverlap)
                 {
-                    MessagePromp.MainShowMessageBig(this, "Schedule conflicts with the patient schedule.", MessageBoxIcon.Error);
+                    MessagePromp.ShowCenter(this, "Schedule conflicts with the patient schedule.", MessageBoxIcon.Error);
                     return;
                 }
             }
@@ -389,6 +391,7 @@ namespace ClinicSystem
                 totalBill += ap.SubTotal;
             }
             TotalBill.Text = totalBill.ToString("F2");
+            reset();
         }
 
 
@@ -396,15 +399,20 @@ namespace ClinicSystem
         private void displayAppointment(Appointment schedule)
         {
             string fullname = schedule.Doctor.DoctorLastName + ", " + schedule.Doctor.DoctorFirstName + " " + schedule.Doctor.DoctorMiddleName;
-            string displayText = $"Operation Name:  {selectedOperation.OperationName}  {Environment.NewLine}" +
-                                 $"Operation Bill:  {selectedOperation.Price.ToString("F2")}  {Environment.NewLine}" +
+            string displayText = $"Appointment No.:  {schedule.AppointmentDetailNo.ToString()}  {Environment.NewLine}" +
+                                 $"Operation Name:  {schedule.Operation.OperationName}  {Environment.NewLine}" +
+                                 $"Operation Bill:  {schedule.Operation.Price.ToString("F2")}  {Environment.NewLine}" +
                                  $"Doctor Assigned: Dr.{fullname}  {Environment.NewLine}" +
                                  $"RoomNo:  {schedule.RoomNo} {Environment.NewLine}" +
                                  $"StartTime: {schedule.StartTime.ToString("yyyy-MM-dd hh:mm:ss tt")} {Environment.NewLine}" +
                                  $"EndTime:  {schedule.EndTime.ToString("yyyy-MM-dd hh:mm:ss tt")}{Environment.NewLine}" +
                                  "------------------------------------------------------------------------------------------------------------" + Environment.NewLine;
-            tbListOperation.Text += displayText;
+            tbListOperation.Clear();
             text.Push(displayText);
+            foreach (string text in text)
+            { 
+                tbListOperation.Text += text;
+            }
         }
      
         //SCHEDULE CHECKER
@@ -413,7 +421,7 @@ namespace ClinicSystem
             DateTime date = scheduleDate.Value.Date;
             if (startC.SelectedIndex == -1)
             {
-                MessagePromp.MainShowMessageBig(this, "No StartTime", MessageBoxIcon.Error);
+                MessagePromp.ShowCenter(this, "No StartTime", MessageBoxIcon.Error);
                 return null;
             }
             DateTime start = DateTime.ParseExact(
@@ -430,7 +438,7 @@ namespace ClinicSystem
             DateTime currentDateTime = DateTime.Now;
             if (startSchedule < currentDateTime)
             {
-                MessagePromp.MainShowMessageBig(this, "Time is already past.", MessageBoxIcon.Error);
+                MessagePromp.ShowCenter(this, "Time is already past.", MessageBoxIcon.Error);
                 return null;
             }
             DateTime endSchedule = startSchedule + selectedOperation.Duration;
@@ -471,22 +479,22 @@ namespace ClinicSystem
        
             if (comboOperation.SelectedItem == null || string.IsNullOrWhiteSpace(comboOperation.SelectedItem.ToString()))
             {
-                MessagePromp.MainShowMessage(this, "No Operation Selected.", MessageBoxIcon.Error);
+                MessagePromp.ShowCenter(this, "No Operation Selected.", MessageBoxIcon.Error);
                 return false;
             }
             if (comboOperation.SelectedItem.Equals("No Operation Available"))
             {
-                MessagePromp.MainShowMessage(this, "No Operation Available.", MessageBoxIcon.Error);
+                MessagePromp.ShowCenter(this, "No Operation Available.", MessageBoxIcon.Error);
                 return false;
             }
             if (comboDoctor.SelectedItem == null || string.IsNullOrWhiteSpace(comboDoctor.SelectedItem.ToString()))
             {
-                MessagePromp.MainShowMessage(this, "No Doctor Selected.", MessageBoxIcon.Error);
+                MessagePromp.ShowCenter(this, "No Doctor Selected.", MessageBoxIcon.Error);
                 return false;
             }
             if (comboDoctor.SelectedItem.Equals("No Doctor Available"))
             {
-                MessagePromp.MainShowMessage(this, "No Doctor Available.", MessageBoxIcon.Error);
+                MessagePromp.ShowCenter(this, "No Doctor Available.", MessageBoxIcon.Error);
                 return false;
             }
             return true;
@@ -551,32 +559,24 @@ namespace ClinicSystem
             if (text == null || text.Count == 0) return;
             text.Pop();
             tbListOperation.Text = "";
-            foreach (string t in text)
-            {
-                tbListOperation.Text += t;
-            }
 
-            if (patientSchedules.Count >= 0)
+            if (patientSchedules.Count > 0)
             {
                 Appointment lastSchedule = patientSchedules.Last();
                 patientSchedules.Remove(lastSchedule);
 
                 if (double.TryParse(TotalBill.Text, out double bill))
                 {
-                    bill -= lastSelected.Price;
+                    bill -= lastSchedule.Operation.Price;
                     TotalBill.Text = bill.ToString("F2");
                 }
+ 
             }
 
-            if (patientSchedules.Count > 0)
-            {
-                Appointment lastPatientSchedule = patientSchedules.Last();
-                patientSchedules.Remove(lastPatientSchedule);
-            }
 
             foreach (string t in text)
             {
-                tbListOperation.Text += t;
+                tbListOperation.Text = t;
             }
 
             PatientAppointmentNo.Text = (int.Parse(PatientAppointmentNo.Text) - 1).ToString();
@@ -590,7 +590,7 @@ namespace ClinicSystem
 
             if (patientSchedules.Count <= 0)
             {
-                MessagePromp.MainShowMessage(this, "Please Add an Operation.", MessageBoxIcon.Error);
+                MessagePromp.ShowCenter(this, "Please Add an Operation.", MessageBoxIcon.Error);
                 return;
             }
             
@@ -602,7 +602,7 @@ namespace ClinicSystem
                     prrr.print();
                     slidePat.Start();
                     slideApp.Start();
-                    MessagePromp.MainShowMessage(this, "Appoinment Added", MessageBoxIcon.Information);
+                    MessagePromp.ShowCenter(this, "Appoinment Added", MessageBoxIcon.Information);
                     switchButton.Image = isPatPanelShowing ? Properties.Resources.prev : Properties.Resources.next;
                     scheduleDate.Value = DateTime.Now;
                     startC.SelectedIndex = -1;
@@ -646,8 +646,8 @@ namespace ClinicSystem
                 {
                     if (vb.Operation.OperationName.Equals(selectedOperation.OperationName))
                     {
-                        MessagePromp.MainShowMessageBig(this, "This operation is already added.", MessageBoxIcon.Error);
-                        return true;
+                        DialogResult result = MessageBox.Show("Operation already added. Do you want to add again?", "Operation Already Added", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        return result == DialogResult.No;
                     }
                 }
             }
@@ -671,6 +671,11 @@ namespace ClinicSystem
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
+            reset();
+        }
+
+        private void reset()
+        {
             scheduleDate.Value = DateTime.Now;
             startC.SelectedIndex = -1;
             selectedDoctor = null;
@@ -681,7 +686,6 @@ namespace ClinicSystem
             comboRoom.Items.Clear();
             comboDoctor.Items.Clear();
         }
-
      
 
 

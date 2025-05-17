@@ -98,10 +98,10 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(229)))), ((int)(((byte)(220)))));
+            this.panel4.Controls.Add(this.QuantumCare_Label);
             this.panel4.Controls.Add(this.logo_img);
             this.panel4.Controls.Add(this.dentalClinic_label);
             this.panel4.Controls.Add(this.label5);
-            this.panel4.Controls.Add(this.QuantumCare_Label);
             this.panel4.Controls.Add(this.address_label);
             this.panel4.Location = new System.Drawing.Point(11, 12);
             this.panel4.Name = "panel4";
@@ -112,7 +112,7 @@
             // 
             this.logo_img.BackColor = System.Drawing.Color.Transparent;
             this.logo_img.Image = global::ClinicSystem.Properties.Resources.Logo;
-            this.logo_img.Location = new System.Drawing.Point(24, 12);
+            this.logo_img.Location = new System.Drawing.Point(38, 10);
             this.logo_img.Name = "logo_img";
             this.logo_img.Size = new System.Drawing.Size(104, 103);
             this.logo_img.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -123,11 +123,11 @@
             // 
             this.dentalClinic_label.AutoSize = true;
             this.dentalClinic_label.BackColor = System.Drawing.Color.Transparent;
-            this.dentalClinic_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dentalClinic_label.ForeColor = System.Drawing.Color.AliceBlue;
-            this.dentalClinic_label.Location = new System.Drawing.Point(155, 58);
+            this.dentalClinic_label.Font = new System.Drawing.Font("Georgia", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dentalClinic_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(44)))), ((int)(((byte)(54)))));
+            this.dentalClinic_label.Location = new System.Drawing.Point(148, 52);
             this.dentalClinic_label.Name = "dentalClinic_label";
-            this.dentalClinic_label.Size = new System.Drawing.Size(87, 31);
+            this.dentalClinic_label.Size = new System.Drawing.Size(124, 41);
             this.dentalClinic_label.TabIndex = 100;
             this.dentalClinic_label.Text = "Clinic";
             // 
@@ -146,12 +146,12 @@
             // 
             this.QuantumCare_Label.AutoSize = true;
             this.QuantumCare_Label.BackColor = System.Drawing.Color.Transparent;
-            this.QuantumCare_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
-                | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.QuantumCare_Label.ForeColor = System.Drawing.Color.AliceBlue;
-            this.QuantumCare_Label.Location = new System.Drawing.Point(148, 15);
+            this.QuantumCare_Label.Font = new System.Drawing.Font("Georgia", 30.25F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
+                | System.Drawing.FontStyle.Underline))));
+            this.QuantumCare_Label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(44)))), ((int)(((byte)(54)))));
+            this.QuantumCare_Label.Location = new System.Drawing.Point(141, 10);
             this.QuantumCare_Label.Name = "QuantumCare_Label";
-            this.QuantumCare_Label.Size = new System.Drawing.Size(292, 46);
+            this.QuantumCare_Label.Size = new System.Drawing.Size(334, 47);
             this.QuantumCare_Label.TabIndex = 100;
             this.QuantumCare_Label.Text = "Quantum Care";
             // 
@@ -160,8 +160,8 @@
             this.address_label.AutoSize = true;
             this.address_label.BackColor = System.Drawing.Color.Transparent;
             this.address_label.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.address_label.ForeColor = System.Drawing.Color.White;
-            this.address_label.Location = new System.Drawing.Point(158, 97);
+            this.address_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(44)))), ((int)(((byte)(54)))));
+            this.address_label.Location = new System.Drawing.Point(152, 93);
             this.address_label.Name = "address_label";
             this.address_label.Size = new System.Drawing.Size(254, 13);
             this.address_label.TabIndex = 100;
@@ -195,7 +195,7 @@
             this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(168)))), ((int)(((byte)(166)))));
-            this.guna2Button1.Font = new System.Drawing.Font("Bahnschrift", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button1.ForeColor = System.Drawing.Color.White;
             this.guna2Button1.Location = new System.Drawing.Point(141, 286);
             this.guna2Button1.Name = "guna2Button1";
@@ -232,7 +232,7 @@
             this.Password.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.Password.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.Password.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.Password.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Password.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.Password.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Password.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.Password.IconLeftSize = new System.Drawing.Size(50, 50);
@@ -275,11 +275,11 @@
             // 
             this.staffPortal_label.AutoSize = true;
             this.staffPortal_label.BackColor = System.Drawing.Color.Transparent;
-            this.staffPortal_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.staffPortal_label.Font = new System.Drawing.Font("Segoe UI Semibold", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.staffPortal_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(158)))), ((int)(((byte)(153)))));
-            this.staffPortal_label.Location = new System.Drawing.Point(135, 45);
+            this.staffPortal_label.Location = new System.Drawing.Point(168, 37);
             this.staffPortal_label.Name = "staffPortal_label";
-            this.staffPortal_label.Size = new System.Drawing.Size(162, 32);
+            this.staffPortal_label.Size = new System.Drawing.Size(167, 38);
             this.staffPortal_label.TabIndex = 100;
             this.staffPortal_label.Text = "Hello, Staff!";
             // 
@@ -335,11 +335,11 @@
             // 
             this.lblPassword.AutoSize = true;
             this.lblPassword.BackColor = System.Drawing.Color.Transparent;
-            this.lblPassword.Font = new System.Drawing.Font("Myanmar Text", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(42)))), ((int)(((byte)(58)))));
+            this.lblPassword.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(44)))), ((int)(((byte)(54)))));
             this.lblPassword.Location = new System.Drawing.Point(39, 202);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(74, 27);
+            this.lblPassword.Size = new System.Drawing.Size(70, 20);
             this.lblPassword.TabIndex = 102;
             this.lblPassword.Text = "Password";
             this.lblPassword.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -348,11 +348,11 @@
             // 
             this.lblUsername.AutoSize = true;
             this.lblUsername.BackColor = System.Drawing.Color.Transparent;
-            this.lblUsername.Font = new System.Drawing.Font("Myanmar Text", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(42)))), ((int)(((byte)(58)))));
+            this.lblUsername.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(44)))), ((int)(((byte)(54)))));
             this.lblUsername.Location = new System.Drawing.Point(39, 121);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(78, 27);
+            this.lblUsername.Size = new System.Drawing.Size(75, 20);
             this.lblUsername.TabIndex = 101;
             this.lblUsername.Text = "Username";
             this.lblUsername.TextAlign = System.Drawing.ContentAlignment.BottomLeft;

@@ -26,7 +26,7 @@ namespace ClinicSystem.UserLoginForm
 
         private TextBox totalAfterDiscount;
         private TextBox tbRate;
-        private Action<bool, List<Appointment>> onConfirmCallback;
+        private Action<bool, List<Appointment>> co;
         private Patient patient;
         private Form form;
 
@@ -52,7 +52,7 @@ namespace ClinicSystem.UserLoginForm
             
             if (combo.SelectedItem.ToString().Equals("Senior", StringComparison.OrdinalIgnoreCase) && patient.Age < 65)
             {
-                MessagePromp.MessagePrompCenter(form, "This Patient is not eligible for this \ntype of discount age must be above 65", MessageBoxIcon.Error);
+                MessagePromp.ShowCenter(form, "This Patient is not eligible for this \ntype of discount age must be above 65", MessageBoxIcon.Error);
                 combo.SelectedIndex = previousindex;
                 return;
             }
@@ -82,7 +82,7 @@ namespace ClinicSystem.UserLoginForm
 
                 }
                 appointmentRepository.insertOnlyAppointment(newApp);
-                onConfirmCallback?.Invoke(true, newApp);
+                co?.Invoke(true, newApp);
             }  
             else
             {
@@ -97,7 +97,7 @@ namespace ClinicSystem.UserLoginForm
                          "", DateTime.Now, "Upcoming"));
                 }  
                 appointmentRepository.insertPatientWithAppointment(staffid,patient,newApp);
-                onConfirmCallback?.Invoke(true, newApp);
+                co?.Invoke(true, newApp);
             }
 
 
@@ -136,7 +136,7 @@ namespace ClinicSystem.UserLoginForm
 
 
             instance = new DiscountChoicePromp(f, patient, appList, staffid);
-            instance.onConfirmCallback = confirmation;
+            instance.co = confirmation;
             
             instance.Location = new Point((f.Width - 400) /2, (f.Height - 400) / 2);
             f.Controls.Add(instance);

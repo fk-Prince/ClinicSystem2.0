@@ -76,7 +76,7 @@
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.comboOperation = new System.Windows.Forms.ComboBox();
             this.label22 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.Remove = new System.Windows.Forms.Button();
             this.Add = new System.Windows.Forms.Button();
             this.tbListOperation = new System.Windows.Forms.TextBox();
             this.p1 = new System.Windows.Forms.Panel();
@@ -138,7 +138,7 @@
             this.appPanel.Controls.Add(this.p5);
             this.appPanel.Controls.Add(this.panel22);
             this.appPanel.Controls.Add(this.p2);
-            this.appPanel.Controls.Add(this.button2);
+            this.appPanel.Controls.Add(this.Remove);
             this.appPanel.Controls.Add(this.Add);
             this.appPanel.Controls.Add(this.tbListOperation);
             this.appPanel.Controls.Add(this.p1);
@@ -840,24 +840,26 @@
             this.label22.TabIndex = 10000;
             this.label22.Text = "Operation";
             // 
-            // button2
+            // Remove
             // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button2.BackgroundImage = global::ClinicSystem.Properties.Resources.minus;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.button2.Location = new System.Drawing.Point(494, 138);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(24, 24);
-            this.button2.TabIndex = 10097;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.removeLast);
+            this.Remove.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Remove.BackgroundImage = global::ClinicSystem.Properties.Resources.minus;
+            this.Remove.Enabled = false;
+            this.Remove.FlatAppearance.BorderSize = 0;
+            this.Remove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Remove.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.Remove.Location = new System.Drawing.Point(494, 138);
+            this.Remove.Name = "Remove";
+            this.Remove.Size = new System.Drawing.Size(24, 24);
+            this.Remove.TabIndex = 10097;
+            this.Remove.UseVisualStyleBackColor = true;
+            this.Remove.Click += new System.EventHandler(this.removeLast);
             // 
             // Add
             // 
             this.Add.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Add.BackgroundImage = global::ClinicSystem.Properties.Resources.add;
+            this.Add.Enabled = false;
             this.Add.FlatAppearance.BorderSize = 0;
             this.Add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Add.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -1094,7 +1096,7 @@
         private System.Windows.Forms.Panel p2;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button Remove;
         private System.Windows.Forms.TextBox tbListOperation;
         private System.Windows.Forms.Panel p1;
         private System.Windows.Forms.TextBox textBox10;

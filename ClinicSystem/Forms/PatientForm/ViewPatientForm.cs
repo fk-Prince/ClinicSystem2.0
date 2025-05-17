@@ -35,7 +35,7 @@ namespace ClinicSystem
             dataGrid.AutoGenerateColumns = true;
             dataGrid.DataSource = dt;
 
-            appointmentList = db.getAppointment();
+            appointmentList = db.getAppointmentPatient();
             displayTable(appointmentList);
           
             dataGrid.AlternatingRowsDefaultCellStyle.BackColor = Color.LightGray;
@@ -92,7 +92,7 @@ namespace ClinicSystem
 
             DataView dv = dt.DefaultView;
             dv.RowFilter = string.Format(
-                "[Patient ID] LIKE '%{0}' OR " +
+                "[Patient ID] LIKE '%{0}%' OR " +
                 "[First Name] LIKE '{0}%' OR " +
                 "[Middle Name] LIKE '{0}%' OR " +
                 "[Last Name] LIKE '{0}%' ",
@@ -133,10 +133,6 @@ namespace ClinicSystem
                             filter.Add(pas);
                         }
                     }
-                    //tbDoctor.DropDownStyle = ComboBoxStyle.DropDownList;
-                    //tbDoctor.SelectedIndex = -1;
-                    //combDoctorAssigned.DropDownStyle = ComboBoxStyle.DropDownList;
-                    //combDoctorAssigned.SelectedIndex = -1;
 
                     if (filter != null && filter.Count > 0)
                     {

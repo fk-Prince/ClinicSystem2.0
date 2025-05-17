@@ -90,13 +90,16 @@ namespace ClinicSystem.Doctors
                 image = Image.FromFile(imagePath);
                 drPicture.Text = "";
                 drPicture.FlatAppearance.BorderSize = 0;
+                pictureBox1.BorderStyle = BorderStyle.None;
                 pictureBox1.BringToFront();
+                
             }
             else
             {
                 drPicture.FlatAppearance.BorderSize = 1;
                 drPicture.Text = "Browse";
                 pictureBox1.ImageLocation = null;
+                pictureBox1.BorderStyle = BorderStyle.FixedSingle;
                 image = null;
                 drPicture.BringToFront();
             }
@@ -112,47 +115,49 @@ namespace ClinicSystem.Doctors
                 string.IsNullOrWhiteSpace(contactNumber.Text) ||
                 string.IsNullOrWhiteSpace(enterPIN.Text) ||
                 string.IsNullOrWhiteSpace(confirmedPIN.Text)) {
-                MessagePromp.MainShowMessageBig(this,"Please fill all the empty fields.",MessageBoxIcon.Error);
-                return;
-            }
-
-            if (!rMale.Checked && !rFemale.Checked)
-            {
-                MessagePromp.MainShowMessage(this, "Choose gender", MessageBoxIcon.Error);
-                return;
-            }
-            string gender = rMale.Checked ? "Male" : "Female";
-
-
-            if (!enterPIN.Text.Equals(confirmedPIN.Text,StringComparison.OrdinalIgnoreCase)){
-                MessagePromp.MainShowMessageBig(this, "PIN NOT MATCH, Try again.", MessageBoxIcon.Error);
+                MessagePromp.ShowCenter(this,"Please fill all the empty fields.",MessageBoxIcon.Error);
                 return;
             }
 
             int ageInt = 0;
             if (!int.TryParse(Age.Text, out ageInt))
             {
-                MessagePromp.MainShowMessage(this, "Invalid Age", MessageBoxIcon.Error);
+                MessagePromp.ShowCenter(this, "Invalid Age", MessageBoxIcon.Error);
                 return;
             }
-
             if (ageInt > 120 || ageInt <= 0)
             {
-                MessagePromp.MainShowMessage(this, "Invalid Age", MessageBoxIcon.Error);
+                MessagePromp.ShowCenter(this, "Invalid Age", MessageBoxIcon.Error);
                 return;
             }
 
-            if (ageInt < 18)
+            if (ageInt <= 18)
             {
-                MessagePromp.MainShowMessageBig(this, "Doctor must be above 18 years old.", MessageBoxIcon.Error);
+                MessagePromp.ShowCenter(this, "Doctor must be above 18 years old.", MessageBoxIcon.Error);
                 return;
             }
 
             if (!string.IsNullOrWhiteSpace(contactNumber.Text.Trim()) && (!long.TryParse(contactNumber.Text, out _) || !Regex.IsMatch(contactNumber.Text.Trim(), @"^9\d{9}$")))
             {
-                MessagePromp.MainShowMessageBig(this, "Invalid Contact Number", MessageBoxIcon.Error);
+                MessagePromp.ShowCenter(this, "Invalid Contact Number", MessageBoxIcon.Error);
                 return;
             }
+
+            if (!rMale.Checked && !rFemale.Checked)
+            {
+                MessagePromp.ShowCenter(this, "Choose gender", MessageBoxIcon.Error);
+                return;
+            }
+            string gender = rMale.Checked ? "Male" : "Female";
+
+
+            if (!enterPIN.Text.Equals(confirmedPIN.Text,StringComparison.OrdinalIgnoreCase)){
+                MessagePromp.ShowCenter(this, "PIN NOT MATCH, Try again.", MessageBoxIcon.Error);
+                return;
+            }
+
+       
+            
             string contact = contactNumber.Text.Trim();
             if (contact.Length != 0)
             {
@@ -179,8 +184,7 @@ namespace ClinicSystem.Doctors
             bool succ = doctorRepository.AddDoctor(doctor);
             if (succ)
             {
-                MessagePromp.MainShowMessage(this, "Doctor Successfully Added.", MessageBoxIcon.Information);
-
+                MessagePromp.ShowCenter(this, "Doctor Successfully Added.", MessageBoxIcon.Information);
                 doctorID.Text = doctorRepository.getDoctorLastID();
                 lrfid.Visible = false;
                 firstName.Text = "";
@@ -191,7 +195,6 @@ namespace ClinicSystem.Doctors
                 doctorRFID = "";
                 rFemale.Checked = false;
                 rMale.Checked = false;
-                //Gender.SelectedIndex = -1;
                 Address.Text = "";
                 contactNumber.Text = "";
                 confirmedPIN.Text = "";

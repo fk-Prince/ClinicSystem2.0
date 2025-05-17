@@ -27,7 +27,7 @@ namespace ClinicSystem
         private string dateAp = DateTime.Now.ToString("yyyy-MM-dd");
         private string timeAp = DateTime.Now.ToString("hh:mm:ss tt");
 
-        private int y = 450;
+        private int y = 430;
         private int x = 50;
 
         private static int page = 1;
@@ -170,8 +170,7 @@ namespace ClinicSystem
                 e.Graphics.DrawString("Details", new Font("Impact", 20, FontStyle.Bold), Brushes.Black, 720, 130);
             }
             e.Graphics.DrawString("Note* if you missed your appointment you have 1 week graceful period " +
-                "to aquire a new appointment but require to pay 15% of your total amount.", new Font("Sans-serif", 08), Brushes.Black, 30, y - 30);
-
+                "to aquire a new appointment but a 15% penalty will be applied of your total amount.", new Font("Sans-serif", 08), Brushes.Black, 30, y - 30);
 
             e.Graphics.DrawString($"Date Issued: {dateAp}", new Font("Sans-serif", 12), Brushes.Black, 30, 310);
             e.Graphics.DrawString($"Time Issued: {timeAp}", new Font("Sans-serif", 12), Brushes.Black, 30, 340);

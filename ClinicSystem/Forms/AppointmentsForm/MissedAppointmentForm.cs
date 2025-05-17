@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ClinicSystem.Appointments;
 using ClinicSystem.Entity;
+using ClinicSystem.Rooms;
 using ClinicSystem.UserLoginForm;
 
 namespace ClinicSystem.Forms.AppointmentsForm
@@ -22,17 +23,25 @@ namespace ClinicSystem.Forms.AppointmentsForm
         public MissedAppointmentForm()
         {
             InitializeComponent();
+            autoComplete();
+            dateSchedulePicker.Value = DateTime.Now;
+        }
+
+        private void autoComplete()
+        {
+            comboAppointment.Items.Clear();
             missedAppointments = appointmentRepository.getMissedAppointments();
             AutoCompleteStringCollection auto = new AutoCompleteStringCollection();
             foreach (Appointment appointment in missedAppointments)
             {
-                comboAppointment.Items.Add(appointment.AppointmentDetailNo + " | "  + appointment.Patient.Lastname + ", " +
-                    appointment.Patient.Firstname + " " + appointment.Patient.Middlename);
+                comboAppointment.Items.Add(appointment.AppointmentDetailNo + " | " + appointment.Patient.Lastname + ", " + appointment.Patient.Firstname + " " + appointment.Patient.Middlename);
                 auto.Add(appointment.AppointmentDetailNo + " | " + appointment.Patient.Lastname);
-                auto.Add(appointment.Patient.Lastname + ", " + appointment.Patient.Firstname + $" {appointment.Patient.Middlename} | " + appointment.Patient.Patientid);
+                auto.Add(appointment.Patient.Patientid + " | " + appointment.Patient.Lastname + " | " + appointment.AppointmentDetailNo);
+                auto.Add(appointment.Patient.Lastname + ", " + appointment.Patient.Firstname + $" {appointment.Patient.Middlename} | " + appointment.Patient.Patientid + " | " + appointment.AppointmentDetailNo);
             }
             comboAppointment.AutoCompleteCustomSource = auto;
         }
+        
         private void comboAppointment_TextChanged(object sender, EventArgs e)
         {
             string id = comboAppointment.Text;
@@ -51,7 +60,8 @@ namespace ClinicSystem.Forms.AppointmentsForm
                 if (selectedAppointment != null)
                 {
                     display(selectedAppointment);
-                }else
+                }
+                else
                 {
                     reset();
                 }
@@ -115,9 +125,9 @@ namespace ClinicSystem.Forms.AppointmentsForm
         {
 
 
-            if (comboAppointment.SelectedIndex == -1)
+            if (selectedAppointment == null)
             {
-                MessagePromp.MainShowMessage(this, "No Appointment Selected.", MessageBoxIcon.Error);
+                MessagePromp.ShowCenter(this, "No Appointment Selected.", MessageBoxIcon.Error);
                 return;
             }
 
@@ -127,19 +137,19 @@ namespace ClinicSystem.Forms.AppointmentsForm
 
             if (!appointmentRepository.isScheduleAvailableNotEqualAppointmentNo(app, "room"))
             {
-                MessagePromp.MainShowMessageBig(this, "This room is occupied this time.", MessageBoxIcon.Error);
+                MessagePromp.ShowCenter(this, "This room is occupied this time.", MessageBoxIcon.Error);
                 return;
             }
 
             if (!appointmentRepository.isScheduleAvailableNotEqualAppointmentNo(app, "doctor"))
             {
-                MessagePromp.MainShowMessageBig(this, "Schedule conflicts with the doctor schedule.", MessageBoxIcon.Error);
+                MessagePromp.ShowCenter(this, "Schedule conflicts with the doctor schedule.", MessageBoxIcon.Error);
                 return;
             }
 
             if (!appointmentRepository.isScheduleAvailableNotEqualAppointmentNo(app, "patient"))
             {
-                MessagePromp.MainShowMessageBig(this, "Schedule conflicts with the patient schedule.", MessageBoxIcon.Error);
+                MessagePromp.ShowCenter(this, "Schedule conflicts with the patient schedule.", MessageBoxIcon.Error);
                 return;
             }
 
@@ -152,24 +162,14 @@ namespace ClinicSystem.Forms.AppointmentsForm
             {
                 List<Appointment> temp = new List<Appointment>();
                 temp.Add(app);
-                //for (int i = 0; i < missedAppointments.Count; i++)
-                //{
-                //    Appointment a = missedAppointments[i];
-                //    if (a.AppointmentDetailNo == app.AppointmentDetailNo)
-                //    {
-                //        missedAppointments[i] = app;
-                //        selectedAppointment = app;
-                //        break;
-                //    }
-                //}
-                missedAppointments.Remove(app);
-                comboAppointment.Items.RemoveAt(comboAppointment.SelectedIndex);
+                //autoComplete();
                 PrintAppointmentReceipt prrr = new PrintAppointmentReceipt(app.Patient, temp, "Penalty");
                 prrr.print();
-                MessagePromp.MainShowMessage(this, "Appointment is updated.", MessageBoxIcon.Information);
+                MessagePromp.ShowCenter(this, "Appointment successfully updated.", MessageBoxIcon.Information);
                 reset();
                 comboAppointment.SelectedIndex = -1;
                 comboAppointment.Text = "";
+                selectedAppointment = null;
             }
         }
 
@@ -179,13 +179,13 @@ namespace ClinicSystem.Forms.AppointmentsForm
         {
             if (string.IsNullOrWhiteSpace(reason.Text))
             {
-                MessagePromp.MainShowMessage(this, "Please provide a reason.", MessageBoxIcon.Error);
+                MessagePromp.ShowCenter(this, "Please provide a reason.", MessageBoxIcon.Error);
                 return null;
             } 
             DateTime date = dateSchedulePicker.Value.Date;
             if (StartTime.SelectedIndex == -1)
             {
-                MessagePromp.MainShowMessageBig(this, "No StartTime", MessageBoxIcon.Error);
+                MessagePromp.ShowCenter(this, "No StartTime", MessageBoxIcon.Error);
                 return null;
             }
             DateTime start = DateTime.ParseExact(
@@ -195,14 +195,12 @@ namespace ClinicSystem.Forms.AppointmentsForm
                                 );
 
 
-            DateTime startSchedule = date
-                                .AddHours(start.Hour)
-                                .AddMinutes(start.Minute);
+            DateTime startSchedule = date.AddHours(start.Hour) .AddMinutes(start.Minute);
 
             DateTime currentDateTime = DateTime.Now;
             if (startSchedule < currentDateTime)
             {
-                MessagePromp.MainShowMessageBig(this, "Time is already past.", MessageBoxIcon.Error);
+                MessagePromp.ShowCenter(this, "Time is already past.", MessageBoxIcon.Error);
                 return null;
             }
             DateTime endSchedule = startSchedule + selectedAppointment.Operation.Duration;
