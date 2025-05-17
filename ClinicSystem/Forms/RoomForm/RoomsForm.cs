@@ -144,12 +144,12 @@ namespace ClinicSystem.Rooms
         {
             if (string.IsNullOrWhiteSpace(roomno.Text.Trim()) || comboBox1.SelectedIndex == -1 || string.IsNullOrWhiteSpace(roomDescription.Text.Trim()))
             {
-                MessagePromp.MainShowMessage(this, "Empty Field", MessageBoxIcon.Error);
+                MessagePromp.ShowCenter(this, "Empty Field", MessageBoxIcon.Error);
                 return;
             }
             if(roomDescription.Text.Trim().Equals("No registered room type.          "))
             {
-                MessagePromp.MainShowMessage(this, "No registered room type.", MessageBoxIcon.Error);
+                MessagePromp.ShowCenter(this, "No registered room type.", MessageBoxIcon.Error);
                 return;
             }
 
@@ -157,7 +157,7 @@ namespace ClinicSystem.Rooms
             int roomNumber;
             if (!int.TryParse(roomno.Text, out roomNumber))
             {
-                MessagePromp.MainShowMessageBig(this, "Room No can only be number", MessageBoxIcon.Error);
+                MessagePromp.ShowCenter(this, "Room No can only be number", MessageBoxIcon.Error);
                 return;
             }
 
@@ -165,14 +165,14 @@ namespace ClinicSystem.Rooms
             {
                 if (roomss.RoomNo == roomNumber)
                 {
-                    MessagePromp.MainShowMessageBig(this, "Try different RoomNo. this room already exist", MessageBoxIcon.Error);
+                    MessagePromp.ShowCenter(this, "Try different RoomNo. this room already exist", MessageBoxIcon.Error);
                     return;
                 }
             }
 
             Room room = new Room(roomNumber, roomtype);
             db.insertRoom(room);
-            MessagePromp.MainShowMessage(this, "Successfully Added", MessageBoxIcon.Information);
+            MessagePromp.ShowCenter(this, "Successfully Added", MessageBoxIcon.Information);
             roomno.Text = "";
             comboBox1.SelectedIndex = -1;
             roomList.Add(room);
