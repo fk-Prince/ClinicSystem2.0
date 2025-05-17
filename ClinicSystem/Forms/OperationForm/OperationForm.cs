@@ -93,7 +93,7 @@ namespace ClinicSystem
                     label = createLabel("Duration", operation.Duration.ToString(), 10, 85);
                     panel.Controls.Add(label);
 
-                    label = createLabel("Room Type Needed", operation.OperationRoomType, 10, 105);
+                    label = createLabel("Room Type", operation.OperationRoomType, 10, 105);
                     panel.Controls.Add(label);
 
                     label = new Label();

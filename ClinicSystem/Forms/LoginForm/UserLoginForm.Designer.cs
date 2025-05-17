@@ -33,10 +33,10 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.bgClinic_img = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.QuantumCare_Label = new System.Windows.Forms.Label();
             this.logo_img = new System.Windows.Forms.PictureBox();
             this.dentalClinic_label = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.QuantumCare_Label = new System.Windows.Forms.Label();
             this.address_label = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
@@ -108,6 +108,19 @@
             this.panel4.Size = new System.Drawing.Size(476, 131);
             this.panel4.TabIndex = 102;
             // 
+            // QuantumCare_Label
+            // 
+            this.QuantumCare_Label.AutoSize = true;
+            this.QuantumCare_Label.BackColor = System.Drawing.Color.Transparent;
+            this.QuantumCare_Label.Font = new System.Drawing.Font("Georgia", 30.25F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
+                | System.Drawing.FontStyle.Underline))));
+            this.QuantumCare_Label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(44)))), ((int)(((byte)(54)))));
+            this.QuantumCare_Label.Location = new System.Drawing.Point(141, 10);
+            this.QuantumCare_Label.Name = "QuantumCare_Label";
+            this.QuantumCare_Label.Size = new System.Drawing.Size(334, 47);
+            this.QuantumCare_Label.TabIndex = 100;
+            this.QuantumCare_Label.Text = "Quantum Care";
+            // 
             // logo_img
             // 
             this.logo_img.BackColor = System.Drawing.Color.Transparent;
@@ -141,19 +154,6 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(0, 13);
             this.label5.TabIndex = 100;
-            // 
-            // QuantumCare_Label
-            // 
-            this.QuantumCare_Label.AutoSize = true;
-            this.QuantumCare_Label.BackColor = System.Drawing.Color.Transparent;
-            this.QuantumCare_Label.Font = new System.Drawing.Font("Georgia", 30.25F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
-                | System.Drawing.FontStyle.Underline))));
-            this.QuantumCare_Label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(44)))), ((int)(((byte)(54)))));
-            this.QuantumCare_Label.Location = new System.Drawing.Point(141, 10);
-            this.QuantumCare_Label.Name = "QuantumCare_Label";
-            this.QuantumCare_Label.Size = new System.Drawing.Size(334, 47);
-            this.QuantumCare_Label.TabIndex = 100;
-            this.QuantumCare_Label.Text = "Quantum Care";
             // 
             // address_label
             // 
@@ -226,7 +226,7 @@
             this.Password.BackColor = System.Drawing.Color.Transparent;
             this.Password.BorderRadius = 18;
             this.Password.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.Password.DefaultText = "a";
+            this.Password.DefaultText = "admin";
             this.Password.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.Password.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.Password.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -253,7 +253,7 @@
             this.Username.BackColor = System.Drawing.Color.Transparent;
             this.Username.BorderRadius = 18;
             this.Username.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.Username.DefaultText = "a";
+            this.Username.DefaultText = "admin";
             this.Username.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.Username.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.Username.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));

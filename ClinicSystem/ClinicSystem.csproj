@@ -494,6 +494,7 @@
     <None Include="Resources\checked2.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\employee.png" />
     <None Include="Resources\trash.png" />
     <None Include="Resources\decreaseincome.png" />
     <None Include="Resources\increaseincome.png" />

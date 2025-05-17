@@ -7,6 +7,7 @@ using System.Management.Instrumentation;
 using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 using ClinicSystem.Appointments;
+using ClinicSystem.MainClinic;
 using ClinicSystem.PatientForm;
 using ClinicSystem.Repository;
 using Guna.UI2.WinForms;
@@ -20,6 +21,7 @@ namespace ClinicSystem.UserLoginForm
         private static DiscountChoicePromp instance;
         private AppointmentRepository appointmentRepository = new AppointmentRepository();
         private DiscountRepository discountRepository = new DiscountRepository();
+        private ClinicRepository clinicRepository = new ClinicRepository();
         private List<Appointment> appList;
         private List<Discount> discount;
         private Discount selectedDiscount = null;
@@ -49,8 +51,8 @@ namespace ClinicSystem.UserLoginForm
         {
             ComboBox combo = sender as ComboBox;
             if (combo.SelectedIndex == -1) return;
-            
-            if (combo.SelectedItem.ToString().Equals("Senior", StringComparison.OrdinalIgnoreCase) && patient.Age < 65)
+
+            if (combo.SelectedItem.ToString().Equals("Senior Citizen", StringComparison.OrdinalIgnoreCase) && patient.Age < 65)
             {
                 MessagePromp.ShowCenter(form, "This Patient is not eligible for this \ntype of discount age must be above 65", MessageBoxIcon.Error);
                 combo.SelectedIndex = previousindex;
@@ -62,10 +64,12 @@ namespace ClinicSystem.UserLoginForm
             if (selectedDiscount == null) return;
             tbRate.Text = (selectedDiscount.DiscountRate * 100).ToString() + " %";
             totalAfterDiscount.Text = appList.Sum(app => app.SubTotal - (app.SubTotal * selectedDiscount.DiscountRate)).ToString("F2");
+
         }
-      
+       
         private void confirm(object sender, EventArgs e)
         {
+           
 
             List<Appointment> newApp = new List<Appointment>() ;
             if (staffid == 0)
@@ -151,7 +155,7 @@ namespace ClinicSystem.UserLoginForm
                 instance = null;
             }
         }
-
+        ComboBox discountType;
         public void loadComponents(Form f)
         {
             Label label = new Label();
@@ -190,7 +194,7 @@ namespace ClinicSystem.UserLoginForm
             tbRate.Location = new Point(310, 110);
             Controls.Add(tbRate); 
 
-            ComboBox discountType = new ComboBox();
+            discountType = new ComboBox();
             discountType.DropDownStyle = ComboBoxStyle.DropDownList;
    
             if (discount.Count == 0)
@@ -245,14 +249,14 @@ namespace ClinicSystem.UserLoginForm
             discountLabel.AutoSize = true;
             discountLabel.Font = new Font("Arial", 10);
             discountLabel.ForeColor = Color.White;
-            discountLabel.Location = new Point(45, 230);
+            discountLabel.Location = new Point(45, 220);
             Controls.Add(discountLabel);
 
             totalAfterDiscount = new TextBox();
             totalAfterDiscount.ReadOnly = true;
             totalAfterDiscount.Text = appList.Sum(app => app.SubTotal).ToString("F2");
             totalAfterDiscount.Size = new Size(300, 40);
-            totalAfterDiscount.Location = new Point(50, 250);
+            totalAfterDiscount.Location = new Point(50, 240);
             Controls.Add(totalAfterDiscount);
 
             Button button = new Button();

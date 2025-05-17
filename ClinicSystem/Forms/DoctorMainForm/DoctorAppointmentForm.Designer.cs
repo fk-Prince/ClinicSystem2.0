@@ -38,12 +38,12 @@
             this.datePickDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
-            this.SearchBar1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.flowPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.load = new System.Windows.Forms.Timer(this.components);
+            this.SearchBar1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.panel1.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel11.SuspendLayout();
@@ -172,28 +172,6 @@
             this.panel11.Size = new System.Drawing.Size(302, 69);
             this.panel11.TabIndex = 10061;
             // 
-            // SearchBar1
-            // 
-            this.SearchBar1.BorderRadius = 5;
-            this.SearchBar1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.SearchBar1.DefaultText = "";
-            this.SearchBar1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.SearchBar1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.SearchBar1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.SearchBar1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.SearchBar1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.SearchBar1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchBar1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.SearchBar1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.SearchBar1.IconLeft = global::ClinicSystem.Properties.Resources.search24;
-            this.SearchBar1.Location = new System.Drawing.Point(10, 28);
-            this.SearchBar1.Name = "SearchBar1";
-            this.SearchBar1.PlaceholderText = "";
-            this.SearchBar1.SelectedText = "";
-            this.SearchBar1.Size = new System.Drawing.Size(266, 37);
-            this.SearchBar1.TabIndex = 11;
-            this.SearchBar1.TextChanged += new System.EventHandler(this.SearchBar1_TextChanged);
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -239,6 +217,29 @@
             // 
             this.load.Interval = 500;
             this.load.Tick += new System.EventHandler(this.load_Tick);
+            // 
+            // SearchBar1
+            // 
+            this.SearchBar1.BorderRadius = 5;
+            this.SearchBar1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.SearchBar1.DefaultText = "";
+            this.SearchBar1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.SearchBar1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.SearchBar1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.SearchBar1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.SearchBar1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.SearchBar1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchBar1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.SearchBar1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.SearchBar1.IconLeft = global::ClinicSystem.Properties.Resources.search24;
+            this.SearchBar1.Location = new System.Drawing.Point(10, 28);
+            this.SearchBar1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.SearchBar1.Name = "SearchBar1";
+            this.SearchBar1.PlaceholderText = "";
+            this.SearchBar1.SelectedText = "";
+            this.SearchBar1.Size = new System.Drawing.Size(266, 37);
+            this.SearchBar1.TabIndex = 11;
+            this.SearchBar1.TextChanged += new System.EventHandler(this.SearchBar1_TextChanged);
             // 
             // DoctorAppointmentForm
             // 
