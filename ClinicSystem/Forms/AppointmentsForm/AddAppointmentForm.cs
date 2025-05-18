@@ -57,14 +57,12 @@ namespace ClinicSystem.Appointments
             DiscountChoicePromp.closePanel();
         }
 
-        // Patient SELECTED
-        private void comboPatientID_SelectedIndexChanged(object sender, EventArgs e)
+        private void reset23()
         {
-            if (comboPatientID.SelectedIndex == -1) return;
             comboDoctor.Items.Clear();
             comboOperation.Items.Clear();
             comboRoom.Items.Clear();
-            if (selectedOperation != null)
+            if (patientSchedules.Count > 0)
             {
                 startC.Enabled = false;
                 scheduleDate.Value = DateTime.Now;
@@ -75,7 +73,15 @@ namespace ClinicSystem.Appointments
                 tbListOperation.Text = "";
                 patientSchedules.Clear();
             }
-           
+        }
+
+        // Patient SELECTED
+        private void comboPatientID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboPatientID.SelectedIndex == -1) return;
+            reset23();
+
+
             selectedPatient = patientList.FirstOrDefault(p => p.Patientid.Equals(comboPatientID.SelectedItem.ToString().Split('|')[0].Trim()));
             fName.Text = selectedPatient.Firstname;
             mName.Text = selectedPatient.Middlename;
@@ -94,6 +100,7 @@ namespace ClinicSystem.Appointments
             {
                 if (selectedPatient != null)
                 {
+                    reset23();
                     fName.Text = selectedPatient.Firstname;
                     mName.Text = selectedPatient.Middlename;
                     lName.Text = selectedPatient.Lastname;
@@ -123,6 +130,7 @@ namespace ClinicSystem.Appointments
             );
             if (selectedPatient != null)
             {
+                reset23();
                 fName.Text = selectedPatient.Firstname;
                 mName.Text = selectedPatient.Middlename;
                 lName.Text = selectedPatient.Lastname;    

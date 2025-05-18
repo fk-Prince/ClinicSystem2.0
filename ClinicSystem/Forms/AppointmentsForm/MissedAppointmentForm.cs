@@ -47,10 +47,31 @@ namespace ClinicSystem.Forms.AppointmentsForm
             string id = comboAppointment.Text;
             if (string.IsNullOrWhiteSpace(id)) return;
 
+            string[] ids = id.Split('|');
+
             selectedAppointment = missedAppointments.FirstOrDefault(p =>
-                p.AppointmentDetailNo.ToString().Equals(id.Split('|')[0].Trim(), StringComparison.OrdinalIgnoreCase) ||
-                p.Patient.Lastname.Equals(id.Split(',')[0].Trim(), StringComparison.OrdinalIgnoreCase)
-            );
+                p.AppointmentDetailNo.ToString().Equals(ids.ElementAtOrDefault(0)?.Trim(), StringComparison.OrdinalIgnoreCase));
+
+            if (selectedAppointment == null)
+            {
+                selectedAppointment = missedAppointments.FirstOrDefault(p =>
+                    p.AppointmentDetailNo.ToString().Equals(ids.ElementAtOrDefault(2)?.Trim(), StringComparison.OrdinalIgnoreCase));
+            }
+
+            if (selectedAppointment == null)
+            {
+                selectedAppointment = missedAppointments.FirstOrDefault(p =>
+                    p.AppointmentDetailNo.ToString().Equals(ids.ElementAtOrDefault(1)?.Trim(), StringComparison.OrdinalIgnoreCase));
+            }
+
+            if (selectedAppointment == null)
+            {
+                selectedAppointment = missedAppointments.FirstOrDefault(p =>
+                    p.AppointmentDetailNo.ToString().Equals(id.Split('|')[0].Trim(), StringComparison.OrdinalIgnoreCase) ||
+                    p.Patient.Patientid.Equals(id.Split('|')[0].Trim(), StringComparison.OrdinalIgnoreCase) ||
+                    p.Patient.Lastname.Equals(id.Split(',')[0].Trim(), StringComparison.OrdinalIgnoreCase)
+                );
+            }
         }
 
         private void comboAppointment_KeyDown(object sender, KeyEventArgs e)
@@ -91,7 +112,7 @@ namespace ClinicSystem.Forms.AppointmentsForm
             string fullname = $"{selectedAppointment.Patient.Firstname}  " +
                                  $"{selectedAppointment.Patient.Middlename}  " +
                                  $"{selectedAppointment.Patient.Lastname}";
-            tbPname.Text = fullname;
+            tbFname.Text = fullname;
             tbOname.Text = selectedAppointment.Operation.OperationName;
             string dfullname = $"{selectedAppointment.Doctor.DoctorFirstName} " +
                                $"{selectedAppointment.Doctor.DoctorMiddleName}  " +
@@ -108,8 +129,8 @@ namespace ClinicSystem.Forms.AppointmentsForm
 
         private void reset()
         {
+            tbFname.Text = "";
             doctorL.Text = "";
-            tbPname.Text = "";
             tbOname.Text = "";
             roomNo.Text = "";
             dateSchedulePicker.Value = DateTime.Now;
@@ -162,7 +183,7 @@ namespace ClinicSystem.Forms.AppointmentsForm
             {
                 List<Appointment> temp = new List<Appointment>();
                 temp.Add(app);
-                //autoComplete();
+                autoComplete();
                 PrintAppointmentReceipt prrr = new PrintAppointmentReceipt(app.Patient, temp, "Penalty");
                 prrr.print();
                 MessagePromp.ShowCenter(this, "Appointment successfully updated.", MessageBoxIcon.Information);
@@ -237,6 +258,20 @@ namespace ClinicSystem.Forms.AppointmentsForm
         
         }
 
-       
+        private void StartTime_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            DateTime date = dateSchedulePicker.Value;
+            if (StartTime.SelectedIndex == -1) return;
+
+            DateTime start = DateTime.ParseExact(
+                                    StartTime.SelectedItem.ToString(),
+                                    "hh:mm:ss tt",
+                                    CultureInfo.InvariantCulture
+                                );
+            DateTime end = start + selectedAppointment.Operation.Duration;
+            EndTime.Text = end.ToString("hh:mm:ss tt");
+
+        }
     }
 }

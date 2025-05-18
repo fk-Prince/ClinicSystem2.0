@@ -113,6 +113,7 @@ namespace ClinicSystem.ClinicHistory
         private void tbPatientId_TextChanged(object sender, EventArgs e)
         {
             string text = tbPatient.Text;
+            displayPatientGrid(text);
         }
 
         private void ClinicForm_Load(object sender, EventArgs e)

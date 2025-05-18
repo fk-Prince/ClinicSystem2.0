@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.label13 = new System.Windows.Forms.Label();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.updateAppointmentB = new Guna.UI2.WinForms.Guna2Button();
             this.panel12 = new System.Windows.Forms.Panel();
@@ -51,7 +52,6 @@
             this.EndTime = new Guna.UI2.WinForms.Guna2TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.panelDentName = new System.Windows.Forms.Panel();
-            this.doctorL = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.StartTime = new System.Windows.Forms.ComboBox();
@@ -60,13 +60,13 @@
             this.dateSchedulePicker = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.panelPatName = new System.Windows.Forms.Panel();
-            this.tbPname = new Guna.UI2.WinForms.Guna2TextBox();
+            this.doctorL = new Guna.UI2.WinForms.Guna2TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panelOperName = new System.Windows.Forms.Panel();
             this.tbOname = new Guna.UI2.WinForms.Guna2TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
+            this.tbFname = new System.Windows.Forms.Label();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -97,6 +97,18 @@
             this.guna2Panel1.Size = new System.Drawing.Size(1089, 657);
             this.guna2Panel1.TabIndex = 0;
             this.guna2Panel1.SizeChanged += new System.EventHandler(this.guna2Panel1_SizeChanged);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(0, 83);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(572, 13);
+            this.label13.TabIndex = 10084;
+            this.label13.Text = "Note:  Rescheduling is only allowed within 1 week of the original appointment. a " +
+    "15% penalty will be charged";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // guna2Panel2
             // 
@@ -426,20 +438,10 @@
             this.panelDentName.Controls.Add(this.doctorL);
             this.panelDentName.Controls.Add(this.label8);
             this.panelDentName.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelDentName.Location = new System.Drawing.Point(184, 42);
+            this.panelDentName.Location = new System.Drawing.Point(184, 84);
             this.panelDentName.Name = "panelDentName";
             this.panelDentName.Size = new System.Drawing.Size(559, 42);
             this.panelDentName.TabIndex = 10085;
-            // 
-            // doctorL
-            // 
-            this.doctorL.AutoSize = true;
-            this.doctorL.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.doctorL.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.doctorL.Location = new System.Drawing.Point(236, 10);
-            this.doctorL.Name = "doctorL";
-            this.doctorL.Size = new System.Drawing.Size(0, 21);
-            this.doctorL.TabIndex = 2;
             // 
             // label8
             // 
@@ -504,6 +506,7 @@
             this.StartTime.Name = "StartTime";
             this.StartTime.Size = new System.Drawing.Size(323, 29);
             this.StartTime.TabIndex = 10104;
+            this.StartTime.SelectedIndexChanged += new System.EventHandler(this.StartTime_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -557,35 +560,35 @@
             // 
             this.panelPatName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panelPatName.BackColor = System.Drawing.Color.Transparent;
-            this.panelPatName.Controls.Add(this.tbPname);
+            this.panelPatName.Controls.Add(this.tbFname);
             this.panelPatName.Controls.Add(this.label3);
             this.panelPatName.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelPatName.Location = new System.Drawing.Point(184, 83);
+            this.panelPatName.Location = new System.Drawing.Point(4, 43);
             this.panelPatName.Name = "panelPatName";
             this.panelPatName.Size = new System.Drawing.Size(559, 42);
             this.panelPatName.TabIndex = 10084;
             // 
-            // tbPname
+            // doctorL
             // 
-            this.tbPname.BorderRadius = 5;
-            this.tbPname.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbPname.DefaultText = "";
-            this.tbPname.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.tbPname.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.tbPname.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbPname.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbPname.Enabled = false;
-            this.tbPname.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbPname.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbPname.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.tbPname.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbPname.Location = new System.Drawing.Point(229, 8);
-            this.tbPname.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tbPname.Name = "tbPname";
-            this.tbPname.PlaceholderText = "";
-            this.tbPname.SelectedText = "";
-            this.tbPname.Size = new System.Drawing.Size(323, 25);
-            this.tbPname.TabIndex = 10090;
+            this.doctorL.BorderRadius = 5;
+            this.doctorL.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.doctorL.DefaultText = "";
+            this.doctorL.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.doctorL.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.doctorL.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.doctorL.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.doctorL.Enabled = false;
+            this.doctorL.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.doctorL.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.doctorL.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.doctorL.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.doctorL.Location = new System.Drawing.Point(229, 9);
+            this.doctorL.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.doctorL.Name = "doctorL";
+            this.doctorL.PlaceholderText = "";
+            this.doctorL.SelectedText = "";
+            this.doctorL.Size = new System.Drawing.Size(323, 25);
+            this.doctorL.TabIndex = 10090;
             // 
             // label3
             // 
@@ -656,17 +659,14 @@
             this.label1.Text = "Missed Appointments";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label13
+            // tbFname
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(0, 83);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(572, 13);
-            this.label13.TabIndex = 10084;
-            this.label13.Text = "Note:  Rescheduling is only allowed within 1 week of the original appointment. a " +
-    "15% penalty will be charged";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.tbFname.AutoSize = true;
+            this.tbFname.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.tbFname.Location = new System.Drawing.Point(120, 10);
+            this.tbFname.Name = "tbFname";
+            this.tbFname.Size = new System.Drawing.Size(0, 21);
+            this.tbFname.TabIndex = 2;
             // 
             // MissedAppointmentForm
             // 
@@ -724,7 +724,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboAppointment;
         private System.Windows.Forms.Panel panelDentName;
-        private System.Windows.Forms.Label doctorL;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.ComboBox StartTime;
@@ -747,7 +746,8 @@
         private Guna.UI2.WinForms.Guna2TextBox reason;
         private System.Windows.Forms.Label label12;
         private Guna.UI2.WinForms.Guna2TextBox tbOname;
-        private Guna.UI2.WinForms.Guna2TextBox tbPname;
+        private Guna.UI2.WinForms.Guna2TextBox doctorL;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label tbFname;
     }
 }

@@ -19,7 +19,7 @@ namespace ClinicSystem.Appointments
         {
             InitializeComponent();
             activeAppointments = appointmentRepository.getReAppointment();
-          
+
             DateTime currentDate = DateTime.Now;
             AutoCompleteStringCollection auto = new AutoCompleteStringCollection();
             foreach (Appointment appointment in activeAppointments)
@@ -27,8 +27,8 @@ namespace ClinicSystem.Appointments
                 comboAppointment.Items.Add(appointment.AppointmentDetailNo + " | " + appointment.Patient.Lastname + ", " + appointment.Patient.Firstname + " " + appointment.Patient.Middlename);
                 auto.Add(appointment.AppointmentDetailNo + " | " + appointment.Patient.Lastname);
                 auto.Add(appointment.Patient.Patientid + " | " + appointment.Patient.Lastname + " | " + appointment.AppointmentDetailNo);
-                auto.Add(appointment.Patient.Lastname + ", " + appointment.Patient.Firstname + $" {appointment.Patient.Middlename} | " + appointment.Patient.Patientid + " | " + appointment.AppointmentDetailNo);
-            }     
+                auto.Add(appointment.Patient.Lastname + ", " + appointment.Patient.Firstname + $" {appointment.Patient.Middlename}  " + appointment.Patient.Patientid + " | " + appointment.AppointmentDetailNo);
+            }
             comboAppointment.AutoCompleteCustomSource = auto;
             dateSchedulePicker.Value = DateTime.Now;
         }
@@ -51,11 +51,32 @@ namespace ClinicSystem.Appointments
             string id = comboAppointment.Text;
             if (string.IsNullOrWhiteSpace(id)) return;
 
+            string[] ids = id.Split('|');
+
             selectedAppointment = activeAppointments.FirstOrDefault(p =>
-                p.Patient.Patientid.Equals(id.Split('|')[0].Trim(), StringComparison.OrdinalIgnoreCase) ||
-                p.AppointmentDetailNo.ToString().Equals(id.Split('|')[0].Trim(), StringComparison.OrdinalIgnoreCase) ||
-                p.Patient.Lastname.Equals(id.Split(',')[0].Trim(), StringComparison.OrdinalIgnoreCase)
-            );
+                p.AppointmentDetailNo.ToString().Equals(ids.ElementAtOrDefault(0)?.Trim(), StringComparison.OrdinalIgnoreCase));
+
+            if (selectedAppointment == null)
+            {
+                selectedAppointment = activeAppointments.FirstOrDefault(p =>
+                    p.AppointmentDetailNo.ToString().Equals(ids.ElementAtOrDefault(2)?.Trim(), StringComparison.OrdinalIgnoreCase));
+            }
+
+            if (selectedAppointment == null)
+            {
+                selectedAppointment = activeAppointments.FirstOrDefault(p =>
+                    p.AppointmentDetailNo.ToString().Equals(ids.ElementAtOrDefault(1)?.Trim(), StringComparison.OrdinalIgnoreCase));
+            }
+
+            if (selectedAppointment == null)
+            {
+                selectedAppointment = activeAppointments.FirstOrDefault(p =>
+                    p.AppointmentDetailNo.ToString().Equals(id.Split('|')[0].Trim(), StringComparison.OrdinalIgnoreCase) ||
+                    p.Patient.Patientid.Equals(id.Split('|')[0].Trim(), StringComparison.OrdinalIgnoreCase) ||
+                    p.Patient.Lastname.Equals(id.Split(',')[0].Trim(), StringComparison.OrdinalIgnoreCase)
+                );
+            }
+
         }
 
         private void clear()
@@ -208,9 +229,9 @@ namespace ClinicSystem.Appointments
                 return null;
             }
             DateTime endSchedule = startSchedule + selectedAppointment.Operation.Duration;
-     
 
-            return new  Appointment(
+
+            return new Appointment(
                 selectedAppointment.Patient,
                 selectedAppointment.Doctor,
                 selectedAppointment.Operation,
@@ -227,6 +248,6 @@ namespace ClinicSystem.Appointments
 
         }
 
-        
+
     }
 }

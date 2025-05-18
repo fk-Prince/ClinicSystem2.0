@@ -141,8 +141,8 @@ namespace ClinicSystem
                         {
                             comboAppNo.Items.Add(f.AppointmentDetailNo);                      
                         }
-                        tbBill.Text = filter.Sum(x => x.Total).ToString("F2");
-                    }
+                        tbBill.Text = "₱ " + filter.Sum(x => x.Total).ToString("F2");
+                    } 
                     tabPagePatientDetails.SelectedTab = tabPatientDetails;
                 }
 
@@ -161,6 +161,7 @@ namespace ClinicSystem
             tbAge.Text = "";
             tbGender.Text = "";
             tbAddress.Text = "";
+            tbContactNumber.Text = "";
             datepickBirthDay.Value = DateTime.Now;
             tbBill.Text = "";
             tbDoctor.Text = "";
@@ -183,6 +184,10 @@ namespace ClinicSystem
                     tbDoctor.Text = dr;
                     tbOperation.Text = appointment.Operation.OperationCode + "  |  "+appointment.Operation.OperationName;
                     tbDoctorDiagnosis.Text = appointment.Diagnosis;
+                    cost.Text = "₱ " + appointment.Total.ToString("F2");
+                    start.Text = appointment.StartTime.ToString("yyyy-MM-dd hh:mm:ss tt");
+                    end.Text = appointment.EndTime.ToString("yyyy-MM-dd hh:mm:ss tt");
+                    Status.Text = appointment.Status;
                     break;
                 }
             }

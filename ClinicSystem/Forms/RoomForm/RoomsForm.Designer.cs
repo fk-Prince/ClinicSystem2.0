@@ -173,7 +173,7 @@
             this.addRoomPanel.Controls.Add(this.panel10);
             this.addRoomPanel.Controls.Add(this.panel9);
             this.addRoomPanel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(168)))), ((int)(((byte)(166)))));
-            this.addRoomPanel.Location = new System.Drawing.Point(-372, 144);
+            this.addRoomPanel.Location = new System.Drawing.Point(-372, 147);
             this.addRoomPanel.Name = "addRoomPanel";
             this.addRoomPanel.Size = new System.Drawing.Size(371, 517);
             this.addRoomPanel.TabIndex = 11;
@@ -308,7 +308,7 @@
             this.roomno.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.roomno.Location = new System.Drawing.Point(98, 4);
             this.roomno.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.roomno.MaxLength = 10;
+            this.roomno.MaxLength = 6;
             this.roomno.Name = "roomno";
             this.roomno.PlaceholderText = "";
             this.roomno.SelectedText = "";
@@ -359,7 +359,7 @@
             this.panel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(249)))), ((int)(((byte)(246)))));
             this.panel3.Controls.Add(this.flowLayout);
-            this.panel3.Location = new System.Drawing.Point(3, 117);
+            this.panel3.Location = new System.Drawing.Point(3, 120);
             this.panel3.MaximumSize = new System.Drawing.Size(1920, 1080);
             this.panel3.MinimumSize = new System.Drawing.Size(1088, 599);
             this.panel3.Name = "panel3";
