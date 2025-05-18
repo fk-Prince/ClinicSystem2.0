@@ -446,9 +446,9 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.MaximumSize = new System.Drawing.Size(1920, 1080);
-            this.panel2.MinimumSize = new System.Drawing.Size(1088, 719);
+            this.panel2.MinimumSize = new System.Drawing.Size(1084, 719);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1088, 719);
+            this.panel2.Size = new System.Drawing.Size(1084, 724);
             this.panel2.TabIndex = 11;
             // 
             // addOperationPanel
@@ -513,7 +513,7 @@
             this.addOperationB.ForeColor = System.Drawing.Color.Black;
             this.addOperationB.Image = global::ClinicSystem.Properties.Resources.add;
             this.addOperationB.ImageSize = new System.Drawing.Size(35, 35);
-            this.addOperationB.Location = new System.Drawing.Point(1038, 90);
+            this.addOperationB.Location = new System.Drawing.Point(1034, 90);
             this.addOperationB.Name = "addOperationB";
             this.addOperationB.Size = new System.Drawing.Size(38, 35);
             this.addOperationB.TabIndex = 9;
@@ -530,7 +530,7 @@
             this.panel1.MaximumSize = new System.Drawing.Size(1920, 1080);
             this.panel1.MinimumSize = new System.Drawing.Size(1088, 588);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1088, 588);
+            this.panel1.Size = new System.Drawing.Size(1088, 593);
             this.panel1.TabIndex = 8;
             // 
             // flowLayout
@@ -542,9 +542,9 @@
             this.flowLayout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(255)))), ((int)(((byte)(252)))));
             this.flowLayout.Location = new System.Drawing.Point(0, 0);
             this.flowLayout.MaximumSize = new System.Drawing.Size(1920, 1080);
-            this.flowLayout.MinimumSize = new System.Drawing.Size(1088, 588);
+            this.flowLayout.MinimumSize = new System.Drawing.Size(1084, 588);
             this.flowLayout.Name = "flowLayout";
-            this.flowLayout.Size = new System.Drawing.Size(1088, 588);
+            this.flowLayout.Size = new System.Drawing.Size(1084, 593);
             this.flowLayout.TabIndex = 0;
             this.flowLayout.SizeChanged += new System.EventHandler(this.flowLayout_SizeChanged);
             // 
@@ -601,12 +601,12 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(168)))), ((int)(((byte)(166)))));
-            this.ClientSize = new System.Drawing.Size(1088, 719);
+            this.ClientSize = new System.Drawing.Size(1084, 724);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.operationFlowPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximumSize = new System.Drawing.Size(1920, 1080);
-            this.MinimumSize = new System.Drawing.Size(1088, 719);
+            this.MinimumSize = new System.Drawing.Size(1084, 724);
             this.Name = "OperationForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "OperationForm";

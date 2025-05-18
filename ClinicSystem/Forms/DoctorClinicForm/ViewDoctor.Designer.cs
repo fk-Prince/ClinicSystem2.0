@@ -69,10 +69,12 @@
             // all
             // 
             this.all.AutoSize = true;
+            this.all.Checked = true;
             this.all.Location = new System.Drawing.Point(366, 10);
             this.all.Name = "all";
             this.all.Size = new System.Drawing.Size(47, 17);
             this.all.TabIndex = 7;
+            this.all.TabStop = true;
             this.all.Text = "Both";
             this.all.UseVisualStyleBackColor = true;
             this.all.CheckedChanged += new System.EventHandler(this.all_CheckedChanged);
@@ -80,12 +82,10 @@
             // active
             // 
             this.active.AutoSize = true;
-            this.active.Checked = true;
             this.active.Location = new System.Drawing.Point(320, 38);
             this.active.Name = "active";
             this.active.Size = new System.Drawing.Size(55, 17);
             this.active.TabIndex = 7;
-            this.active.TabStop = true;
             this.active.Text = "Active";
             this.active.UseVisualStyleBackColor = true;
             this.active.CheckedChanged += new System.EventHandler(this.active_CheckedChanged);
@@ -130,11 +130,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flowPanel.AutoScroll = true;
             this.flowPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(249)))), ((int)(((byte)(246)))));
-            this.flowPanel.Location = new System.Drawing.Point(-2, 78);
+            this.flowPanel.Location = new System.Drawing.Point(0, 78);
             this.flowPanel.MaximumSize = new System.Drawing.Size(1920, 1080);
-            this.flowPanel.MinimumSize = new System.Drawing.Size(1091, 561);
+            this.flowPanel.MinimumSize = new System.Drawing.Size(1084, 561);
             this.flowPanel.Name = "flowPanel";
-            this.flowPanel.Size = new System.Drawing.Size(1091, 561);
+            this.flowPanel.Size = new System.Drawing.Size(1084, 561);
             this.flowPanel.TabIndex = 4;
             // 
             // panel2
@@ -143,11 +143,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(230)))), ((int)(((byte)(222)))));
             this.panel2.Controls.Add(this.panel1);
-            this.panel2.Location = new System.Drawing.Point(-2, 0);
+            this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.MaximumSize = new System.Drawing.Size(1920, 79);
-            this.panel2.MinimumSize = new System.Drawing.Size(1091, 79);
+            this.panel2.MinimumSize = new System.Drawing.Size(1084, 79);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1091, 79);
+            this.panel2.Size = new System.Drawing.Size(1084, 79);
             this.panel2.TabIndex = 5;
             // 
             // timer1
@@ -159,12 +159,12 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(249)))), ((int)(((byte)(246)))));
-            this.ClientSize = new System.Drawing.Size(1089, 639);
+            this.ClientSize = new System.Drawing.Size(1084, 639);
             this.Controls.Add(this.flowPanel);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximumSize = new System.Drawing.Size(1920, 1080);
-            this.MinimumSize = new System.Drawing.Size(1089, 639);
+            this.MinimumSize = new System.Drawing.Size(1084, 639);
             this.Name = "ViewDoctor";
             this.Text = "ViewDoctor";
             this.Shown += new System.EventHandler(this.ViewDoctor_Shown);

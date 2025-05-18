@@ -22,26 +22,24 @@ namespace ClinicSystem.ClinicHistory
         private AppointmentRepository appointmentRepository = new AppointmentRepository();
         private List<Appointment> patientList;
         private DataTable dt = new DataTable();
+        private DataTable ap = new DataTable();
+
         public ClinicForm(UserLoginForm.Staff staff)
         {
             InitializeComponent();
             patientList = appointmentRepository.getAppointment();
 
-            past.Columns.Add("Appointment No", typeof(int));
-            past.Columns.Add("Operation", typeof(string));
-            past.Columns.Add("Doctor", typeof(string));
-            past.Columns.Add("Start Appointment", typeof(string));
-            past.Columns.Add("End Appointment", typeof(string));
-            past.Columns.Add("Booking Date", typeof(string));
-            pastGrid.DataSource = past;
+            date1.Value = new DateTime(2025, 1, 1);
+            date2.Value = new DateTime(2100, 1, 1);
 
-            upcomming.Columns.Add("Appointment No", typeof(int));
-            upcomming.Columns.Add("Operation", typeof(string));
-            upcomming.Columns.Add("Doctor", typeof(string));
-            upcomming.Columns.Add("Start Appointment", typeof(string));
-            upcomming.Columns.Add("End Appointment", typeof(string));
-            upcomming.Columns.Add("Booking Date", typeof(string));
-            upcomingGrid.DataSource = upcomming;
+            ap.Columns.Add("Appointment No", typeof(int));
+            ap.Columns.Add("Operation", typeof(string));
+            ap.Columns.Add("Doctor", typeof(string));
+            ap.Columns.Add("Start Appointment", typeof(string));
+            ap.Columns.Add("End Appointment", typeof(string));
+            ap.Columns.Add("Booking Date", typeof(string));
+            ap.Columns.Add("Status", typeof(string));
+            dataGrid.DataSource = ap;
 
             dt.Columns.Add("Patient ID", typeof(string));
             dt.Columns.Add("Patient Name", typeof(string));
@@ -54,15 +52,13 @@ namespace ClinicSystem.ClinicHistory
             }
             comboYear.SelectedIndex = 0;
             displayPatientGrid("");
-          
         }
-            
+        string patientId;
         private void displayPatientGrid(string text)
         {
             dt.Clear();
             if (comboYear.SelectedIndex == -1) return;
-            string year = comboYear.SelectedItem.ToString(); ;
-      
+            string year = comboYear.SelectedItem.ToString();
 
             HashSet<string> patientIds = new HashSet<string>();
             foreach (Appointment appointment in patientList)
@@ -85,7 +81,7 @@ namespace ClinicSystem.ClinicHistory
                     else if (year.Equals(patientId.Substring(1, 4)))
                     {
                         dt.Rows.Add(patientId, patientName);
-                    }            
+                    }
                 }
                 else if (
                    patientId.EndsWith(text) ||
@@ -96,59 +92,52 @@ namespace ClinicSystem.ClinicHistory
                     {
                         dt.Rows.Add(patientId, patientName);
                     }
-                    else if (year.Equals(patientId.Substring(1,4)))
+                    else if (year.Equals(patientId.Substring(1, 4)))
                     {
                         dt.Rows.Add(patientId, patientName);
                     }
                 }
-   
             }
+
             if (searchGrid.Rows.Count > 0)
-            {
-                string patientId = searchGrid.Rows[0].Cells["Patient ID"].Value.ToString();
-                display(patientId);
+            {  
+                patientId = searchGrid.Rows[0].Cells["Patient ID"].Value.ToString();
+                string type = "";
+                if (radioButton1.Checked) type = "Both";
+                if (radioButton2.Checked) type = "Upcoming";
+                if (radioButton3.Checked) type = "Past";
+                display(patientId, type);
             }
         }
 
         private void tbPatientId_TextChanged(object sender, EventArgs e)
         {
             string text = tbPatient.Text;
-            displayPatientGrid(text);
         }
-        DataTable past = new DataTable();
-        DataTable upcomming = new DataTable();
+
         private void ClinicForm_Load(object sender, EventArgs e)
         {
-
             searchGrid.EnableHeadersVisualStyles = false;
             searchGrid.ColumnHeadersDefaultCellStyle.BackColor = ColorTranslator.FromHtml("#5CA8A3");
             searchGrid.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
             searchGrid.ColumnHeadersDefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#5CA8A3");
             searchGrid.ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.White;
 
-            pastGrid.EnableHeadersVisualStyles = false;
-            pastGrid.ColumnHeadersDefaultCellStyle.BackColor = ColorTranslator.FromHtml("#5CA8A3");
-            pastGrid.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-            pastGrid.ColumnHeadersDefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#5CA8A3");
-            pastGrid.ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.White;
-            pastGrid.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            pastGrid.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-            pastGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dataGrid.EnableHeadersVisualStyles = false;
+            dataGrid.ColumnHeadersDefaultCellStyle.BackColor = ColorTranslator.FromHtml("#5CA8A3");
+            dataGrid.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dataGrid.ColumnHeadersDefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#5CA8A3");
+            dataGrid.ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.White;
+            dataGrid.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGrid.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dataGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+            //dataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+           
+            dataGrid.RowTemplate.Height = 70;
 
-            upcomingGrid.EnableHeadersVisualStyles = false;
-            upcomingGrid.ColumnHeadersDefaultCellStyle.BackColor = ColorTranslator.FromHtml("#5CA8A3");
-            upcomingGrid.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-            upcomingGrid.ColumnHeadersDefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#5CA8A3");
-            upcomingGrid.ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.White;
-            upcomingGrid.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            upcomingGrid.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-            upcomingGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-
-            upcomingGrid.Columns[0].Width = 50;
-            pastGrid.Columns[0].Width = 50;
+            dataGrid.Columns[0].Width = 50;
             searchGrid.Columns[0].Width = 100;
             searchGrid.Columns[1].Width = 200;
-           
         }
 
         private void searchGrid_MouseClick(object sender, MouseEventArgs e)
@@ -157,70 +146,143 @@ namespace ClinicSystem.ClinicHistory
             if (hit.Type == DataGridViewHitTestType.Cell && hit.RowIndex >= 0)
             {
                 DataGridViewRow row = searchGrid.Rows[hit.RowIndex];
-                string patientId = searchGrid.Rows[row.Index].Cells["Patient ID"].Value.ToString();
-                display(patientId);
+                patientId = searchGrid.Rows[row.Index].Cells["Patient ID"].Value.ToString();
+                
+                string type = "";
+                if (radioButton1.Checked) type = "Both";
+                if (radioButton2.Checked) type = "Upcoming";
+                if (radioButton3.Checked) type = "Past";
+                display(patientId, type);
             }
         }
-        private void display(string patientId)
+
+        private void display(string patientId, string appointmentType)
         {
-            past.Clear();
-            DateTime now = DateTime.Now;
-            upcomming.Clear();
+            ap.Clear();
+         
+
             bill.Text = "₱ " + patientList.Where(e => patientId == e.Patient.Patientid).ToList().Sum(p => p.Total).ToString("F2");
+
             foreach (Appointment a in patientList)
             {
                 if (a.Patient.Patientid == patientId)
                 {
-
                     pName.Text = a.Patient.Firstname + " " + a.Patient.Middlename + " " + a.Patient.Lastname;
                     pAge.Text = a.Patient.Age.ToString();
                     pGender.Text = a.Patient.Gender;
                     pNo.Text = a.Patient.ContactNumber;
                     pAddress.Text = a.Patient.Address;
                     pBday.Text = a.Patient.Birthdate.ToString("yyyy-MM-dd");
-                    if (now > a.StartTime)
+
+                    if (
+                        (appointmentType == "Upcoming" && a.EndTime >= DateTime.Now) ||
+                        (appointmentType == "Past" && a.EndTime <= DateTime.Now) ||
+                        (appointmentType == "Both" && (a.StartTime.Date > date1.Value.Date && a.EndTime.Date < date2.Value.Date))
+                        )
                     {
-                        past.Rows.Add(
+                        ap.Rows.Add(
                              a.AppointmentDetailNo,
-                             a.Operation.OperationCode + " | " + a.Operation.OperationName,
-                             a.Doctor.DoctorID + " | " + a.Doctor.DoctorFirstName + "  " + a.Doctor.DoctorMiddleName + "  " + a.Doctor.DoctorLastName,
+                             a.Operation.OperationCode + Environment.NewLine + a.Operation.OperationName,
+                             a.Doctor.DoctorID + Environment.NewLine + a.Doctor.DoctorFirstName + "  " + a.Doctor.DoctorMiddleName + "  " + a.Doctor.DoctorLastName,
                              a.StartTime.ToString("yyyy-MM-dd") + Environment.NewLine + a.StartTime.ToString("hh:mm:ss tt"),
                              a.EndTime.ToString("yyyy-MM-dd") + Environment.NewLine + a.EndTime.ToString("hh:mm:ss tt"),
-                             a.BookingDate.ToString("yyyy-MM-dd") + Environment.NewLine + a.BookingDate.ToString("hh:mm:ss tt")
+                             a.BookingDate.ToString("yyyy-MM-dd") + Environment.NewLine + a.BookingDate.ToString("hh:mm:ss tt"),
+                             a.Status
                         );
                     }
-                    else
-                    {
-                        upcomming.Rows.Add(
-                              a.AppointmentDetailNo,
-                              a.Operation.OperationCode + " | " + a.Operation.OperationName,
-                              a.Doctor.DoctorID + " | " + a.Doctor.DoctorFirstName + "  " + a.Doctor.DoctorMiddleName + "  " + a.Doctor.DoctorLastName,
-                              a.StartTime.ToString("yyyy-MM-dd") + Environment.NewLine + a.StartTime.ToString("hh:mm:ss tt"),
-                              a.EndTime.ToString("yyyy-MM-dd") + Environment.NewLine + a.EndTime.ToString("hh:mm:ss tt"),
-                              a.BookingDate.ToString("yyyy-MM-dd") + Environment.NewLine + a.BookingDate.ToString("hh:mm:ss tt")
-                        );
-                    }
+              
                 }
-
             }
         }
+
 
         private void comboYear_SelectedIndexChanged(object sender, EventArgs e)
         {
             string text = tbPatient.Text;
-
             displayPatientGrid(text);
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void ClinicForm_SizeChanged(object sender, EventArgs e)
         {
             upP.Location = new Point(upP.Location.X, p1.Bottom + 30);
-            pastP.Location = new Point(pastP.Location.X, upP.Bottom + 30);
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton1.Checked && date1.Value.Date < date2.Value.Date)
+            {
+                date1.Visible = radioButton1.Checked;
+                date2.Visible = radioButton1.Checked;
+                arrow.Visible = radioButton1.Checked;
+                label11.Visible = radioButton1.Checked;
+                label9.Visible = radioButton1.Checked;
+                string text = tbPatient.Text;
+                display(patientId, "Both");
+            }
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton2.Checked && date1.Value.Date < date2.Value.Date)
+            {
+                date1.Visible = false;
+                date2.Visible = false;
+                arrow.Visible = false;
+                label11.Visible = false;
+                label9.Visible = false;
+                display(patientId, "Upcoming");
+            }
+        }
+
+        private void radioButton3_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton3.Checked && date1.Value.Date < date2.Value.Date)
+            {
+                date1.Visible = false;
+                date2.Visible = false;
+                arrow.Visible = false;
+                label11.Visible = false;
+                label9.Visible = false;
+                display(patientId, "Past");
+            }
+        }
+
+        private void date1_ValueChanged(object sender, EventArgs e)
+        {
+            if (date1.Value.Date < date2.Value.Date)
+            {
+                string type = "";
+                if (radioButton1.Checked) type = "Both";
+                if (radioButton2.Checked) type = "Upcoming";
+                if (radioButton3.Checked) type = "Past";
+                string text = tbPatient.Text;
+                display(patientId, type);
+            }
+        }
+
+        private void date2_ValueChanged(object sender, EventArgs e)
+        {
+            if (date1.Value.Date < date2.Value.Date)
+            {
+                string type = "";
+                if (radioButton1.Checked) type = "Both";
+                if (radioButton2.Checked) type = "Upcoming";
+                if (radioButton3.Checked) type = "Past";
+                string text = tbPatient.Text;
+                display(patientId, type);
+            }
+        }
+
+        private void searchGrid_Sorted(object sender, EventArgs e)
+        {
+            if (searchGrid.Rows.Count > 0)
+            {
+                string text = tbPatient.Text;
+                displayPatientGrid(text);
+                searchGrid.ClearSelection();
+                searchGrid.Rows[0].Selected = true;
+                searchGrid.CurrentCell = searchGrid.Rows[0].Cells[0];
+            }
         }
     }
 }

@@ -72,9 +72,9 @@
             this.flowLayout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(249)))), ((int)(((byte)(246)))));
             this.flowLayout.Location = new System.Drawing.Point(-1, 0);
             this.flowLayout.MaximumSize = new System.Drawing.Size(1920, 1080);
-            this.flowLayout.MinimumSize = new System.Drawing.Size(1088, 599);
+            this.flowLayout.MinimumSize = new System.Drawing.Size(1084, 599);
             this.flowLayout.Name = "flowLayout";
-            this.flowLayout.Size = new System.Drawing.Size(1088, 599);
+            this.flowLayout.Size = new System.Drawing.Size(1084, 604);
             this.flowLayout.TabIndex = 0;
             this.flowLayout.SizeChanged += new System.EventHandler(this.flowLayout_SizeChanged);
             // 
@@ -133,9 +133,9 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.MaximumSize = new System.Drawing.Size(1920, 1080);
-            this.panel2.MinimumSize = new System.Drawing.Size(1088, 719);
+            this.panel2.MinimumSize = new System.Drawing.Size(1084, 724);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1088, 719);
+            this.panel2.Size = new System.Drawing.Size(1084, 724);
             this.panel2.TabIndex = 10;
             // 
             // addRoomB
@@ -154,7 +154,7 @@
             this.addRoomB.ForeColor = System.Drawing.Color.Black;
             this.addRoomB.Image = global::ClinicSystem.Properties.Resources.add;
             this.addRoomB.ImageSize = new System.Drawing.Size(35, 35);
-            this.addRoomB.Location = new System.Drawing.Point(1029, 79);
+            this.addRoomB.Location = new System.Drawing.Point(1025, 79);
             this.addRoomB.Name = "addRoomB";
             this.addRoomB.Size = new System.Drawing.Size(38, 35);
             this.addRoomB.TabIndex = 12;
@@ -363,7 +363,7 @@
             this.panel3.MaximumSize = new System.Drawing.Size(1920, 1080);
             this.panel3.MinimumSize = new System.Drawing.Size(1088, 599);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1088, 599);
+            this.panel3.Size = new System.Drawing.Size(1088, 604);
             this.panel3.TabIndex = 9;
             // 
             // timerin
@@ -385,11 +385,11 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.CadetBlue;
-            this.ClientSize = new System.Drawing.Size(1088, 719);
+            this.ClientSize = new System.Drawing.Size(1084, 724);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximumSize = new System.Drawing.Size(1920, 1080);
-            this.MinimumSize = new System.Drawing.Size(1088, 719);
+            this.MinimumSize = new System.Drawing.Size(1084, 724);
             this.Name = "RoomsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RoomsForm";

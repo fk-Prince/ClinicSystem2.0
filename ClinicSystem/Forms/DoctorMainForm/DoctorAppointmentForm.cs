@@ -219,7 +219,9 @@ namespace ClinicSystem.Main2
             dataGrid.ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.White;
             dataGrid.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGrid.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-            dataGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dataGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+
+            dataGrid.RowTemplate.Height = 70;
             dataGrid.Columns[0].Width = 100;
         }
     }

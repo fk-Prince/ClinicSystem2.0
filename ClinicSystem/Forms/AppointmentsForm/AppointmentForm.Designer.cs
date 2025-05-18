@@ -44,9 +44,9 @@
             this.appointmentPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(249)))), ((int)(((byte)(246)))));
             this.appointmentPanel.Location = new System.Drawing.Point(0, 62);
             this.appointmentPanel.MaximumSize = new System.Drawing.Size(1920, 1080);
-            this.appointmentPanel.MinimumSize = new System.Drawing.Size(1089, 659);
+            this.appointmentPanel.MinimumSize = new System.Drawing.Size(1084, 659);
             this.appointmentPanel.Name = "appointmentPanel";
-            this.appointmentPanel.Size = new System.Drawing.Size(1089, 659);
+            this.appointmentPanel.Size = new System.Drawing.Size(1084, 659);
             this.appointmentPanel.TabIndex = 10068;
             // 
             // allAppointmentB
@@ -137,7 +137,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(230)))), ((int)(((byte)(222)))));
-            this.ClientSize = new System.Drawing.Size(1089, 719);
+            this.ClientSize = new System.Drawing.Size(1084, 724);
             this.Controls.Add(this.missedAppointment);
             this.Controls.Add(this.rescheduleB);
             this.Controls.Add(this.addAppointmentB);
@@ -145,7 +145,7 @@
             this.Controls.Add(this.allAppointmentB);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximumSize = new System.Drawing.Size(1920, 1080);
-            this.MinimumSize = new System.Drawing.Size(1089, 719);
+            this.MinimumSize = new System.Drawing.Size(1084, 724);
             this.Name = "AppointmentForm";
             this.Text = "ab";
             this.ResumeLayout(false);

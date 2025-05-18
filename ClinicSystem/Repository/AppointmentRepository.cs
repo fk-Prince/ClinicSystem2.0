@@ -194,41 +194,6 @@ namespace ClinicSystem.Appointments
             return active;
         }
 
-        public List<Appointment> getAppointmentPatient()
-        {
-            List<Appointment> active = new List<Appointment>();
-            try
-            {
-                using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
-                {
-                    conn.Open();
-
-                    string query = @"
-                            SELECT * FROM patientappointment_tbl 
-                                LEFT JOIN patient_tbl ON patientappointment_tbl.patientID = patient_tbl.PatientID 
-                                LEFT JOIN Operation_tbl ON patientappointment_tbl.OperationCode = Operation_tbl.OperationCode
-                                LEFT JOIN Doctor_tbl ON patientappointment_tbl.DoctorID = Doctor_tbl.DoctorID
-                                LEFT JOIN appointmentdetails_tbl ON patientappointment_tbl.appointmentdetailNo = appointmentdetails_tbl.appointmentdetailNo
-                                WHERE EndSchedule > NOW()";
-
-                    using (MySqlCommand command = new MySqlCommand(query, conn))
-                    {
-                        using (MySqlDataReader reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                active.Add(EntityMapping.GetAppointment(reader));
-                            }
-                        }
-                    }
-                }
-            }
-            catch (MySqlException ex)
-            {
-                MessageBox.Show("Error on getActiveAppointment() DB " + ex.Message);
-            }
-            return active;
-        }
 
         public List<Appointment> getReAppointment()
         {

@@ -61,9 +61,9 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(249)))), ((int)(((byte)(245)))));
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.MaximumSize = new System.Drawing.Size(1920, 1080);
-            this.panel2.MinimumSize = new System.Drawing.Size(1089, 655);
+            this.panel2.MinimumSize = new System.Drawing.Size(1084, 655);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1089, 655);
+            this.panel2.Size = new System.Drawing.Size(1084, 655);
             this.panel2.TabIndex = 109;
             // 
             // viewDentistB
@@ -113,13 +113,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(230)))), ((int)(((byte)(222)))));
-            this.ClientSize = new System.Drawing.Size(1088, 719);
+            this.ClientSize = new System.Drawing.Size(1084, 719);
             this.Controls.Add(this.doctorpanel);
             this.Controls.Add(this.addDentistB);
             this.Controls.Add(this.viewDentistB);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximumSize = new System.Drawing.Size(1920, 1080);
-            this.MinimumSize = new System.Drawing.Size(1088, 719);
+            this.MinimumSize = new System.Drawing.Size(1084, 719);
             this.Name = "DoctorMainForm";
             this.Text = "1080, 719";
             this.doctorpanel.ResumeLayout(false);

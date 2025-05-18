@@ -37,6 +37,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.StaffIdentity = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dashboardB = new System.Windows.Forms.Button();
             this.patientHistoryB = new System.Windows.Forms.Button();
@@ -51,7 +52,6 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.xTimer = new System.Windows.Forms.Timer(this.components);
-            this.StaffIdentity = new System.Windows.Forms.Label();
             this.mainpanel.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -84,7 +84,7 @@
             this.mainpanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.mainpanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(255)))), ((int)(((byte)(252)))));
             this.mainpanel.Controls.Add(this.panel4);
-            this.mainpanel.Location = new System.Drawing.Point(215, -1);
+            this.mainpanel.Location = new System.Drawing.Point(215, -2);
             this.mainpanel.MaximumSize = new System.Drawing.Size(1920, 1080);
             this.mainpanel.MinimumSize = new System.Drawing.Size(1084, 724);
             this.mainpanel.Name = "mainpanel";
@@ -128,6 +128,18 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(215, 719);
             this.panel3.TabIndex = 0;
+            // 
+            // StaffIdentity
+            // 
+            this.StaffIdentity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.StaffIdentity.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StaffIdentity.Location = new System.Drawing.Point(58, 671);
+            this.StaffIdentity.Name = "StaffIdentity";
+            this.StaffIdentity.Size = new System.Drawing.Size(151, 18);
+            this.StaffIdentity.TabIndex = 100003;
+            this.StaffIdentity.Text = "label1";
+            this.StaffIdentity.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel2
             // 
@@ -407,18 +419,6 @@
             // 
             this.xTimer.Interval = 1;
             this.xTimer.Tick += new System.EventHandler(this.xTimer_Tick);
-            // 
-            // StaffIdentity
-            // 
-            this.StaffIdentity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.StaffIdentity.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StaffIdentity.Location = new System.Drawing.Point(58, 671);
-            this.StaffIdentity.Name = "StaffIdentity";
-            this.StaffIdentity.Size = new System.Drawing.Size(151, 18);
-            this.StaffIdentity.TabIndex = 100003;
-            this.StaffIdentity.Text = "label1";
-            this.StaffIdentity.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ClinicSystem
             // 

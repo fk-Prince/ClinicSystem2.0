@@ -35,7 +35,7 @@ namespace ClinicSystem
             dataGrid.AutoGenerateColumns = true;
             dataGrid.DataSource = dt;
 
-            appointmentList = db.getAppointmentPatient();
+            appointmentList = db.getAppointment();
             displayTable(appointmentList);
           
             dataGrid.AlternatingRowsDefaultCellStyle.BackColor = Color.LightGray;

@@ -27,7 +27,7 @@ namespace ClinicSystem.Appointments
             table.Columns.Add("Patient Fullname", typeof(string));
             dataGrid.DataSource = table;
 
-
+        
             patientAppointments = db.getAppointment();
             date1.Value = DateTime.Now;
             date2.Value = DateTime.Now;
@@ -222,6 +222,7 @@ namespace ClinicSystem.Appointments
         }
         private void AllAppointments_Load(object sender, EventArgs e)
         {
+
             dataGrid.EnableHeadersVisualStyles = false;
             dataGrid.ColumnHeadersDefaultCellStyle.BackColor = ColorTranslator.FromHtml("#5CA8A3");
             dataGrid.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
@@ -229,7 +230,9 @@ namespace ClinicSystem.Appointments
             dataGrid.ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.White;
             dataGrid.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGrid.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-            dataGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dataGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+
+            dataGrid.RowTemplate.Height = 70;
             dataGrid.Columns[0].Width = 100;
         }
 
