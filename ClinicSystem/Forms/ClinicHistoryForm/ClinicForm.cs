@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using ClinicSystem.Appointments;
 using ClinicSystem.MainClinic;
 using ClinicSystem.PatientForm;
+using Guna.UI2.WinForms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace ClinicSystem.ClinicHistory

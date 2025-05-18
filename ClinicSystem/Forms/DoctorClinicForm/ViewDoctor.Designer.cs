@@ -69,12 +69,10 @@
             // all
             // 
             this.all.AutoSize = true;
-            this.all.Checked = true;
             this.all.Location = new System.Drawing.Point(366, 10);
             this.all.Name = "all";
             this.all.Size = new System.Drawing.Size(47, 17);
             this.all.TabIndex = 7;
-            this.all.TabStop = true;
             this.all.Text = "Both";
             this.all.UseVisualStyleBackColor = true;
             this.all.CheckedChanged += new System.EventHandler(this.all_CheckedChanged);
@@ -82,10 +80,12 @@
             // active
             // 
             this.active.AutoSize = true;
+            this.active.Checked = true;
             this.active.Location = new System.Drawing.Point(320, 38);
             this.active.Name = "active";
             this.active.Size = new System.Drawing.Size(55, 17);
             this.active.TabIndex = 7;
+            this.active.TabStop = true;
             this.active.Text = "Active";
             this.active.UseVisualStyleBackColor = true;
             this.active.CheckedChanged += new System.EventHandler(this.active_CheckedChanged);
@@ -105,6 +105,7 @@
             this.SearchBar.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.SearchBar.IconLeft = global::ClinicSystem.Properties.Resources.search24;
             this.SearchBar.Location = new System.Drawing.Point(6, 25);
+            this.SearchBar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.SearchBar.Name = "SearchBar";
             this.SearchBar.PlaceholderText = "";
             this.SearchBar.SelectedText = "";

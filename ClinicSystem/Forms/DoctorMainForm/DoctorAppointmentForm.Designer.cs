@@ -29,24 +29,35 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.date2 = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.arrow = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.date1 = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.monthRadio = new System.Windows.Forms.RadioButton();
             this.allSchedule = new System.Windows.Forms.RadioButton();
             this.selection = new System.Windows.Forms.RadioButton();
             this.weekRadio = new System.Windows.Forms.RadioButton();
             this.radioToday = new System.Windows.Forms.RadioButton();
-            this.datePickDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
+            this.SearchBar1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.flowPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.load = new System.Windows.Forms.Timer(this.components);
-            this.SearchBar1 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.dataGrid = new Guna.UI2.WinForms.Guna2DataGridView();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.arrow)).BeginInit();
             this.panel9.SuspendLayout();
             this.panel11.SuspendLayout();
+            this.guna2Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -56,18 +67,66 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(249)))), ((int)(((byte)(246)))));
+            this.panel1.Controls.Add(this.date2);
+            this.panel1.Controls.Add(this.arrow);
+            this.panel1.Controls.Add(this.date1);
             this.panel1.Controls.Add(this.monthRadio);
             this.panel1.Controls.Add(this.allSchedule);
             this.panel1.Controls.Add(this.selection);
             this.panel1.Controls.Add(this.weekRadio);
             this.panel1.Controls.Add(this.radioToday);
-            this.panel1.Controls.Add(this.datePickDate);
             this.panel1.Location = new System.Drawing.Point(-1, 123);
             this.panel1.MaximumSize = new System.Drawing.Size(1920, 46);
             this.panel1.MinimumSize = new System.Drawing.Size(1090, 46);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1090, 46);
             this.panel1.TabIndex = 10088;
+            // 
+            // date2
+            // 
+            this.date2.BorderRadius = 5;
+            this.date2.Checked = true;
+            this.date2.FillColor = System.Drawing.Color.PaleGreen;
+            this.date2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.date2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.date2.Location = new System.Drawing.Point(751, 3);
+            this.date2.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.date2.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.date2.Name = "date2";
+            this.date2.Size = new System.Drawing.Size(119, 36);
+            this.date2.TabIndex = 10092;
+            this.date2.Value = new System.DateTime(2025, 4, 25, 11, 40, 22, 388);
+            this.date2.Visible = false;
+            this.date2.ValueChanged += new System.EventHandler(this.date2_ValueChanged);
+            // 
+            // arrow
+            // 
+            this.arrow.Image = global::ClinicSystem.Properties.Resources.next;
+            this.arrow.ImageRotate = 0F;
+            this.arrow.Location = new System.Drawing.Point(674, 11);
+            this.arrow.Name = "arrow";
+            this.arrow.Size = new System.Drawing.Size(71, 24);
+            this.arrow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.arrow.TabIndex = 10091;
+            this.arrow.TabStop = false;
+            this.arrow.Visible = false;
+            // 
+            // date1
+            // 
+            this.date1.BorderRadius = 5;
+            this.date1.Checked = true;
+            this.date1.FillColor = System.Drawing.Color.PaleGreen;
+            this.date1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.date1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.date1.Location = new System.Drawing.Point(549, 3);
+            this.date1.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.date1.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.date1.Name = "date1";
+            this.date1.Size = new System.Drawing.Size(119, 36);
+            this.date1.TabIndex = 10090;
+            this.date1.Value = new System.DateTime(2025, 4, 25, 11, 40, 22, 388);
+            this.date1.Visible = false;
+            this.date1.ValueChanged += new System.EventHandler(this.datePickDate_ValueChanged_1);
             // 
             // monthRadio
             // 
@@ -131,23 +190,6 @@
             this.radioToday.UseVisualStyleBackColor = true;
             this.radioToday.CheckedChanged += new System.EventHandler(this.radioToday_CheckedChanged);
             // 
-            // datePickDate
-            // 
-            this.datePickDate.BorderRadius = 5;
-            this.datePickDate.Checked = true;
-            this.datePickDate.FillColor = System.Drawing.Color.PaleGreen;
-            this.datePickDate.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.datePickDate.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.datePickDate.Location = new System.Drawing.Point(559, 3);
-            this.datePickDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.datePickDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.datePickDate.Name = "datePickDate";
-            this.datePickDate.Size = new System.Drawing.Size(249, 36);
-            this.datePickDate.TabIndex = 6;
-            this.datePickDate.Value = new System.DateTime(2025, 4, 25, 11, 40, 22, 388);
-            this.datePickDate.Visible = false;
-            this.datePickDate.ValueChanged += new System.EventHandler(this.datePickDate_ValueChanged_1);
-            // 
             // panel9
             // 
             this.panel9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -155,7 +197,7 @@
             this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(230)))), ((int)(((byte)(222)))));
             this.panel9.Controls.Add(this.panel11);
             this.panel9.Controls.Add(this.label7);
-            this.panel9.Location = new System.Drawing.Point(-1, 0);
+            this.panel9.Location = new System.Drawing.Point(-2, 0);
             this.panel9.MaximumSize = new System.Drawing.Size(1920, 129);
             this.panel9.MinimumSize = new System.Drawing.Size(1090, 129);
             this.panel9.Name = "panel9";
@@ -171,6 +213,29 @@
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(302, 69);
             this.panel11.TabIndex = 10061;
+            // 
+            // SearchBar1
+            // 
+            this.SearchBar1.BorderRadius = 5;
+            this.SearchBar1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.SearchBar1.DefaultText = "";
+            this.SearchBar1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.SearchBar1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.SearchBar1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.SearchBar1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.SearchBar1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.SearchBar1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchBar1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.SearchBar1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.SearchBar1.IconLeft = global::ClinicSystem.Properties.Resources.search24;
+            this.SearchBar1.Location = new System.Drawing.Point(10, 28);
+            this.SearchBar1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.SearchBar1.Name = "SearchBar1";
+            this.SearchBar1.PlaceholderText = "";
+            this.SearchBar1.SelectedText = "";
+            this.SearchBar1.Size = new System.Drawing.Size(266, 37);
+            this.SearchBar1.TabIndex = 11;
+            this.SearchBar1.TextChanged += new System.EventHandler(this.SearchBar1_TextChanged);
             // 
             // label11
             // 
@@ -199,67 +264,128 @@
             this.label7.Text = "Doctor Appointments";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // flowPanel
+            // timer1
             // 
-            this.flowPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowPanel.AutoScroll = true;
-            this.flowPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(249)))), ((int)(((byte)(246)))));
-            this.flowPanel.Location = new System.Drawing.Point(-5, 169);
-            this.flowPanel.MaximumSize = new System.Drawing.Size(1920, 1080);
-            this.flowPanel.MinimumSize = new System.Drawing.Size(1083, 550);
-            this.flowPanel.Name = "flowPanel";
-            this.flowPanel.Size = new System.Drawing.Size(1083, 550);
-            this.flowPanel.TabIndex = 10087;
+            this.timer1.Interval = 500;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // load
             // 
             this.load.Interval = 500;
-            this.load.Tick += new System.EventHandler(this.load_Tick);
             // 
-            // SearchBar1
+            // guna2Panel1
             // 
-            this.SearchBar1.BorderRadius = 5;
-            this.SearchBar1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.SearchBar1.DefaultText = "";
-            this.SearchBar1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.SearchBar1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.SearchBar1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.SearchBar1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.SearchBar1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.SearchBar1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchBar1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.SearchBar1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.SearchBar1.IconLeft = global::ClinicSystem.Properties.Resources.search24;
-            this.SearchBar1.Location = new System.Drawing.Point(10, 28);
-            this.SearchBar1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.SearchBar1.Name = "SearchBar1";
-            this.SearchBar1.PlaceholderText = "";
-            this.SearchBar1.SelectedText = "";
-            this.SearchBar1.Size = new System.Drawing.Size(266, 37);
-            this.SearchBar1.TabIndex = 11;
-            this.SearchBar1.TextChanged += new System.EventHandler(this.SearchBar1_TextChanged);
+            this.guna2Panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(249)))), ((int)(((byte)(246)))));
+            this.guna2Panel1.Controls.Add(this.dataGrid);
+            this.guna2Panel1.Location = new System.Drawing.Point(0, 168);
+            this.guna2Panel1.MaximumSize = new System.Drawing.Size(1920, 1080);
+            this.guna2Panel1.MinimumSize = new System.Drawing.Size(1090, 550);
+            this.guna2Panel1.Name = "guna2Panel1";
+            this.guna2Panel1.Size = new System.Drawing.Size(1090, 550);
+            this.guna2Panel1.TabIndex = 10090;
+            // 
+            // dataGrid
+            // 
+            this.dataGrid.AllowUserToAddRows = false;
+            this.dataGrid.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(210)))), ((int)(((byte)(205)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            this.dataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGrid.ColumnHeadersHeight = 60;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGrid.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGrid.GridColor = System.Drawing.Color.White;
+            this.dataGrid.Location = new System.Drawing.Point(8, 0);
+            this.dataGrid.MaximumSize = new System.Drawing.Size(1920, 1080);
+            this.dataGrid.MinimumSize = new System.Drawing.Size(1065, 525);
+            this.dataGrid.Name = "dataGrid";
+            this.dataGrid.ReadOnly = true;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGrid.RowHeadersVisible = false;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(210)))), ((int)(((byte)(205)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            this.dataGrid.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.dataGrid.RowTemplate.Height = 60;
+            this.dataGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dataGrid.Size = new System.Drawing.Size(1065, 550);
+            this.dataGrid.TabIndex = 19;
+            this.dataGrid.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.dataGrid.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dataGrid.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dataGrid.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dataGrid.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dataGrid.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.dataGrid.ThemeStyle.GridColor = System.Drawing.Color.White;
+            this.dataGrid.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.dataGrid.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataGrid.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGrid.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.dataGrid.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dataGrid.ThemeStyle.HeaderStyle.Height = 60;
+            this.dataGrid.ThemeStyle.ReadOnly = true;
+            this.dataGrid.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dataGrid.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dataGrid.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGrid.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dataGrid.ThemeStyle.RowsStyle.Height = 60;
+            this.dataGrid.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dataGrid.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
             // DoctorAppointmentForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(168)))), ((int)(((byte)(166)))));
             this.ClientSize = new System.Drawing.Size(1079, 718);
+            this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel9);
-            this.Controls.Add(this.flowPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximumSize = new System.Drawing.Size(1920, 1080);
             this.MinimumSize = new System.Drawing.Size(1079, 718);
             this.Name = "DoctorAppointmentForm";
             this.Text = "DoctorScheduleForm";
-            this.Shown += new System.EventHandler(this.DoctorAppointmentForm_Shown);
+            this.Load += new System.EventHandler(this.AllAppointments_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.arrow)).EndInit();
             this.panel9.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
+            this.guna2Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -267,10 +393,8 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private Guna.UI2.WinForms.Guna2DateTimePicker datePickDate;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.FlowLayoutPanel flowPanel;
         private System.Windows.Forms.RadioButton monthRadio;
         private System.Windows.Forms.RadioButton allSchedule;
         private System.Windows.Forms.RadioButton selection;
@@ -281,5 +405,10 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer load;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private Guna.UI2.WinForms.Guna2DataGridView dataGrid;
+        private Guna.UI2.WinForms.Guna2DateTimePicker date2;
+        private Guna.UI2.WinForms.Guna2PictureBox arrow;
+        private Guna.UI2.WinForms.Guna2DateTimePicker date1;
     }
 }

@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ClinicSystem.UserLoginForm;
 using Guna.UI2.WinForms;
@@ -14,96 +11,59 @@ namespace ClinicSystem.Appointments
 {
     public partial class AllAppointments : Form
     {
-
         private List<Appointment> patientAppointments;
         private AppointmentRepository db = new AppointmentRepository();
+        private DataTable table = new DataTable();
+
         public AllAppointments()
         {
             InitializeComponent();
-          
+            table.Columns.Add("Appointment No", typeof(int));
+            table.Columns.Add("Operation", typeof(string));
+            table.Columns.Add("Doctor", typeof(string));
+            table.Columns.Add("Start Appointment", typeof(string));
+            table.Columns.Add("End Appointment", typeof(string));
+            table.Columns.Add("Patient ID", typeof(string));
+            table.Columns.Add("Patient Fullname", typeof(string));
+            dataGrid.DataSource = table;
+
+
             patientAppointments = db.getAppointment();
+            date1.Value = DateTime.Now;
+            date2.Value = DateTime.Now;
 
-            DateTime today = DateTime.Today;
-            List<Appointment> filtered = patientAppointments
-             .Where(pa => pa.StartTime.Date == today.Date)
-             .ToList();
-            displaySchedules(filtered, "TODAY");
-
-        }
-
-        private void displaySchedules(List<Appointment> patientAppointments, string comboText)
-        {
-            flowPanel.Controls.Clear();
-            if (patientAppointments.Count > 0)
+            if (patientAppointments.Count == 0)
             {
-                foreach (Appointment pa in patientAppointments)
-                {
-                    Guna2Panel panel = new Guna2Panel();
-                    panel.Size = new Size(300, 340);
-                    panel.FillColor = Color.FromArgb(111, 168, 166);
-                    panel.Margin = new Padding(40, 10, 10, 10);
-                    panel.Padding = new Padding(10, 10, 10, 10);
-                    panel.BorderRadius = 20;
-                    panel.BackColor = Color.Transparent;
-                    //panel.Region = Region.FromHrgn(dll.CreateRoundRectRgn(0, 0, panel.Width, panel.Height, 50, 50));
-                    Label label = createLabel("Appointment No", pa.AppointmentDetailNo.ToString(), 10, 15);
-                    panel.Controls.Add(label);
-                    string dr = $"{pa.Doctor.DoctorFirstName} {pa.Doctor.DoctorMiddleName} {pa.Doctor.DoctorLastName}";
-                    label = createLabel("Doctor Name", dr, 10, 35);
-                    panel.Controls.Add(label);
-
-                    label = createLabel("Room No", pa.RoomNo.ToString(), 10, 55);
-                    panel.Controls.Add(label);
-
-                    label = createLabel("Operation Code", pa.Operation.OperationCode, 10, 75);
-                    panel.Controls.Add(label);
-
-                    label = createLabel("Operation Name", pa.Operation.OperationName, 10, 95);
-                    panel.Controls.Add(label);
-
-               
-                    label = createLabel("Start-Time", pa.StartTime.ToString("yyyy-MM-dd hh:mm:ss tt"), 10, 115);
-                    panel.Controls.Add(label);
-
-
-                    label = createLabel("End-Time", pa.EndTime.ToString("yyyy-MM-dd hh:mm:ss tt"), 10, 135);
-                    panel.Controls.Add(label);
-
-                    label = createLabel("Status", pa.Status, 10, 155);
-                    panel.Controls.Add(label);
-
-                    label = createLabel("Booking Date", pa.BookingDate.ToString("yyyy-MM-dd hh:mm:ss tt"), 10, 175);
-                    panel.Controls.Add(label);
-
-                    Panel panel2 = new Panel();
-                    panel2.BackColor = Color.Gray;
-                    panel2.Size = new Size(270, 2);
-                    panel2.Location = new Point(15, 215);
-                    panel.Controls.Add(panel2);
-
-                    label = createLabel("Patient ID", pa.Patient.Patientid.ToString(), 10, 225);
-                    panel.Controls.Add(label);
-
-                    string fullname = pa.Patient.Firstname + " " + pa.Patient.Middlename + " " + pa.Patient.Lastname;
-                    label = createLabel("Name", fullname, 10, 245);
-                    panel.Controls.Add(label);
-
-                    label = createLabel("Age", pa.Patient.Age.ToString(), 10, 265);
-                    panel.Controls.Add(label);
-
-                    label = createLabel("Gender", pa.Patient.Gender, 10, 285);
-                    panel.Controls.Add(label);
-
-                    label = createLabel("Contact Number", pa.Patient.ContactNumber, 10, 305);
-                    panel.Controls.Add(label);
-
-                    flowPanel.Controls.Add(panel);
-                }
+                loadAppointment(DateTime.Today, "CLINIC HAS NO REGISTERED APPOINTMENT.");
             }
             else
-            {            
+            {
+                loadAppointment(DateTime.Today, "CLINIC HAS NO APPOINTMENT TODAY.");
+            }
+        }
+
+   
+ 
+
+
+        private void loadAppointment(DateTime date, string type)
+        {
+            List<Appointment> filteredAppointments = patientAppointments
+                .Where(pa => pa.StartTime.Date == date.Date)
+                .ToList();
+
+            displaySchedules(filteredAppointments,type);
+        }
+
+        private void displaySchedules(List<Appointment> filteredAppointments,string type)
+        {
+            table.Rows.Clear();
+
+            if (filteredAppointments.Count == 0)
+            {
+                dataGrid.Visible = false;
                 Label label = new Label();
-                label.Text = $"CLINIC HAS NO APPOINTMENT {comboText}.";
+                label.Text = type;
                 label.Font = new Font("Segoe UI", 18, FontStyle.Bold);
                 label.ForeColor = Color.Black;
                 label.AutoSize = false;
@@ -111,119 +71,115 @@ namespace ClinicSystem.Appointments
                 label.TextAlign = ContentAlignment.MiddleCenter;
 
                 Panel panel = new Panel();
-                panel.Size = new Size(flowPanel.Width - 10, 500);
+                panel.Size = new Size(guna2Panel1.Width - 10, 500);
                 panel.Controls.Add(label);
-                flowPanel.Controls.Add(panel);
+                guna2Panel1.Controls.Add(panel);
+                return;
+            } else
+            {
+                dataGrid.Visible = true;
+            }
+
+
+           
+            foreach (Appointment a in filteredAppointments)
+            {
+                table.Rows.Add(
+                    a.AppointmentDetailNo,
+                    a.Operation.OperationName,
+                    $"Dr. {a.Doctor.DoctorFirstName} {a.Doctor.DoctorMiddleName} {a.Doctor.DoctorLastName}",
+                    a.StartTime.ToString("yyyy-MM-dd") + Environment.NewLine + a.StartTime.ToString("hh:mm:ss tt"),
+                    a.EndTime.ToString("yyyy-MM-dd") + Environment.NewLine + a.EndTime.ToString("hh:mm:ss tt"),
+                    a.Patient.Patientid.ToString(),
+                    $"{a.Patient.Firstname} {a.Patient.Middlename} {a.Patient.Lastname}"
+                );
             }
         }
 
-        public Label createLabel(string title, string value, int x, int y)
-        {
-            Label label = new Label();
-            label.Text = $"{title}:   {value}";
-            label.MaximumSize = new Size(280, 30);
-            label.AutoSize = true;
-            label.Location = new Point(x, y);
-            label.Font = new Font("Segui UI", 11, FontStyle.Regular);
-            return label;
-        }
 
 
-        // TODAY APPOINTMENT
+
         private void radioToday_CheckedChanged(object sender, EventArgs e)
         {
-            DateTime today = DateTime.Today;
-            List<Appointment> filtered = patientAppointments
-             .Where(pa => pa.StartTime.Date == today.Date)
-             .ToList();
-            displaySchedules(filtered, "TODAY");
+            if (radioToday.Checked)
+                loadAppointment(DateTime.Today, "CLINIC HAS NO APPOINTMENT TODAY.");
         }
-  
 
-        // WEEK APPOINTMENT
         private void weekRadio_CheckedChanged(object sender, EventArgs e)
         {
-            DateTime week = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd"));
+            if (weekRadio.Checked)
+            {
+                DateTime startOfWeek = DateTime.Today;
+                DateTime endOfWeek = startOfWeek.AddDays(7);
+                List<Appointment> filteredAppointments = patientAppointments
+                    .Where(pa => pa.StartTime >= startOfWeek && pa.StartTime < endOfWeek)
+                    .ToList();
 
-
-            List<Appointment> filtered = patientAppointments
-             .Where(pa => week <= pa.StartTime && pa.StartTime < week.AddDays(7))
-             .ToList();
-            displaySchedules(filtered, "THIS WEEK");
+                displaySchedules(filteredAppointments, "CLINIC HAS NO APPOINTMENT THIS WEEK.");
+            }
         }
 
-
-        //MONTH APPOINTMENT
+    
         private void monthRadio_CheckedChanged(object sender, EventArgs e)
         {
-            DateTime month = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd"));
-            DateTime start = new DateTime(month.Year, month.Month, 1);
-            DateTime end = start.AddMonths(1).AddDays(-1);
+            if (monthRadio.Checked)
+            {
+                DateTime startOfMonth = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+                DateTime endOfMonth = startOfMonth.AddMonths(1).AddDays(-1);
+                List<Appointment> filteredAppointments = patientAppointments
+                    .Where(pa => pa.StartTime >= startOfMonth && pa.StartTime <= endOfMonth)
+                    .ToList();
 
-            List<Appointment> filtered = patientAppointments
-            .Where(pa => pa.StartTime >= start && pa.StartTime <= end)
-            .ToList();
-
-            displaySchedules(filtered, "THIS MONTH");
+                displaySchedules(filteredAppointments, "CLINIC HAS NO APPOINTMENT THIS MONTH.");
+            }
         }
-    
-       
-        //ALL APPOINTMENT
+
         private void allSchedule_CheckedChanged(object sender, EventArgs e)
         {
-            DateTime dateNow = DateTime.Now;
-            List<Appointment> filtered = new List<Appointment>();
-
-            foreach (Appointment pa in patientAppointments)
-            {
-                //if (pa.DateSchedule >= dateNow)
-                //{
-                filtered.Add(pa);
-                //}
-            }
-            filtered = patientAppointments;
-            displaySchedules(filtered, "");
+            if (allSchedule.Checked)
+                displaySchedules(patientAppointments, "CLINIC HAS NO REGISTERED APPOINTMENT.");
         }
-   
 
-        // APPOINTMENT SELECTION
         private void selection_CheckedChanged(object sender, EventArgs e)
         {
-            if (selection.Checked)
-            {
-                datePickDate.Visible = true;
-                pickDate();
-            }
-            else
-            {
-                datePickDate.Visible = false;
-            }
+            date1.Visible = selection.Checked;
+            date2.Visible = selection.Checked;
+            arrow.Visible = selection.Checked;
+            if (selection.Checked) pickDate();
         }
+
         private void datePickDate_ValueChanged_1(object sender, EventArgs e)
         {
+            if (date1.Value.Date <= date2.Value.Date)
             pickDate();
         }
-        public void pickDate()
+
+        private void date2_ValueChanged(object sender, EventArgs e)
         {
-            DateTime date = Convert.ToDateTime(datePickDate.Value.ToString("yyyy-MM-dd"));
-            List<Appointment> filtered = patientAppointments
-           .Where(pa => pa.StartTime == date)
-           .ToList();
-            displaySchedules(filtered, "THIS DATE");
+            if (date1.Value.Date <= date2.Value.Date)
+                pickDate();
         }
+
+        private void pickDate()
+        {
+            DateTime date11 = date1.Value.Date;
+            DateTime date22 = date2.Value.Date;
+            List<Appointment> filteredAppointments = patientAppointments
+                .Where(pa => pa.StartTime.Date >= date11     && pa.StartTime.Date <= date22)
+                .ToList();
+
+            displaySchedules(filteredAppointments, "CLINIC HAS NO APPOINTMENT THIS DATE.");
+        }
+
         private void SearchBar1_TextChanged(object sender, EventArgs e)
         {
             timer1.Stop();
             timer1.Start();
-          
         }
 
         private void AllAppointments_Shown(object sender, EventArgs e)
         {
-            List<Appointment> filtered = patientAppointments
-             .Where(pa => pa.StartTime.Date == DateTime.Today.Date)
-             .ToList();
-            displaySchedules(filtered, "TODAY");
+           // loadAppointment(DateTime.Today);
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -234,26 +190,46 @@ namespace ClinicSystem.Appointments
             monthRadio.Checked = false;
             allSchedule.Checked = false;
             selection.Checked = false;
-            datePickDate.Visible = false;
+            date1.Visible = false;
+            date2.Visible = false;
+            arrow.Visible = false;
 
-            string text = SearchBar1.Text;
-            if (string.IsNullOrWhiteSpace(text))
+            string searchText = SearchBar1.Text;
+            if (string.IsNullOrWhiteSpace(searchText))
             {
                 radioToday.Checked = true;
-                List<Appointment> filtered = patientAppointments
-                .Where(pa => pa.StartTime.Day == DateTime.Now.Day)
-                .ToList();
-                displaySchedules(filtered, "TODAY");
+                loadAppointment(DateTime.Today,"");
             }
             else
             {
-                List<Appointment> filtered = patientAppointments
-                .Where(pa => pa.Operation.OperationName.StartsWith(text, StringComparison.OrdinalIgnoreCase) || pa.Operation.OperationCode.StartsWith(text, StringComparison.OrdinalIgnoreCase) ||
-                             pa.Doctor.DoctorLastName.StartsWith(text, StringComparison.OrdinalIgnoreCase) || pa.Doctor.DoctorFirstName.StartsWith(text, StringComparison.OrdinalIgnoreCase) || pa.Doctor.DoctorID.StartsWith(text, StringComparison.OrdinalIgnoreCase) ||
-                             pa.AppointmentDetailNo.ToString().Equals(text, StringComparison.OrdinalIgnoreCase))
-                .ToList();
-                displaySchedules(filtered, "");
+                var filteredAppointments = patientAppointments
+                    .Where(pa => pa.Operation.OperationName.StartsWith(searchText, StringComparison.OrdinalIgnoreCase) ||
+                                 pa.Operation.OperationCode.StartsWith(searchText, StringComparison.OrdinalIgnoreCase) ||
+                                 pa.Doctor.DoctorLastName.StartsWith(searchText, StringComparison.OrdinalIgnoreCase) ||
+                                 pa.Doctor.DoctorFirstName.StartsWith(searchText, StringComparison.OrdinalIgnoreCase) ||
+                                 pa.Doctor.DoctorID.StartsWith(searchText, StringComparison.OrdinalIgnoreCase) ||
+                                 pa.Patient.Lastname.StartsWith(searchText, StringComparison.OrdinalIgnoreCase) ||
+                                 pa.Patient.Firstname.StartsWith(searchText, StringComparison.OrdinalIgnoreCase) ||
+                                 pa.Patient.Patientid.ToString().EndsWith(searchText, StringComparison.OrdinalIgnoreCase) ||
+                                 pa.AppointmentDetailNo.ToString().Equals(searchText, StringComparison.OrdinalIgnoreCase))
+                    .ToList();
+
+                displaySchedules(filteredAppointments, "");
             }
         }
+        private void AllAppointments_Load(object sender, EventArgs e)
+        {
+            dataGrid.EnableHeadersVisualStyles = false;
+            dataGrid.ColumnHeadersDefaultCellStyle.BackColor = ColorTranslator.FromHtml("#5CA8A3");
+            dataGrid.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dataGrid.ColumnHeadersDefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#5CA8A3");
+            dataGrid.ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.White;
+            dataGrid.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGrid.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dataGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dataGrid.Columns[0].Width = 100;
+        }
+
+        
     }
 }
