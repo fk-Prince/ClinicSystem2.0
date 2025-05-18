@@ -35,9 +35,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.date2 = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.arrow = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.date1 = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.monthRadio = new System.Windows.Forms.RadioButton();
             this.allSchedule = new System.Windows.Forms.RadioButton();
             this.selection = new System.Windows.Forms.RadioButton();
@@ -52,12 +49,17 @@
             this.load = new System.Windows.Forms.Timer(this.components);
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.dataGrid = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.date2 = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.arrow = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.date1 = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.arrow)).BeginInit();
             this.panel9.SuspendLayout();
             this.panel11.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.arrow)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -67,6 +69,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(249)))), ((int)(((byte)(246)))));
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.date2);
             this.panel1.Controls.Add(this.arrow);
             this.panel1.Controls.Add(this.date1);
@@ -81,52 +85,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1090, 46);
             this.panel1.TabIndex = 10088;
-            // 
-            // date2
-            // 
-            this.date2.BorderRadius = 5;
-            this.date2.Checked = true;
-            this.date2.FillColor = System.Drawing.Color.PaleGreen;
-            this.date2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.date2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.date2.Location = new System.Drawing.Point(751, 3);
-            this.date2.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.date2.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.date2.Name = "date2";
-            this.date2.Size = new System.Drawing.Size(119, 36);
-            this.date2.TabIndex = 10092;
-            this.date2.Value = new System.DateTime(2025, 4, 25, 11, 40, 22, 388);
-            this.date2.Visible = false;
-            this.date2.ValueChanged += new System.EventHandler(this.date2_ValueChanged);
-            // 
-            // arrow
-            // 
-            this.arrow.Image = global::ClinicSystem.Properties.Resources.next;
-            this.arrow.ImageRotate = 0F;
-            this.arrow.Location = new System.Drawing.Point(674, 11);
-            this.arrow.Name = "arrow";
-            this.arrow.Size = new System.Drawing.Size(71, 24);
-            this.arrow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.arrow.TabIndex = 10091;
-            this.arrow.TabStop = false;
-            this.arrow.Visible = false;
-            // 
-            // date1
-            // 
-            this.date1.BorderRadius = 5;
-            this.date1.Checked = true;
-            this.date1.FillColor = System.Drawing.Color.PaleGreen;
-            this.date1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.date1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.date1.Location = new System.Drawing.Point(549, 3);
-            this.date1.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.date1.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.date1.Name = "date1";
-            this.date1.Size = new System.Drawing.Size(119, 36);
-            this.date1.TabIndex = 10090;
-            this.date1.Value = new System.DateTime(2025, 4, 25, 11, 40, 22, 388);
-            this.date1.Visible = false;
-            this.date1.ValueChanged += new System.EventHandler(this.datePickDate_ValueChanged_1);
             // 
             // monthRadio
             // 
@@ -364,6 +322,72 @@
             this.dataGrid.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dataGrid.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(822, 17);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(22, 15);
+            this.label2.TabIndex = 10096;
+            this.label2.Text = "To:";
+            this.label2.Visible = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(564, 17);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 15);
+            this.label1.TabIndex = 10095;
+            this.label1.Text = "From:";
+            this.label1.Visible = false;
+            // 
+            // date2
+            // 
+            this.date2.BorderRadius = 5;
+            this.date2.Checked = true;
+            this.date2.FillColor = System.Drawing.Color.PaleGreen;
+            this.date2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.date2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.date2.Location = new System.Drawing.Point(850, 5);
+            this.date2.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.date2.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.date2.Name = "date2";
+            this.date2.Size = new System.Drawing.Size(119, 36);
+            this.date2.TabIndex = 10094;
+            this.date2.Value = new System.DateTime(2025, 4, 25, 11, 40, 22, 388);
+            this.date2.Visible = false;
+            // 
+            // arrow
+            // 
+            this.arrow.Image = global::ClinicSystem.Properties.Resources.next;
+            this.arrow.ImageRotate = 0F;
+            this.arrow.Location = new System.Drawing.Point(730, 13);
+            this.arrow.Name = "arrow";
+            this.arrow.Size = new System.Drawing.Size(71, 24);
+            this.arrow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.arrow.TabIndex = 10093;
+            this.arrow.TabStop = false;
+            this.arrow.Visible = false;
+            // 
+            // date1
+            // 
+            this.date1.BorderRadius = 5;
+            this.date1.Checked = true;
+            this.date1.FillColor = System.Drawing.Color.PaleGreen;
+            this.date1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.date1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.date1.Location = new System.Drawing.Point(605, 5);
+            this.date1.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.date1.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.date1.Name = "date1";
+            this.date1.Size = new System.Drawing.Size(119, 36);
+            this.date1.TabIndex = 10092;
+            this.date1.Value = new System.DateTime(2025, 4, 25, 11, 40, 22, 388);
+            this.date1.Visible = false;
+            // 
             // DoctorAppointmentForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -380,12 +404,12 @@
             this.Load += new System.EventHandler(this.AllAppointments_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.arrow)).EndInit();
             this.panel9.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
             this.guna2Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.arrow)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -407,6 +431,8 @@
         private System.Windows.Forms.Timer load;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2DataGridView dataGrid;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2DateTimePicker date2;
         private Guna.UI2.WinForms.Guna2PictureBox arrow;
         private Guna.UI2.WinForms.Guna2DateTimePicker date1;

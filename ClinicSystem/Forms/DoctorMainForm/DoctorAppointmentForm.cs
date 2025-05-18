@@ -143,6 +143,8 @@ namespace ClinicSystem.Main2
             date1.Visible = selection.Checked;
             date2.Visible = selection.Checked;
             arrow.Visible = selection.Checked;
+            label1.Visible = selection.Checked;
+            label2.Visible = selection.Checked;
             if (selection.Checked) pickDate();
         }
 
@@ -186,7 +188,8 @@ namespace ClinicSystem.Main2
             date1.Visible = false;
             date2.Visible = false;
             arrow.Visible = false;
-
+            label1.Visible = false;
+            label2.Visible = false;
             string searchText = SearchBar1.Text;
             if (string.IsNullOrWhiteSpace(searchText))
             {

@@ -52,6 +52,8 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.dataGrid = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.sdab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.arrow)).BeginInit();
             this.panel9.SuspendLayout();
@@ -66,6 +68,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.sdab.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.sdab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(249)))), ((int)(((byte)(246)))));
+            this.sdab.Controls.Add(this.label2);
+            this.sdab.Controls.Add(this.label1);
             this.sdab.Controls.Add(this.date2);
             this.sdab.Controls.Add(this.arrow);
             this.sdab.Controls.Add(this.monthRadio);
@@ -89,7 +93,7 @@
             this.date2.FillColor = System.Drawing.Color.PaleGreen;
             this.date2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.date2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.date2.Location = new System.Drawing.Point(761, 4);
+            this.date2.Location = new System.Drawing.Point(871, 4);
             this.date2.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.date2.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.date2.Name = "date2";
@@ -103,7 +107,7 @@
             // 
             this.arrow.Image = global::ClinicSystem.Properties.Resources.next;
             this.arrow.ImageRotate = 0F;
-            this.arrow.Location = new System.Drawing.Point(684, 12);
+            this.arrow.Location = new System.Drawing.Point(751, 12);
             this.arrow.Name = "arrow";
             this.arrow.Size = new System.Drawing.Size(71, 24);
             this.arrow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -197,7 +201,7 @@
             this.date1.FillColor = System.Drawing.Color.PaleGreen;
             this.date1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.date1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.date1.Location = new System.Drawing.Point(559, 4);
+            this.date1.Location = new System.Drawing.Point(626, 4);
             this.date1.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.date1.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.date1.Name = "date1";
@@ -376,6 +380,28 @@
             this.dataGrid.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dataGrid.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(585, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 15);
+            this.label1.TabIndex = 10090;
+            this.label1.Text = "From:";
+            this.label1.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(843, 16);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(22, 15);
+            this.label2.TabIndex = 10091;
+            this.label2.Text = "To:";
+            this.label2.Visible = false;
+            // 
             // AllAppointments
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -422,5 +448,7 @@
         private Guna.UI2.WinForms.Guna2DataGridView dataGrid;
         private Guna.UI2.WinForms.Guna2PictureBox arrow;
         private Guna.UI2.WinForms.Guna2DateTimePicker date2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }
