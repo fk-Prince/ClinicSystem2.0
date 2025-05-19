@@ -8,9 +8,12 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 using System.Windows.Forms;
 using DoctorClinic;
 using Guna.UI2.WinForms;
+using Label = System.Windows.Forms.Label;
+using Panel = System.Windows.Forms.Panel;
 
 namespace ClinicSystem.Doctors
 {
@@ -21,6 +24,7 @@ namespace ClinicSystem.Doctors
         public ViewDoctor(UserLoginForm.Staff staff)
         {
             InitializeComponent();
+
             doctorList = doctorRepository.getDoctors();
             string type = "";
             if (doctorList.Count == 0)
@@ -33,6 +37,8 @@ namespace ClinicSystem.Doctors
                 inactive.Enabled = false;
             }
             displayDoctors(doctorList, type);
+          
+
         }
         public string Capitalize(string name)
         {
@@ -173,8 +179,15 @@ namespace ClinicSystem.Doctors
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            if (dataGrid.Visible)
+            {
+                displayDoctorOperation(SearchBar.Text);
+                return;
+            }
+           
+
+            List<Doctor> filteredDoctor = new List<Doctor>(); 
             timer1.Stop();
-            List<Doctor> filteredDoctor = new List<Doctor>();
             if (string.IsNullOrWhiteSpace(SearchBar.Text))
             {
                 filteredDoctor = doctorList;
@@ -200,6 +213,114 @@ namespace ClinicSystem.Doctors
             }
             string type = filteredDoctor.Count < 1 ? "Doctor Not Found" : "";
             displayDoctors(filteredDoctor, type);
+        }
+
+        private DataTable table = new DataTable();
+        private Dictionary<Doctor, Operation> docOp;
+        private int y;
+        private bool isViewOperation = false;
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            docOp = doctorRepository.getDoctorOperations();
+            displayGrid(docOp);
+            a.Visible = true;
+            dropdown.Start();
+        }
+
+        private void displayGrid(Dictionary<Doctor, Operation> filter)
+        {
+            table.Rows.Clear();
+            foreach (var pair in filter)
+            {
+                Doctor doctor = pair.Key;
+                Operation operation = pair.Value;
+                table.Rows.Add(doctor.DoctorID,  "Dr. " + doctor.DoctorFirstName + " " + doctor.DoctorMiddleName + " " + doctor.DoctorLastName, operation.OperationCode, operation.OperationName);
+            }
+        }
+
+        private void displayDoctorOperation(string doctorid)
+        {
+            timer1.Stop();
+            Dictionary<Doctor, Operation> filter = new Dictionary<Doctor, Operation>();
+            if (string.IsNullOrWhiteSpace(doctorid))
+            {
+                filter = docOp;
+            }
+            else
+            {
+                filter = docOp.Where(x =>
+                          x.Key.DoctorFirstName.StartsWith(doctorid.Trim(), StringComparison.OrdinalIgnoreCase) ||
+                          x.Key.DoctorLastName.StartsWith(doctorid.Trim(), StringComparison.OrdinalIgnoreCase) ||
+                          x.Key.DoctorID.ToString().StartsWith(doctorid.Trim(), StringComparison.OrdinalIgnoreCase) ||
+                          x.Key.DoctorID.ToString().EndsWith(doctorid.Trim(), StringComparison.OrdinalIgnoreCase)
+                      ).ToDictionary(x => x.Key, x=> x.Value);
+
+            }
+  
+            if (active.Checked)
+            {
+                filter = filter.Where(d => d.Key.DoctorActive).ToDictionary(x => x.Key, x => x.Value);
+            }
+            else if (inactive.Checked)
+            {
+                filter = filter.Where(d => !d.Key.DoctorActive).ToDictionary(x => x.Key, x => x.Value);
+            }
+            displayGrid(filter);
+           
+        }
+
+        private void ViewDoctor_Load(object sender, EventArgs e)
+        {
+            dataGrid.EnableHeadersVisualStyles = false;
+            dataGrid.ColumnHeadersDefaultCellStyle.BackColor = ColorTranslator.FromHtml("#5CA8A3");
+            dataGrid.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dataGrid.ColumnHeadersDefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#5CA8A3");
+            dataGrid.ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.White;
+
+            table.Columns.Add("Doctor ID", typeof(string));
+            table.Columns.Add("Doctor Full Name", typeof(string));
+            table.Columns.Add("Operation Code", typeof(string));
+            table.Columns.Add("Operation Name", typeof(string));
+            dataGrid.DataSource = table;
+
+ 
+        }
+
+        private void dropdown_Tick(object sender, EventArgs e)
+        {
+            if (!isViewOperation)
+            {
+                y += 15;
+                if (y >= 0)
+                {
+                    dropdown.Stop();
+                    a.Visible = true;
+                    isViewOperation = !isViewOperation;
+                    y = 0;
+                }
+                a.Location = new Point((ClientSize.Width - a.Size.Width) / 2, y);
+            }
+            else
+            {
+                y -= 15;
+                if (y <= -a.Height)
+                {
+                    dropdown.Stop();
+                    a.Visible = false;
+                    isViewOperation = !isViewOperation;
+                    y = -a.Height;
+                }
+                a.Location = new Point((ClientSize.Width - a.Size.Width) / 2, y);
+            }
+            a.BringToFront();
+        }
+
+        private void ViewDoctor_SizeChanged(object sender, EventArgs e)
+        {
+            a.Location = new Point((ClientSize.Width - a.Size.Width) / 2, -a.Size.Height);
+            y = -a.Size.Height;
+            a.BringToFront();
         }
     }
 }

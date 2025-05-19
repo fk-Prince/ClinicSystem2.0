@@ -88,6 +88,39 @@ namespace DoctorClinic
             }
             return todayAppointment;
         }
+
+        public Dictionary<Doctor, Operation> getDoctorOperations()
+        {
+            Dictionary <Doctor, Operation> doctorOperation = new Dictionary<Doctor, Operation>();
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
+                {
+                    conn.Open();
+                    string query = @"SELECT * FROM doctor_operation_mm_tbl
+                        LEFT JOIN doctor_tbl ON doctor_operation_mm_tbl.DoctorID = doctor_tbl.DoctorID  
+                        LEFT JOIN operation_tbl ON doctor_operation_mm_tbl.OperationCode = operation_tbl.OperationCode
+                        ";
+                    using (MySqlCommand command = new MySqlCommand(query, conn))
+                    {
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                Doctor d = EntityMapping.GetDoctorWithImage(reader);
+                                Operation o = EntityMapping.GetOperation(reader);
+                                doctorOperation.Add(d, o);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error on getDoctorOperation() db" + ex.Message);   
+            }
+            return doctorOperation;
+        }
         public List<Appointment> getPatientByDoctor(string doctorID)
         {
             List<Appointment> appointments = new List<Appointment>();
