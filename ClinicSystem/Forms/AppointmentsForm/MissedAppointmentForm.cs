@@ -35,9 +35,9 @@ namespace ClinicSystem.Forms.AppointmentsForm
             foreach (Appointment appointment in missedAppointments)
             {
                 comboAppointment.Items.Add(appointment.AppointmentDetailNo + " | " + appointment.Patient.Lastname + ", " + appointment.Patient.Firstname + " " + appointment.Patient.Middlename);
-                auto.Add(appointment.AppointmentDetailNo + " | " + appointment.Patient.Lastname);
-                auto.Add(appointment.Patient.Patientid + " | " + appointment.Patient.Lastname + " | " + appointment.AppointmentDetailNo);
-                auto.Add(appointment.Patient.Lastname + ", " + appointment.Patient.Firstname + $" {appointment.Patient.Middlename} | " + appointment.Patient.Patientid + " | " + appointment.AppointmentDetailNo);
+                auto.Add(appointment.AppointmentDetailNo + " | " + appointment.Patient.Lastname + ", " + appointment.Patient.Firstname + $" {appointment.Patient.Middlename}  ");
+                auto.Add(appointment.Patient.Patientid + " | " + appointment.Patient.Lastname + ", " + appointment.Patient.Firstname + $" {appointment.Patient.Middlename}  " + " | " + appointment.AppointmentDetailNo);
+                auto.Add(appointment.Patient.Lastname + ", " + appointment.Patient.Firstname + $" {appointment.Patient.Middlename}  | " + appointment.Patient.Patientid + " | " + appointment.AppointmentDetailNo);
             }
             comboAppointment.AutoCompleteCustomSource = auto;
         }
@@ -49,27 +49,31 @@ namespace ClinicSystem.Forms.AppointmentsForm
 
             string[] ids = id.Split('|');
 
+            // for app id
             selectedAppointment = missedAppointments.FirstOrDefault(p =>
                 p.AppointmentDetailNo.ToString().Equals(ids.ElementAtOrDefault(0)?.Trim(), StringComparison.OrdinalIgnoreCase));
 
+            // for patientid
             if (selectedAppointment == null)
             {
                 selectedAppointment = missedAppointments.FirstOrDefault(p =>
                     p.AppointmentDetailNo.ToString().Equals(ids.ElementAtOrDefault(2)?.Trim(), StringComparison.OrdinalIgnoreCase));
             }
 
+            //full name
             if (selectedAppointment == null)
             {
                 selectedAppointment = missedAppointments.FirstOrDefault(p =>
-                    p.AppointmentDetailNo.ToString().Equals(ids.ElementAtOrDefault(1)?.Trim(), StringComparison.OrdinalIgnoreCase));
+                    p.AppointmentDetailNo.ToString().Equals(ids.ElementAtOrDefault(2)?.Trim(), StringComparison.OrdinalIgnoreCase));
             }
 
+            //for general
             if (selectedAppointment == null)
             {
                 selectedAppointment = missedAppointments.FirstOrDefault(p =>
-                    p.AppointmentDetailNo.ToString().Equals(id.Split('|')[0].Trim(), StringComparison.OrdinalIgnoreCase) ||
-                    p.Patient.Patientid.Equals(id.Split('|')[0].Trim(), StringComparison.OrdinalIgnoreCase) ||
-                    p.Patient.Lastname.Equals(id.Split(',')[0].Trim(), StringComparison.OrdinalIgnoreCase)
+                    p.AppointmentDetailNo.ToString().Equals(ids.ElementAtOrDefault(0)?.Trim(), StringComparison.OrdinalIgnoreCase) ||
+                     p.AppointmentDetailNo.ToString().Equals(ids.ElementAtOrDefault(2)?.Trim(), StringComparison.OrdinalIgnoreCase) ||
+                    p.AppointmentDetailNo.ToString().Equals(ids.ElementAtOrDefault(2)?.Trim(), StringComparison.OrdinalIgnoreCase)
                 );
             }
         }
