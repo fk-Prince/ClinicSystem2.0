@@ -21,6 +21,7 @@
 DROP DATABASE IF EXISTS db_clinic;
 CREATE DATABASE db_clinic;
 USE db_clinic;
+
 DROP TABLE IF EXISTS `appointmentdetails_tbl`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
@@ -31,6 +32,7 @@ CREATE TABLE `appointmentdetails_tbl` (
   `totalWithDiscount` decimal(10,2) NOT NULL,
   `DiscountType` varchar(100) NOT NULL,
   `BookingDate` datetime NOT NULL,
+  `Prescription` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`AppointmentDetailNo`),
   KEY `discounttype_idx` (`DiscountType`),
   CONSTRAINT `discounttype` FOREIGN KEY (`DiscountType`) REFERENCES `discount_tbl` (`DiscountType`) ON UPDATE CASCADE
@@ -43,7 +45,7 @@ CREATE TABLE `appointmentdetails_tbl` (
 
 LOCK TABLES `appointmentdetails_tbl` WRITE;
 /*!40000 ALTER TABLE `appointmentdetails_tbl` DISABLE KEYS */;
-INSERT INTO `appointmentdetails_tbl` VALUES (1,NULL,1600.00,1280.00,'PagIbig','2025-04-16 10:00:00'),(2,NULL,2000.00,1600.00,'PagIbig','2025-05-17 17:47:06'),(3,NULL,1600.00,1280.00,'PagIbig','2025-05-17 17:47:06'),(4,NULL,1000.00,800.00,'PagIbig','2025-04-16 10:00:00'),(5,NULL,1200.00,960.00,'PagIbig','2025-05-17 17:47:06'),(6,NULL,1500.00,1500.00,'No Discount','2025-05-17 18:04:35'),(7,NULL,2200.00,2200.00,'No Discount','2025-05-17 18:04:35'),(8,NULL,2000.00,2000.00,'No Discount','2025-05-17 18:09:04'),(9,NULL,2500.00,2500.00,'No Discount','2025-05-17 18:09:04'),(10,NULL,1000.00,1000.00,'No Discount','2025-05-17 18:09:04'),(11,NULL,3500.00,3500.00,'No Discount','2025-05-17 18:09:04'),(12,NULL,1000.00,800.00,'PagIbig','2025-05-17 18:53:41'),(13,NULL,3500.00,2800.00,'PagIbig','2025-05-17 18:59:14'),(14,NULL,2500.00,2000.00,'PagIbig','2025-05-17 19:00:05'),(15,NULL,1500.00,1200.00,'PagIbig','2025-05-17 19:06:15'),(16,NULL,1000.00,1000.00,'No Discount','2025-05-17 19:15:15'),(17,NULL,2500.00,2500.00,'No Discount','2025-05-17 22:28:55');
+INSERT INTO `appointmentdetails_tbl` VALUES (1,NULL,1600.00,1280.00,'PagIbig','2025-04-16 10:00:00',NULL),(2,NULL,2000.00,1600.00,'PagIbig','2025-05-17 17:47:06',NULL),(3,NULL,1600.00,1280.00,'PagIbig','2025-05-17 17:47:06',NULL),(4,NULL,1000.00,800.00,'PagIbig','2025-04-16 10:00:00',NULL),(5,NULL,1200.00,960.00,'PagIbig','2025-05-17 17:47:06',NULL),(6,NULL,1500.00,1500.00,'No Discount','2025-05-17 18:04:35',NULL),(7,NULL,2200.00,2200.00,'No Discount','2025-05-17 18:04:35',NULL),(8,NULL,2000.00,2000.00,'No Discount','2025-05-17 18:09:04',NULL),(9,NULL,2500.00,2500.00,'No Discount','2025-05-17 18:09:04',NULL),(10,NULL,1000.00,1000.00,'No Discount','2025-05-17 18:09:04',NULL),(11,NULL,3500.00,3500.00,'No Discount','2025-05-17 18:09:04',NULL),(12,NULL,1000.00,800.00,'PagIbig','2025-05-17 18:53:41',NULL),(13,NULL,3500.00,2800.00,'PagIbig','2025-05-17 18:59:14',NULL),(14,NULL,2500.00,2000.00,'PagIbig','2025-05-17 19:00:05',NULL),(15,NULL,1500.00,1200.00,'PagIbig','2025-05-17 19:06:15',NULL),(16,NULL,1000.00,1000.00,'No Discount','2025-05-17 19:15:15',NULL),(17,NULL,2500.00,2500.00,'No Discount','2025-05-17 22:28:55',NULL);
 /*!40000 ALTER TABLE `appointmentdetails_tbl` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -394,4 +396,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-05-17 22:32:23
+-- Dump completed on 2025-05-20 19:32:47
