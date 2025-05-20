@@ -62,16 +62,19 @@ namespace ClinicSystem.Appointments
             if (filteredAppointments.Count == 0)
             {
                 dataGrid.Visible = false;
+
+                Panel panel = new Panel();
+                panel.Size = new Size(guna2Panel1.Size.Width - 10, 500);
                 Label label = new Label();
                 label.Text = type;
                 label.Font = new Font("Segoe UI", 18, FontStyle.Bold);
                 label.ForeColor = Color.Black;
                 label.AutoSize = false;
                 label.Dock = DockStyle.Fill;
+                label.Location = new Point((panel.Width - label.Width) / 2 ,( panel.Height - label.Height) / 2);
                 label.TextAlign = ContentAlignment.MiddleCenter;
 
-                Panel panel = new Panel();
-                panel.Size = new Size(guna2Panel1.Width - 10, 500);
+              
                 panel.Controls.Add(label);
                 guna2Panel1.Controls.Add(panel);
                 return;

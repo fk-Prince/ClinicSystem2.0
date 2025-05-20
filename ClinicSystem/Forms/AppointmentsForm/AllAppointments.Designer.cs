@@ -316,9 +316,9 @@
             this.guna2Panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(249)))), ((int)(((byte)(246)))));
+            this.guna2Panel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel1.Controls.Add(this.dataGrid);
-            this.guna2Panel1.Location = new System.Drawing.Point(0, 135);
+            this.guna2Panel1.Location = new System.Drawing.Point(-4, 135);
             this.guna2Panel1.MaximumSize = new System.Drawing.Size(1920, 1080);
             this.guna2Panel1.MinimumSize = new System.Drawing.Size(1090, 525);
             this.guna2Panel1.Name = "guna2Panel1";
@@ -356,7 +356,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGrid.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGrid.GridColor = System.Drawing.Color.White;
-            this.dataGrid.Location = new System.Drawing.Point(10, 0);
+            this.dataGrid.Location = new System.Drawing.Point(13, 0);
             this.dataGrid.MaximumSize = new System.Drawing.Size(1920, 1080);
             this.dataGrid.MinimumSize = new System.Drawing.Size(1065, 528);
             this.dataGrid.Name = "dataGrid";
