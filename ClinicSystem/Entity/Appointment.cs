@@ -27,12 +27,13 @@ namespace ClinicSystem
         private string discounttype;
         private string diagnosis;
         private string status;
+        private string prescription;
 
 
         public Appointment(Patient patient,
            Doctor doctor, Operation operation,
            DateTime startTime, DateTime endTime, double subtotal,
-           int roomno, int appointmentDetailNo, double total, string discounttype, string diagnosis, DateTime bookingDate,string status)
+           int roomno, int appointmentDetailNo, double total, string discounttype, string diagnosis, DateTime bookingDate,string status,string prescription)
         {
             this.patient = patient;
             this.startTime = startTime;
@@ -47,6 +48,7 @@ namespace ClinicSystem
             this.diagnosis = diagnosis;
             this.bookingDate = bookingDate;
             this.status = status;
+            this.prescription = prescription;
         }
 
         public Appointment(Patient patient,
@@ -67,7 +69,7 @@ namespace ClinicSystem
         public Appointment(Patient patient,
            Operation operation,
            DateTime startTime, DateTime endTime, double subtotal,
-           int roomno, int appointmentDetailNo, double total, string discounttype, string diagnosis, DateTime bookingDate, string status)
+           int roomno, int appointmentDetailNo, double total, string discounttype, string diagnosis, DateTime bookingDate, string status, string prescription)
         {
             this.patient = patient;
             this.startTime = startTime;
@@ -80,6 +82,7 @@ namespace ClinicSystem
             this.discounttype = discounttype;
             this.diagnosis = diagnosis;
             this.bookingDate = bookingDate;
+            this.prescription = prescription;
             this.status = status;
         }
 
@@ -121,6 +124,8 @@ namespace ClinicSystem
         public double SubTotal { get => subtotal;  }
         public string Status { get => status; }
         public string Discounttype { get => discounttype; }
+
+        public string Prescription { get => prescription; }
         public int RoomNo { get => roomno; }
         public string Diagnosis { get => diagnosis; }
         public int AppointmentDetailNo { get => appointmentDetailNo; }

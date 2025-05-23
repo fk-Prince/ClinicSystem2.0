@@ -81,9 +81,9 @@
             this.sdab.Controls.Add(this.date1);
             this.sdab.Location = new System.Drawing.Point(0, 89);
             this.sdab.MaximumSize = new System.Drawing.Size(1920, 46);
-            this.sdab.MinimumSize = new System.Drawing.Size(1090, 46);
+            this.sdab.MinimumSize = new System.Drawing.Size(1086, 46);
             this.sdab.Name = "sdab";
-            this.sdab.Size = new System.Drawing.Size(1090, 46);
+            this.sdab.Size = new System.Drawing.Size(1086, 46);
             this.sdab.TabIndex = 4;
             // 
             // label2
@@ -241,9 +241,11 @@
             this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(230)))), ((int)(((byte)(222)))));
             this.panel9.Controls.Add(this.panel11);
             this.panel9.Controls.Add(this.label7);
-            this.panel9.Location = new System.Drawing.Point(2, -1);
+            this.panel9.Location = new System.Drawing.Point(0, 0);
+            this.panel9.MaximumSize = new System.Drawing.Size(1920, 1080);
+            this.panel9.MinimumSize = new System.Drawing.Size(1086, 97);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(1085, 97);
+            this.panel9.Size = new System.Drawing.Size(1086, 97);
             this.panel9.TabIndex = 10086;
             // 
             // panel11
@@ -269,7 +271,7 @@
             this.SearchBar1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SearchBar1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.SearchBar1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.SearchBar1.IconLeft = global::ClinicSystem.Properties.Resources.search24;
+            this.SearchBar1.IconRight = global::ClinicSystem.Properties.Resources.search24;
             this.SearchBar1.Location = new System.Drawing.Point(10, 28);
             this.SearchBar1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.SearchBar1.Name = "SearchBar1";
@@ -301,7 +303,7 @@
             this.label7.MaximumSize = new System.Drawing.Size(1920, 37);
             this.label7.MinimumSize = new System.Drawing.Size(226, 37);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(226, 37);
+            this.label7.Size = new System.Drawing.Size(227, 37);
             this.label7.TabIndex = 10059;
             this.label7.Text = "Appointments";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -316,7 +318,7 @@
             this.guna2Panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2Panel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(249)))), ((int)(((byte)(246)))));
             this.guna2Panel1.Controls.Add(this.dataGrid);
             this.guna2Panel1.Location = new System.Drawing.Point(-4, 135);
             this.guna2Panel1.MaximumSize = new System.Drawing.Size(1920, 1080);

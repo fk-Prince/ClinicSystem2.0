@@ -223,7 +223,14 @@ namespace ClinicSystem.Doctors
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             docOp = doctorRepository.getDoctorOperations();
-            displayGrid(docOp);
+            if (string.IsNullOrWhiteSpace(SearchBar.Text.Trim()))
+            {
+                displayGrid(docOp);
+            }
+            else
+            {
+                displayDoctorOperation(SearchBar.Text.Trim());
+            }
             a.Visible = true;
             dropdown.Start();
         }
@@ -291,7 +298,7 @@ namespace ClinicSystem.Doctors
         {
             if (!isViewOperation)
             {
-                y += 15;
+                y += 50;
                 if (y >= 0)
                 {
                     dropdown.Stop();
@@ -303,7 +310,7 @@ namespace ClinicSystem.Doctors
             }
             else
             {
-                y -= 15;
+                y -= 50;
                 if (y <= -a.Height)
                 {
                     dropdown.Stop();

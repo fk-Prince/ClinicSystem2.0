@@ -135,6 +135,7 @@ namespace ClinicSystem.Rooms
                 addRoomB.Enabled = true;
                 addRoomPanel.Visible = false;
                 flowLayout.Visible = true;
+                SearchBar1.Enabled = true;
             }
             addRoomPanel.Location = new Point(x, addRoomPanel.Location.Y);
         }
@@ -183,6 +184,7 @@ namespace ClinicSystem.Rooms
         private void addRoomB_Click(object sender, EventArgs e)
         {
             timerin.Start();
+            SearchBar1.Enabled = false;
             addRoomB.Enabled = true;
             addRoomPanel.Visible = true;
             flowLayout.Visible = false;

@@ -127,7 +127,7 @@ namespace ClinicSystem.Forms.AppointmentsForm
             StartTime.SelectedItem = selectedAppointment.StartTime.ToString("hh:mm:ss tt");
             EndTime.Text = selectedAppointment.EndTime.ToString("hh:mm:ss tt");
             total.Text = selectedAppointment.Total.ToString("F2");
-            totalFee.Text = (selectedAppointment.SubTotal * 0.2).ToString("F2");
+            totalFee.Text = (selectedAppointment.SubTotal * 0.15).ToString("F2");
             StartTime.Enabled = true;
         }
 

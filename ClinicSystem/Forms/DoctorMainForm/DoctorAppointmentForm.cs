@@ -37,11 +37,11 @@ namespace ClinicSystem.Main2
 
             if (patientAppointments.Count == 0)
             {
-                loadAppointment(DateTime.Today, "CLINIC HAS NO REGISTERED APPOINTMENT.");
+                loadAppointment(DateTime.Today, "YOU HAS NO REGISTERED APPOINTMENT.");
             }
             else
             {
-                loadAppointment(DateTime.Today, "CLINIC HAS NO APPOINTMENT TODAY.");
+                loadAppointment(DateTime.Today, "YOU HAS NO APPOINTMENT TODAY.");
             }
         }
         private void loadAppointment(DateTime date, string type)
@@ -52,13 +52,27 @@ namespace ClinicSystem.Main2
 
             displaySchedules(filteredAppointments, type);
         }
+        Panel panel5;
         private void displaySchedules(List<Appointment> filteredAppointments, string type)
         {
             table.Rows.Clear();
 
+            if (panel5 != null)
+            {
+                guna2Panel1.Controls.Remove(panel5);
+                panel5 = null;
+            }
+
+
             if (filteredAppointments.Count == 0)
             {
                 dataGrid.Visible = false;
+
+
+                Panel panel = new Panel();
+                panel.Size = new Size(guna2Panel1.ClientSize.Width - 10, 500);
+                panel.Dock = DockStyle.Fill;
+
                 Label label = new Label();
                 label.Text = type;
                 label.Font = new Font("Segoe UI", 18, FontStyle.Bold);
@@ -67,30 +81,29 @@ namespace ClinicSystem.Main2
                 label.Dock = DockStyle.Fill;
                 label.TextAlign = ContentAlignment.MiddleCenter;
 
-                Panel panel = new Panel();
-                panel.Size = new Size(guna2Panel1.Width - 10, 500);
                 panel.Controls.Add(label);
                 guna2Panel1.Controls.Add(panel);
-                return;
+                panel5 = panel;
             }
             else
             {
                 dataGrid.Visible = true;
+
+                foreach (Appointment a in filteredAppointments)
+                {
+                    table.Rows.Add(
+                        a.AppointmentDetailNo,
+                        a.Operation.OperationName,
+                        a.StartTime.ToString("yyyy-MM-dd") + Environment.NewLine + a.StartTime.ToString("hh:mm:ss tt"),
+                        a.EndTime.ToString("yyyy-MM-dd") + Environment.NewLine + a.EndTime.ToString("hh:mm:ss tt"),
+                        a.Patient.Patientid.ToString(),
+                        $"{a.Patient.Firstname} {a.Patient.Middlename} {a.Patient.Lastname}"
+                    );
+                }
             }
 
 
-
-            foreach (Appointment a in filteredAppointments)
-            {
-                table.Rows.Add(
-                    a.AppointmentDetailNo,
-                    a.Operation.OperationName,
-                    a.StartTime.ToString("yyyy-MM-dd") + Environment.NewLine + a.StartTime.ToString("hh:mm:ss tt"),
-                    a.EndTime.ToString("yyyy-MM-dd") + Environment.NewLine + a.EndTime.ToString("hh:mm:ss tt"),
-                    a.Patient.Patientid.ToString(),
-                    $"{a.Patient.Firstname} {a.Patient.Middlename} {a.Patient.Lastname}"
-                );
-            }
+            guna2Panel1.Invalidate();
         }
 
 
@@ -100,7 +113,7 @@ namespace ClinicSystem.Main2
         private void radioToday_CheckedChanged(object sender, EventArgs e)
         {
             if (radioToday.Checked)
-                loadAppointment(DateTime.Today, "CLINIC HAS NO APPOINTMENT TODAY.");
+                loadAppointment(DateTime.Today, "YOU HAVE NO APPOINTMENT TODAY.");
         }
 
         private void weekRadio_CheckedChanged(object sender, EventArgs e)
@@ -113,7 +126,7 @@ namespace ClinicSystem.Main2
                     .Where(pa => pa.StartTime >= startOfWeek && pa.StartTime < endOfWeek)
                     .ToList();
 
-                displaySchedules(filteredAppointments, "CLINIC HAS NO APPOINTMENT THIS WEEK.");
+                displaySchedules(filteredAppointments, "YOU HAVE NO APPOINTMENT THIS WEEK.");
             }
         }
 
@@ -128,14 +141,14 @@ namespace ClinicSystem.Main2
                     .Where(pa => pa.StartTime >= startOfMonth && pa.StartTime <= endOfMonth)
                     .ToList();
 
-                displaySchedules(filteredAppointments, "CLINIC HAS NO APPOINTMENT THIS MONTH.");
+                displaySchedules(filteredAppointments, "YOU HAVE NO APPOINTMENT THIS MONTH.");
             }
         }
 
         private void allSchedule_CheckedChanged(object sender, EventArgs e)
         {
             if (allSchedule.Checked)
-                displaySchedules(patientAppointments, "CLINIC HAS NO REGISTERED APPOINTMENT.");
+                displaySchedules(patientAppointments, "YOU HAVE NO REGISTERED APPOINTMENT.");
         }
 
         private void selection_CheckedChanged(object sender, EventArgs e)
@@ -168,7 +181,7 @@ namespace ClinicSystem.Main2
                 .Where(pa => pa.StartTime.Date >= date11 && pa.StartTime.Date <= date22)
                 .ToList();
 
-            displaySchedules(filteredAppointments, "CLINIC HAS NO APPOINTMENT THIS DATE.");
+            displaySchedules(filteredAppointments, "YOU HAVE NO APPOINTMENT THIS DATE.");
         }
 
         private void SearchBar1_TextChanged(object sender, EventArgs e)
@@ -201,7 +214,7 @@ namespace ClinicSystem.Main2
                 var filteredAppointments = patientAppointments
                     .Where(pa => pa.Operation.OperationName.StartsWith(searchText, StringComparison.OrdinalIgnoreCase) ||
                                  pa.Operation.OperationCode.StartsWith(searchText, StringComparison.OrdinalIgnoreCase) ||
-                                 pa.Patient.Lastname.StartsWith(searchText,StringComparison.OrdinalIgnoreCase) ||
+                                 pa.Patient.Lastname.StartsWith(searchText, StringComparison.OrdinalIgnoreCase) ||
                                  pa.Patient.Firstname.StartsWith(searchText, StringComparison.OrdinalIgnoreCase) ||
                                  pa.Patient.Patientid.ToString().EndsWith(searchText, StringComparison.OrdinalIgnoreCase) ||
                                  pa.AppointmentDetailNo.ToString().Equals(searchText, StringComparison.OrdinalIgnoreCase))
@@ -224,6 +237,10 @@ namespace ClinicSystem.Main2
             dataGrid.RowTemplate.Height = 70;
             dataGrid.Columns[0].Width = 100;
         }
+
+        private void DoctorAppointmentForm_SizeChanged(object sender, EventArgs e)
+        {
+            guna2Panel1.Invalidate();
+        }
     }
 }
-    

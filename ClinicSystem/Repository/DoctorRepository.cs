@@ -60,11 +60,12 @@ namespace DoctorClinic
                 {
                     conn.Open();
                     string query = @"
-                                SELECT * FROM patientappointment_tbl
-                                LEFT JOIN doctor_tbl ON doctor_tbl.doctorid = patientappointment_tbl.doctorid
-                                LEFT JOIN operation_tbl ON operation_tbl.operationcode = patientappointment_tbl.OperationCode
-                                LEFT JOIN patient_tbl ON patient_tbl.patientid = patientappointment_tbl.patientid
-                                LEFT JOIN appointmentdetails_tbl ON appointmentdetails_tbl.AppointmentDetailNo = patientappointment_tbl.AppointmentDetailNo
+                              SELECT * FROM appointmentRecord_tbl
+                                 LEFT JOIN patientappointment_tbl ON appointmentRecord_tbl.AppointmentRecordNo = patientappointment_tbl.AppointmentRecordNo
+                                 LEFT JOIN patient_tbl ON patient_tbl.patientid = appointmentRecord_tbl.patientid
+                                 LEFT JOIN doctor_tbl ON doctor_tbl.doctorId = patientappointment_tbl.doctorId
+                                 LEFT JOIN operation_tbl ON operation_tbl.operationCode = patientappointment_tbl.OperationCode
+                                 LEFT JOIN appointmentdetails_tbl ON appointmentdetails_tbl.AppointmentDetailNo = patientappointment_tbl.AppointmentDetailNo
                                 WHERE patientappointment_tbl.StartSchedule BETWEEN @Start AND @End AND Status = 'Upcoming' AND EndSchedule > Now()
                                 AND patientappointment_tbl.doctorid = @doctorid";
                     using (MySqlCommand command = new MySqlCommand(query, conn))
@@ -129,11 +130,14 @@ namespace DoctorClinic
                 using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
                 {
                     conn.Open();
-                    string query = @"SELECT * FROM patient_tbl
-                        LEFT JOIN patientappointment_tbl ON patient_tbl.patientid = patientappointment_tbl.patientid
-                        LEFT JOIN operation_tbl ON patientappointment_tbl.OperationCode = operation_tbl.operationCode
-                        LEFT JOIN appointmentdetails_tbl ON  patientappointment_tbl.AppointmentDetailNo = appointmentdetails_tbl.AppointmentDetailNo
-                        WHERE patientappointment_tbl.DoctorId = @DoctorID";
+                    string query = @"
+                         SELECT * FROM appointmentRecord_tbl
+                         LEFT JOIN patientappointment_tbl ON appointmentRecord_tbl.AppointmentRecordNo = patientappointment_tbl.AppointmentRecordNo
+                         LEFT JOIN patient_tbl ON patient_tbl.patientid = appointmentRecord_tbl.patientid
+                         LEFT JOIN doctor_tbl ON doctor_tbl.doctorId = patientappointment_tbl.doctorId
+                         LEFT JOIN operation_tbl ON operation_tbl.operationCode = patientappointment_tbl.OperationCode
+                         LEFT JOIN appointmentdetails_tbl ON appointmentdetails_tbl.AppointmentDetailNo = patientappointment_tbl.AppointmentDetailNo
+                         WHERE patientappointment_tbl.DoctorId = @DoctorID";
                     using (MySqlCommand command = new MySqlCommand(query, conn))
                     {
                         command.Parameters.AddWithValue("DoctorID", doctorID);
@@ -161,12 +165,13 @@ namespace DoctorClinic
                 {
                     conn.Open();
                     string query = @"UPDATE appointmentdetails_tbl 
-                                 SET `Diagnosis` = @Diagnosis
+                                 SET `Diagnosis` = @Diagnosis, `Prescription` = @Prescription
                                 WHERE AppointmentDetailNo = @AppointmentDetailNo";
                     using (MySqlCommand command = new MySqlCommand(query, conn))
                     {
                         command.Parameters.AddWithValue("@Diagnosis", updatedSchedule.Diagnosis);
                         command.Parameters.AddWithValue("@AppointmentDetailNo", updatedSchedule.AppointmentDetailNo);
+                        command.Parameters.AddWithValue("@Prescription", updatedSchedule.Prescription);
                         command.ExecuteNonQuery();
                         return true;
                     }

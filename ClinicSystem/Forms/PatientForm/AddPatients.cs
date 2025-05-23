@@ -594,7 +594,7 @@ namespace ClinicSystem
                 return;
             }
             
-            DiscountChoicePromp.showChoices(this, patient,staff.StaffId, patientSchedules, (confirmed, patientSchedules) =>
+            DiscountChoicePromp.showChoices(this,"INSERT PATIENT", patient,staff.StaffId, patientSchedules, (confirmed, patientSchedules) =>
             {
                 if (confirmed)
                 {

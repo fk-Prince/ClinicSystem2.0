@@ -25,15 +25,12 @@ namespace ClinicSystem.Appointments
                 {
                     conn.Open();
                     string query = @"
-                            SELECT * FROM patientappointment_tbl
-                            LEFT JOIN patient_tbl 
-                            ON patient_tbl.patientid = patientappointment_tbl.patientid
-                            LEFT JOIN doctor_tbl
-                            ON doctor_tbl.doctorId = patientappointment_tbl.doctorId
-                            LEFT JOIN operation_tbl
-                            ON operation_tbl.operationCode = patientappointment_tbl.OperationCode
-                            LEFT JOIN appointmentdetails_tbl
-                            ON appointmentdetails_tbl.AppointmentDetailNo = patientappointment_tbl.AppointmentDetailNo
+                            SELECT * FROM appointmentRecord_tbl
+                            LEFT JOIN patientappointment_tbl ON appointmentRecord_tbl.AppointmentRecordNo = patientappointment_tbl.AppointmentRecordNo
+                            LEFT JOIN patient_tbl ON patient_tbl.patientid = appointmentRecord_tbl.patientid
+                            LEFT JOIN doctor_tbl ON doctor_tbl.doctorId = patientappointment_tbl.doctorId
+                            LEFT JOIN operation_tbl ON operation_tbl.operationCode = patientappointment_tbl.OperationCode
+                            LEFT JOIN appointmentdetails_tbl ON appointmentdetails_tbl.AppointmentDetailNo = patientappointment_tbl.AppointmentDetailNo
                             WHERE patientappointment_tbl.DOCTORID = @DOCTORID";
                     using (MySqlCommand command = new MySqlCommand(query, conn))
                     {
@@ -58,7 +55,7 @@ namespace ClinicSystem.Appointments
         }
 
         // Insert appointment
-        public bool insertOnlyAppointment(List<Appointment> ap)
+        public bool insertAppointment(long id ,List<Appointment> ap)
         {
             try
             {
@@ -70,15 +67,15 @@ namespace ClinicSystem.Appointments
                     
                     string query = @"
                             INSERT INTO patientappointment_tbl 
-                                (AppointmentDetailNo, PatientID, DoctorID, OperationCode, StartSchedule, EndSchedule, roomno)
+                                (AppointmentRecordNo, AppointmentDetailNo, DoctorID, OperationCode, StartSchedule, EndSchedule, roomno)
                             VALUES 
-                                (@AppointmentDetailNo, @PatientID, @DoctorID, @OperationCode, @StartSchedule, @EndSchedule, @roomno);";
+                                (@AppointmentRecordNo, @AppointmentDetailNo, @DoctorID, @OperationCode, @StartSchedule, @EndSchedule, @roomno);";
                     foreach (Appointment op in ap)
                     {
                         using (MySqlCommand command = new MySqlCommand(query, conn))
                         {
+                            command.Parameters.AddWithValue("@AppointmentRecordNo", id);
                             command.Parameters.AddWithValue("@AppointmentDetailNo", op.AppointmentDetailNo);
-                            command.Parameters.AddWithValue("@PatientID", op.Patient.Patientid);
                             command.Parameters.AddWithValue("@DoctorID", op.Doctor.DoctorID);
                             command.Parameters.AddWithValue("@OperationCode", op.Operation.OperationCode);
                             command.Parameters.AddWithValue("@StartSchedule", op.StartTime);
@@ -107,21 +104,19 @@ namespace ClinicSystem.Appointments
                     conn.Open();
                     string query = @"
                             INSERT INTO appointmentdetails_tbl 
-                                   (AppointmentDetailNo, Subtotal, TotalWithDiscount, DiscountType, BookingDate)
+                                   (AppointmentDetailNo, Subtotal)
                             VALUES 
-                                   (@AppointmentDetailNo, @Subtotal, @TotalWithDiscount, @DiscountType, @BookingDate)";
+                                   (@AppointmentDetailNo, @Subtotal)";
                     foreach (Appointment op in ap)
                     {
                         using (MySqlCommand command = new MySqlCommand(query, conn))
                         {
                             command.Parameters.AddWithValue("@AppointmentDetailNo", op.AppointmentDetailNo);
                             command.Parameters.AddWithValue("@Subtotal", op.SubTotal.ToString("F2"));
-                            command.Parameters.AddWithValue("@DiscountType", op.Discounttype);
-                            command.Parameters.AddWithValue("@TotalWithDiscount", op.Total.ToString("F2"));
-                            command.Parameters.AddWithValue("@BookingDate", DateTime.Now);
                             command.ExecuteNonQuery();
                         }          
                     }
+
                 }
             }
             catch (MySqlException ex)
@@ -169,11 +164,12 @@ namespace ClinicSystem.Appointments
                     conn.Open();
 
                 string query = @"
-                            SELECT * FROM patientappointment_tbl 
-                                LEFT JOIN patient_tbl ON patientappointment_tbl.patientID = patient_tbl.PatientID 
-                                LEFT JOIN Operation_tbl ON patientappointment_tbl.OperationCode = Operation_tbl.OperationCode
-                                LEFT JOIN Doctor_tbl ON patientappointment_tbl.DoctorID = Doctor_tbl.DoctorID
-                                LEFT JOIN appointmentdetails_tbl ON patientappointment_tbl.appointmentdetailNo = appointmentdetails_tbl.appointmentdetailNo";
+                            SELECT * FROM appointmentRecord_tbl
+                            LEFT JOIN patientappointment_tbl ON appointmentRecord_tbl.AppointmentRecordNo = patientappointment_tbl.AppointmentRecordNo
+                            LEFT JOIN patient_tbl ON patient_tbl.patientid = appointmentRecord_tbl.patientid
+                            LEFT JOIN doctor_tbl ON doctor_tbl.doctorId = patientappointment_tbl.doctorId
+                            LEFT JOIN operation_tbl ON operation_tbl.operationCode = patientappointment_tbl.OperationCode
+                            LEFT JOIN appointmentdetails_tbl ON appointmentdetails_tbl.AppointmentDetailNo = patientappointment_tbl.AppointmentDetailNo";
 
                     using (MySqlCommand command = new MySqlCommand(query, conn))
                     {
@@ -205,12 +201,13 @@ namespace ClinicSystem.Appointments
                     conn.Open();
 
                     string query = @"
-                            SELECT * FROM patientappointment_tbl 
-                                LEFT JOIN patient_tbl ON patientappointment_tbl.patientID = patient_tbl.PatientID 
-                                LEFT JOIN Operation_tbl ON patientappointment_tbl.OperationCode = Operation_tbl.OperationCode
-                                LEFT JOIN Doctor_tbl ON patientappointment_tbl.DoctorID = Doctor_tbl.DoctorID
-                                LEFT JOIN appointmentdetails_tbl ON patientappointment_tbl.appointmentdetailNo = appointmentdetails_tbl.appointmentdetailNo
-                                WHERE Status = 'Upcoming' AND StartSchedule >= NOW()";
+                                  SELECT * FROM appointmentRecord_tbl
+                                  LEFT JOIN patientappointment_tbl ON appointmentRecord_tbl.AppointmentRecordNo = patientappointment_tbl.AppointmentRecordNo
+                                  LEFT JOIN patient_tbl ON patient_tbl.patientid = appointmentRecord_tbl.patientid
+                                  LEFT JOIN doctor_tbl ON doctor_tbl.doctorId = patientappointment_tbl.doctorId
+                                  LEFT JOIN operation_tbl ON operation_tbl.operationCode = patientappointment_tbl.OperationCode
+                                  LEFT JOIN appointmentdetails_tbl ON appointmentdetails_tbl.AppointmentDetailNo = patientappointment_tbl.AppointmentDetailNo
+                                  WHERE Status = 'Upcoming' OR Status = 'Reappointment' AND DATE(StartSchedule) < CURDATE()- INTERVAL 3 DAY";
 
                     using (MySqlCommand command = new MySqlCommand(query, conn))
                     {
@@ -274,6 +271,7 @@ namespace ClinicSystem.Appointments
                         case "patient":
                                     query = @"
                                         SELECT 1 FROM patientappointment_tbl
+                                        LEFT JOIN AppointmentRecord_tbl ON AppointmentRecord_tbl.AppointmentRecordNo =  patientappointment_tbl.AppointmentRecordNo
                                         WHERE PatientID = @PatientID AND (
                                             (@StartSchedule BETWEEN StartSchedule AND EndSchedule) OR
                                             (@EndSchedule BETWEEN StartSchedule AND EndSchedule) OR
@@ -350,6 +348,7 @@ namespace ClinicSystem.Appointments
                         case "patient":
                             query = @"
                                         SELECT 1 FROM patientappointment_tbl
+                                        LEFT JOIN AppointmentRecord_tbl ON AppointmentRecord_tbl.AppointmentRecordNo =  patientappointment_tbl.AppointmentRecordNo
                                         WHERE PatientID = @PatientID AND (
                                             (@StartSchedule BETWEEN StartSchedule AND EndSchedule) OR
                                             (@EndSchedule BETWEEN StartSchedule AND EndSchedule) OR
@@ -411,7 +410,7 @@ namespace ClinicSystem.Appointments
         }
 
         // PATIENT INSERTION
-        public bool insertPatientWithAppointment(int staffId, Patient patient,List<Appointment> appList)
+        public bool insertAppointment(int staffId, Patient patient, List<Appointment> appList, string type)
         {
             try
             {
@@ -419,56 +418,142 @@ namespace ClinicSystem.Appointments
                 {
                     conn.Open();
 
-                    string query = "INSERT INTO patient_tbl (patientid, patientfirstname, patientmiddlename, patientlastname, address, age, gender, birthdate, contactnumber) " +
-                                    "VALUES (@patientid, @patientfirstname, @patientmiddlename, @patientlastname, @address, @age, @gender, @birthdate, @contactnumber); ";
-
-                    using (MySqlCommand command = new MySqlCommand(query, conn))
+                    using (MySqlTransaction transaction = conn.BeginTransaction())
                     {
-                        command.Parameters.AddWithValue("@patientid", patient.Patientid);
-                        command.Parameters.AddWithValue("@patientfirstname", patient.Firstname);
-                        command.Parameters.AddWithValue("@patientmiddlename", patient.Middlename);
-                        command.Parameters.AddWithValue("@patientlastname", patient.Lastname);
-                        command.Parameters.AddWithValue("@address", patient.Address);
-                        command.Parameters.AddWithValue("@age", patient.Age);
-                        command.Parameters.AddWithValue("@gender", patient.Gender);
-                        command.Parameters.AddWithValue("@birthdate", patient.Birthdate.ToString("yyyy-MM-dd"));
-                        if (!string.IsNullOrEmpty(patient.ContactNumber)) command.Parameters.AddWithValue("@contactnumber", patient.ContactNumber);
-                        else command.Parameters.AddWithValue("@contactnumber", DBNull.Value);
+                        try
+                        {
+                            if (type.Equals("INSERT PATIENT"))
+                            {
+                                // Insert patient_tbl
+                                string query = @"
+                                                INSERT INTO patient_tbl 
+                                                    (patientid, patientfirstname, patientmiddlename, patientlastname, address, age, gender, birthdate, contactnumber) 
+                                                VALUES 
+                                                    (@patientid, @patientfirstname, @patientmiddlename, @patientlastname, @address, @age, @gender, @birthdate, @contactnumber);";
 
-                        command.ExecuteNonQuery();
-                      
-                        insertStaffPatient(patient.Patientid, staffId);
+                                using (MySqlCommand command = new MySqlCommand(query, conn, transaction))
+                                {
+                                    command.Parameters.AddWithValue("@patientid", patient.Patientid);
+                                    command.Parameters.AddWithValue("@patientfirstname", patient.Firstname);
+                                    command.Parameters.AddWithValue("@patientmiddlename", patient.Middlename);
+                                    command.Parameters.AddWithValue("@patientlastname", patient.Lastname);
+                                    command.Parameters.AddWithValue("@address", patient.Address);
+                                    command.Parameters.AddWithValue("@age", patient.Age);
+                                    command.Parameters.AddWithValue("@gender", patient.Gender);
+                                    command.Parameters.AddWithValue("@birthdate", patient.Birthdate.ToString("yyyy-MM-dd"));
+                                    command.Parameters.AddWithValue("@contactnumber", string.IsNullOrEmpty(patient.ContactNumber) ? DBNull.Value : (object)patient.ContactNumber);
+
+                                    command.ExecuteNonQuery();
+                                }
+                            }
+
+                            // Insert appointmentrecord_tbl
+                            string query2 = @"
+                                            INSERT INTO appointmentrecord_tbl 
+                                                (staffid, patientid, discounttype, Bookingdate, TotalWithDiscount) 
+                                            VALUES 
+                                                (@staffid, @patientid, @discounttype, @Bookingdate, @TotalWithDiscount); 
+                                            SELECT LAST_INSERT_ID();";
+
+                            long appointmentRecordId;
+                            using (MySqlCommand command = new MySqlCommand(query2, conn, transaction))
+                            {
+                                command.Parameters.AddWithValue("@staffid", staffId);
+                                command.Parameters.AddWithValue("@patientid", patient.Patientid);
+                                command.Parameters.AddWithValue("@discounttype", appList[0].Discounttype);
+                                command.Parameters.AddWithValue("@Bookingdate", DateTime.Now);
+                                command.Parameters.AddWithValue("@TotalWithDiscount", appList.Sum(e => e.Total));
+
+                                appointmentRecordId = Convert.ToInt64(command.ExecuteScalar());
+                            }
+
+                            // Insert appointmentdetails_tbl
+                            string query3 = @" 
+                                                INSERT INTO appointmentdetails_tbl 
+                                                    (AppointmentDetailNo, Subtotal) 
+                                                VALUES 
+                                                    (@AppointmentDetailNo, @Subtotal)";
+
+                            foreach (Appointment op in appList)
+                            {
+                                using (MySqlCommand command = new MySqlCommand(query3, conn, transaction))
+                                {
+                                    command.Parameters.AddWithValue("@AppointmentDetailNo", op.AppointmentDetailNo);
+                                    command.Parameters.AddWithValue("@Subtotal", op.SubTotal.ToString("F2"));
+
+                                    command.ExecuteNonQuery();
+                                }
+                            }
+
+                            // Insert patientappointment_tbl
+                            string query4 = @"
+                                            INSERT INTO patientappointment_tbl 
+                                                (AppointmentRecordNo, AppointmentDetailNo, DoctorID, OperationCode, StartSchedule, EndSchedule, roomno) 
+                                            VALUES 
+                                                (@AppointmentRecordNo, @AppointmentDetailNo, @DoctorID, @OperationCode, @StartSchedule, @EndSchedule, @roomno);";
+
+                            foreach (Appointment op in appList)
+                            {
+                                using (MySqlCommand command = new MySqlCommand(query4, conn, transaction))
+                                {
+                                    command.Parameters.AddWithValue("@AppointmentRecordNo", appointmentRecordId);
+                                    command.Parameters.AddWithValue("@AppointmentDetailNo", op.AppointmentDetailNo);
+                                    command.Parameters.AddWithValue("@DoctorID", op.Doctor.DoctorID);
+                                    command.Parameters.AddWithValue("@OperationCode", op.Operation.OperationCode);
+                                    command.Parameters.AddWithValue("@StartSchedule", op.StartTime);
+                                    command.Parameters.AddWithValue("@EndSchedule", op.EndTime);
+                                    command.Parameters.AddWithValue("@roomno", op.RoomNo);
+
+                                    command.ExecuteNonQuery();
+                                }
+                            }
+
+                            transaction.Commit();
+                            return true;
+                        }
+                        catch (Exception ex)
+                        {
+                            transaction.Rollback();
+                            MessageBox.Show("TRANSACTION ROLLED BACK: " + ex.Message);
+                            return false;
+                        }
                     }
                 }
-                insertOnlyAppointment(appList);
-                return true;
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show("ERRO ON INSERTPATIENT() DB " + ex.Message);
+                MessageBox.Show("ERROR ON insertPatient() DB: " + ex.Message);
+                return false;
             }
-
-            return false;
         }
-        private void insertStaffPatient(string patientid, int staffId)
+
+        private void insertRecord(string patientid, int staffId, List<Appointment> appList)
         {
             try
             {
+                long insertedId;
                 using (MySqlConnection conn = new MySqlConnection(DatabaseConnection.getConnection()))
                 {
                     conn.Open();
-                    string query = "INSERT INTO patient_staff_tbl (staffid, patientid) VALUES (@staffid, @patientid)";
+                    string query = "INSERT INTO appointmentrecord_tbl (staffid, patientid, discounttype, Bookingdate, TotalWithDiscount) " +
+                             "VALUES (@staffid, @patientid, @discounttype, @Bookingdate, @TotalWithDiscount); " +
+                             "SELECT LAST_INSERT_ID();";
                     using (MySqlCommand command = new MySqlCommand(query, conn))
                     {
                         command.Parameters.AddWithValue("@staffid", staffId);
                         command.Parameters.AddWithValue("@patientid", patientid);
-                        command.ExecuteNonQuery();
+                        command.Parameters.AddWithValue("@discounttype", appList[0].Discounttype);
+                        command.Parameters.AddWithValue("@Bookingdate", DateTime.Now);
+                        command.Parameters.AddWithValue("@TotalWithDiscount", appList.Sum(e => e.Total));
+                        insertedId = Convert.ToInt64(command.ExecuteScalar());
                     }
+
+                    insertAppointment(insertedId,appList);
                 }
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show("Error on insertStaffPatient() db" + ex.Message);
+                MessageBox.Show("Error on insertRecord() db" + ex.Message);
             }
         }
 
@@ -484,12 +569,13 @@ namespace ClinicSystem.Appointments
                     conn.Open();
 
                     string query = @"
-                        SELECT * FROM patientappointment_tbl 
-                        LEFT JOIN patient_tbl ON patientappointment_tbl.patientID = patient_tbl.PatientID 
-                        LEFT JOIN Operation_tbl ON patientappointment_tbl.OperationCode = Operation_tbl.OperationCode
-                        LEFT JOIN Doctor_tbl ON patientappointment_tbl.DoctorID = Doctor_tbl.DoctorID
-                        LEFT JOIN appointmentdetails_tbl ON patientappointment_tbl.appointmentdetailNo = appointmentdetails_tbl.appointmentdetailNo
-                        WHERE Status = 'Absent' AND EndSchedule BETWEEN CURRENT_DATE - INTERVAL 7 DAY AND NOW()";
+                         SELECT * FROM appointmentRecord_tbl
+                         LEFT JOIN patientappointment_tbl ON appointmentRecord_tbl.AppointmentRecordNo = patientappointment_tbl.AppointmentRecordNo
+                         LEFT JOIN patient_tbl ON patient_tbl.patientid = appointmentRecord_tbl.patientid
+                         LEFT JOIN doctor_tbl ON doctor_tbl.doctorId = patientappointment_tbl.doctorId
+                         LEFT JOIN operation_tbl ON operation_tbl.operationCode = patientappointment_tbl.OperationCode
+                         LEFT JOIN appointmentdetails_tbl ON appointmentdetails_tbl.AppointmentDetailNo = patientappointment_tbl.AppointmentDetailNo
+                         WHERE Status = 'Absent' AND EndSchedule BETWEEN CURRENT_DATE - INTERVAL 7 DAY AND NOW()";
 
                     using (MySqlCommand command = new MySqlCommand(query, conn))
                     {

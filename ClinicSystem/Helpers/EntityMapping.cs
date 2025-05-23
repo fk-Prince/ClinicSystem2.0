@@ -112,7 +112,8 @@ namespace ClinicSystem.Helpers
                 reader.GetString("DiscountType"),
                 reader.IsDBNull(reader.GetOrdinal("diagnosis")) ? "" : reader.GetString("diagnosis"),
                 reader.GetDateTime("BookingDate"),
-                reader.GetString("Status")
+                reader.GetString("Status"),
+                 reader.IsDBNull(reader.GetOrdinal("prescription")) ? "" : reader.GetString("prescription")
             );
         }
 
@@ -131,7 +132,8 @@ namespace ClinicSystem.Helpers
                reader.GetString("DiscountType"),
                reader.IsDBNull(reader.GetOrdinal("diagnosis")) ? "" : reader.GetString("diagnosis"),
                reader.GetDateTime("BookingDate"),
-               reader.GetString("Status")
+               reader.GetString("Status"),
+               reader.IsDBNull(reader.GetOrdinal("prescription")) ? "" : reader.GetString("prescription")
            );
         }
 

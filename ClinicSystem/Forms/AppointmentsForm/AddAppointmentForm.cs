@@ -34,8 +34,10 @@ namespace ClinicSystem.Appointments
         private Patient selectedPatient;
         private Operation selectedOperation;
         private Doctor selectedDoctor;
-        public AddAppointmentForm()
+        private int staffid;
+        public AddAppointmentForm(int staffid)
         {
+            this.staffid = staffid;
             InitializeComponent();
             patientList = patientRepository.getPatient();
             rooms = roomRepository.getRooms();
@@ -398,7 +400,7 @@ namespace ClinicSystem.Appointments
                 return;
             }
 
-            DiscountChoicePromp.showChoices(this, selectedPatient, 0, patientSchedules, (confirmed, patientSchedules) =>
+            DiscountChoicePromp.showChoices(this,"", selectedPatient, staffid, patientSchedules, (confirmed, patientSchedules) =>
             {
                 if (confirmed)
                 {

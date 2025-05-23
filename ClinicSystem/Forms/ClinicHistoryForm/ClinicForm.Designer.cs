@@ -47,6 +47,11 @@
             this.label123 = new System.Windows.Forms.Label();
             this.upP = new System.Windows.Forms.Panel();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.date2 = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.arrow = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.date1 = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.dataGrid = new Guna.UI2.WinForms.Guna2DataGridView();
@@ -69,21 +74,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.date2 = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.label9 = new System.Windows.Forms.Label();
-            this.arrow = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.date1 = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.label11 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.searchGrid)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.upP.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.arrow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             this.panel4.SuspendLayout();
             this.p1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.arrow)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -224,7 +224,7 @@
             this.tbPatient.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tbPatient.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tbPatient.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbPatient.IconLeft = global::ClinicSystem.Properties.Resources.search24;
+            this.tbPatient.IconRight = global::ClinicSystem.Properties.Resources.search24;
             this.tbPatient.Location = new System.Drawing.Point(3, 24);
             this.tbPatient.Name = "tbPatient";
             this.tbPatient.PlaceholderForeColor = System.Drawing.Color.Silver;
@@ -285,6 +285,69 @@
             this.radioButton3.Text = "Past";
             this.radioButton3.UseVisualStyleBackColor = true;
             this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(473, 17);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(22, 15);
+            this.label9.TabIndex = 10096;
+            this.label9.Text = "To:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(255, 17);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(38, 15);
+            this.label11.TabIndex = 10095;
+            this.label11.Text = "From:";
+            // 
+            // date2
+            // 
+            this.date2.BorderRadius = 5;
+            this.date2.Checked = true;
+            this.date2.FillColor = System.Drawing.Color.PaleGreen;
+            this.date2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.date2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.date2.Location = new System.Drawing.Point(501, 5);
+            this.date2.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.date2.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.date2.Name = "date2";
+            this.date2.Size = new System.Drawing.Size(119, 36);
+            this.date2.TabIndex = 10094;
+            this.date2.Value = new System.DateTime(2025, 4, 25, 11, 40, 22, 388);
+            this.date2.ValueChanged += new System.EventHandler(this.date2_ValueChanged);
+            // 
+            // arrow
+            // 
+            this.arrow.Image = global::ClinicSystem.Properties.Resources.next;
+            this.arrow.ImageRotate = 0F;
+            this.arrow.Location = new System.Drawing.Point(415, 11);
+            this.arrow.Name = "arrow";
+            this.arrow.Size = new System.Drawing.Size(71, 24);
+            this.arrow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.arrow.TabIndex = 10093;
+            this.arrow.TabStop = false;
+            // 
+            // date1
+            // 
+            this.date1.BorderRadius = 5;
+            this.date1.Checked = true;
+            this.date1.FillColor = System.Drawing.Color.PaleGreen;
+            this.date1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.date1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.date1.Location = new System.Drawing.Point(296, 5);
+            this.date1.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.date1.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.date1.Name = "date1";
+            this.date1.Size = new System.Drawing.Size(119, 36);
+            this.date1.TabIndex = 10092;
+            this.date1.Value = new System.DateTime(2025, 4, 25, 11, 40, 22, 388);
+            this.date1.ValueChanged += new System.EventHandler(this.date1_ValueChanged);
             // 
             // radioButton2
             // 
@@ -621,69 +684,6 @@
             this.panel8.Size = new System.Drawing.Size(10, 695);
             this.panel8.TabIndex = 2;
             // 
-            // date2
-            // 
-            this.date2.BorderRadius = 5;
-            this.date2.Checked = true;
-            this.date2.FillColor = System.Drawing.Color.PaleGreen;
-            this.date2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.date2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.date2.Location = new System.Drawing.Point(501, 5);
-            this.date2.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.date2.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.date2.Name = "date2";
-            this.date2.Size = new System.Drawing.Size(119, 36);
-            this.date2.TabIndex = 10094;
-            this.date2.Value = new System.DateTime(2025, 4, 25, 11, 40, 22, 388);
-            this.date2.ValueChanged += new System.EventHandler(this.date2_ValueChanged);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(473, 17);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(22, 15);
-            this.label9.TabIndex = 10096;
-            this.label9.Text = "To:";
-            // 
-            // arrow
-            // 
-            this.arrow.Image = global::ClinicSystem.Properties.Resources.next;
-            this.arrow.ImageRotate = 0F;
-            this.arrow.Location = new System.Drawing.Point(415, 11);
-            this.arrow.Name = "arrow";
-            this.arrow.Size = new System.Drawing.Size(71, 24);
-            this.arrow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.arrow.TabIndex = 10093;
-            this.arrow.TabStop = false;
-            // 
-            // date1
-            // 
-            this.date1.BorderRadius = 5;
-            this.date1.Checked = true;
-            this.date1.FillColor = System.Drawing.Color.PaleGreen;
-            this.date1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.date1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.date1.Location = new System.Drawing.Point(296, 5);
-            this.date1.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.date1.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.date1.Name = "date1";
-            this.date1.Size = new System.Drawing.Size(119, 36);
-            this.date1.TabIndex = 10092;
-            this.date1.Value = new System.DateTime(2025, 4, 25, 11, 40, 22, 388);
-            this.date1.ValueChanged += new System.EventHandler(this.date1_ValueChanged);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(255, 17);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(38, 15);
-            this.label11.TabIndex = 10095;
-            this.label11.Text = "From:";
-            // 
             // ClinicForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -707,12 +707,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.upP.ResumeLayout(false);
             this.upP.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.arrow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
             this.panel4.ResumeLayout(false);
             this.p1.ResumeLayout(false);
             this.p1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.arrow)).EndInit();
             this.ResumeLayout(false);
 
         }

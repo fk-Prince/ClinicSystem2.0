@@ -34,10 +34,12 @@ namespace ClinicSystem.UserLoginForm
 
         private int previousindex = 0;
         private int staffid;
-        public DiscountChoicePromp(Form form, Patient patient,  List<Appointment> appList, int staffid)
+        private string type;
+        private DiscountChoicePromp(Form form, string type, Patient patient,  List<Appointment> appList, int staffid)
         {
             this.form = form;
             this.appList = appList;
+            this.type = type;
             this.staffid = staffid;
             this.patient = patient;
             discount = discountRepository.getDiscounts();
@@ -72,24 +74,7 @@ namespace ClinicSystem.UserLoginForm
            
 
             List<Appointment> newApp = new List<Appointment>() ;
-            if (staffid == 0)
-            {
-                foreach (Appointment app in appList)
-                {
-                    double total = app.SubTotal - (app.SubTotal * selectedDiscount.DiscountRate);
-                    newApp.Add(new Appointment(
-                       app.Patient, app.Doctor, app.Operation,
-                       app.StartTime, app.EndTime,
-                       app.SubTotal, app.RoomNo, app.AppointmentDetailNo,
-                       total, selectedDiscount.Discounttype,
-                       "",DateTime.Now,"Upcoming"));
-
-                }
-                appointmentRepository.insertOnlyAppointment(newApp);
-                co?.Invoke(true, newApp);
-            }  
-            else
-            {
+           
                 foreach (Appointment app in appList)
                 {
                     double total = app.SubTotal - (app.SubTotal * selectedDiscount.DiscountRate);
@@ -98,11 +83,11 @@ namespace ClinicSystem.UserLoginForm
                          app.StartTime, app.EndTime,
                          app.SubTotal, app.RoomNo, app.AppointmentDetailNo,
                          total, selectedDiscount.Discounttype,
-                         "", DateTime.Now, "Upcoming"));
+                         "", DateTime.Now, "Upcoming",app.Prescription));
                 }  
-                appointmentRepository.insertPatientWithAppointment(staffid,patient,newApp);
+                appointmentRepository.insertAppointment(staffid,patient,newApp,type);
                 co?.Invoke(true, newApp);
-            }
+            
 
 
             newApp.Clear();
@@ -129,7 +114,7 @@ namespace ClinicSystem.UserLoginForm
             instance = null;
         }
 
-        public static void showChoices(Form f, Patient patient, int staffid, List<Appointment> appList, Action<bool, List<Appointment>> confirmation)
+        public static void showChoices(Form f,string type, Patient patient, int staffid, List<Appointment> appList, Action<bool, List<Appointment>> confirmation)
         {
            
             if (instance != null && f.Controls.Contains(instance))
@@ -139,7 +124,7 @@ namespace ClinicSystem.UserLoginForm
             }
 
 
-            instance = new DiscountChoicePromp(f, patient, appList, staffid);
+            instance = new DiscountChoicePromp(f, type, patient, appList, staffid);
             instance.co = confirmation;
             
             instance.Location = new Point((f.Width - 400) /2, (f.Height - 400) / 2);

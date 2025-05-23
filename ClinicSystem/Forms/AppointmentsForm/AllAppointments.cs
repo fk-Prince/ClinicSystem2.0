@@ -65,6 +65,8 @@ namespace ClinicSystem.Appointments
 
                 Panel panel = new Panel();
                 panel.Size = new Size(guna2Panel1.Size.Width - 10, 500);
+                panel.Dock = DockStyle.Fill;
+
                 Label label = new Label();
                 label.Text = type;
                 label.Font = new Font("Segoe UI", 18, FontStyle.Bold);

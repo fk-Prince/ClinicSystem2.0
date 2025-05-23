@@ -11,8 +11,10 @@ namespace ClinicSystem
     public partial class AppointmentForm : Form
     {
         private Guna2Button lastButtonClicked;
-        public AppointmentForm()
+        private int staffid;
+        public AppointmentForm(int staffid)
         {
+            this.staffid = staffid;
             InitializeComponent();
 
             SetButtonColor(allAppointmentB);
@@ -65,7 +67,7 @@ namespace ClinicSystem
 
         private void addAppointmentB_Click(object sender, EventArgs e)
         {
-            AddAppointmentForm add = new AddAppointmentForm();
+            AddAppointmentForm add = new AddAppointmentForm(staffid);
             LoadForm(add);
         }
 

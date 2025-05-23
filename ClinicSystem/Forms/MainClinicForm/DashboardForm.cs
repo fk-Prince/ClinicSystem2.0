@@ -35,7 +35,7 @@ namespace ClinicSystem.MainClinic
             InitializeComponent();
             displayAppointments();
             displayDoctorStats();
-            patientTotal = clinicRepository.TotalPatientLastMonth();
+            patientTotal = clinicRepository.TotalPatient();
             doctorTotal = clinicRepository.TotalActiveDoctor();
             totalEarnings = clinicRepository.getEarnings();
             double revenueratio = clinicRepository.getPercentageIncrease();
@@ -74,6 +74,9 @@ namespace ClinicSystem.MainClinic
             if (missCounter != 0)
             {
                 missCount.ForeColor = Color.Red;
+            } else
+            {
+                missCount.Text = "";
             }
             lastMonthTimer.Start();
             doctorT.Start();
@@ -404,7 +407,7 @@ namespace ClinicSystem.MainClinic
                     missCount.Text = missCounter.ToString();
                     if (missCount.Text.Equals("0"))
                     {
-                        missCount.ForeColor = Color.Black;
+                        missCount.Text = "";
                     }
                     else
                     {
@@ -445,6 +448,7 @@ namespace ClinicSystem.MainClinic
 
             if (missCounter == 0)
             {
+                missCount.Text = "";
                 panel10.Controls.Remove(p);
                 panel10.Invalidate();
                 MessagePromp.MainShowMessageBig(this, "You have no notifications left.", MessageBoxIcon.Information);

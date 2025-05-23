@@ -249,10 +249,8 @@ namespace ClinicSystem.Appointments
                 selectedAppointment.Discounttype,
                 selectedAppointment.Diagnosis,
                 selectedAppointment.BookingDate,
-                selectedAppointment.Status);
-
+                selectedAppointment.Status,
+                selectedAppointment.Prescription);
         }
-
-
     }
 }

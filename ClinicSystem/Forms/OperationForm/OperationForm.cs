@@ -525,13 +525,16 @@ namespace ClinicSystem
                 addOperationPanel.Visible = false;
                 flowLayout.Visible = true;
                 addOperationB.Enabled = true;
+                SearchBar1.Enabled  = true;
             }
             addOperationPanel.Location = new Point(x, addOperationPanel.Location.Y);
         }
 
         private void addOperationB_Click(object sender, EventArgs e)
         {
+            
             timerin.Start();
+            SearchBar1.Enabled = false;
             addOperationB.Enabled = false;
             flowLayout.Visible = false;
             addOperationPanel.Visible = true;

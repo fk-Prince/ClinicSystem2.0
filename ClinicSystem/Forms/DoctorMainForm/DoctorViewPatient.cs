@@ -216,12 +216,12 @@ namespace ClinicSystem
 
         private void tbDiagnosis_TextChanged(object sender, EventArgs e)
         {
-            string diagnosis = tbDiagnosis.Text;
+            string diagnosis = tbDiagnosis.Text.Trim(); 
 
-            diagnosisLimitCheck(diagnosis);
+            limitCheck(diagnosis, limitD);
         }
 
-        public void diagnosisLimitCheck(string text)
+        public void limitCheck(string text,Label limit)
         {
             if (!string.IsNullOrWhiteSpace(text))
             {
@@ -250,7 +250,7 @@ namespace ClinicSystem
             }
             List<Appointment> temp = new List<Appointment>();
             temp.Add(selectedAppointment);
-            PrintDoctorReceipt diagnos = new PrintDoctorReceipt(dr, temp);
+            PrintDoctorReceipt diagnos = new PrintDoctorReceipt(dr, temp,"");
             diagnos.print();
         }
 
@@ -269,7 +269,7 @@ namespace ClinicSystem
                     temp.Add(pa);
                 }
             }
-            PrintDoctorReceipt diagnos = new PrintDoctorReceipt(dr, temp);
+            PrintDoctorReceipt diagnos = new PrintDoctorReceipt(dr, temp, "");
             diagnos.print();
         }
 
@@ -282,7 +282,7 @@ namespace ClinicSystem
                 return;
             }
 
-            if (selectedAppointment.Diagnosis.Trim() == tbDiagnosis.Text.Trim())
+            if (selectedAppointment.Diagnosis.Trim() == tbDiagnosis.Text.Trim() && selectedAppointment.Prescription.Trim() == prescription.Text.Trim())
             {
                 return;
             }
@@ -297,9 +297,10 @@ namespace ClinicSystem
                 selectedAppointment.AppointmentDetailNo,
                 selectedAppointment.Total,
                 selectedAppointment.Discounttype,
-                tbDiagnosis.Text,
+                tbDiagnosis.Text.Trim(),
                 selectedAppointment.BookingDate,
-                selectedAppointment.Status);
+                selectedAppointment.Status,
+                prescription.Text.Trim());
 
             bool success = doctorRepository.setDiagnosis(updatedSchedule);
             if (success)
@@ -385,10 +386,15 @@ namespace ClinicSystem
 
             if (doctorRepository.setPatientDischarged(appointmentDetailNo))
             {
+                List<Appointment> tmp = new List<Appointment>();
+                tmp.Add(selectedAppointment);
+                PrintDoctorReceipt pr = new PrintDoctorReceipt(dr, tmp, "Discharged");
+
                 MessagePromp.MainShowMessage(this, "Succefully Discharged .", MessageBoxIcon.Information);
                 guna2Button4.Visible = false;
                 save.Visible = false;
                 status.Text = "Discharged";
+              
                 patientAppointments = doctorRepository.getPatientByDoctor(dr.DoctorID);
                 foreach (Appointment pas in patientAppointments)
                 {
@@ -398,8 +404,13 @@ namespace ClinicSystem
                     }
                 }
             }
+        }
 
+        private void prescription_TextChanged(object sender, EventArgs e)
+        {
+            string p = prescription.Text.Trim();
 
+            limitCheck(p, limitP);
         }
     }
 }

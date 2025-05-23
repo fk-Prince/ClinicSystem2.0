@@ -9,7 +9,7 @@ namespace ClinicSystem.Repository
     public class DatabaseConnection
     {
 
-        private static string driver = "server=localhost;username=root;pwd=root;database=db_clinic";
+        private static string driver = "server=localhost;username=root;pwd=root;database=clinic";
 
         public static string getConnection()
         {
