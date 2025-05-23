@@ -242,5 +242,17 @@ namespace ClinicSystem.Main2
         {
             guna2Panel1.Invalidate();
         }
+
+        private void date1_ValueChanged(object sender, EventArgs e)
+        {
+            if (date1.Value.Date <= date2.Value.Date)
+                pickDate();
+        }
+
+        private void date2_ValueChanged_1(object sender, EventArgs e)
+        {
+            if (date1.Value.Date <= date2.Value.Date)
+                pickDate();
+        }
     }
 }

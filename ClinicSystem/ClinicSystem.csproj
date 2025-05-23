@@ -194,7 +194,7 @@
     <Compile Include="Forms\ClinicHistoryForm\ClinicForm.Designer.cs">
       <DependentUpon>ClinicForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\dll.cs" />
+    <Compile Include="EntityMapper\dll.cs" />
     <Compile Include="Forms\DoctorMainForm\DoctorMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -245,7 +245,7 @@
     <Compile Include="Forms\DoctorClinicForm\ViewDoctor.Designer.cs">
       <DependentUpon>ViewDoctor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\EntityMapping.cs" />
+    <Compile Include="EntityMapper\EntityMapping.cs" />
     <Compile Include="Repository\ClinicRepository.cs" />
     <Compile Include="Forms\MainClinicForm\DashboardForm.cs">
       <SubType>Form</SubType>

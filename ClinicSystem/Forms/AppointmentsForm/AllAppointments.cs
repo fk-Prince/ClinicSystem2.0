@@ -172,7 +172,7 @@ namespace ClinicSystem.Appointments
             DateTime date11 = date1.Value.Date;
             DateTime date22 = date2.Value.Date;
             List<Appointment> filteredAppointments = patientAppointments
-                .Where(pa => pa.StartTime.Date >= date11     && pa.StartTime.Date <= date22)
+                .Where(pa => pa.StartTime.Date >= date11 && pa.StartTime.Date <= date22)
                 .ToList();
 
             displaySchedules(filteredAppointments, "CLINIC HAS NO APPOINTMENT THIS DATE.");

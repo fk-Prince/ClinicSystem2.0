@@ -164,7 +164,7 @@ namespace ClinicSystem
                     tbEndTime.Text = app.EndTime.ToString("yyyy-MM-dd hh:mm:ss tt");
                     status.Text = app.Status;
                     selectedAppointment = app;
-                    if (app.Status.Equals("Discharged", StringComparison.OrdinalIgnoreCase))
+                    if (app.Status.Equals("Discharged", StringComparison.OrdinalIgnoreCase) || app.Status.Equals("Absent",StringComparison.OrdinalIgnoreCase))
                     {
                         guna2Button4.Visible = false;
                         save.Visible = false;
