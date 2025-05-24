@@ -503,7 +503,7 @@
             this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(230)))), ((int)(((byte)(222)))));
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(358, 23);
+            this.label10.Location = new System.Drawing.Point(388, 22);
             this.label10.MaximumSize = new System.Drawing.Size(1920, 37);
             this.label10.MinimumSize = new System.Drawing.Size(323, 37);
             this.label10.Name = "label10";
