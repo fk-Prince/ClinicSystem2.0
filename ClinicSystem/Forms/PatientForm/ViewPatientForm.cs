@@ -185,6 +185,7 @@ namespace ClinicSystem
                     tbDoctor.Text = dr;
                     tbOperation.Text = appointment.Operation.OperationCode + "  |  "+appointment.Operation.OperationName;
                     tbDoctorDiagnosis.Text = appointment.Diagnosis;
+                    guna2TextBox1.Text = appointment.Prescription;
                     cost.Text = "₱ " + appointment.Total.ToString("F2");
                     start.Text = appointment.StartTime.ToString("yyyy-MM-dd hh:mm:ss tt");
                     end.Text = appointment.EndTime.ToString("yyyy-MM-dd hh:mm:ss tt");
