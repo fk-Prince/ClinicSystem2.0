@@ -41,6 +41,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.comboAppointment = new System.Windows.Forms.ComboBox();
             this.panelDentName = new System.Windows.Forms.Panel();
+            this.doctorL = new Guna.UI2.WinForms.Guna2TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.StartTime = new System.Windows.Forms.ComboBox();
@@ -49,6 +50,7 @@
             this.dateSchedulePicker = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.panelPatName = new System.Windows.Forms.Panel();
+            this.tbPname = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panelOperName = new System.Windows.Forms.Panel();
             this.tbOname = new Guna.UI2.WinForms.Guna2TextBox();
@@ -56,8 +58,7 @@
             this.panel10 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
-            this.doctorL = new Guna.UI2.WinForms.Guna2TextBox();
-            this.tbPname = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panelRoomNo.SuspendLayout();
@@ -271,6 +272,28 @@
             this.panelDentName.Size = new System.Drawing.Size(559, 42);
             this.panelDentName.TabIndex = 10085;
             // 
+            // doctorL
+            // 
+            this.doctorL.BorderRadius = 5;
+            this.doctorL.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.doctorL.DefaultText = "";
+            this.doctorL.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.doctorL.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.doctorL.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.doctorL.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.doctorL.Enabled = false;
+            this.doctorL.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.doctorL.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.doctorL.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.doctorL.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.doctorL.Location = new System.Drawing.Point(229, 9);
+            this.doctorL.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.doctorL.Name = "doctorL";
+            this.doctorL.PlaceholderText = "";
+            this.doctorL.SelectedText = "";
+            this.doctorL.Size = new System.Drawing.Size(323, 25);
+            this.doctorL.TabIndex = 10091;
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -396,6 +419,14 @@
             this.panelPatName.Size = new System.Drawing.Size(559, 42);
             this.panelPatName.TabIndex = 10084;
             // 
+            // tbPname
+            // 
+            this.tbPname.AutoSize = true;
+            this.tbPname.Location = new System.Drawing.Point(124, 10);
+            this.tbPname.Name = "tbPname";
+            this.tbPname.Size = new System.Drawing.Size(0, 20);
+            this.tbPname.TabIndex = 2;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -455,6 +486,7 @@
             this.panel10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(230)))), ((int)(((byte)(222)))));
+            this.panel10.Controls.Add(this.label13);
             this.panel10.Controls.Add(this.label10);
             this.panel10.Controls.Add(this.panel11);
             this.panel10.Location = new System.Drawing.Point(0, 0);
@@ -488,35 +520,17 @@
             this.panel11.Size = new System.Drawing.Size(1080, 2);
             this.panel11.TabIndex = 10082;
             // 
-            // doctorL
+            // label13
             // 
-            this.doctorL.BorderRadius = 5;
-            this.doctorL.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.doctorL.DefaultText = "";
-            this.doctorL.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.doctorL.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.doctorL.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.doctorL.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.doctorL.Enabled = false;
-            this.doctorL.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.doctorL.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.doctorL.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.doctorL.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.doctorL.Location = new System.Drawing.Point(229, 9);
-            this.doctorL.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.doctorL.Name = "doctorL";
-            this.doctorL.PlaceholderText = "";
-            this.doctorL.SelectedText = "";
-            this.doctorL.Size = new System.Drawing.Size(323, 25);
-            this.doctorL.TabIndex = 10091;
-            // 
-            // tbPname
-            // 
-            this.tbPname.AutoSize = true;
-            this.tbPname.Location = new System.Drawing.Point(124, 10);
-            this.tbPname.Name = "tbPname";
-            this.tbPname.Size = new System.Drawing.Size(0, 20);
-            this.tbPname.TabIndex = 2;
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(2, 79);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(432, 13);
+            this.label13.TabIndex = 10085;
+            this.label13.Text = "Note:  Rescheduling is only allowed within 3 days before the original appointment" +
+    "\r\n";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // RescheduleForm
             // 
@@ -550,6 +564,7 @@
             this.panelOperName.ResumeLayout(false);
             this.panelOperName.PerformLayout();
             this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -586,5 +601,6 @@
         private Guna.UI2.WinForms.Guna2TextBox roomNo;
         private Guna.UI2.WinForms.Guna2TextBox doctorL;
         private System.Windows.Forms.Label tbPname;
+        private System.Windows.Forms.Label label13;
     }
 }

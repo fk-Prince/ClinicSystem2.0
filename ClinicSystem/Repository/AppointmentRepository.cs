@@ -207,7 +207,7 @@ namespace ClinicSystem.Appointments
                                   LEFT JOIN doctor_tbl ON doctor_tbl.doctorId = patientappointment_tbl.doctorId
                                   LEFT JOIN operation_tbl ON operation_tbl.operationCode = patientappointment_tbl.OperationCode
                                   LEFT JOIN appointmentdetails_tbl ON appointmentdetails_tbl.AppointmentDetailNo = patientappointment_tbl.AppointmentDetailNo
-                                  WHERE Status = 'Upcoming' OR Status = 'Reappointment' AND DATE(StartSchedule) < CURDATE()- INTERVAL 3 DAY";
+                                  WHERE Status = 'Upcoming' OR Status = 'Reappointment' AND DATE(StartSchedule) < CURDATE() - INTERVAL 3 DAY";
 
                     using (MySqlCommand command = new MySqlCommand(query, conn))
                     {
