@@ -18,6 +18,7 @@
 --
 -- Table structure for table `appointmentdetails_tbl`
 --
+
 DROP DATABASE IF EXISTS clinic;
 CREATE DATABASE clinic;
 USE clinic;
@@ -100,7 +101,7 @@ CREATE TABLE `appointmentrecord_tbl` (
 
 LOCK TABLES `appointmentrecord_tbl` WRITE;
 /*!40000 ALTER TABLE `appointmentrecord_tbl` DISABLE KEYS */;
-INSERT INTO `appointmentrecord_tbl` VALUES (1,'P2025-000001',2,'PagIbig','2025-05-24 10:02:52',2800.00),(2,'P2025-000002',2,'PhilHealth ','2025-05-24 10:05:52',2800.00),(3,'P2025-000003',2,'PWD','2025-05-24 10:07:31',1260.00),(4,'P2025-000004',2,'PhilHealth ','2025-05-24 10:12:46',4800.00);
+INSERT INTO `appointmentrecord_tbl` VALUES (1,'P2025-000001',2,'PagIbig','2025-04-10 00:00:00',2800.00),(2,'P2025-000002',2,'PhilHealth ','2025-04-25 00:00:00',2800.00),(3,'P2025-000003',2,'PWD','2025-05-24 10:07:31',1260.00),(4,'P2025-000004',2,'PhilHealth ','2025-05-24 10:12:46',4800.00);
 /*!40000 ALTER TABLE `appointmentrecord_tbl` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -153,7 +154,7 @@ CREATE TABLE `doctor_operation_mm_tbl` (
 
 LOCK TABLES `doctor_operation_mm_tbl` WRITE;
 /*!40000 ALTER TABLE `doctor_operation_mm_tbl` DISABLE KEYS */;
-INSERT INTO `doctor_operation_mm_tbl` VALUES ('BP102','D2025-000001'),('BT101','D2025-000001'),('CK101','D2025-000002'),('EE101','D2025-000003'),('DC100','D2025-000004'),('MSB1001','D2025-000005'),('MWD102','D2025-000005'),('TE101','D2025-000006'),('UA501','D2025-000007'),('XR301','D2025-000008'),('VCT102','D2025-000009'),('EE101','D2025-000001'),('MSB1001','D2025-000002'),('MWD102','D2025-000002'),('VCT102','D2025-000003'),('XR301','D2025-000003'),('UA501','D2025-000004'),('BP102','D2025-000004'),('CK101','D2025-000005'),('BT101','D2025-000006'),('DC100','D2025-000007'),('CK101','D2025-000007'),('MSB1001','D2025-000008'),('TE101','D2025-000008'),('MWD102','D2025-000009');
+INSERT INTO `doctor_operation_mm_tbl` VALUES ('BP102','D2025-000001'),('BT101','D2025-000001'),('CK101','D2025-000002'),('EE101','D2025-000003'),('DC100','D2025-000004'),('MSB1001','D2025-000005'),('MWD102','D2025-000005'),('RCT101','D2025-000006'),('UA501','D2025-000007'),('XR301','D2025-000008'),('VCT102','D2025-000009'),('EE101','D2025-000001'),('MSB1001','D2025-000002'),('MWD102','D2025-000002'),('VCT102','D2025-000003'),('XR301','D2025-000003'),('UA501','D2025-000004'),('BP102','D2025-000004'),('CK101','D2025-000005'),('BT101','D2025-000006'),('DC100','D2025-000007'),('CK101','D2025-000007'),('MSB1001','D2025-000008'),('RCT101','D2025-000008'),('MWD102','D2025-000009');
 /*!40000 ALTER TABLE `doctor_operation_mm_tbl` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -225,7 +226,7 @@ CREATE TABLE `operation_tbl` (
 
 LOCK TABLES `operation_tbl` WRITE;
 /*!40000 ALTER TABLE `operation_tbl` DISABLE KEYS */;
-INSERT INTO `operation_tbl` VALUES ('BP102','Blood Pressure','2025-03-16','Routine blood pressure check for hypertension monitoring.',1000.00,'00:30:00','Examination Room'),('BT101','Diagnostic Blood Test','2025-04-10','Blood test for routine health screening and early detection of conditions.',2500.00,'01:00:00','Laboratory Room'),('CK101','Check-Up','2025-04-05','General health assessment including blood pressure and heart rate checks.',1500.00,'01:30:00','Examination Room'),('DC100','Dental Cleaning','2025-04-30','Cleaning of teeth, removal of plaque, tartar, and stains.',2000.00,'01:45:00','Dental Room'),('EE101','Eye Examination','2025-04-22','Comprehensive eye exam to assess vision and eye health.',2200.00,'01:40:00','Imaging Room'),('MSB1001','Minor Skin Biopsy','2025-05-17','Removing a small sample of skin tissue for diagnostic testing.',3500.00,'00:45:00','Treatment Room'),('MWD102','Minor Wound Dressing','2025-04-14','Cleaning and dressing minor wounds or cuts.',1800.00,'00:45:00','Treatment Room'),('TE101','Tooth Extraction ','2025-03-30','Simple extraction of a tooth under local anesthesia.',3500.00,'01:00:00','Dental Room'),('UA501','Urine Analysis','2025-04-01','Testing urine sample for signs of infection, dehydration, or other conditions.',1600.00,'01:10:00','Laboratory Room'),('VCT102','Vaccination','2025-05-12','Administering vaccines for flu, tetanus, or other preventive care.',1200.00,'00:30:00','Examination Room'),('XR301','X-ray','2025-05-11','A chest X-ray to evaluate the lungs and heart for possible diseases.',3000.00,'00:30:00','Imaging Room');
+INSERT INTO `operation_tbl` VALUES ('BP102','Blood Pressure','2025-03-16','Routine blood pressure check for hypertension monitoring.',1000.00,'00:30:00','Examination Room'),('BT101','Diagnostic Blood Test','2025-04-10','Blood test for routine health screening and early detection of conditions.',2500.00,'01:00:00','Laboratory Room'),('CK101','Check-Up','2025-04-05','General health assessment including blood pressure and heart rate checks.',1500.00,'01:30:00','Examination Room'),('DC100','Dental Cleaning','2025-04-30','Cleaning of teeth, removal of plaque, tartar, and stains.',2000.00,'01:45:00','Dental Room'),('EE101','Eye Examination','2025-04-22','Comprehensive eye exam to assess vision and eye health.',2200.00,'01:40:00','Imaging Room'),('MSB1001','Minor Skin Biopsy','2025-05-17','Removing a small sample of skin tissue for diagnostic testing.',3500.00,'00:45:00','Treatment Room'),('MWD102','Minor Wound Dressing','2025-04-14','Cleaning and dressing minor wounds or cuts.',1800.00,'00:45:00','Treatment Room'),('RCT101','Root Canal Treatment ','2025-03-30','Removal of infected pulp from inside the tooth, followed by cleaning, filling, and sealing the root canals.',3500.00,'01:00:00','Dental Room'),('UA501','Urine Analysis','2025-04-01','Testing urine sample for signs of infection, dehydration, or other conditions.',1600.00,'01:10:00','Laboratory Room'),('VCT102','Vaccination','2025-05-12','Administering vaccines for flu, tetanus, or other preventive care.',1200.00,'00:30:00','Examination Room'),('XR301','X-ray','2025-05-11','A chest X-ray to evaluate the lungs and heart for possible diseases.',3000.00,'00:30:00','Imaging Room');
 /*!40000 ALTER TABLE `operation_tbl` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -298,7 +299,7 @@ CREATE TABLE `patientappointment_tbl` (
 
 LOCK TABLES `patientappointment_tbl` WRITE;
 /*!40000 ALTER TABLE `patientappointment_tbl` DISABLE KEYS */;
-INSERT INTO `patientappointment_tbl` VALUES (1,1,101,'BP102','D2025-000001','2025-05-25 09:30:00','2025-05-25 10:00:00','Upcoming'),(2,1,201,'BT101','D2025-000001','2025-05-26 10:30:00','2025-05-26 11:30:00','Upcoming'),(3,2,504,'DC100','D2025-000007','2025-06-26 11:00:00','2025-06-26 12:45:00','Upcoming'),(4,2,103,'CK101','D2025-000007','2025-05-24 14:30:00','2025-05-24 16:00:00','Upcoming'),(5,3,402,'MWD102','D2025-000009','2025-05-24 11:30:00','2025-05-24 12:15:00','Upcoming'),(6,4,401,'MSB1001','D2025-000008','2025-05-28 09:30:00','2025-05-28 10:15:00','Upcoming'),(7,4,201,'BT101','D2025-000001','2025-05-24 17:30:00','2025-05-24 18:30:00','Upcoming');
+INSERT INTO `patientappointment_tbl` VALUES (1,1,101,'BP102','D2025-000001','2025-05-25 09:30:00','2025-05-25 10:00:00','Upcoming'),(2,1,201,'BT101','D2025-000001','2025-04-15 10:30:00','2025-04-15 11:30:00','Upcoming'),(3,2,504,'DC100','D2025-000007','2025-04-26 11:00:00','2025-04-26 12:30:00','Upcoming'),(4,2,103,'CK101','D2025-000007','2025-05-24 14:30:00','2025-05-24 16:00:00','Upcoming'),(5,3,402,'MWD102','D2025-000009','2025-05-24 11:30:00','2025-05-24 12:15:00','Upcoming'),(6,4,401,'MSB1001','D2025-000008','2025-05-28 09:30:00','2025-05-28 10:15:00','Upcoming'),(7,4,201,'BT101','D2025-000001','2025-05-24 17:30:00','2025-05-24 18:30:00','Upcoming');
 /*!40000 ALTER TABLE `patientappointment_tbl` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -397,4 +398,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-05-24 10:18:32
+-- Dump completed on 2025-05-24 10:42:03
