@@ -290,8 +290,7 @@ namespace ClinicSystem
             selectedOperation = null;
             foreach (Operation operation in operationList)
             {
-                if (operation.OperationName.Equals(operationNameSelected[1].Trim(), StringComparison.OrdinalIgnoreCase) &&
-                    operation.OperationCode.Equals(operationNameSelected[0].Trim(), StringComparison.OrdinalIgnoreCase))
+                if (operation.OperationCode.Equals(operationNameSelected[0].Trim(), StringComparison.OrdinalIgnoreCase))
                 {
                     comboRoom.Items.Clear();
                     selectedOperation = operation;

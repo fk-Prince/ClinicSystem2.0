@@ -244,11 +244,11 @@ namespace ClinicSystem.Doctors
                         Doctor doc = doctorRepository.doctorScanned(rfid);
                         if (doc != null)
                         {
-                            MessagePromp.MainShowMessageBig(this, "RFID already scanned, Please Try another one.", MessageBoxIcon.Error);
+                            MessagePromp.ShowCenter(this, "RFID already scanned, Please Try another one.", MessageBoxIcon.Error);
                         } else
                         {
-                            doctorRFID = rfid;
-                            MessagePromp.MainShowMessage(this, "RFID recorded", MessageBoxIcon.Information);
+                            doctorRFID = rfid;  
+                            MessagePromp.ShowCenter(this, "RFID recorded", MessageBoxIcon.Information);
                             string rf = "";
                             for (int i = 0; i < doctorRFID.Length; i++)
                             {
