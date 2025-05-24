@@ -125,6 +125,7 @@ namespace ClinicSystem
                     tbAddress.Text = selected.Patient.Address;
                     datepickBirthDay.Value = selected.Patient.Birthdate;
                     tbContactNumber.Text = selected.Patient.ContactNumber;
+                    guna2TextBox1.Text = selected.Prescription;
                     filter.Clear();
                     foreach (Appointment pas in appointmentList)
                     {

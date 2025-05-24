@@ -88,6 +88,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.tbPatId = new Guna.UI2.WinForms.Guna2TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label18 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel15.SuspendLayout();
             this.tabPagePatientDetails.SuspendLayout();
@@ -628,6 +630,8 @@
             // panel13
             // 
             this.panel13.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel13.Controls.Add(this.guna2TextBox1);
+            this.panel13.Controls.Add(this.label18);
             this.panel13.Controls.Add(this.tbDoctorDiagnosis);
             this.panel13.Controls.Add(this.label14);
             this.panel13.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -657,7 +661,7 @@
             this.tbDoctorDiagnosis.PlaceholderText = "";
             this.tbDoctorDiagnosis.ReadOnly = true;
             this.tbDoctorDiagnosis.SelectedText = "";
-            this.tbDoctorDiagnosis.Size = new System.Drawing.Size(559, 126);
+            this.tbDoctorDiagnosis.Size = new System.Drawing.Size(272, 126);
             this.tbDoctorDiagnosis.TabIndex = 50;
             // 
             // label14
@@ -1035,6 +1039,40 @@
             this.label3.Text = "Patient ID";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
+            // guna2TextBox1
+            // 
+            this.guna2TextBox1.BorderRadius = 5;
+            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.guna2TextBox1.DefaultText = "";
+            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2TextBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2TextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(44)))), ((int)(((byte)(54)))));
+            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2TextBox1.Location = new System.Drawing.Point(285, 21);
+            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2TextBox1.Multiline = true;
+            this.guna2TextBox1.Name = "guna2TextBox1";
+            this.guna2TextBox1.PlaceholderText = "";
+            this.guna2TextBox1.ReadOnly = true;
+            this.guna2TextBox1.SelectedText = "";
+            this.guna2TextBox1.Size = new System.Drawing.Size(282, 126);
+            this.guna2TextBox1.TabIndex = 52;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label18.Location = new System.Drawing.Point(288, 2);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(130, 17);
+            this.label18.TabIndex = 51;
+            this.label18.Text = "Doctor\'s Prescription";
+            // 
             // ViewPatientForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1147,5 +1185,7 @@
         private System.Windows.Forms.Panel panel17;
         private Guna.UI2.WinForms.Guna2TextBox Status;
         private System.Windows.Forms.Label label17;
+        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
+        private System.Windows.Forms.Label label18;
     }
 }

@@ -278,53 +278,42 @@ namespace ClinicSystem
         // SETUP OPERATION SELECTED
         private void comboOperation_SelectedIndexChanged(object sender, EventArgs e)
         {
-            comboDoctor.Items.Clear();
-        
-            if (comboOperation == null || comboOperation.SelectedItem == null) return;
+            if (selectedOperation == null) return;
+            selectedOperation = operationList.Find(op => op.OperationCode == comboOperation.SelectedItem.ToString().Split('|')[0].Trim());
             startC.Enabled = true;
             startC.SelectedIndex = -1;
             End.Text = "";
-            string[] operationNameSelected = comboOperation.SelectedItem.ToString().Split('|');
-            if (string.IsNullOrWhiteSpace(operationNameSelected[0])) return;
 
-            selectedOperation = null;
-            foreach (Operation operation in operationList)
-            {
-                if (operation.OperationCode.Equals(operationNameSelected[0].Trim(), StringComparison.OrdinalIgnoreCase))
-                {
-                    comboRoom.Items.Clear();
-                    selectedOperation = operation;
-                    List<Room> filter = new List<Room>();
-                    foreach (Room room in rooms)
-                    {
-                        if (operation.OperationRoomType.Equals(room.Roomtype))
-                        {
-                            filter.Add(room);
-                            comboRoom.Items.Add(room.RoomNo + " | " + room.Roomtype);
-                        }
-                    }
-                    if (filter.Count == 0)
-                    {
-                        comboRoom.Items.Add("No Room Available");
-                        comboRoom.SelectedIndex = 0;
-                    }
-                    break;
-                }
-            }
-            if (selectedOperation != null)  doctorList = doctorRepository.getDoctorsByOperation(selectedOperation);
+            comboDoctor.Items.Clear();
+            comboRoom.Items.Clear();
+   
+            doctorList = doctorRepository.getDoctorsByOperation(selectedOperation);
             if (doctorList != null && doctorList.Count != 0)
             {
                 foreach (Doctor doctor in doctorList)
                 {
-                    comboDoctor.Items.Add(doctor.DoctorID + "   | " + doctor.DoctorLastName + ", " + doctor.DoctorFirstName + " " + doctor.DoctorMiddleName);
+                    comboDoctor.Items.Add(doctor.DoctorID + "    |  " + doctor.DoctorLastName + ", " + doctor.DoctorFirstName + " " + doctor.DoctorMiddleName);
                 }
             }
             else
-            {           
+            {
                 comboDoctor.Items.Add("No Doctor Available");
                 comboDoctor.SelectedIndex = 0;
             }
- 
+            List<Room> filter = new List<Room>();
+            foreach (Room room in rooms)
+            {
+                if (selectedOperation.OperationRoomType.Equals(room.Roomtype))
+                {
+                    filter.Add(room);
+                    comboRoom.Items.Add(room.RoomNo + "  |  " + room.Roomtype);
+                }
+            }
+            if (filter.Count == 0)
+            {
+                comboRoom.Items.Add("No Room Available");
+                comboRoom.SelectedIndex = 0;
+            }
         }
 
         // DISPLAY CHECK
